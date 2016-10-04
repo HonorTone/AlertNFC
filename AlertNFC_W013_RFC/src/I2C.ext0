@@ -1,0 +1,1487 @@
+
+;  GNU C 3.3.2  2009/1/19(GCC17 Ver 1.3) compiled by GNU C
+
+;  Cc1 defaults:
+;  -mpointer24 -mlong-offset -mint16 -mquickcall
+
+;  Cc1 arguments (-cpu = C17):
+;  -quiet -IC:/EPSON/GNU17/include -Iinc -Iinc/reg -iprefix -isystem
+;  -D__GNUC__=3 -D__GNUC_MINOR__=3 -D__GNUC_PATCHLEVEL__=2 -D__c17 -D__c17
+;  -DMCUSEL_C17W13 -quiet -dumpbase -mshort-offset -auxbase-strip -gstabs -O1
+;  -Wall -Werror-implicit-function-declaration -fno-builtin -o
+
+	.file	"I2C.c"
+	.stabs	"src/I2C.c",100,0,0,.Ltext0
+	.section .text
+.Ltext0:
+	.stabs	"gcc2_compiled.",60,0,0,0
+	.stabs	"int:t(0,1)=r(0,1);-32768;32767;",128,0,0,0
+	.stabs	"char:t(0,2)=r(0,2);0;127;",128,0,0,0
+	.stabs	"long int:t(0,3)=r(0,3);-2147483648;2147483647;",128,0,0,0
+	.stabs	"unsigned int:t(0,4)=r(0,4);0;65535;",128,0,0,0
+	.stabs	"long unsigned int:t(0,5)=r(0,5);0;-1;",128,0,0,0
+	.stabs	"long long int:t(0,6)=r(0,6);0;-1;",128,0,0,0
+	.stabs	"long long unsigned int:t(0,7)=r(0,7);0;-1;",128,0,0,0
+	.stabs	"short int:t(0,8)=r(0,8);-32768;32767;",128,0,0,0
+	.stabs	"short unsigned int:t(0,9)=r(0,9);0;65535;",128,0,0,0
+	.stabs	"signed char:t(0,10)=r(0,10);-128;127;",128,0,0,0
+	.stabs	"unsigned char:t(0,11)=r(0,11);0;255;",128,0,0,0
+	.stabs	"float:t(0,12)=r(0,1);4;0;",128,0,0,0
+	.stabs	"double:t(0,13)=r(0,1);8;0;",128,0,0,0
+	.stabs	"long double:t(0,14)=r(0,1);8;0;",128,0,0,0
+	.stabs	"complex int:t(0,15)=s4real:(0,1),0,16;imag:(0,1),16,16;;",128,0,0,0
+	.stabs	"complex float:t(0,16)=R3;8;0;",128,0,0,0
+	.stabs	"complex double:t(0,17)=R4;16;0;",128,0,0,0
+	.stabs	"complex long double:t(0,18)=R4;16;0;",128,0,0,0
+	.stabs	"__builtin_va_list:t(0,19)=*(0,20)=(0,20)",128,0,0,0
+	.stabs	"_Bool:t(0,21)=eFalse:0,True:1,;",128,0,0,0
+	.stabs	"src/I2C.c",130,0,0,0
+	.stabs	"inc/I2C.h",130,0,0,0
+	.stabs	"inc/main.h",130,0,0,0
+	.stabs	"uchar:t(3,1)=(0,11)",128,0,0,0
+	.stabs	"uint:t(3,2)=(0,4)",128,0,0,0
+	.stabs	"u8:t(3,3)=(0,11)",128,0,0,0
+	.stabs	"u16:t(3,4)=(0,4)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/port.h",130,0,0,0
+	.stabs	"inc/init.h",130,0,0,0
+	.stabs	"inc/c17w13_reg.h",130,0,0,0
+	.stabs	"inc/reg/misc_reg.h",130,0,0,0
+	.stabs	"MSCPROT_REG_TAG:T(7,1)=u2reg:(0,9),0,16;;",128,0,0,0
+	.stabs	"MSCPROT_REG:t(7,2)=(7,1)",128,0,0,0
+	.stabs	"MSCIRAMSZ_REG_BIT_TAG:T(7,3)=s2IRAMSZ:(0,9),0,3;reserved_1:(0,9),3,13;;",128,0,0,0
+	.stabs	"MSCIRAMSZ_REG_TAG:T(7,4)=u2reg:(0,9),0,16;bit:(7,3),0,16;byte_reg:(7,5)=ar(7,6)=r(7,6);0;-1;;0;1;(0,11),0,16;;",128,0,0,0
+	.stabs	"MSCIRAMSZ_REG:t(7,7)=(7,4)",128,0,0,0
+	.stabs	"MSCTTBRL_REG_TAG:T(7,8)=u2reg:(0,9),0,16;;",128,0,0,0
+	.stabs	"MSCTTBRL_REG:t(7,9)=(7,8)",128,0,0,0
+	.stabs	"MSCTTBRH_REG_BIT_TAG:T(7,10)=s2TTBR:(0,9),0,8;reserved_1:(0,9),8,8;;",128,0,0,0
+	.stabs	"MSCTTBRH_REG_TAG:T(7,11)=u2reg:(0,9),0,16;bit:(7,10),0,16;;",128,0,0,0
+	.stabs	"MSCTTBRH_REG:t(7,12)=(7,11)",128,0,0,0
+	.stabs	"MSCTTBR_REG_DWORD_BIT_TAG:T(7,13)=s4TTBR:(0,5),0,24;reserved_1:(0,5),24,8;;",128,0,0,0
+	.stabs	"MSCTTBR_REG_DWORD_TAG:T(7,14)=u4reg:(0,5),0,32;bit:(7,13),0,32;;",128,0,0,0
+	.stabs	"MSCTTBR_DWORD_REG:t(7,15)=(7,14)",128,0,0,0
+	.stabs	"MSCPSR_REG_BIT_TAG:T(7,16)=s2PSRN:(0,9),0,1;PSRZ:(0,9),1,1;PSRV:(0,9),2,1;PSRC:(0,9),3,1;PSRIE:(0,9),4,1;PSRIL:(0,9),5,3;reserved_1:(0,9),8,8;;",128,0,0,0
+	.stabs	"MSCPSR_REG_TAG:T(7,17)=u2reg:(0,9),0,16;bit:(7,16),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"MSCPSR_REG:t(7,18)=(7,17)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/pwg2_reg.h",130,0,0,0
+	.stabs	"PWGCTL_REG_BIT_TAG:T(8,1)=s2PWGMOD:(0,9),0,3;reserved_1:(0,9),3,13;;",128,0,0,0
+	.stabs	"PWGCTL_REG_TAG:T(8,2)=u2reg:(0,9),0,16;bit:(8,1),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"PWGCTL_REG:t(8,3)=(8,2)",128,0,0,0
+	.stabs	"PWGTIM_REG_BIT_TAG:T(8,4)=s2DCCCLK:(0,9),0,2;reserved_1:(0,9),2,14;;",128,0,0,0
+	.stabs	"PWGTIM_REG_TAG:T(8,5)=u2reg:(0,9),0,16;bit:(8,4),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"PWGTIM_REG:t(8,6)=(8,5)",128,0,0,0
+	.stabs	"PWGINTF_REG_BIT_TAG:T(8,7)=s2MODCMPIF:(0,9),0,1;reserved_1:(0,9),1,15;;",128,0,0,0
+	.stabs	"PWGINTF_REG_TAG:T(8,8)=u2reg:(0,9),0,16;bit:(8,7),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"PWGINTF_REG:t(8,9)=(8,8)",128,0,0,0
+	.stabs	"PWGINTE_REG_BIT_TAG:T(8,10)=s2MODCMPIE:(0,9),0,1;reserved_1:(0,9),1,15;;",128,0,0,0
+	.stabs	"PWGINTE_REG_TAG:T(8,11)=u2reg:(0,9),0,16;bit:(8,10),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"PWGINTE_REG:t(8,12)=(8,11)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/clg_w13_reg.h",130,0,0,0
+	.stabs	"CLGSCLK_REG_BIT_TAG:T(9,1)=s2CLKSRC:(0,9),0,2;reserved_1:(0,9),2,2;CLKDIV:(0,9),4,2;reserved_2:(0,9),6,2;WUPSRC:(0,9),8,2;reserved_3:(0,9),10,2;WUPDIV:(0,9),12,2;reserved_4:(0,9),14,1;WUPMD:(0,9),15,1;;",128,0,0,0
+	.stabs	"CLGSCLK_REG_TAG:T(9,2)=u2reg:(0,9),0,16;bit:(9,1),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"CLGSCLK_REG:t(9,3)=(9,2)",128,0,0,0
+	.stabs	"CLGOSC_REG_BIT_TAG:T(9,4)=s2IOSCEN:(0,9),0,1;OSC1EN:(0,9),1,1;OSC3EN:(0,9),2,1;EXOSCEN:(0,9),3,1;reserved_1:(0,9),4,4;IOSCSLPC:(0,9),8,1;OSC1SLPC:(0,9),9,1;OSC3SLPC:(0,9),10,1;EXOSCSLPC:(0,9),11,1;reserved_2:(0,9),12,4;;",128,0,0,0
+	.stabs	"CLGOSC_REG_TAG:T(9,5)=u2reg:(0,9),0,16;bit:(9,4),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"CLGOSC_REG:t(9,6)=(9,5)",128,0,0,0
+	.stabs	"CLGIOSC_REG_BIT_TAG:T(9,7)=s2reserved_1:(0,9),0,4;IOSCSTM:(0,9),4,1;reserved_2:(0,9),5,11;;",128,0,0,0
+	.stabs	"CLGIOSC_REG_TAG:T(9,8)=u2reg:(0,9),0,16;bit:(9,7),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"CLGIOSC_REG:t(9,9)=(9,8)",128,0,0,0
+	.stabs	"CLGOSC1_REG_BIT_TAG:T(9,10)=s2OSC1WT:(0,9),0,2;reserved_1:(0,9),2,2;INV1N:(0,9),4,2;INV1B:(0,9),6,2;CGI1:(0,9),8,3;OSC1SELCR:(0,9),11,1;OSC1BUP:(0,9),12,1;OSDEN:(0,9),13,1;OSDRB:(0,9),14,1;reserved_3:(0,9),15,1;;",128,0,0,0
+	.stabs	"CLGOSC1_REG_TAG:T(9,11)=u2reg:(0,9),0,16;bit:(9,10),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"CLGOSC1_REG:t(9,12)=(9,11)",128,0,0,0
+	.stabs	"CLGOSC3_REG_BIT_TAG:T(9,13)=s2OSC3WT:(0,9),0,3;reserved_1:(0,9),3,1;OSC3INV:(0,9),4,2;reserved_2:(0,9),6,2;OSC3MD:(0,9),8,2;OSC3FQ:(0,9),10,3;reserved_3:(0,9),13,3;;",128,0,0,0
+	.stabs	"CLGOSC3_REG_TAG:T(9,14)=u2reg:(0,9),0,16;bit:(9,13),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"CLGOSC3_REG:t(9,15)=(9,14)",128,0,0,0
+	.stabs	"CLGINTF_REG_BIT_TAG:T(9,16)=s2IOSCSTAIF:(0,9),0,1;OSC1STAIF:(0,9),1,1;OSC3STAIF:(0,9),2,1;reserved_1:(0,9),3,1;IOSCTEDIF:(0,9),4,1;OSC1STPIF:(0,9),5,1;reserved_2:(0,9),6,10;;",128,0,0,0
+	.stabs	"CLGINTF_REG_TAG:T(9,17)=u2reg:(0,9),0,16;bit:(9,16),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"CLGINTF_REG:t(9,18)=(9,17)",128,0,0,0
+	.stabs	"CLGINTE_REG_BIT_TAG:T(9,19)=s2IOSCSTAIE:(0,9),0,1;OSC1STAIE:(0,9),1,1;OSC3STAIE:(0,9),2,1;reserved_1:(0,9),3,1;IOSCTEDIE:(0,9),4,1;OSC1STPIE:(0,9),5,1;reserved_2:(0,9),6,10;;",128,0,0,0
+	.stabs	"CLGINTE_REG_TAG:T(9,20)=u2reg:(0,9),0,16;bit:(9,19),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"CLGINTE_REG:t(9,21)=(9,20)",128,0,0,0
+	.stabs	"CLGFOUT_REG_BIT_TAG:T(9,22)=s2FOUTEN:(0,9),0,1;reserved_1:(0,9),1,1;FOUTSRC:(0,9),2,2;FOUTDIV:(0,9),4,3;reserved_2:(0,9),7,9;;",128,0,0,0
+	.stabs	"CLGFOUT_REG_TAG:T(9,23)=u2reg:(0,9),0,16;bit:(9,22),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"CLGFOUT_REG:t(9,24)=(9,23)",128,0,0,0
+	.stabs	"CLGTRIM_REG_BIT_TAG:T(9,25)=s2IOSCAJ:(0,9),0,6;reserved_1:(0,9),6,2;OSC3AJ:(0,9),8,5;reserved_2:(0,9),13,3;;",128,0,0,0
+	.stabs	"CLGTRIM_REG_TAG:T(9,26)=u2reg:(0,9),0,16;bit:(9,25),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"CLGTRIM_REG:t(9,27)=(9,26)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/itc_reg.h",130,0,0,0
+	.stabs	"ITCLVX_REG_BIT_TAG:T(10,1)=s2ILV_L:(0,9),0,3;reserved_1:(0,9),3,5;ILV_H:(0,9),8,3;reserved_2:(0,9),11,5;;",128,0,0,0
+	.stabs	"ITCLVX_REG_TAG:T(10,2)=u2reg:(0,9),0,16;bit:(10,1),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"ITCLVX_REG:t(10,3)=(10,2)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/wdt2_reg.h",130,0,0,0
+	.stabs	"WDTCLK_REG_BIT_TAG:T(11,1)=s2CLKSRC:(0,9),0,2;reserved_1:(0,9),2,2;CLKDIV:(0,9),4,2;reserved_2:(0,9),6,2;DBRUN:(0,9),8,1;reserved_3:(0,9),9,7;;",128,0,0,0
+	.stabs	"WDTCLK_REG_TAG:T(11,2)=u2reg:(0,9),0,16;bit:(11,1),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"WDTCLK_REG:t(11,3)=(11,2)",128,0,0,0
+	.stabs	"WDTCTL_REG_BIT_TAG:T(11,4)=s2WDTRUN:(0,9),0,4;WDTCNTRST:(0,9),4,1;reserved_1:(0,9),5,3;STATNMI:(0,9),8,1;MOD:(0,9),9,2;reserved_2:(0,9),11,5;;",128,0,0,0
+	.stabs	"WDTCTL_REG_TAG:T(11,5)=u2reg:(0,9),0,16;bit:(11,4),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"WDTCTL_REG:t(11,6)=(11,5)",128,0,0,0
+	.stabs	"WDTCMP_REG_BIT_TAG:T(11,7)=s2CMP:(0,9),0,10;reserved_1:(0,9),10,6;;",128,0,0,0
+	.stabs	"WDTCMP_REG_TAG:T(11,8)=u2reg:(0,9),0,16;bit:(11,7),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"WDTCMP_REG:t(11,9)=(11,8)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/rtca_reg.h",130,0,0,0
+	.stabs	"RTCCTL_REG_BIT_TAG:T(12,1)=s2RTCRUN:(0,9),0,1;RTCRST:(0,9),1,1;RTCADJ:(0,9),2,1;reserved_1:(0,9),3,1;RTC24H:(0,9),4,1;RTCHLD:(0,9),5,1;RTCBSY:(0,9),6,1;reserved_2:(0,9),7,1;RTCTRM:(0,9),8,7;RTCTRMBSY:(0,9),15,1;;",128,0,0,0
+	.stabs	"RTCCTL_REG_TAG:T(12,2)=u2reg:(0,9),0,16;bit:(12,1),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"RTCCTL_REG:t(12,3)=(12,2)",128,0,0,0
+	.stabs	"RTCALM1_REG_BIT_TAG:T(12,4)=s2reserved_1:(0,9),0,8;RTCSLA:(0,9),8,4;RTCSHA:(0,9),12,3;reserved_2:(0,9),15,1;;",128,0,0,0
+	.stabs	"RTCALM1_REG_TAG:T(12,5)=u2reg:(0,9),0,16;bit:(12,4),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"RTCALM1_REG:t(12,6)=(12,5)",128,0,0,0
+	.stabs	"RTCALM2_REG_BIT_TAG:T(12,7)=s2RTCMILA:(0,9),0,4;RTCMIHA:(0,9),4,3;reserved_1:(0,9),7,1;RTCHLA:(0,9),8,4;RTCHHA:(0,9),12,2;RTCAPA:(0,9),14,1;reserved_2:(0,9),15,1;;",128,0,0,0
+	.stabs	"RTCALM2_REG_TAG:T(12,8)=u2reg:(0,9),0,16;bit:(12,7),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"RTCALM2_REG:t(12,9)=(12,8)",128,0,0,0
+	.stabs	"RTCSWCTL_REG_BIT_TAG:T(12,10)=s2SWRUN:(0,9),0,1;reserved_1:(0,9),1,3;SWRST:(0,9),4,1;reserved_2:(0,9),5,3;BCD100:(0,9),8,4;BCD10:(0,9),12,4;;",128,0,0,0
+	.stabs	"RTCSWCTL_REG_TAG:T(12,11)=u2reg:(0,9),0,16;bit:(12,10),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"RTCSWCTL_REG:t(12,12)=(12,11)",128,0,0,0
+	.stabs	"RTCSEC_REG_BIT_TAG:T(12,13)=s2RTC128HZ:(0,9),0,1;RTC64HZ:(0,9),1,1;RTC32HZ:(0,9),2,1;RTC16HZ:(0,9),3,1;RTC8HZ:(0,9),4,1;RTC4HZ:(0,9),5,1;RTC2HZ:(0,9),6,1;RTC1HZ:(0,9),7,1;RTCSL:(0,9),8,4;RTCSH:(0,9),12,3;reserved_1:(0,9),15,1;;",128,0,0,0
+	.stabs	"RTCSEC_REG_TAG:T(12,14)=u2reg:(0,9),0,16;bit:(12,13),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"RTCSEC_REG:t(12,15)=(12,14)",128,0,0,0
+	.stabs	"RTCHUR_REG_BIT_TAG:T(12,16)=s2RTCMIL:(0,9),0,4;RTCMIH:(0,9),4,3;reserved_1:(0,9),7,1;RTCHL:(0,9),8,4;RTCHH:(0,9),12,2;RTCAP:(0,9),14,1;reserved_2:(0,9),15,1;;",128,0,0,0
+	.stabs	"RTCHUR_REG_TAG:T(12,17)=u2reg:(0,9),0,16;bit:(12,16),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"RTCHUR_REG:t(12,18)=(12,17)",128,0,0,0
+	.stabs	"RTCMON_REG_BIT_TAG:T(12,19)=s2RTCDL:(0,9),0,4;RTCDH:(0,9),4,2;reserved_1:(0,9),6,2;RTCMOL:(0,9),8,4;RTCMOH:(0,9),12,1;reserved_2:(0,9),13,3;;",128,0,0,0
+	.stabs	"RTCMON_REG_TAG:T(12,20)=u2reg:(0,9),0,16;bit:(12,19),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"RTCMON_REG:t(12,21)=(12,20)",128,0,0,0
+	.stabs	"RTCYAR_REG_BIT_TAG:T(12,22)=s2RTCYL:(0,9),0,4;RTCYH:(0,9),4,4;RTCWK:(0,9),8,3;reserved_1:(0,9),11,5;;",128,0,0,0
+	.stabs	"RTCYAR_REG_TAG:T(12,23)=u2reg:(0,9),0,16;bit:(12,22),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"RTCYAR_REG:t(12,24)=(12,23)",128,0,0,0
+	.stabs	"RTCINTF_REG_BIT_TAG:T(12,25)=s2_1_32SECIF:(0,9),0,1;_1_8SECIF:(0,9),1,1;_1_4SECIF:(0,9),2,1;_1_2SECIF:(0,9),3,1;_1SECIF:(0,9),4,1;_1MINIF:(0,9),5,1;_1HURIF:(0,9),6,1;_1DAYIF:(0,9),7,1;ALARMIF:(0,9),8,1;reserved_1:(0,9),9,3;SW100IF:(0,9),12,1;SW10IF:(0,9),13,1;SW1IF:(0,9),14,1;RTCTRMIF:(0,9),15,1;;",128,0,0,0
+	.stabs	"RTCINTF_REG_TAG:T(12,26)=u2reg:(0,9),0,16;bit:(12,25),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"RTCINTF_REG:t(12,27)=(12,26)",128,0,0,0
+	.stabs	"RTCINTE_REG_BIT_TAG:T(12,28)=s2_1_32SECIE:(0,9),0,1;_1_8SECIE:(0,9),1,1;_1_4SECIE:(0,9),2,1;_1_2SECIE:(0,9),3,1;_1SECIE:(0,9),4,1;_1MINIE:(0,9),5,1;_1HURIE:(0,9),6,1;_1DAYIE:(0,9),7,1;ALARMIE:(0,9),8,1;reserved_1:(0,9),9,3;SW100IE:(0,9),12,1;SW10IE:(0,9),13,1;SW1IE:(0,9),14,1;RTCTRMIE:(0,9),15,1;;",128,0,0,0
+	.stabs	"RTCINTE_REG_TAG:T(12,29)=u2reg:(0,9),0,16;bit:(12,28),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"RTCINTE_REG:t(12,30)=(12,29)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/svd_reg.h",130,0,0,0
+	.stabs	"SVDCLK_REG_BIT_TAG:T(13,1)=s2CLKSRC:(0,9),0,2;reserved_1:(0,9),2,2;CLKDIV:(0,9),4,3;reserved_2:(0,9),7,1;DBRUN:(0,9),8,1;reserved_3:(0,9),9,7;;",128,0,0,0
+	.stabs	"SVDCLK_REG_TAG:T(13,2)=u2reg:(0,9),0,16;bit:(13,1),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"SVDCLK_REG:t(13,3)=(13,2)",128,0,0,0
+	.stabs	"SVDCTL_REG_BIT_TAG:T(13,4)=s2MODEN:(0,9),0,1;SVDMD:(0,9),1,2;reserved_1:(0,9),3,1;SVDRE:(0,9),4,4;SVDC:(0,9),8,5;SVDSC:(0,9),13,2;VDSEL:(0,9),15,1;;",128,0,0,0
+	.stabs	"SVDCTL_REG_TAG:T(13,5)=u2reg:(0,9),0,16;bit:(13,4),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"SVDCTL_REG:t(13,6)=(13,5)",128,0,0,0
+	.stabs	"SVDINTF_REG_BIT_TAG:T(13,7)=s2SVDIF:(0,9),0,1;reserved_1:(0,9),1,7;SVDDT:(0,9),8,1;reserved_2:(0,9),9,7;;",128,0,0,0
+	.stabs	"SVDINTF_REG_TAG:T(13,8)=u2reg:(0,9),0,16;bit:(13,7),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"SVDINTF_REG:t(13,9)=(13,8)",128,0,0,0
+	.stabs	"SVDINTE_REG_BIT_TAG:T(13,10)=s2SVDIE:(0,9),0,1;reserved_1:(0,9),1,15;;",128,0,0,0
+	.stabs	"SVDINTE_REG_TAG:T(13,11)=u2reg:(0,9),0,16;bit:(13,10),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"SVDINTE_REG:t(13,12)=(13,11)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/t16_reg.h",130,0,0,0
+	.stabs	"T16_NCLK_REG_BIT_TAG:T(14,1)=s2CLKSRC:(0,9),0,2;reserved_1:(0,9),2,2;CLKDIV:(0,9),4,4;DBRUN:(0,9),8,1;reserved_2:(0,9),9,7;;",128,0,0,0
+	.stabs	"T16_NCLK_REG_TAG:T(14,2)=u2reg:(0,9),0,16;bit:(14,1),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"T16_NCLK_REG:t(14,3)=(14,2)",128,0,0,0
+	.stabs	"T16_NMOD_REG_BIT_TAG:T(14,4)=s2TRMD:(0,9),0,1;reserved_1:(0,9),1,15;;",128,0,0,0
+	.stabs	"T16_NMOD_REG_TAG:T(14,5)=u2reg:(0,9),0,16;bit:(14,4),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"T16_NMOD_REG:t(14,6)=(14,5)",128,0,0,0
+	.stabs	"T16_NCTL_REG_BIT_TAG:T(14,7)=s2MODEN:(0,9),0,1;PRESET:(0,9),1,1;reserved_1:(0,9),2,6;PRUN:(0,9),8,1;reserved_2:(0,9),9,7;;",128,0,0,0
+	.stabs	"T16_NCTL_REG_TAG:T(14,8)=u2reg:(0,9),0,16;bit:(14,7),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"T16_NCTL_REG:t(14,9)=(14,8)",128,0,0,0
+	.stabs	"T16_NTR_REG_TAG:T(14,10)=u2reg:(0,9),0,16;;",128,0,0,0
+	.stabs	"T16_NTR_REG:t(14,11)=(14,10)",128,0,0,0
+	.stabs	"T16_NTC_REG_TAG:T(14,12)=u2reg:(0,9),0,16;;",128,0,0,0
+	.stabs	"T16_NTC_REG:t(14,13)=(14,12)",128,0,0,0
+	.stabs	"T16_NINTF_REG_BIT_TAG:T(14,14)=s2UFIF:(0,9),0,1;reserved_1:(0,9),1,15;;",128,0,0,0
+	.stabs	"T16_NINTF_REG_TAG:T(14,15)=u2reg:(0,9),0,16;bit:(14,14),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"T16_NINTF_REG:t(14,16)=(14,15)",128,0,0,0
+	.stabs	"T16_NINTE_REG_BIT_TAG:T(14,17)=s2UFIE:(0,9),0,1;reserved_1:(0,9),1,15;;",128,0,0,0
+	.stabs	"T16_NINTE_REG_TAG:T(14,18)=u2reg:(0,9),0,16;bit:(14,17),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"T16_NINTE_REG:t(14,19)=(14,18)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/t16b_reg.h",130,0,0,0
+	.stabs	"T16BNCLK_REG_BIT_TAG:T(15,1)=s2CLKSRC:(0,9),0,3;reserved_1:(0,9),3,1;CLKDIV:(0,9),4,4;DBRUN:(0,9),8,1;reserved_2:(0,9),9,7;;",128,0,0,0
+	.stabs	"T16BNCLK_REG_TAG:T(15,2)=u2reg:(0,9),0,16;bit:(15,1),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"T16BNCLK_REG:t(15,3)=(15,2)",128,0,0,0
+	.stabs	"T16BNCTL_REG_BIT_TAG:T(15,4)=s2MODEN:(0,9),0,1;PRESET:(0,9),1,1;RUN:(0,9),2,1;ONEST:(0,9),3,1;CNTMD:(0,9),4,2;reserved_1:(0,9),6,2;MAXBSY:(0,9),8,1;reserved_2:(0,9),9,7;;",128,0,0,0
+	.stabs	"T16BNCTL_REG_TAG:T(15,5)=u2reg:(0,9),0,16;bit:(15,4),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"T16BNCTL_REG:t(15,6)=(15,5)",128,0,0,0
+	.stabs	"T16BNMC_REG_TAG:T(15,7)=u2reg:(0,9),0,16;;",128,0,0,0
+	.stabs	"T16BNMC_REG:t(15,8)=(15,7)",128,0,0,0
+	.stabs	"T16BNTC_REG_TAG:T(15,9)=u2reg:(0,9),0,16;;",128,0,0,0
+	.stabs	"T16BNTC_REG:t(15,10)=(15,9)",128,0,0,0
+	.stabs	"T16BNCS_REG_BIT_TAG:T(15,11)=s2BSY:(0,9),0,1;UP_DOWN:(0,9),1,1;CAPI0:(0,9),2,1;CAPI1:(0,9),3,1;CAPI2:(0,9),4,1;CAPI3:(0,9),5,1;CAPI4:(0,9),6,1;CAPI5:(0,9),7,1;reserved_1:(0,9),8,8;;",128,0,0,0
+	.stabs	"T16BNCS_REG_TAG:T(15,12)=u2reg:(0,9),0,16;bit:(15,11),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"T16BNCS_REG:t(15,13)=(15,12)",128,0,0,0
+	.stabs	"T16BNINTF_REG_BIT_TAG:T(15,14)=s2CNTZEROIF:(0,9),0,1;CNTMAXIF:(0,9),1,1;CMPCAP0IF:(0,9),2,1;CAPOW0IF:(0,9),3,1;CMPCAP1IF:(0,9),4,1;CAPOW1IF:(0,9),5,1;CMPCAP2IF:(0,9),6,1;CAPOW2IF:(0,9),7,1;CMPCAP3IF:(0,9),8,1;CAPOW3IF:(0,9),9,1;CMPCAP4IF:(0,9),10,1;CAPOW4IF:(0,9),11,1;CMPCAP5IF:(0,9),12,1;CAPOW5IF:(0,9),13,1;reserved_1:(0,9),14,2;;",128,0,0,0
+	.stabs	"T16BNINTF_REG_TAG:T(15,15)=u2reg:(0,9),0,16;bit:(15,14),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"T16BNINTF_REG:t(15,16)=(15,15)",128,0,0,0
+	.stabs	"T16BNINTE_REG_BIT_TAG:T(15,17)=s2CNTZEROIE:(0,9),0,1;CNTMAXIE:(0,9),1,1;CMPCAP0IE:(0,9),2,1;CAPOW0IE:(0,9),3,1;CMPCAP1IE:(0,9),4,1;CAPOW1IE:(0,9),5,1;CMPCAP2IE:(0,9),6,1;CAPOW2IE:(0,9),7,1;CMPCAP3IE:(0,9),8,1;CAPOW3IE:(0,9),9,1;CMPCAP4IE:(0,9),10,1;CAPOW4IE:(0,9),11,1;CMPCAP5IE:(0,9),12,1;CAPOW5IE:(0,9),13,1;reserved_1:(0,9),14,2;;",128,0,0,0
+	.stabs	"T16BNINTE_REG_TAG:T(15,18)=u2reg:(0,9),0,16;bit:(15,17),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"T16BNINTE_REG:t(15,19)=(15,18)",128,0,0,0
+	.stabs	"T16BNCCCTLM_REG_BIT_TAG:T(15,20)=s2CCMD:(0,9),0,1;TOUTINV:(0,9),1,1;TOUTMD:(0,9),2,3;TOUTO:(0,9),5,1;TOUTMT:(0,9),6,1;reserved_1:(0,9),7,1;CAPTRG:(0,9),8,2;CAPIS:(0,9),10,2;CBUFMD:(0,9),12,3;SCS:(0,9),15,1;;",128,0,0,0
+	.stabs	"T16BNCCCTLM_REG_TAG:T(15,21)=u2reg:(0,9),0,16;bit:(15,20),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"T16BNCCCTLM_REG:t(15,22)=(15,21)",128,0,0,0
+	.stabs	"T16BNCCRM_REG_TAG:T(15,23)=u2reg:(0,9),0,16;;",128,0,0,0
+	.stabs	"T16BNCCRM_REG:t(15,24)=(15,23)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/flashc_reg.h",130,0,0,0
+	.stabs	"FLASHCWAIT_REG_BIT_TAG:T(16,1)=s2RDWAIT:(0,9),0,2;reserved_1:(0,9),2,5;XBUSY:(0,9),7,1;reserved_2:(0,9),8,8;;",128,0,0,0
+	.stabs	"FLASHCWAIT_REG_TAG:T(16,2)=u2reg:(0,9),0,16;bit:(16,1),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"FLASHCWAIT_REG:t(16,3)=(16,2)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/pport_w13_reg.h",130,0,0,0
+	.stabs	"PXDAT_REG_BIT_TAG:T(17,1)=s2Px0IN:(0,9),0,1;Px1IN:(0,9),1,1;Px2IN:(0,9),2,1;Px3IN:(0,9),3,1;Px4IN:(0,9),4,1;Px5IN:(0,9),5,1;Px6IN:(0,9),6,1;Px7IN:(0,9),7,1;Px0OUT:(0,9),8,1;Px1OUT:(0,9),9,1;Px2OUT:(0,9),10,1;Px3OUT:(0,9),11,1;Px4OUT:(0,9),12,1;Px5OUT:(0,9),13,1;Px6OUT:(0,9),14,1;Px7OUT:(0,9),15,1;;",128,0,0,0
+	.stabs	"PXDAT_REG_TAG:T(17,2)=u2reg:(0,9),0,16;bit:(17,1),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"PXDAT_REG:t(17,3)=(17,2)",128,0,0,0
+	.stabs	"PXIOEN_REG_BIT_TAG:T(17,4)=s2Px0OEN:(0,9),0,1;Px1OEN:(0,9),1,1;Px2OEN:(0,9),2,1;Px3OEN:(0,9),3,1;Px4OEN:(0,9),4,1;Px5OEN:(0,9),5,1;Px6OEN:(0,9),6,1;Px7OEN:(0,9),7,1;Px0IEN:(0,9),8,1;Px1IEN:(0,9),9,1;Px2IEN:(0,9),10,1;Px3IEN:(0,9),11,1;Px4IEN:(0,9),12,1;Px5IEN:(0,9),13,1;Px6IEN:(0,9),14,1;Px7IEN:(0,9),15,1;;",128,0,0,0
+	.stabs	"PXIOEN_REG_TAG:T(17,5)=u2reg:(0,9),0,16;bit:(17,4),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"PXIOEN_REG:t(17,6)=(17,5)",128,0,0,0
+	.stabs	"PXRCTL_REG_BIT_TAG:T(17,7)=s2Px0REN:(0,9),0,1;Px1REN:(0,9),1,1;Px2REN:(0,9),2,1;Px3REN:(0,9),3,1;Px4REN:(0,9),4,1;Px5REN:(0,9),5,1;Px6REN:(0,9),6,1;Px7REN:(0,9),7,1;Px0PDPU:(0,9),8,1;Px1PDPU:(0,9),9,1;Px2PDPU:(0,9),10,1;Px3PDPU:(0,9),11,1;Px4PDPU:(0,9),12,1;Px5PDPU:(0,9),13,1;Px6PDPU:(0,9),14,1;Px7PDPU:(0,9),15,1;;",128,0,0,0
+	.stabs	"PXRCTL_REG_TAG:T(17,8)=u2reg:(0,9),0,16;bit:(17,7),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"PXRCTL_REG:t(17,9)=(17,8)",128,0,0,0
+	.stabs	"PXINTF_REG_BIT_TAG:T(17,10)=s2Px0IF:(0,9),0,1;Px1IF:(0,9),1,1;Px2IF:(0,9),2,1;Px3IF:(0,9),3,1;Px4IF:(0,9),4,1;Px5IF:(0,9),5,1;Px6IF:(0,9),6,1;Px7IF:(0,9),7,1;reserved_1:(0,9),8,8;;",128,0,0,0
+	.stabs	"PXINTF_REG_TAG:T(17,11)=u2reg:(0,9),0,16;bit:(17,10),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"PXINTF_REG:t(17,12)=(17,11)",128,0,0,0
+	.stabs	"PXINTCTL_REG_BIT_TAG:T(17,13)=s2Px0IE:(0,9),0,1;Px1IE:(0,9),1,1;Px2IE:(0,9),2,1;Px3IE:(0,9),3,1;Px4IE:(0,9),4,1;Px5IE:(0,9),5,1;Px6IE:(0,9),6,1;Px7IE:(0,9),7,1;Px0EDGE:(0,9),8,1;Px1EDGE:(0,9),9,1;Px2EDGE:(0,9),10,1;Px3EDGE:(0,9),11,1;Px4EDGE:(0,9),12,1;Px5EDGE:(0,9),13,1;Px6EDGE:(0,9),14,1;Px7EDGE:(0,9),15,1;;",128,0,0,0
+	.stabs	"PXINTCTL_REG_TAG:T(17,14)=u2reg:(0,9),0,16;bit:(17,13),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"PXINTCTL_REG:t(17,15)=(17,14)",128,0,0,0
+	.stabs	"PXCHATEN_REG_BIT_TAG:T(17,16)=s2Px0CHATEN:(0,9),0,1;Px1CHATEN:(0,9),1,1;Px2CHATEN:(0,9),2,1;Px3CHATEN:(0,9),3,1;Px4CHATEN:(0,9),4,1;Px5CHATEN:(0,9),5,1;Px6CHATEN:(0,9),6,1;Px7CHATEN:(0,9),7,1;reserved_1:(0,9),8,8;;",128,0,0,0
+	.stabs	"PXCHATEN_REG_TAG:T(17,17)=u2reg:(0,9),0,16;bit:(17,16),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"PXCHATEN_REG:t(17,18)=(17,17)",128,0,0,0
+	.stabs	"PXMODSEL_REG_BIT_TAG:T(17,19)=s2Px0SEL:(0,9),0,1;Px1SEL:(0,9),1,1;Px2SEL:(0,9),2,1;Px3SEL:(0,9),3,1;Px4SEL:(0,9),4,1;Px5SEL:(0,9),5,1;Px6SEL:(0,9),6,1;Px7SEL:(0,9),7,1;reserved_1:(0,9),8,8;;",128,0,0,0
+	.stabs	"PXMODSEL_REG_TAG:T(17,20)=u2reg:(0,9),0,16;bit:(17,19),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"PXMODSEL_REG:t(17,21)=(17,20)",128,0,0,0
+	.stabs	"PXFNCSEL_REG_BIT_TAG:T(17,22)=s2Px0MUX:(0,9),0,2;Px1MUX:(0,9),2,2;Px2MUX:(0,9),4,2;Px3MUX:(0,9),6,2;Px4MUX:(0,9),8,2;Px5MUX:(0,9),10,2;Px6MUX:(0,9),12,2;Px7MUX:(0,9),14,2;;",128,0,0,0
+	.stabs	"PXFNCSEL_REG_TAG:T(17,23)=u2reg:(0,9),0,16;bit:(17,22),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"PXFNCSEL_REG:t(17,24)=(17,23)",128,0,0,0
+	.stabs	"PCLK_REG_BIT_TAG:T(17,25)=s2CLKSRC:(0,9),0,2;KRSTCFG:(0,9),2,2;CLKDIV:(0,9),4,4;DBRUN:(0,9),8,1;reserved_1:(0,9),9,7;;",128,0,0,0
+	.stabs	"PCLK_REG_TAG:T(17,26)=u2reg:(0,9),0,16;bit:(17,25),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"PCLK_REG:t(17,27)=(17,26)",128,0,0,0
+	.stabs	"PINTFGRP_REG_BIT_TAG:T(17,28)=s2P0INT:(0,9),0,1;P1INT:(0,9),1,1;P2INT:(0,9),2,1;P3INT:(0,9),3,1;P4INT:(0,9),4,1;P5INT:(0,9),5,1;P6INT:(0,9),6,1;P7INT:(0,9),7,1;P8INT:(0,9),8,1;P9INT:(0,9),9,1;PaINT:(0,9),10,1;PbINT:(0,9),11,1;PcINT:(0,9),12,1;reserved_1:(0,9),13,3;;",128,0,0,0
+	.stabs	"PINTFGRP_REG_TAG:T(17,29)=u2reg:(0,9),0,16;bit:(17,28),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"PINTFGRP_REG:t(17,30)=(17,29)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/upmux_reg.h",130,0,0,0
+	.stabs	"PXUPMUXN_REG_BIT_TAG:T(18,1)=s2PxyPERISEL:(0,9),0,3;PxyPERICH:(0,9),3,2;PxyPPFNC:(0,9),5,3;PxzPERISEL:(0,9),8,3;PxzPERICH:(0,9),11,2;PxzPPFNC:(0,9),13,3;;",128,0,0,0
+	.stabs	"PXUPMUXN_REG_TAG:T(18,2)=u2reg:(0,9),0,16;bit:(18,1),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"PXUPMUXN_REG:t(18,3)=(18,2)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/uart2_reg.h",130,0,0,0
+	.stabs	"UANCLK_REG_BIT_TAG:T(19,1)=s2CLKSRC:(0,9),0,2;reserved_1:(0,9),2,2;CLKDIV:(0,9),4,2;reserved_2:(0,9),6,2;DBRUN:(0,9),8,1;reserved_3:(0,9),9,7;;",128,0,0,0
+	.stabs	"UANCLK_REG_TAG:T(19,2)=u2reg:(0,9),0,16;bit:(19,1),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"UANCLK_REG:t(19,3)=(19,2)",128,0,0,0
+	.stabs	"UANMOD_REG_BIT_TAG:T(19,4)=s2STPB:(0,9),0,1;PRMD:(0,9),1,1;PREN:(0,9),2,1;CHLN:(0,9),3,1;IRMD:(0,9),4,1;OUTMD:(0,9),5,1;PUEN:(0,9),6,1;reserved_1:(0,9),7,1;INVTX:(0,9),8,1;INVRX:(0,9),9,1;BRDIV:(0,9),10,1;reserved_2:(0,9),11,5;;",128,0,0,0
+	.stabs	"UANMOD_REG_TAG:T(19,5)=u2reg:(0,9),0,16;bit:(19,4),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"UANMOD_REG:t(19,6)=(19,5)",128,0,0,0
+	.stabs	"UANBR_REG_BIT_TAG:T(19,7)=s2BRT:(0,9),0,8;FMD:(0,9),8,4;reserved_1:(0,9),12,4;;",128,0,0,0
+	.stabs	"UANBR_REG_TAG:T(19,8)=u2reg:(0,9),0,16;bit:(19,7),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"UANBR_REG:t(19,9)=(19,8)",128,0,0,0
+	.stabs	"UANCTL_REG_BIT_TAG:T(19,10)=s2MODEN:(0,9),0,1;SFTRST:(0,9),1,1;reserved_1:(0,9),2,14;;",128,0,0,0
+	.stabs	"UANCTL_REG_TAG:T(19,11)=u2reg:(0,9),0,16;bit:(19,10),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"UANCTL_REG:t(19,12)=(19,11)",128,0,0,0
+	.stabs	"UANTXD_REG_BIT_TAG:T(19,13)=s2TXD:(0,9),0,8;reserved_1:(0,9),8,8;;",128,0,0,0
+	.stabs	"UANTXD_REG_TAG:T(19,14)=u2reg:(0,9),0,16;bit:(19,13),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"UANTXD_REG:t(19,15)=(19,14)",128,0,0,0
+	.stabs	"UANRXD_REG_BIT_TAG:T(19,16)=s2RXD:(0,9),0,8;reserved_1:(0,9),8,8;;",128,0,0,0
+	.stabs	"UANRXD_REG_TAG:T(19,17)=u2reg:(0,9),0,16;bit:(19,16),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"UANRXD_REG:t(19,18)=(19,17)",128,0,0,0
+	.stabs	"UANINTF_REG_BIT_TAG:T(19,19)=s2TBEIF:(0,9),0,1;RB1FIF:(0,9),1,1;RB2FIF:(0,9),2,1;OEIF:(0,9),3,1;PEIF:(0,9),4,1;FEIF:(0,9),5,1;TENDIF:(0,9),6,1;reserved_1:(0,9),7,1;TBSY:(0,9),8,1;RBSY:(0,9),9,1;reserved_2:(0,9),10,6;;",128,0,0,0
+	.stabs	"UANINTF_REG_TAG:T(19,20)=u2reg:(0,9),0,16;bit:(19,19),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"UANINTF_REG:t(19,21)=(19,20)",128,0,0,0
+	.stabs	"UANINTE_REG_BIT_TAG:T(19,22)=s2TBEIE:(0,9),0,1;RB1FIE:(0,9),1,1;RB2FIE:(0,9),2,1;OEIE:(0,9),3,1;PEIE:(0,9),4,1;FEIE:(0,9),5,1;TENDIE:(0,9),6,1;reserved_1:(0,9),7,9;;",128,0,0,0
+	.stabs	"UANINTE_REG_TAG:T(19,23)=u2reg:(0,9),0,16;bit:(19,22),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"UANINTE_REG:t(19,24)=(19,23)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/spia_reg.h",130,0,0,0
+	.stabs	"SPINMOD_REG_BIT_TAG:T(20,1)=s2MST:(0,9),0,1;CPOL:(0,9),1,1;CPHA:(0,9),2,1;LSBFST:(0,9),3,1;NOCLKDIV:(0,9),4,1;PUEN:(0,9),5,1;reserved_1:(0,9),6,2;CHLN:(0,9),8,4;reserved_2:(0,9),12,4;;",128,0,0,0
+	.stabs	"SPINMOD_REG_TAG:T(20,2)=u2reg:(0,9),0,16;bit:(20,1),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"SPINMOD_REG:t(20,3)=(20,2)",128,0,0,0
+	.stabs	"SPINCTL_REG_BIT_TAG:T(20,4)=s2MODEN:(0,9),0,1;SFTRST:(0,9),1,1;reserved_1:(0,9),2,14;;",128,0,0,0
+	.stabs	"SPINCTL_REG_TAG:T(20,5)=u2reg:(0,9),0,16;bit:(20,4),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"SPINCTL_REG:t(20,6)=(20,5)",128,0,0,0
+	.stabs	"SPINTXD_REG_TAG:T(20,7)=u2reg:(0,9),0,16;;",128,0,0,0
+	.stabs	"SPINTXD_REG:t(20,8)=(20,7)",128,0,0,0
+	.stabs	"SPINRXD_REG_TAG:T(20,9)=u2reg:(0,9),0,16;;",128,0,0,0
+	.stabs	"SPINRXD_REG:t(20,10)=(20,9)",128,0,0,0
+	.stabs	"SPININTF_REG_BIT_TAG:T(20,11)=s2TBEIF:(0,9),0,1;RBFIF:(0,9),1,1;TENDIF:(0,9),2,1;OEIF:(0,9),3,1;reserved_1:(0,9),4,3;BSY:(0,9),7,1;reserved_2:(0,9),8,8;;",128,0,0,0
+	.stabs	"SPININTF_REG_TAG:T(20,12)=u2reg:(0,9),0,16;bit:(20,11),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"SPININTF_REG:t(20,13)=(20,12)",128,0,0,0
+	.stabs	"SPININTE_REG_BIT_TAG:T(20,14)=s2TBEIE:(0,9),0,1;RBFIE:(0,9),1,1;TENDIE:(0,9),2,1;OEIE:(0,9),3,1;reserved_1:(0,9),4,12;;",128,0,0,0
+	.stabs	"SPININTE_REG_TAG:T(20,15)=u2reg:(0,9),0,16;bit:(20,14),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"SPININTE_REG:t(20,16)=(20,15)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/i2c_reg.h",130,0,0,0
+	.stabs	"I2CNCLK_REG_BIT_TAG:T(21,1)=s2CLKSRC:(0,9),0,2;reserved_1:(0,9),2,2;CLKDIV:(0,9),4,2;reserved_2:(0,9),6,2;DBRUN:(0,9),8,1;reserved_3:(0,9),9,7;;",128,0,0,0
+	.stabs	"I2CNCLK_REG_TAG:T(21,2)=u2reg:(0,9),0,16;bit:(21,1),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"I2CNCLK_REG:t(21,3)=(21,2)",128,0,0,0
+	.stabs	"I2CNMOD_REG_BIT_TAG:T(21,4)=s2reserved_1:(0,9),0,1;GCEN:(0,9),1,1;OADR10:(0,9),2,1;reserved_2:(0,9),3,13;;",128,0,0,0
+	.stabs	"I2CNMOD_REG_TAG:T(21,5)=u2reg:(0,9),0,16;bit:(21,4),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"I2CNMOD_REG:t(21,6)=(21,5)",128,0,0,0
+	.stabs	"I2CNBR_REG_BIT_TAG:T(21,7)=s2BRT:(0,9),0,7;reserved_1:(0,9),7,9;;",128,0,0,0
+	.stabs	"I2CNBR_REG_TAG:T(21,8)=u2reg:(0,9),0,16;bit:(21,7),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"I2CNBR_REG:t(21,9)=(21,8)",128,0,0,0
+	.stabs	"I2CNOADR_REG_BIT_TAG:T(21,10)=s2OADR:(0,9),0,10;reserved_1:(0,9),10,6;;",128,0,0,0
+	.stabs	"I2CNOADR_REG_TAG:T(21,11)=u2reg:(0,9),0,16;bit:(21,10),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"I2CNOADR_REG:t(21,12)=(21,11)",128,0,0,0
+	.stabs	"I2CNCTL_REG_BIT_TAG:T(21,13)=s2MODEN:(0,9),0,1;SFTRST:(0,9),1,1;TXSTART:(0,9),2,1;TXSTOP:(0,9),3,1;TXNACK:(0,9),4,1;MST:(0,9),5,1;reserved_1:(0,9),6,10;;",128,0,0,0
+	.stabs	"I2CNCTL_REG_TAG:T(21,14)=u2reg:(0,9),0,16;bit:(21,13),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"I2CNCTL_REG:t(21,15)=(21,14)",128,0,0,0
+	.stabs	"I2CNTXD_REG_BIT_TAG:T(21,16)=s2TXD:(0,9),0,8;reserved_1:(0,9),8,8;;",128,0,0,0
+	.stabs	"I2CNTXD_REG_TAG:T(21,17)=u2reg:(0,9),0,16;bit:(21,16),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"I2CNTXD_REG:t(21,18)=(21,17)",128,0,0,0
+	.stabs	"I2CNRXD_REG_BIT_TAG:T(21,19)=s2RXD:(0,9),0,8;reserved_1:(0,9),8,8;;",128,0,0,0
+	.stabs	"I2CNRXD_REG_TAG:T(21,20)=u2reg:(0,9),0,16;bit:(21,19),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"I2CNRXD_REG:t(21,21)=(21,20)",128,0,0,0
+	.stabs	"I2CNINTF_REG_BIT_TAG:T(21,22)=s2TBEIF:(0,9),0,1;RBFIF:(0,9),1,1;ERRIF:(0,9),2,1;STARTIF:(0,9),3,1;STOPIF:(0,9),4,1;NACKIF:(0,9),5,1;GCIF:(0,9),6,1;BYTEENDIF:(0,9),7,1;reserved_1:(0,9),8,1;TR:(0,9),9,1;BSY:(0,9),10,1;SCLLOW:(0,9),11,1;SDALOW:(0,9),12,1;reserved_2:(0,9),13,3;;",128,0,0,0
+	.stabs	"I2CNINTF_REG_TAG:T(21,23)=u2reg:(0,9),0,16;bit:(21,22),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"I2CNINTF_REG:t(21,24)=(21,23)",128,0,0,0
+	.stabs	"I2CNINTE_REG_BIT_TAG:T(21,25)=s2TBEIE:(0,9),0,1;RBFIE:(0,9),1,1;ERRIE:(0,9),2,1;STARTIE:(0,9),3,1;STOPIE:(0,9),4,1;NACKIE:(0,9),5,1;GCIE:(0,9),6,1;BYTEENDIE:(0,9),7,1;reserved_1:(0,9),8,8;;",128,0,0,0
+	.stabs	"I2CNINTE_REG_TAG:T(21,26)=u2reg:(0,9),0,16;bit:(21,25),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"I2CNINTE_REG:t(21,27)=(21,26)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/snda_reg.h",130,0,0,0
+	.stabs	"SNDCLK_REG_BIT_TAG:T(22,1)=s2CLKSRC:(0,9),0,2;reserved_1:(0,9),2,2;CLKDIV:(0,9),4,3;reserved_2:(0,9),7,1;DBRUN:(0,9),8,1;reserved_3:(0,9),9,7;;",128,0,0,0
+	.stabs	"SNDCLK_REG_TAG:T(22,2)=u2reg:(0,9),0,16;bit:(22,1),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"SNDCLK_REG:t(22,3)=(22,2)",128,0,0,0
+	.stabs	"SNDSEL_REG_BIT_TAG:T(22,4)=s2MOSEL:(0,9),0,2;SINV:(0,9),2,1;reserved_1:(0,9),3,5;STIM:(0,9),8,4;reserved_2:(0,9),12,4;;",128,0,0,0
+	.stabs	"SNDSEL_REG_TAG:T(22,5)=u2reg:(0,9),0,16;bit:(22,4),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"SNDSEL_REG:t(22,6)=(22,5)",128,0,0,0
+	.stabs	"SNDCTL_REG_BIT_TAG:T(22,7)=s2MODEN:(0,9),0,1;reserved_1:(0,9),1,7;SSTP:(0,9),8,1;reserved_2:(0,9),9,7;;",128,0,0,0
+	.stabs	"SNDCTL_REG_TAG:T(22,8)=u2reg:(0,9),0,16;bit:(22,7),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"SNDCTL_REG:t(22,9)=(22,8)",128,0,0,0
+	.stabs	"SNDDAT_REG_BIT_TAG:T(22,10)=s2SFRQ:(0,9),0,8;SLEN:(0,9),8,6;MDRS:(0,9),14,1;MDTI:(0,9),15,1;;",128,0,0,0
+	.stabs	"SNDDAT_REG_TAG:T(22,11)=u2reg:(0,9),0,16;bit:(22,10),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"SNDDAT_REG:t(22,12)=(22,11)",128,0,0,0
+	.stabs	"SNDINTF_REG_BIT_TAG:T(22,13)=s2EDIF:(0,9),0,1;EMIF:(0,9),1,1;reserved_1:(0,9),2,6;SBSY:(0,9),8,1;reserved_2:(0,9),9,7;;",128,0,0,0
+	.stabs	"SNDINTF_REG_TAG:T(22,14)=u2reg:(0,9),0,16;bit:(22,13),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"SNDINTF_REG:t(22,15)=(22,14)",128,0,0,0
+	.stabs	"SNDINTE_REG_BIT_TAG:T(22,16)=s2EDIE:(0,9),0,1;EMIE:(0,9),1,1;reserved_1:(0,9),2,14;;",128,0,0,0
+	.stabs	"SNDINTE_REG_TAG:T(22,17)=u2reg:(0,9),0,16;bit:(22,16),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"SNDINTE_REG:t(22,18)=(22,17)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/lcd4a_reg.h",130,0,0,0
+	.stabs	"LCD4CLK_REG_BIT_TAG:T(23,1)=s2CLKSRC:(0,9),0,2;reserved_1:(0,9),2,2;CLKDIV:(0,9),4,3;reserved_2:(0,9),7,1;DBRUN:(0,9),8,1;reserved_3:(0,9),9,7;;",128,0,0,0
+	.stabs	"LCD4CLK_REG_TAG:T(23,2)=u2reg:(0,9),0,16;bit:(23,1),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"LCD4CLK_REG:t(23,3)=(23,2)",128,0,0,0
+	.stabs	"LCD4CTL_REG_BIT_TAG:T(23,4)=s2MODEN:(0,9),0,1;LCDDIS:(0,9),1,1;reserved_1:(0,9),2,14;;",128,0,0,0
+	.stabs	"LCD4CTL_REG_TAG:T(23,5)=u2reg:(0,9),0,16;bit:(23,4),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"LCD4CTL_REG:t(23,6)=(23,5)",128,0,0,0
+	.stabs	"LCD4TIM1_REG_BIT_TAG:T(23,7)=s2LDUTY:(0,9),0,2;reserved_1:(0,9),2,6;FRMCNT:(0,9),8,4;reserved_2:(0,9),12,4;;",128,0,0,0
+	.stabs	"LCD4TIM1_REG_TAG:T(23,8)=u2reg:(0,9),0,16;bit:(23,7),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"LCD4TIM1_REG:t(23,9)=(23,8)",128,0,0,0
+	.stabs	"LCD4TIM2_REG_BIT_TAG:T(23,10)=s2NLINE:(0,9),0,2;reserved_1:(0,9),2,6;BSTC:(0,9),8,2;reserved_2:(0,9),10,6;;",128,0,0,0
+	.stabs	"LCD4TIM2_REG_TAG:T(23,11)=u2reg:(0,9),0,16;bit:(23,10),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"LCD4TIM2_REG:t(23,12)=(23,11)",128,0,0,0
+	.stabs	"LCD4PWR_REG_BIT_TAG:T(23,13)=s2VCEN:(0,9),0,1;VCSEL:(0,9),1,1;HVLD:(0,9),2,1;reserved_1:(0,9),3,1;BSTEN:(0,9),4,1;reserved_2:(0,9),5,3;LC:(0,9),8,4;reserved_3:(0,9),12,3;EXVCSEL:(0,9),15,1;;",128,0,0,0
+	.stabs	"LCD4PWR_REG_TAG:T(23,14)=u2reg:(0,9),0,16;bit:(23,13),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"LCD4PWR_REG:t(23,15)=(23,14)",128,0,0,0
+	.stabs	"LCD4DSP_REG_BIT_TAG:T(23,16)=s2DSPC:(0,9),0,2;DSPAR:(0,9),2,1;reserved_1:(0,9),3,1;DSPREV:(0,9),4,1;COMREV:(0,9),5,1;SEGREV:(0,9),6,1;reserved_2:(0,9),7,9;;",128,0,0,0
+	.stabs	"LCD4DSP_REG_TAG:T(23,17)=u2reg:(0,9),0,16;bit:(23,16),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"LCD4DSP_REG:t(23,18)=(23,17)",128,0,0,0
+	.stabs	"LCD4COMCX_REG_BIT_TAG:T(23,19)=s2COM0DEN:(0,9),0,1;COM1DEN:(0,9),1,1;COM2DEN:(0,9),2,1;COM3DEN:(0,9),3,1;reserved_1:(0,9),4,12;;",128,0,0,0
+	.stabs	"LCD4COMCX_REG_TAG:T(23,20)=u2reg:(0,9),0,16;bit:(23,19),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"LCD4COMCX_REG:t(23,21)=(23,20)",128,0,0,0
+	.stabs	"LCD4INTF_REG_BIT_TAG:T(23,22)=s2FRMIF:(0,9),0,1;reserved_1:(0,9),1,15;;",128,0,0,0
+	.stabs	"LCD4INTF_REG_TAG:T(23,23)=u2reg:(0,9),0,16;bit:(23,22),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"LCD4INTF_REG:t(23,24)=(23,23)",128,0,0,0
+	.stabs	"LCD4INTE_REG_BIT_TAG:T(23,25)=s2FRMIE:(0,9),0,1;reserved_1:(0,9),1,15;;",128,0,0,0
+	.stabs	"LCD4INTE_REG_TAG:T(23,26)=u2reg:(0,9),0,16;bit:(23,25),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"LCD4INTE_REG:t(23,27)=(23,26)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/rfc_reg.h",130,0,0,0
+	.stabs	"RFCNCLK_REG_BIT_TAG:T(24,1)=s2CLKSRC:(0,9),0,2;reserved_1:(0,9),2,2;CLKDIV:(0,9),4,2;reserved_2:(0,9),6,2;DBRUN:(0,9),8,1;reserved_3:(0,9),9,7;;",128,0,0,0
+	.stabs	"RFCNCLK_REG_TAG:T(24,2)=u2reg:(0,9),0,16;bit:(24,1),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"RFCNCLK_REG:t(24,3)=(24,2)",128,0,0,0
+	.stabs	"RFCNCTL_REG_BIT_TAG:T(24,4)=s2MODEN:(0,9),0,1;reserved_1:(0,9),1,3;SMODE:(0,9),4,2;EVTEN:(0,9),6,1;CONEN:(0,9),7,1;RFCLKMD:(0,9),8,1;reserved_2:(0,9),9,7;;",128,0,0,0
+	.stabs	"RFCNCTL_REG_TAG:T(24,5)=u2reg:(0,9),0,16;bit:(24,4),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"RFCNCTL_REG:t(24,6)=(24,5)",128,0,0,0
+	.stabs	"RFCNTRG_REG_BIT_TAG:T(24,7)=s2SREF:(0,9),0,1;SSENA:(0,9),1,1;SSENB:(0,9),2,1;reserved_1:(0,9),3,13;;",128,0,0,0
+	.stabs	"RFCNTRG_REG_TAG:T(24,8)=u2reg:(0,9),0,16;bit:(24,7),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"RFCNTRG_REG:t(24,9)=(24,8)",128,0,0,0
+	.stabs	"RFCNMCL_REG_TAG:T(24,10)=u2reg:(0,9),0,16;;",128,0,0,0
+	.stabs	"RFCNMCL_REG:t(24,11)=(24,10)",128,0,0,0
+	.stabs	"RFCNMCH_REG_BIT_TAG:T(24,12)=s2MC:(0,9),0,8;reserved_1:(0,9),8,8;;",128,0,0,0
+	.stabs	"RFCNMCH_REG_TAG:T(24,13)=u2reg:(0,9),0,16;bit:(24,12),0,16;;",128,0,0,0
+	.stabs	"RFCNMCH_REG:t(24,14)=(24,13)",128,0,0,0
+	.stabs	"RFCNMC_REG_DWORD_BIT_TAG:T(24,15)=s4MC:(0,5),0,24;reserved_1:(0,5),24,8;;",128,0,0,0
+	.stabs	"RFCNMC_REG_DWORD_TAG:T(24,16)=u4reg:(0,5),0,32;bit:(24,15),0,32;;",128,0,0,0
+	.stabs	"RFCNMC_DWORD_REG:t(24,17)=(24,16)",128,0,0,0
+	.stabs	"RFCNTCL_REG_TAG:T(24,18)=u2reg:(0,9),0,16;;",128,0,0,0
+	.stabs	"RFCNTCL_REG:t(24,19)=(24,18)",128,0,0,0
+	.stabs	"RFCNTCH_REG_BIT_TAG:T(24,20)=s2TC:(0,9),0,8;reserved_1:(0,9),8,8;;",128,0,0,0
+	.stabs	"RFCNTCH_REG_TAG:T(24,21)=u2reg:(0,9),0,16;bit:(24,20),0,16;;",128,0,0,0
+	.stabs	"RFCNTCH_REG:t(24,22)=(24,21)",128,0,0,0
+	.stabs	"RFCNTC_REG_DWORD_BIT_TAG:T(24,23)=s4TC:(0,5),0,24;reserved_1:(0,5),24,8;;",128,0,0,0
+	.stabs	"RFCNTC_REG_DWORD_TAG:T(24,24)=u4reg:(0,5),0,32;bit:(24,23),0,32;;",128,0,0,0
+	.stabs	"RFCNTC_DWORD_REG:t(24,25)=(24,24)",128,0,0,0
+	.stabs	"RFCNINTF_REG_BIT_TAG:T(24,26)=s2EREFIF:(0,9),0,1;ESENAIF:(0,9),1,1;ESENBIF:(0,9),2,1;OVMCIF:(0,9),3,1;OVTCIF:(0,9),4,1;reserved_1:(0,9),5,11;;",128,0,0,0
+	.stabs	"RFCNINTF_REG_TAG:T(24,27)=u2reg:(0,9),0,16;bit:(24,26),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"RFCNINTF_REG:t(24,28)=(24,27)",128,0,0,0
+	.stabs	"RFCNINTE_REG_BIT_TAG:T(24,29)=s2EREFIE:(0,9),0,1;ESENAIE:(0,9),1,1;ESENBIE:(0,9),2,1;OVMCIE:(0,9),3,1;OVTCIE:(0,9),4,1;reserved_1:(0,9),5,11;;",128,0,0,0
+	.stabs	"RFCNINTE_REG_TAG:T(24,30)=u2reg:(0,9),0,16;bit:(24,29),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"RFCNINTE_REG:t(24,31)=(24,30)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/remc2_reg.h",130,0,0,0
+	.stabs	"REMCLK_REG_BIT_TAG:T(25,1)=s2CLKSRC:(0,9),0,2;reserved_1:(0,9),2,2;CLKDIV:(0,9),4,4;DBRUN:(0,9),8,1;reserved_2:(0,9),9,7;;",128,0,0,0
+	.stabs	"REMCLK_REG_TAG:T(25,2)=u2reg:(0,9),0,16;bit:(25,1),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"REMCLK_REG:t(25,3)=(25,2)",128,0,0,0
+	.stabs	"REMDBCTL_REG_BIT_TAG:T(25,4)=s2MODEN:(0,9),0,1;REMCRST:(0,9),1,1;TRMD:(0,9),2,1;BUFEN:(0,9),3,1;REMOINV:(0,9),4,1;reserved_1:(0,9),5,3;PRUN:(0,9),8,1;PRESET:(0,9),9,1;reserved_2:(0,9),10,6;;",128,0,0,0
+	.stabs	"REMDBCTL_REG_TAG:T(25,5)=u2reg:(0,9),0,16;bit:(25,4),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"REMDBCTL_REG:t(25,6)=(25,5)",128,0,0,0
+	.stabs	"REMDBCNT_REG_TAG:T(25,7)=u2reg:(0,9),0,16;;",128,0,0,0
+	.stabs	"REMDBCNT_REG:t(25,8)=(25,7)",128,0,0,0
+	.stabs	"REMAPLEN_REG_TAG:T(25,9)=u2reg:(0,9),0,16;;",128,0,0,0
+	.stabs	"REMAPLEN_REG:t(25,10)=(25,9)",128,0,0,0
+	.stabs	"REMDBLEN_REG_TAG:T(25,11)=u2reg:(0,9),0,16;;",128,0,0,0
+	.stabs	"REMDBLEN_REG:t(25,12)=(25,11)",128,0,0,0
+	.stabs	"REMINTF_REG_BIT_TAG:T(25,13)=s2APIF:(0,9),0,1;DBIF:(0,9),1,1;reserved_1:(0,9),2,6;APLENBSY:(0,9),8,1;DBLENBSY:(0,9),9,1;DBCNTRUN:(0,9),10,1;reserved_2:(0,9),11,5;;",128,0,0,0
+	.stabs	"REMINTF_REG_TAG:T(25,14)=u2reg:(0,9),0,16;bit:(25,13),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"REMINTF_REG:t(25,15)=(25,14)",128,0,0,0
+	.stabs	"REMINTE_REG_BIT_TAG:T(25,16)=s2APIE:(0,9),0,1;DBIE:(0,9),1,1;reserved_1:(0,9),2,14;;",128,0,0,0
+	.stabs	"REMINTE_REG_TAG:T(25,17)=u2reg:(0,9),0,16;bit:(25,16),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"REMINTE_REG:t(25,18)=(25,17)",128,0,0,0
+	.stabs	"REMCARR_REG_BIT_TAG:T(25,19)=s2CRPER:(0,9),0,8;CRDTY:(0,9),8,8;;",128,0,0,0
+	.stabs	"REMCARR_REG_TAG:T(25,20)=u2reg:(0,9),0,16;bit:(25,19),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"REMCARR_REG:t(25,21)=(25,20)",128,0,0,0
+	.stabs	"REMCCTL_REG_BIT_TAG:T(25,22)=s2CARREN:(0,9),0,1;reserved_1:(0,9),1,15;;",128,0,0,0
+	.stabs	"REMCCTL_REG_TAG:T(25,23)=u2reg:(0,9),0,16;bit:(25,22),0,16;byte_reg:(7,5),0,16;;",128,0,0,0
+	.stabs	"REMCCTL_REG:t(25,24)=(25,23)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabn	162,0,0,0
+	.stabn	162,0,0,0
+	.stabn	162,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/i2c_mst.h",130,0,0,0
+	.stabn	162,0,0,0
+	.align 1
+	.stabs	"EE_WriteOneByte:F(0,20)",36,0,0,EE_WriteOneByte
+	.stabs	"ReadAddr:P(0,4)",64,0,0,4
+	.stabs	"data:P(1,1)=*(0,11)",64,0,0,6
+	.stabs	"len:p(0,2)",160,0,0,0
+	.global EE_WriteOneByte
+	.type	EE_WriteOneByte, @function
+EE_WriteOneByte:
+	.stabn 68,0,9,.LM1-EE_WriteOneByte
+.LM1:
+;  Function'EE_WriteOneByte'; 4 bytes of locals, 0 regs to save(0 byte).
+	ld.a	-[%sp], %r4
+	ld.a	-[%sp], %r5
+	ld.a	-[%sp], %r6
+	ld.a	-[%sp], %r7
+	xsub.a	%sp, 0x4
+	ld	%r4,%r0
+	ld.a	%r6,%r1
+	ld.b %r2,%r2
+	ld	[%sp+0],%r2
+	.stabn 68,0,10,.LM2-EE_WriteOneByte
+.LM2:
+.LBB2:
+	ld %r5,0
+	.stabn 68,0,12,.LM3-EE_WriteOneByte
+.LM3:
+	ld %r0,2
+	Scall.d	setPortOutputP1x
+	ld %r1,1
+	.stabn 68,0,13,.LM4-EE_WriteOneByte
+.LM4:
+	Scall.d	delay_ms
+	ld %r0,5
+	.stabn 68,0,14,.LM5-EE_WriteOneByte
+.LM5:
+	Scall	IIC_Start
+	.stabn 68,0,15,.LM6-EE_WriteOneByte
+.LM6:
+	Sld %r0,0x00a6
+	.stabn 68,0,16,.LM7-EE_WriteOneByte
+.LM7:
+	Scall	IIC_Send_Byte
+	.stabn 68,0,17,.LM8-EE_WriteOneByte
+.LM8:
+	Scall	IIC_Wait_Ack
+	.stabn 68,0,18,.LM9-EE_WriteOneByte
+.LM9:
+	ld	%r0,%r4
+	Scall.d	IIC_Send_Byte
+	sr	%r0,8
+	.stabn 68,0,19,.LM10-EE_WriteOneByte
+.LM10:
+	Scall.d	IIC_Wait_Ack
+	ld.ub	%r4,%r4
+	.stabn 68,0,20,.LM11-EE_WriteOneByte
+.LM11:
+	Scall.d	IIC_Send_Byte
+	ld	%r0,%r4
+	.stabn 68,0,21,.LM12-EE_WriteOneByte
+.LM12:
+	Scall	IIC_Wait_Ack
+	.stabn 68,0,22,.LM13-EE_WriteOneByte
+.LM13:
+	ld	%r2,[%sp+0]
+	cmp	%r5,%r2
+	jrge.d	.L8	;# <47>
+	ld.ub %r2,%r5
+	.stabn 68,0,24,.LM14-EE_WriteOneByte
+.LM14:
+.L9:
+	add.a	%r2,%r6
+	.stabn 68,0,25,.LM15-EE_WriteOneByte
+.LM15:
+	Scall.d	IIC_Send_Byte
+	ld.ub	%r0,[%r2]
+	.stabn 68,0,26,.LM16-EE_WriteOneByte
+.LM16:
+	Scall	IIC_Wait_Ack
+	.stabn 68,0,22,.LM17-EE_WriteOneByte
+.LM17:
+	ld	%r2,%r5
+	add	%r2,0x0001
+	ld.ub	%r5,%r2
+	ld	%r2,[%sp+0]
+	cmp	%r5,%r2
+	jrlt.d	.L9	;# <-25>
+	ld.ub %r2,%r5
+.L8:
+	.stabn 68,0,28,.LM18-EE_WriteOneByte
+.LM18:
+	Scall	IIC_Stop
+	.stabn 68,0,29,.LM19-EE_WriteOneByte
+.LM19:
+	ld %r0,2
+	Scall.d	setPortOutputP1x
+	ld %r1,0
+	.stabn 68,0,30,.LM20-EE_WriteOneByte
+.LM20:
+.LBE2:
+	add.a	%sp, 0x4
+	ld.a	%r7,[%sp]+
+	ld.a	%r6,[%sp]+
+	ld.a	%r5,[%sp]+
+	ld.a	%r4,[%sp]+
+	ret
+	.size	EE_WriteOneByte, .-EE_WriteOneByte
+	.stabs	"i:r(3,3)",64,0,0,5
+	.stabs	"temp:r(3,3)",64,0,0,0
+	.stabn	192,0,0,.LBB2-EE_WriteOneByte
+	.stabn	224,0,0,.LBE2-EE_WriteOneByte
+	.align 1
+	.stabs	"EE_ReadOneByte:F(0,20)",36,0,0,EE_ReadOneByte
+	.stabs	"ReadAddr:P(3,2)",64,0,0,4
+	.stabs	"data:P(1,2)=*(3,1)",64,0,0,6
+	.stabs	"len:P(3,1)",64,0,0,5
+	.global EE_ReadOneByte
+	.type	EE_ReadOneByte, @function
+EE_ReadOneByte:
+	.stabn 68,0,36,.LM21-EE_ReadOneByte
+.LM21:
+;  Function'EE_ReadOneByte'; 0 bytes of locals, 0 regs to save(0 byte).
+	ld.a	-[%sp], %r4
+	ld.a	-[%sp], %r5
+	ld.a	-[%sp], %r6
+	ld.a	-[%sp], %r7
+	ld	%r4,%r0
+	ld.a	%r6,%r1
+	ld.ub	%r5,%r2
+	.stabn 68,0,39,.LM22-EE_ReadOneByte
+.LM22:
+.LBB3:
+	ld %r0,2
+	Scall.d	setPortOutputP1x
+	ld %r1,1
+	.stabn 68,0,40,.LM23-EE_ReadOneByte
+.LM23:
+	Scall.d	delay_ms
+	ld %r0,5
+	.stabn 68,0,41,.LM24-EE_ReadOneByte
+.LM24:
+	Scall	IIC_Start
+	.stabn 68,0,42,.LM25-EE_ReadOneByte
+.LM25:
+	Sld %r0,0x00a6
+	.stabn 68,0,43,.LM26-EE_ReadOneByte
+.LM26:
+	Scall	IIC_Send_Byte
+	.stabn 68,0,44,.LM27-EE_ReadOneByte
+.LM27:
+	Scall	IIC_Wait_Ack
+	.stabn 68,0,45,.LM28-EE_ReadOneByte
+.LM28:
+	ld	%r0,%r4
+	Scall.d	IIC_Send_Byte
+	sr	%r0,8
+	.stabn 68,0,46,.LM29-EE_ReadOneByte
+.LM29:
+	Scall.d	IIC_Wait_Ack
+	ld.ub	%r4,%r4
+	.stabn 68,0,47,.LM30-EE_ReadOneByte
+.LM30:
+	Scall.d	IIC_Send_Byte
+	ld	%r0,%r4
+	.stabn 68,0,48,.LM31-EE_ReadOneByte
+.LM31:
+	Scall	IIC_Wait_Ack
+	.stabn 68,0,49,.LM32-EE_ReadOneByte
+.LM32:
+	Scall	IIC_Start
+	.stabn 68,0,50,.LM33-EE_ReadOneByte
+.LM33:
+	Sld %r0,0x00a7
+	.stabn 68,0,51,.LM34-EE_ReadOneByte
+.LM34:
+	Scall	IIC_Send_Byte
+	.stabn 68,0,52,.LM35-EE_ReadOneByte
+.LM35:
+	Scall	IIC_Wait_Ack
+	.stabn 68,0,53,.LM36-EE_ReadOneByte
+.LM36:
+	ld.a	%r0,%r6
+	Scall.d	IIC_Read_Bytes
+	ld	%r1,%r5
+	.stabn 68,0,64,.LM37-EE_ReadOneByte
+.LM37:
+	Scall	IIC_Stop
+	.stabn 68,0,65,.LM38-EE_ReadOneByte
+.LM38:
+	ld %r0,2
+	Scall.d	setPortOutputP1x
+	ld %r1,0
+	.stabn 68,0,66,.LM39-EE_ReadOneByte
+.LM39:
+.LBE3:
+	ld.a	%r7,[%sp]+
+	ld.a	%r6,[%sp]+
+	ld.a	%r5,[%sp]+
+	ld.a	%r4,[%sp]+
+	ret
+	.size	EE_ReadOneByte, .-EE_ReadOneByte
+	.stabs	"temp:r(3,3)",64,0,0,0
+	.stabn	192,0,0,.LBB3-EE_ReadOneByte
+	.stabn	224,0,0,.LBE3-EE_ReadOneByte
+	.align 1
+	.stabs	"EE_ReadOneByte1:F(0,20)",36,0,0,EE_ReadOneByte1
+	.stabs	"data:P(1,2)",64,0,0,5
+	.stabs	"len:P(3,1)",64,0,0,4
+	.global EE_ReadOneByte1
+	.type	EE_ReadOneByte1, @function
+EE_ReadOneByte1:
+	.stabn 68,0,68,.LM40-EE_ReadOneByte1
+.LM40:
+;  Function'EE_ReadOneByte1'; 0 bytes of locals, 0 regs to save(0 byte).
+	ld.a	-[%sp], %r4
+	ld.a	-[%sp], %r5
+	ld.a	-[%sp], %r6
+	ld.a	%r5,%r0
+	ld.ub	%r4,%r1
+	.stabn 68,0,71,.LM41-EE_ReadOneByte1
+.LM41:
+.LBB4:
+	ld %r0,2
+	Scall.d	setPortOutputP1x
+	ld %r1,1
+	.stabn 68,0,72,.LM42-EE_ReadOneByte1
+.LM42:
+	Scall.d	delay_ms
+	ld %r0,5
+	.stabn 68,0,73,.LM43-EE_ReadOneByte1
+.LM43:
+	Scall	IIC_Start
+	.stabn 68,0,74,.LM44-EE_ReadOneByte1
+.LM44:
+	Sld %r0,0x00e0
+	.stabn 68,0,75,.LM45-EE_ReadOneByte1
+.LM45:
+	Scall	IIC_Send_Byte
+	.stabn 68,0,76,.LM46-EE_ReadOneByte1
+.LM46:
+	Scall	IIC_Wait_Ack
+	.stabn 68,0,77,.LM47-EE_ReadOneByte1
+.LM47:
+	Sld %r0,0x005c
+	Scall	IIC_Send_Byte
+	.stabn 68,0,78,.LM48-EE_ReadOneByte1
+.LM48:
+	Scall	IIC_Wait_Ack
+	.stabn 68,0,79,.LM49-EE_ReadOneByte1
+.LM49:
+	Scall.d	IIC_Send_Byte
+	ld %r0,36
+	.stabn 68,0,80,.LM50-EE_ReadOneByte1
+.LM50:
+	Scall	IIC_Wait_Ack
+	.stabn 68,0,81,.LM51-EE_ReadOneByte1
+.LM51:
+	Scall.d	delay_ms
+	ld %r0,15
+	.stabn 68,0,82,.LM52-EE_ReadOneByte1
+.LM52:
+	Scall	IIC_Start
+	.stabn 68,0,83,.LM53-EE_ReadOneByte1
+.LM53:
+	Sld %r0,0x00e1
+	.stabn 68,0,84,.LM54-EE_ReadOneByte1
+.LM54:
+	Scall	IIC_Send_Byte
+	.stabn 68,0,85,.LM55-EE_ReadOneByte1
+.LM55:
+	Scall	IIC_Wait_Ack
+	.stabn 68,0,86,.LM56-EE_ReadOneByte1
+.LM56:
+	ld.a	%r0,%r5
+	Scall.d	IIC_Read_Bytes
+	ld	%r1,%r4
+	.stabn 68,0,97,.LM57-EE_ReadOneByte1
+.LM57:
+	Scall	IIC_Stop
+	.stabn 68,0,98,.LM58-EE_ReadOneByte1
+.LM58:
+	ld %r0,2
+	Scall.d	setPortOutputP1x
+	ld %r1,0
+	.stabn 68,0,99,.LM59-EE_ReadOneByte1
+.LM59:
+.LBE4:
+	ld.a	%r6,[%sp]+
+	ld.a	%r5,[%sp]+
+	ld.a	%r4,[%sp]+
+	ret
+	.size	EE_ReadOneByte1, .-EE_ReadOneByte1
+	.stabs	"temp:r(3,3)",64,0,0,0
+	.stabn	192,0,0,.LBB4-EE_ReadOneByte1
+	.stabn	224,0,0,.LBE4-EE_ReadOneByte1
+	.align 1
+	.stabs	"IIC_Init:F(0,20)",36,0,0,IIC_Init
+	.global IIC_Init
+	.type	IIC_Init, @function
+IIC_Init:
+	.stabn 68,0,103,.LM60-IIC_Init
+.LM60:
+;  Function'IIC_Init'; 0 bytes of locals, 0 regs to save(0 byte).
+	.stabn 68,0,105,.LM61-IIC_Init
+.LM61:
+	Scall.d	initPortOutputP0x
+	ld %r0,3
+	.stabn 68,0,107,.LM62-IIC_Init
+.LM62:
+	Scall.d	disablePortIntP0x
+	ld %r0,3
+	.stabn 68,0,108,.LM63-IIC_Init
+.LM63:
+	ld %r0,3
+	Scall.d	setPortOutputP0x
+	ld %r1,1
+	.stabn 68,0,111,.LM64-IIC_Init
+.LM64:
+	Scall.d	initPortOutputP0x
+	ld %r0,2
+	.stabn 68,0,113,.LM65-IIC_Init
+.LM65:
+	Scall.d	disablePortIntP0x
+	ld %r0,2
+	.stabn 68,0,114,.LM66-IIC_Init
+.LM66:
+	ld %r0,2
+	Scall.d	setPortOutputP0x
+	ld %r1,1
+	.stabn 68,0,116,.LM67-IIC_Init
+.LM67:
+	Sld.a %r2,0x004200
+	ld	%r0,[%r2]
+	Xoor	%r0,0x0400
+	ld	[%r2],%r0
+	.stabn 68,0,117,.LM68-IIC_Init
+.LM68:
+	ld	%r0,[%r2]
+	Xoor	%r0,0x0800
+	ld	[%r2],%r0
+	.stabn 68,0,119,.LM69-IIC_Init
+.LM69:
+	ret
+	.size	IIC_Init, .-IIC_Init
+	.align 1
+	.stabs	"IIC_Start:F(0,20)",36,0,0,IIC_Start
+	.global IIC_Start
+	.type	IIC_Start, @function
+IIC_Start:
+	.stabn 68,0,122,.LM70-IIC_Start
+.LM70:
+;  Function'IIC_Start'; 0 bytes of locals, 0 regs to save(0 byte).
+	ld.a	-[%sp], %r4
+	.stabn 68,0,123,.LM71-IIC_Start
+.LM71:
+	Sld.a %r3,0x004202
+	ld	%r2,[%r3]
+	or	%r2,8
+	ld	[%r3],%r2
+	ld	%r2,[%r3]
+	Xand	%r2,0xf7ff
+	ld	[%r3],%r2
+	.stabn 68,0,124,.LM72-IIC_Start
+.LM72:
+	Sld.a %r3,0x004200
+	ld	%r2,[%r3]
+	Xoor	%r2,0x0800
+	ld	[%r3],%r2
+	.stabn 68,0,126,.LM73-IIC_Start
+.LM73:
+; #APP
+	nop
+	.stabn 68,0,127,.LM74-IIC_Start
+.LM74:
+; #NO_APP
+	ld	%r2,[%r3]
+	Xoor	%r2,0x0400
+	ld	[%r3],%r2
+	.stabn 68,0,128,.LM75-IIC_Start
+.LM75:
+; #APP
+	nop
+	.stabn 68,0,129,.LM76-IIC_Start
+.LM76:
+	nop
+	.stabn 68,0,130,.LM77-IIC_Start
+.LM77:
+	nop
+	.stabn 68,0,131,.LM78-IIC_Start
+.LM78:
+; #NO_APP
+	ld	%r2,[%r3]
+	Xand	%r2,0xf7ff
+	ld	[%r3],%r2
+	.stabn 68,0,133,.LM79-IIC_Start
+.LM79:
+; #APP
+	nop
+	.stabn 68,0,134,.LM80-IIC_Start
+.LM80:
+	nop
+	.stabn 68,0,135,.LM81-IIC_Start
+.LM81:
+; #NO_APP
+	ld	%r2,[%r3]
+	Xand	%r2,0xfbff
+	ld	[%r3],%r2
+	.stabn 68,0,136,.LM82-IIC_Start
+.LM82:
+	ld.a	%r4,[%sp]+
+	ret
+	.size	IIC_Start, .-IIC_Start
+	.align 1
+	.stabs	"IIC_Stop:F(0,20)",36,0,0,IIC_Stop
+	.global IIC_Stop
+	.type	IIC_Stop, @function
+IIC_Stop:
+	.stabn 68,0,139,.LM83-IIC_Stop
+.LM83:
+;  Function'IIC_Stop'; 0 bytes of locals, 0 regs to save(0 byte).
+	ld.a	-[%sp], %r4
+	.stabn 68,0,141,.LM84-IIC_Stop
+.LM84:
+	Sld.a %r3,0x004202
+	ld	%r2,[%r3]
+	or	%r2,8
+	ld	[%r3],%r2
+	ld	%r2,[%r3]
+	Xand	%r2,0xf7ff
+	ld	[%r3],%r2
+	.stabn 68,0,142,.LM85-IIC_Stop
+.LM85:
+	Sld.a %r3,0x004200
+	ld	%r2,[%r3]
+	Xand	%r2,0xf7ff
+	ld	[%r3],%r2
+	.stabn 68,0,143,.LM86-IIC_Stop
+.LM86:
+	ld	%r2,[%r3]
+	Xoor	%r2,0x0400
+	ld	[%r3],%r2
+	.stabn 68,0,145,.LM87-IIC_Stop
+.LM87:
+; #APP
+	nop
+	.stabn 68,0,146,.LM88-IIC_Stop
+.LM88:
+	nop
+	.stabn 68,0,147,.LM89-IIC_Stop
+.LM89:
+	nop
+	.stabn 68,0,148,.LM90-IIC_Stop
+.LM90:
+; #NO_APP
+	ld	%r2,[%r3]
+	Xoor	%r2,0x0800
+	ld	[%r3],%r2
+	.stabn 68,0,150,.LM91-IIC_Stop
+.LM91:
+; #APP
+	nop
+	.stabn 68,0,151,.LM92-IIC_Stop
+.LM92:
+; #NO_APP
+	ld.a	%r4,[%sp]+
+	ret
+	.size	IIC_Stop, .-IIC_Stop
+	.align 1
+	.stabs	"IIC_Wait_Ack:F(3,3)",36,0,0,IIC_Wait_Ack
+	.global IIC_Wait_Ack
+	.type	IIC_Wait_Ack, @function
+IIC_Wait_Ack:
+	.stabn 68,0,156,.LM93-IIC_Wait_Ack
+.LM93:
+;  Function'IIC_Wait_Ack'; 0 bytes of locals, 0 regs to save(0 byte).
+	ld.a	-[%sp], %r4
+	ld.a	-[%sp], %r5
+	.stabn 68,0,157,.LM94-IIC_Wait_Ack
+.LM94:
+.LBB5:
+	ld %r5,0
+	.stabn 68,0,158,.LM95-IIC_Wait_Ack
+.LM95:
+	Sld.a %r3,0x004202
+	ld	%r2,[%r3]
+	Xoor	%r2,0x0800
+	ld	[%r3],%r2
+	ld	%r2,[%r3]
+	and	%r2,-9
+	ld	[%r3],%r2
+	.stabn 68,0,159,.LM96-IIC_Wait_Ack
+.LM96:
+	Sld.a %r3,0x004200
+	ld	%r2,[%r3]
+	Xoor	%r2,0x0400
+	ld	[%r3],%r2
+	.stabn 68,0,160,.LM97-IIC_Wait_Ack
+.LM97:
+; #APP
+	nop
+	.stabn 68,0,161,.LM98-IIC_Wait_Ack
+.LM98:
+	nop
+	.stabn 68,0,162,.LM99-IIC_Wait_Ack
+.LM99:
+; #NO_APP
+	jpr	.L16	;# <34>
+.L20:
+	.stabn 68,0,164,.LM100-IIC_Wait_Ack
+.LM100:
+	add	%r5,0x0001
+	.stabn 68,0,165,.LM101-IIC_Wait_Ack
+.LM101:
+	Xcmp	%r5,0x03e8
+	jrule	.L16	;# <21>
+	.stabn 68,0,167,.LM102-IIC_Wait_Ack
+.LM102:
+	Scall	IIC_Stop
+	.stabn 68,0,168,.LM103-IIC_Wait_Ack
+.LM103:
+	jpr.d	.L15	;# <0x0001dd>
+	ld %r0,1
+.L16:
+	Scall.d	getPortInputP0x
+	ld %r0,3
+	ld.ub	%r0,%r0
+	cmp	%r0,0
+	jrne	.L20	;# <-34>
+	.stabn 68,0,172,.LM104-IIC_Wait_Ack
+.LM104:
+; #APP
+	nop
+	.stabn 68,0,173,.LM105-IIC_Wait_Ack
+.LM105:
+	nop
+	.stabn 68,0,174,.LM106-IIC_Wait_Ack
+.LM106:
+; #NO_APP
+	Sld.a %r3,0x004200
+	ld	%r2,[%r3]
+	Xand	%r2,0xfbff
+	ld	[%r3],%r2
+	.stabn 68,0,175,.LM107-IIC_Wait_Ack
+.LM107:
+	ld %r0,0
+	.stabn 68,0,176,.LM108-IIC_Wait_Ack
+.LM108:
+.L15:
+.LBE5:
+	ld.a	%r5,[%sp]+
+	ld.a	%r4,[%sp]+
+	ret
+	.size	IIC_Wait_Ack, .-IIC_Wait_Ack
+	.stabs	"ucErrTime:r(3,4)",64,0,0,5
+	.stabn	192,0,0,.LBB5-IIC_Wait_Ack
+	.stabn	224,0,0,.LBE5-IIC_Wait_Ack
+	.align 1
+	.stabs	"IIC_Ack:F(0,20)",36,0,0,IIC_Ack
+	.global IIC_Ack
+	.type	IIC_Ack, @function
+IIC_Ack:
+	.stabn 68,0,180,.LM109-IIC_Ack
+.LM109:
+;  Function'IIC_Ack'; 0 bytes of locals, 0 regs to save(0 byte).
+	ld.a	-[%sp], %r4
+	.stabn 68,0,181,.LM110-IIC_Ack
+.LM110:
+	Sld.a %r0,0x004200
+	ld	%r2,[%r0]
+	Xand	%r2,0xfbff
+	ld	[%r0],%r2
+	.stabn 68,0,182,.LM111-IIC_Ack
+.LM111:
+	Sld.a %r3,0x004202
+	ld	%r2,[%r3]
+	or	%r2,8
+	ld	[%r3],%r2
+	ld	%r2,[%r3]
+	Xand	%r2,0xf7ff
+	ld	[%r3],%r2
+	.stabn 68,0,183,.LM112-IIC_Ack
+.LM112:
+	ld	%r2,[%r0]
+	Xand	%r2,0xf7ff
+	ld	[%r0],%r2
+	.stabn 68,0,185,.LM113-IIC_Ack
+.LM113:
+; #APP
+	nop
+	.stabn 68,0,186,.LM114-IIC_Ack
+.LM114:
+; #NO_APP
+	ld	%r2,[%r0]
+	Xoor	%r2,0x0400
+	ld	[%r0],%r2
+	.stabn 68,0,188,.LM115-IIC_Ack
+.LM115:
+; #APP
+	nop
+	.stabn 68,0,189,.LM116-IIC_Ack
+.LM116:
+	nop
+	.stabn 68,0,190,.LM117-IIC_Ack
+.LM117:
+	nop
+	.stabn 68,0,191,.LM118-IIC_Ack
+.LM118:
+; #NO_APP
+	ld	%r2,[%r0]
+	Xand	%r2,0xfbff
+	ld	[%r0],%r2
+	.stabn 68,0,193,.LM119-IIC_Ack
+.LM119:
+	ld.a	%r4,[%sp]+
+	ret
+	.size	IIC_Ack, .-IIC_Ack
+	.align 1
+	.stabs	"IIC_NAck:F(0,20)",36,0,0,IIC_NAck
+	.global IIC_NAck
+	.type	IIC_NAck, @function
+IIC_NAck:
+	.stabn 68,0,196,.LM120-IIC_NAck
+.LM120:
+;  Function'IIC_NAck'; 0 bytes of locals, 0 regs to save(0 byte).
+	ld.a	-[%sp], %r4
+	.stabn 68,0,197,.LM121-IIC_NAck
+.LM121:
+	Sld.a %r0,0x004200
+	ld	%r2,[%r0]
+	Xand	%r2,0xfbff
+	ld	[%r0],%r2
+	.stabn 68,0,198,.LM122-IIC_NAck
+.LM122:
+	Sld.a %r3,0x004202
+	ld	%r2,[%r3]
+	or	%r2,8
+	ld	[%r3],%r2
+	ld	%r2,[%r3]
+	Xand	%r2,0xf7ff
+	ld	[%r3],%r2
+	.stabn 68,0,199,.LM123-IIC_NAck
+.LM123:
+	ld	%r2,[%r0]
+	Xoor	%r2,0x0800
+	ld	[%r0],%r2
+	.stabn 68,0,201,.LM124-IIC_NAck
+.LM124:
+; #APP
+	nop
+	.stabn 68,0,202,.LM125-IIC_NAck
+.LM125:
+; #NO_APP
+	ld	%r2,[%r0]
+	Xoor	%r2,0x0400
+	ld	[%r0],%r2
+	.stabn 68,0,204,.LM126-IIC_NAck
+.LM126:
+; #APP
+	nop
+	.stabn 68,0,205,.LM127-IIC_NAck
+.LM127:
+	nop
+	.stabn 68,0,206,.LM128-IIC_NAck
+.LM128:
+	nop
+	.stabn 68,0,207,.LM129-IIC_NAck
+.LM129:
+; #NO_APP
+	ld	%r2,[%r0]
+	Xand	%r2,0xfbff
+	ld	[%r0],%r2
+	.stabn 68,0,209,.LM130-IIC_NAck
+.LM130:
+	ld.a	%r4,[%sp]+
+	ret
+	.size	IIC_NAck, .-IIC_NAck
+	.align 1
+	.stabs	"IIC_Send_Byte:F(0,20)",36,0,0,IIC_Send_Byte
+	.stabs	"txd:P(0,11)",64,0,0,0
+	.global IIC_Send_Byte
+	.type	IIC_Send_Byte, @function
+IIC_Send_Byte:
+	.stabn 68,0,215,.LM131-IIC_Send_Byte
+.LM131:
+;  Function'IIC_Send_Byte'; 0 bytes of locals, 0 regs to save(0 byte).
+	ld.a	-[%sp], %r4
+	ld.ub	%r0,%r0
+	.stabn 68,0,217,.LM132-IIC_Send_Byte
+.LM132:
+.LBB6:
+	Sld.a %r3,0x004202
+	ld	%r2,[%r3]
+	or	%r2,8
+	ld	[%r3],%r2
+	ld	%r2,[%r3]
+	Xand	%r2,0xf7ff
+	ld	[%r3],%r2
+	.stabn 68,0,218,.LM133-IIC_Send_Byte
+.LM133:
+	Sld.a %r3,0x004200
+	ld	%r2,[%r3]
+	Xand	%r2,0xfbff
+	ld	[%r3],%r2
+	.stabn 68,0,220,.LM134-IIC_Send_Byte
+.LM134:
+; #APP
+	nop
+	.stabn 68,0,221,.LM135-IIC_Send_Byte
+.LM135:
+	nop
+	.stabn 68,0,222,.LM136-IIC_Send_Byte
+.LM136:
+; #NO_APP
+	ld %r1,0
+	.stabn 68,0,224,.LM137-IIC_Send_Byte
+.LM137:
+	ld	%r2,%r0
+.L34:
+	sr	%r2,4
+	sr	%r2,3
+	cmp	%r2,0
+	jreq	.L28	;# <29>
+	.stabn 68,0,226,.LM138-IIC_Send_Byte
+.LM138:
+	Sld.a %r3,0x004200
+	ld	%r2,[%r3]
+	Xoor	%r2,0x0800
+	jpr	.L33	;# <25>
+.L28:
+	.stabn 68,0,230,.LM139-IIC_Send_Byte
+.LM139:
+	Sld.a %r3,0x004200
+	ld	%r2,[%r3]
+	Xand	%r2,0xf7ff
+.L33:
+	ld	[%r3],%r2
+	.stabn 68,0,232,.LM140-IIC_Send_Byte
+.LM140:
+	ld	%r2,%r0
+	sl	%r2,1
+	ld.ub	%r0,%r2
+	.stabn 68,0,233,.LM141-IIC_Send_Byte
+.LM141:
+	Sld.a %r3,0x004200
+	ld	%r2,[%r3]
+	Xoor	%r2,0x0400
+	ld	[%r3],%r2
+	.stabn 68,0,235,.LM142-IIC_Send_Byte
+.LM142:
+; #APP
+	nop
+	.stabn 68,0,236,.LM143-IIC_Send_Byte
+.LM143:
+	nop
+	.stabn 68,0,237,.LM144-IIC_Send_Byte
+.LM144:
+; #NO_APP
+	ld	%r2,[%r3]
+	Xand	%r2,0xfbff
+	ld	[%r3],%r2
+	.stabn 68,0,239,.LM145-IIC_Send_Byte
+.LM145:
+; #APP
+	nop
+	.stabn 68,0,222,.LM146-IIC_Send_Byte
+.LM146:
+; #NO_APP
+	ld	%r2,%r1
+	add	%r2,0x0001
+	ld.ub	%r1,%r2
+	cmp	%r1,7
+	Sjrule.d	.L34	;# <0xfffd1c>
+	ld	%r2,%r0
+	.stabn 68,0,241,.LM147-IIC_Send_Byte
+.LM147:
+.LBE6:
+	ld.a	%r4,[%sp]+
+	ret
+	.size	IIC_Send_Byte, .-IIC_Send_Byte
+	.stabs	"t:r(3,3)",64,0,0,1
+	.stabn	192,0,0,.LBB6-IIC_Send_Byte
+	.stabn	224,0,0,.LBE6-IIC_Send_Byte
+	.align 1
+	.stabs	"IIC_Read_Byte:F(0,11)",36,0,0,IIC_Read_Byte
+	.stabs	"ack:P(0,11)",64,0,0,0
+	.global IIC_Read_Byte
+	.type	IIC_Read_Byte, @function
+IIC_Read_Byte:
+	.stabn 68,0,244,.LM148-IIC_Read_Byte
+.LM148:
+;  Function'IIC_Read_Byte'; 0 bytes of locals, 0 regs to save(0 byte).
+	ld.a	-[%sp], %r4
+	ld.a	-[%sp], %r5
+	ld.a	-[%sp], %r6
+	ld.ub	%r0,%r0
+	.stabn 68,0,245,.LM149-IIC_Read_Byte
+.LM149:
+.LBB7:
+	ld %r5,0
+	.stabn 68,0,246,.LM150-IIC_Read_Byte
+.LM150:
+	Sld.a %r3,0x004202
+	ld	%r2,[%r3]
+	Xoor	%r2,0x0800
+	ld	[%r3],%r2
+	ld	%r2,[%r3]
+	and	%r2,-9
+	ld	[%r3],%r2
+	.stabn 68,0,247,.LM151-IIC_Read_Byte
+.LM151:
+	ld	%r1,%r5
+.L41:
+	.stabn 68,0,249,.LM152-IIC_Read_Byte
+.LM152:
+	Sld.a %r3,0x004200
+	ld	%r2,[%r3]
+	Xand	%r2,0xfbff
+	ld	[%r3],%r2
+	.stabn 68,0,252,.LM153-IIC_Read_Byte
+.LM153:
+; #APP
+	nop
+	.stabn 68,0,253,.LM154-IIC_Read_Byte
+.LM154:
+	nop
+	.stabn 68,0,254,.LM155-IIC_Read_Byte
+.LM155:
+; #NO_APP
+	ld	%r2,[%r3]
+	Xoor	%r2,0x0400
+	ld	[%r3],%r2
+	.stabn 68,0,256,.LM156-IIC_Read_Byte
+.LM156:
+; #APP
+	nop
+	.stabn 68,0,257,.LM157-IIC_Read_Byte
+.LM157:
+	nop
+	.stabn 68,0,259,.LM158-IIC_Read_Byte
+.LM158:
+; #NO_APP
+	ld	%r2,%r5
+	sl	%r2,1
+	ld.ub	%r5,%r2
+	.stabn 68,0,260,.LM159-IIC_Read_Byte
+.LM159:
+	ld	%r2,[%r3]
+	and	%r2,8	; peephole
+	jreq.d	.L47	;# <19>
+	ld	%r2,%r1
+	ld	%r2,%r5
+	add	%r2,0x0001
+	ld.ub	%r5,%r2
+	.stabn 68,0,247,.LM160-IIC_Read_Byte
+.LM160:
+	ld	%r2,%r1
+.L47:
+	add	%r2,0x0001
+	ld.ub	%r1,%r2
+	cmp	%r1,7
+	Sjrule	.L41	;# <0xfffc62>
+	.stabn 68,0,263,.LM161-IIC_Read_Byte
+.LM161:
+	Sld.a %r3,0x004200
+	ld	%r2,[%r3]
+	Xand	%r2,0xfbff
+	ld	[%r3],%r2
+	.stabn 68,0,264,.LM162-IIC_Read_Byte
+.LM162:
+	cmp	%r0,0
+	jrne	.L42	;# <21>
+	.stabn 68,0,265,.LM163-IIC_Read_Byte
+.LM163:
+	Scall	IIC_NAck
+	jpr.d	.L46	;# <17>
+	ld	%r0,%r5
+.L42:
+	.stabn 68,0,267,.LM164-IIC_Read_Byte
+.LM164:
+	Scall	IIC_Ack
+	.stabn 68,0,269,.LM165-IIC_Read_Byte
+.LM165:
+.LBE7:
+	ld	%r0,%r5
+.L46:
+	ld.a	%r6,[%sp]+
+	ld.a	%r5,[%sp]+
+	ld.a	%r4,[%sp]+
+	ret
+	.size	IIC_Read_Byte, .-IIC_Read_Byte
+	.stabs	"i:r(0,11)",64,0,0,1
+	.stabs	"receive:r(0,11)",64,0,0,5
+	.stabn	192,0,0,.LBB7-IIC_Read_Byte
+	.stabn	224,0,0,.LBE7-IIC_Read_Byte
+	.align 1
+	.stabs	"IIC_Read_Bytes:F(0,20)",36,0,0,IIC_Read_Bytes
+	.stabs	"revData:p(1,3)=*(3,3)",160,0,0,0
+	.stabs	"readLen:P(3,3)",64,0,0,7
+	.global IIC_Read_Bytes
+	.type	IIC_Read_Bytes, @function
+IIC_Read_Bytes:
+	.stabn 68,0,271,.LM166-IIC_Read_Bytes
+.LM166:
+;  Function'IIC_Read_Bytes'; 4 bytes of locals, 0 regs to save(0 byte).
+	ld.a	-[%sp], %r4
+	ld.a	-[%sp], %r5
+	ld.a	-[%sp], %r6
+	ld.a	-[%sp], %r7
+	xsub.a	%sp, 0x4
+	ld.a	[%sp+0],%r0
+	ld.ub	%r7,%r1
+	.stabn 68,0,272,.LM167-IIC_Read_Bytes
+.LM167:
+.LBB8:
+	ld %r6,0
+	.stabn 68,0,274,.LM168-IIC_Read_Bytes
+.LM168:
+	cmp	%r6,%r7
+	Sjruge.d	.L65	;# <0x000421>
+	ld	%r5,%r6
+.L63:
+	.stabn 68,0,276,.LM169-IIC_Read_Bytes
+.LM169:
+	Sld.a %r2,0x004202
+	ld	%r0,[%r2]
+	Xoor	%r0,0x0800
+	ld	[%r2],%r0
+	ld	%r0,[%r2]
+	and	%r0,-9
+	ld	[%r2],%r0
+	.stabn 68,0,277,.LM170-IIC_Read_Bytes
+.LM170:
+	ld %r0,0
+.L58:
+	.stabn 68,0,279,.LM171-IIC_Read_Bytes
+.LM171:
+	Sld.a %r3,0x004200
+	ld	%r2,[%r3]
+	Xand	%r2,0xfbff
+	ld	[%r3],%r2
+	.stabn 68,0,282,.LM172-IIC_Read_Bytes
+.LM172:
+; #APP
+	nop
+	.stabn 68,0,283,.LM173-IIC_Read_Bytes
+.LM173:
+	nop
+	.stabn 68,0,284,.LM174-IIC_Read_Bytes
+.LM174:
+; #NO_APP
+	ld	%r2,[%r3]
+	Xoor	%r2,0x0400
+	ld	[%r3],%r2
+	.stabn 68,0,286,.LM175-IIC_Read_Bytes
+.LM175:
+; #APP
+	nop
+	.stabn 68,0,287,.LM176-IIC_Read_Bytes
+.LM176:
+	nop
+	.stabn 68,0,289,.LM177-IIC_Read_Bytes
+.LM177:
+; #NO_APP
+	ld	%r2,%r5
+	sl	%r2,1
+	ld.ub	%r5,%r2
+	.stabn 68,0,291,.LM178-IIC_Read_Bytes
+.LM178:
+	ld	%r2,[%r3]
+	and	%r2,8	; peephole
+	jreq.d	.L69	;# <19>
+	ld	%r2,%r0
+	ld	%r2,%r5
+	add	%r2,0x0001
+	ld.ub	%r5,%r2
+	.stabn 68,0,277,.LM179-IIC_Read_Bytes
+.LM179:
+	ld	%r2,%r0
+.L69:
+	add	%r2,0x0001
+	ld.ub	%r0,%r2
+	cmp	%r0,7
+	Sjrule.d	.L58	;# <0xfffc62>
+	ld.ub %r2,%r6
+	.stabn 68,0,294,.LM180-IIC_Read_Bytes
+.LM180:
+	ld.a	%r0,[%sp+0]
+	add.a	%r2,%r0
+	ld.b	[%r2],%r5
+	.stabn 68,0,295,.LM181-IIC_Read_Bytes
+.LM181:
+	Sld.a %r3,0x004200
+	ld	%r2,[%r3]
+	Xand	%r2,0xfbff
+	ld	[%r3],%r2
+	.stabn 68,0,296,.LM182-IIC_Read_Bytes
+.LM182:
+	cmp	%r7,1
+	jrule.d	.L59	;# <34>
+	ld %r2,-1
+	.stabn 68,0,298,.LM183-IIC_Read_Bytes
+.LM183:
+	add	%r2,%r7
+	cmp	%r6,%r2
+	jrge	.L59	;# <21>
+	Scall	IIC_Ack
+	jpr.d	.L68	;# <17>
+	ld	%r2,%r6
+.L59:
+	.stabn 68,0,303,.LM184-IIC_Read_Bytes
+.LM184:
+	Scall	IIC_NAck
+	.stabn 68,0,274,.LM185-IIC_Read_Bytes
+.LM185:
+	ld	%r2,%r6
+.L68:
+	add	%r2,0x0001
+	ld.ub	%r6,%r2
+	cmp	%r6,%r7
+	Sjrult	.L63	;# <0xfffbf3>
+.L65:
+	.stabn 68,0,308,.LM186-IIC_Read_Bytes
+.LM186:
+.LBE8:
+	add.a	%sp, 0x4
+	ld.a	%r7,[%sp]+
+	ld.a	%r6,[%sp]+
+	ld.a	%r5,[%sp]+
+	ld.a	%r4,[%sp]+
+	ret
+	.size	IIC_Read_Bytes, .-IIC_Read_Bytes
+	.stabs	"i:r(0,11)",64,0,0,0
+	.stabs	"j:r(0,11)",64,0,0,6
+	.stabs	"receive:r(0,11)",64,0,0,5
+	.stabn	192,0,0,.LBB8-IIC_Read_Bytes
+	.stabn	224,0,0,.LBE8-IIC_Read_Bytes
+	.text
+	.stabs "",100,0,0,Letext
+Letext:
+	.end
+	.ident	"GCC: (GNU) 3.3.2  2009/1/19(GCC17 Ver 1.3)"

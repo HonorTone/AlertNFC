@@ -1,0 +1,3521 @@
+
+;  GNU C 3.3.2  2009/1/19(GCC17 Ver 1.3) compiled by GNU C
+
+;  Cc1 defaults:
+;  -mpointer24 -mlong-offset -mint16 -mquickcall
+
+;  Cc1 arguments (-cpu = C17):
+;  -quiet -IC:/EPSON/GNU17/include -Iinc -Iinc/reg -iprefix -isystem
+;  -D__GNUC__=3 -D__GNUC_MINOR__=3 -D__GNUC_PATCHLEVEL__=2 -D__c17 -D__c17
+;  -DMCUSEL_C17W14 -quiet -dumpbase -auxbase-strip -gstabs -O1 -Wall
+;  -Werror-implicit-function-declaration -fno-builtin -o
+
+	.file	"lcd8b.c"
+	.stabs	"src/lcd8b.c",100,0,0,.Ltext0
+	.section .text
+.Ltext0:
+	.stabs	"gcc2_compiled.",60,0,0,0
+	.stabs	"int:t(0,1)=r(0,1);-32768;32767;",128,0,0,0
+	.stabs	"char:t(0,2)=r(0,2);0;127;",128,0,0,0
+	.stabs	"long int:t(0,3)=r(0,3);-2147483648;2147483647;",128,0,0,0
+	.stabs	"unsigned int:t(0,4)=r(0,4);0;65535;",128,0,0,0
+	.stabs	"long unsigned int:t(0,5)=r(0,5);0;-1;",128,0,0,0
+	.stabs	"long long int:t(0,6)=r(0,6);0;-1;",128,0,0,0
+	.stabs	"long long unsigned int:t(0,7)=r(0,7);0;-1;",128,0,0,0
+	.stabs	"short int:t(0,8)=r(0,8);-32768;32767;",128,0,0,0
+	.stabs	"short unsigned int:t(0,9)=r(0,9);0;65535;",128,0,0,0
+	.stabs	"signed char:t(0,10)=r(0,10);-128;127;",128,0,0,0
+	.stabs	"unsigned char:t(0,11)=r(0,11);0;255;",128,0,0,0
+	.stabs	"float:t(0,12)=r(0,1);4;0;",128,0,0,0
+	.stabs	"double:t(0,13)=r(0,1);8;0;",128,0,0,0
+	.stabs	"long double:t(0,14)=r(0,1);8;0;",128,0,0,0
+	.stabs	"complex int:t(0,15)=s4real:(0,1),0,16;imag:(0,1),16,16;;",128,0,0,0
+	.stabs	"complex float:t(0,16)=R3;8;0;",128,0,0,0
+	.stabs	"complex double:t(0,17)=R4;16;0;",128,0,0,0
+	.stabs	"complex long double:t(0,18)=R4;16;0;",128,0,0,0
+	.stabs	"__builtin_va_list:t(0,19)=*(0,20)=(0,20)",128,0,0,0
+	.stabs	"_Bool:t(0,21)=eFalse:0,True:1,;",128,0,0,0
+	.stabs	"src/lcd8b.c",130,0,0,0
+	.stabs	"inc/lcd8b.h",130,0,0,0
+	.stabs	"inc/init.h",130,0,0,0
+	.stabs	"inc/c17w14_reg.h",130,0,0,0
+	.stabs	"inc/reg/misc_reg.h",130,0,0,0
+	.stabs	"MSCPROT_REG_TAG:T(5,1)=u2reg:(0,9),0,16;;",128,0,0,0
+	.stabs	"MSCPROT_REG:t(5,2)=(5,1)",128,0,0,0
+	.stabs	"MSCIRAMSZ_REG_BIT_TAG:T(5,3)=s2IRAMSZ:(0,9),0,3;reserved_1:(0,9),3,13;;",128,0,0,0
+	.stabs	"MSCIRAMSZ_REG_TAG:T(5,4)=u2reg:(0,9),0,16;bit:(5,3),0,16;byte_reg:(5,5)=ar(5,6)=r(5,6);0;-1;;0;1;(0,11),0,16;;",128,0,0,0
+	.stabs	"MSCIRAMSZ_REG:t(5,7)=(5,4)",128,0,0,0
+	.stabs	"MSCTTBRL_REG_TAG:T(5,8)=u2reg:(0,9),0,16;;",128,0,0,0
+	.stabs	"MSCTTBRL_REG:t(5,9)=(5,8)",128,0,0,0
+	.stabs	"MSCTTBRH_REG_BIT_TAG:T(5,10)=s2TTBR:(0,9),0,8;reserved_1:(0,9),8,8;;",128,0,0,0
+	.stabs	"MSCTTBRH_REG_TAG:T(5,11)=u2reg:(0,9),0,16;bit:(5,10),0,16;;",128,0,0,0
+	.stabs	"MSCTTBRH_REG:t(5,12)=(5,11)",128,0,0,0
+	.stabs	"MSCTTBR_REG_DWORD_BIT_TAG:T(5,13)=s4TTBR:(0,5),0,24;reserved_1:(0,5),24,8;;",128,0,0,0
+	.stabs	"MSCTTBR_REG_DWORD_TAG:T(5,14)=u4reg:(0,5),0,32;bit:(5,13),0,32;;",128,0,0,0
+	.stabs	"MSCTTBR_DWORD_REG:t(5,15)=(5,14)",128,0,0,0
+	.stabs	"MSCPSR_REG_BIT_TAG:T(5,16)=s2PSRN:(0,9),0,1;PSRZ:(0,9),1,1;PSRV:(0,9),2,1;PSRC:(0,9),3,1;PSRIE:(0,9),4,1;PSRIL:(0,9),5,3;reserved_1:(0,9),8,8;;",128,0,0,0
+	.stabs	"MSCPSR_REG_TAG:T(5,17)=u2reg:(0,9),0,16;bit:(5,16),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"MSCPSR_REG:t(5,18)=(5,17)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/pwg2_reg.h",130,0,0,0
+	.stabs	"PWGCTL_REG_BIT_TAG:T(6,1)=s2PWGMOD:(0,9),0,3;reserved_1:(0,9),3,13;;",128,0,0,0
+	.stabs	"PWGCTL_REG_TAG:T(6,2)=u2reg:(0,9),0,16;bit:(6,1),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"PWGCTL_REG:t(6,3)=(6,2)",128,0,0,0
+	.stabs	"PWGTIM_REG_BIT_TAG:T(6,4)=s2DCCCLK:(0,9),0,2;reserved_1:(0,9),2,14;;",128,0,0,0
+	.stabs	"PWGTIM_REG_TAG:T(6,5)=u2reg:(0,9),0,16;bit:(6,4),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"PWGTIM_REG:t(6,6)=(6,5)",128,0,0,0
+	.stabs	"PWGINTF_REG_BIT_TAG:T(6,7)=s2MODCMPIF:(0,9),0,1;reserved_1:(0,9),1,15;;",128,0,0,0
+	.stabs	"PWGINTF_REG_TAG:T(6,8)=u2reg:(0,9),0,16;bit:(6,7),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"PWGINTF_REG:t(6,9)=(6,8)",128,0,0,0
+	.stabs	"PWGINTE_REG_BIT_TAG:T(6,10)=s2MODCMPIE:(0,9),0,1;reserved_1:(0,9),1,15;;",128,0,0,0
+	.stabs	"PWGINTE_REG_TAG:T(6,11)=u2reg:(0,9),0,16;bit:(6,10),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"PWGINTE_REG:t(6,12)=(6,11)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/clg_w14_reg.h",130,0,0,0
+	.stabs	"CLGSCLK_REG_BIT_TAG:T(7,1)=s2CLKSRC:(0,9),0,2;reserved_1:(0,9),2,2;CLKDIV:(0,9),4,2;reserved_2:(0,9),6,2;WUPSRC:(0,9),8,2;reserved_3:(0,9),10,2;WUPDIV:(0,9),12,2;reserved_4:(0,9),14,1;WUPMD:(0,9),15,1;;",128,0,0,0
+	.stabs	"CLGSCLK_REG_TAG:T(7,2)=u2reg:(0,9),0,16;bit:(7,1),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"CLGSCLK_REG:t(7,3)=(7,2)",128,0,0,0
+	.stabs	"CLGOSC_REG_BIT_TAG:T(7,4)=s2IOSCEN:(0,9),0,1;OSC1EN:(0,9),1,1;OSC3EN:(0,9),2,1;EXOSCEN:(0,9),3,1;reserved_1:(0,9),4,4;IOSCSLPC:(0,9),8,1;OSC1SLPC:(0,9),9,1;OSC3SLPC:(0,9),10,1;EXOSCSLPC:(0,9),11,1;reserved_2:(0,9),12,4;;",128,0,0,0
+	.stabs	"CLGOSC_REG_TAG:T(7,5)=u2reg:(0,9),0,16;bit:(7,4),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"CLGOSC_REG:t(7,6)=(7,5)",128,0,0,0
+	.stabs	"CLGIOSC_REG_BIT_TAG:T(7,7)=s2reserved_1:(0,9),0,4;IOSCSTM:(0,9),4,1;reserved_2:(0,9),5,11;;",128,0,0,0
+	.stabs	"CLGIOSC_REG_TAG:T(7,8)=u2reg:(0,9),0,16;bit:(7,7),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"CLGIOSC_REG:t(7,9)=(7,8)",128,0,0,0
+	.stabs	"CLGOSC1_REG_BIT_TAG:T(7,10)=s2OSC1WT:(0,9),0,2;reserved_1:(0,9),2,2;INV1N:(0,9),4,2;INV1B:(0,9),6,2;CGI1:(0,9),8,3;reserved_2:(0,9),11,1;OSC1BUP:(0,9),12,1;OSDEN:(0,9),13,1;OSDRB:(0,9),14,1;reserved_3:(0,9),15,1;;",128,0,0,0
+	.stabs	"CLGOSC1_REG_TAG:T(7,11)=u2reg:(0,9),0,16;bit:(7,10),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"CLGOSC1_REG:t(7,12)=(7,11)",128,0,0,0
+	.stabs	"CLGOSC3_REG_BIT_TAG:T(7,13)=s2OSC3WT:(0,9),0,3;reserved_1:(0,9),3,1;OSC3INV:(0,9),4,2;reserved_2:(0,9),6,2;OSC3MD:(0,9),8,2;OSC3FQ:(0,9),10,3;reserved_3:(0,9),13,3;;",128,0,0,0
+	.stabs	"CLGOSC3_REG_TAG:T(7,14)=u2reg:(0,9),0,16;bit:(7,13),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"CLGOSC3_REG:t(7,15)=(7,14)",128,0,0,0
+	.stabs	"CLGINTF_REG_BIT_TAG:T(7,16)=s2IOSCSTAIF:(0,9),0,1;OSC1STAIF:(0,9),1,1;OSC3STAIF:(0,9),2,1;reserved_1:(0,9),3,1;IOSCTEDIF:(0,9),4,1;OSC1STPIF:(0,9),5,1;reserved_2:(0,9),6,10;;",128,0,0,0
+	.stabs	"CLGINTF_REG_TAG:T(7,17)=u2reg:(0,9),0,16;bit:(7,16),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"CLGINTF_REG:t(7,18)=(7,17)",128,0,0,0
+	.stabs	"CLGINTE_REG_BIT_TAG:T(7,19)=s2IOSCSTAIE:(0,9),0,1;OSC1STAIE:(0,9),1,1;OSC3STAIE:(0,9),2,1;reserved_1:(0,9),3,1;IOSCTEDIE:(0,9),4,1;OSC1STPIE:(0,9),5,1;reserved_2:(0,9),6,10;;",128,0,0,0
+	.stabs	"CLGINTE_REG_TAG:T(7,20)=u2reg:(0,9),0,16;bit:(7,19),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"CLGINTE_REG:t(7,21)=(7,20)",128,0,0,0
+	.stabs	"CLGFOUT_REG_BIT_TAG:T(7,22)=s2FOUTEN:(0,9),0,1;reserved_1:(0,9),1,1;FOUTSRC:(0,9),2,2;FOUTDIV:(0,9),4,3;reserved_2:(0,9),7,9;;",128,0,0,0
+	.stabs	"CLGFOUT_REG_TAG:T(7,23)=u2reg:(0,9),0,16;bit:(7,22),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"CLGFOUT_REG:t(7,24)=(7,23)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/itc_reg.h",130,0,0,0
+	.stabs	"ITCLVX_REG_BIT_TAG:T(8,1)=s2ILV_L:(0,9),0,3;reserved_1:(0,9),3,5;ILV_H:(0,9),8,3;reserved_2:(0,9),11,5;;",128,0,0,0
+	.stabs	"ITCLVX_REG_TAG:T(8,2)=u2reg:(0,9),0,16;bit:(8,1),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"ITCLVX_REG:t(8,3)=(8,2)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/wdt_reg.h",130,0,0,0
+	.stabs	"WDTCLK_REG_BIT_TAG:T(9,1)=s2CLKSRC:(0,9),0,2;reserved_1:(0,9),2,2;CLKDIV:(0,9),4,2;reserved_2:(0,9),6,2;DBRUN:(0,9),8,1;reserved_3:(0,9),9,7;;",128,0,0,0
+	.stabs	"WDTCLK_REG_TAG:T(9,2)=u2reg:(0,9),0,16;bit:(9,1),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"WDTCLK_REG:t(9,3)=(9,2)",128,0,0,0
+	.stabs	"WDTCTL_REG_BIT_TAG:T(9,4)=s2WDTRUN:(0,9),0,4;WDTCNTRST:(0,9),4,1;reserved_1:(0,9),5,3;STATNMI:(0,9),8,1;NMIXRST:(0,9),9,1;reserved_2:(0,9),10,6;;",128,0,0,0
+	.stabs	"WDTCTL_REG_TAG:T(9,5)=u2reg:(0,9),0,16;bit:(9,4),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"WDTCTL_REG:t(9,6)=(9,5)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/rtca_reg.h",130,0,0,0
+	.stabs	"RTCCTL_REG_BIT_TAG:T(10,1)=s2RTCRUN:(0,9),0,1;RTCRST:(0,9),1,1;RTCADJ:(0,9),2,1;reserved_1:(0,9),3,1;RTC24H:(0,9),4,1;RTCHLD:(0,9),5,1;RTCBSY:(0,9),6,1;reserved_2:(0,9),7,1;RTCTRM:(0,9),8,7;RTCTRMBSY:(0,9),15,1;;",128,0,0,0
+	.stabs	"RTCCTL_REG_TAG:T(10,2)=u2reg:(0,9),0,16;bit:(10,1),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"RTCCTL_REG:t(10,3)=(10,2)",128,0,0,0
+	.stabs	"RTCALM1_REG_BIT_TAG:T(10,4)=s2reserved_1:(0,9),0,8;RTCSLA:(0,9),8,4;RTCSHA:(0,9),12,3;reserved_2:(0,9),15,1;;",128,0,0,0
+	.stabs	"RTCALM1_REG_TAG:T(10,5)=u2reg:(0,9),0,16;bit:(10,4),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"RTCALM1_REG:t(10,6)=(10,5)",128,0,0,0
+	.stabs	"RTCALM2_REG_BIT_TAG:T(10,7)=s2RTCMILA:(0,9),0,4;RTCMIHA:(0,9),4,3;reserved_1:(0,9),7,1;RTCHLA:(0,9),8,4;RTCHHA:(0,9),12,2;RTCAPA:(0,9),14,1;reserved_2:(0,9),15,1;;",128,0,0,0
+	.stabs	"RTCALM2_REG_TAG:T(10,8)=u2reg:(0,9),0,16;bit:(10,7),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"RTCALM2_REG:t(10,9)=(10,8)",128,0,0,0
+	.stabs	"RTCSWCTL_REG_BIT_TAG:T(10,10)=s2SWRUN:(0,9),0,1;reserved_1:(0,9),1,3;SWRST:(0,9),4,1;reserved_2:(0,9),5,3;BCD100:(0,9),8,4;BCD10:(0,9),12,4;;",128,0,0,0
+	.stabs	"RTCSWCTL_REG_TAG:T(10,11)=u2reg:(0,9),0,16;bit:(10,10),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"RTCSWCTL_REG:t(10,12)=(10,11)",128,0,0,0
+	.stabs	"RTCSEC_REG_BIT_TAG:T(10,13)=s2RTC128HZ:(0,9),0,1;RTC64HZ:(0,9),1,1;RTC32HZ:(0,9),2,1;RTC16HZ:(0,9),3,1;RTC8HZ:(0,9),4,1;RTC4HZ:(0,9),5,1;RTC2HZ:(0,9),6,1;RTC1HZ:(0,9),7,1;RTCSL:(0,9),8,4;RTCSH:(0,9),12,3;reserved_1:(0,9),15,1;;",128,0,0,0
+	.stabs	"RTCSEC_REG_TAG:T(10,14)=u2reg:(0,9),0,16;bit:(10,13),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"RTCSEC_REG:t(10,15)=(10,14)",128,0,0,0
+	.stabs	"RTCHUR_REG_BIT_TAG:T(10,16)=s2RTCMIL:(0,9),0,4;RTCMIH:(0,9),4,3;reserved_1:(0,9),7,1;RTCHL:(0,9),8,4;RTCHH:(0,9),12,2;RTCAP:(0,9),14,1;reserved_2:(0,9),15,1;;",128,0,0,0
+	.stabs	"RTCHUR_REG_TAG:T(10,17)=u2reg:(0,9),0,16;bit:(10,16),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"RTCHUR_REG:t(10,18)=(10,17)",128,0,0,0
+	.stabs	"RTCMON_REG_BIT_TAG:T(10,19)=s2RTCDL:(0,9),0,4;RTCDH:(0,9),4,2;reserved_1:(0,9),6,2;RTCMOL:(0,9),8,4;RTCMOH:(0,9),12,1;reserved_2:(0,9),13,3;;",128,0,0,0
+	.stabs	"RTCMON_REG_TAG:T(10,20)=u2reg:(0,9),0,16;bit:(10,19),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"RTCMON_REG:t(10,21)=(10,20)",128,0,0,0
+	.stabs	"RTCYAR_REG_BIT_TAG:T(10,22)=s2RTCYL:(0,9),0,4;RTCYH:(0,9),4,4;RTCWK:(0,9),8,3;reserved_1:(0,9),11,5;;",128,0,0,0
+	.stabs	"RTCYAR_REG_TAG:T(10,23)=u2reg:(0,9),0,16;bit:(10,22),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"RTCYAR_REG:t(10,24)=(10,23)",128,0,0,0
+	.stabs	"RTCINTF_REG_BIT_TAG:T(10,25)=s2_1_32SECIF:(0,9),0,1;_1_8SECIF:(0,9),1,1;_1_4SECIF:(0,9),2,1;_1_2SECIF:(0,9),3,1;_1SECIF:(0,9),4,1;_1MINIF:(0,9),5,1;_1HURIF:(0,9),6,1;_1DAYIF:(0,9),7,1;ALARMIF:(0,9),8,1;reserved_1:(0,9),9,3;SW100IF:(0,9),12,1;SW10IF:(0,9),13,1;SW1IF:(0,9),14,1;RTCTRMIF:(0,9),15,1;;",128,0,0,0
+	.stabs	"RTCINTF_REG_TAG:T(10,26)=u2reg:(0,9),0,16;bit:(10,25),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"RTCINTF_REG:t(10,27)=(10,26)",128,0,0,0
+	.stabs	"RTCINTE_REG_BIT_TAG:T(10,28)=s2_1_32SECIE:(0,9),0,1;_1_8SECIE:(0,9),1,1;_1_4SECIE:(0,9),2,1;_1_2SECIE:(0,9),3,1;_1SECIE:(0,9),4,1;_1MINIE:(0,9),5,1;_1HURIE:(0,9),6,1;_1DAYIE:(0,9),7,1;ALARMIE:(0,9),8,1;reserved_1:(0,9),9,3;SW100IE:(0,9),12,1;SW10IE:(0,9),13,1;SW1IE:(0,9),14,1;RTCTRMIE:(0,9),15,1;;",128,0,0,0
+	.stabs	"RTCINTE_REG_TAG:T(10,29)=u2reg:(0,9),0,16;bit:(10,28),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"RTCINTE_REG:t(10,30)=(10,29)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/svd_reg.h",130,0,0,0
+	.stabs	"SVDCLK_REG_BIT_TAG:T(11,1)=s2CLKSRC:(0,9),0,2;reserved_1:(0,9),2,2;CLKDIV:(0,9),4,3;reserved_2:(0,9),7,1;DBRUN:(0,9),8,1;reserved_3:(0,9),9,7;;",128,0,0,0
+	.stabs	"SVDCLK_REG_TAG:T(11,2)=u2reg:(0,9),0,16;bit:(11,1),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"SVDCLK_REG:t(11,3)=(11,2)",128,0,0,0
+	.stabs	"SVDCTL_REG_BIT_TAG:T(11,4)=s2MODEN:(0,9),0,1;SVDMD:(0,9),1,2;reserved_1:(0,9),3,1;SVDRE:(0,9),4,4;SVDC:(0,9),8,5;SVDSC:(0,9),13,2;VDSEL:(0,9),15,1;;",128,0,0,0
+	.stabs	"SVDCTL_REG_TAG:T(11,5)=u2reg:(0,9),0,16;bit:(11,4),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"SVDCTL_REG:t(11,6)=(11,5)",128,0,0,0
+	.stabs	"SVDINTF_REG_BIT_TAG:T(11,7)=s2SVDIF:(0,9),0,1;reserved_1:(0,9),1,7;SVDDT:(0,9),8,1;reserved_2:(0,9),9,7;;",128,0,0,0
+	.stabs	"SVDINTF_REG_TAG:T(11,8)=u2reg:(0,9),0,16;bit:(11,7),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"SVDINTF_REG:t(11,9)=(11,8)",128,0,0,0
+	.stabs	"SVDINTE_REG_BIT_TAG:T(11,10)=s2SVDIE:(0,9),0,1;reserved_1:(0,9),1,15;;",128,0,0,0
+	.stabs	"SVDINTE_REG_TAG:T(11,11)=u2reg:(0,9),0,16;bit:(11,10),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"SVDINTE_REG:t(11,12)=(11,11)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/t16_reg.h",130,0,0,0
+	.stabs	"T16_NCLK_REG_BIT_TAG:T(12,1)=s2CLKSRC:(0,9),0,2;reserved_1:(0,9),2,2;CLKDIV:(0,9),4,4;DBRUN:(0,9),8,1;reserved_2:(0,9),9,7;;",128,0,0,0
+	.stabs	"T16_NCLK_REG_TAG:T(12,2)=u2reg:(0,9),0,16;bit:(12,1),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"T16_NCLK_REG:t(12,3)=(12,2)",128,0,0,0
+	.stabs	"T16_NMOD_REG_BIT_TAG:T(12,4)=s2TRMD:(0,9),0,1;reserved_1:(0,9),1,15;;",128,0,0,0
+	.stabs	"T16_NMOD_REG_TAG:T(12,5)=u2reg:(0,9),0,16;bit:(12,4),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"T16_NMOD_REG:t(12,6)=(12,5)",128,0,0,0
+	.stabs	"T16_NCTL_REG_BIT_TAG:T(12,7)=s2MODEN:(0,9),0,1;PRESET:(0,9),1,1;reserved_1:(0,9),2,6;PRUN:(0,9),8,1;reserved_2:(0,9),9,7;;",128,0,0,0
+	.stabs	"T16_NCTL_REG_TAG:T(12,8)=u2reg:(0,9),0,16;bit:(12,7),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"T16_NCTL_REG:t(12,9)=(12,8)",128,0,0,0
+	.stabs	"T16_NTR_REG_TAG:T(12,10)=u2reg:(0,9),0,16;;",128,0,0,0
+	.stabs	"T16_NTR_REG:t(12,11)=(12,10)",128,0,0,0
+	.stabs	"T16_NTC_REG_TAG:T(12,12)=u2reg:(0,9),0,16;;",128,0,0,0
+	.stabs	"T16_NTC_REG:t(12,13)=(12,12)",128,0,0,0
+	.stabs	"T16_NINTF_REG_BIT_TAG:T(12,14)=s2UFIF:(0,9),0,1;reserved_1:(0,9),1,15;;",128,0,0,0
+	.stabs	"T16_NINTF_REG_TAG:T(12,15)=u2reg:(0,9),0,16;bit:(12,14),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"T16_NINTF_REG:t(12,16)=(12,15)",128,0,0,0
+	.stabs	"T16_NINTE_REG_BIT_TAG:T(12,17)=s2UFIE:(0,9),0,1;reserved_1:(0,9),1,15;;",128,0,0,0
+	.stabs	"T16_NINTE_REG_TAG:T(12,18)=u2reg:(0,9),0,16;bit:(12,17),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"T16_NINTE_REG:t(12,19)=(12,18)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/t16b_reg.h",130,0,0,0
+	.stabs	"T16BNCLK_REG_BIT_TAG:T(13,1)=s2CLKSRC:(0,9),0,3;reserved_1:(0,9),3,1;CLKDIV:(0,9),4,4;DBRUN:(0,9),8,1;reserved_2:(0,9),9,7;;",128,0,0,0
+	.stabs	"T16BNCLK_REG_TAG:T(13,2)=u2reg:(0,9),0,16;bit:(13,1),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"T16BNCLK_REG:t(13,3)=(13,2)",128,0,0,0
+	.stabs	"T16BNCTL_REG_BIT_TAG:T(13,4)=s2MODEN:(0,9),0,1;PRESET:(0,9),1,1;RUN:(0,9),2,1;ONEST:(0,9),3,1;CNTMD:(0,9),4,2;reserved_1:(0,9),6,2;MAXBSY:(0,9),8,1;reserved_2:(0,9),9,7;;",128,0,0,0
+	.stabs	"T16BNCTL_REG_TAG:T(13,5)=u2reg:(0,9),0,16;bit:(13,4),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"T16BNCTL_REG:t(13,6)=(13,5)",128,0,0,0
+	.stabs	"T16BNMC_REG_TAG:T(13,7)=u2reg:(0,9),0,16;;",128,0,0,0
+	.stabs	"T16BNMC_REG:t(13,8)=(13,7)",128,0,0,0
+	.stabs	"T16BNTC_REG_TAG:T(13,9)=u2reg:(0,9),0,16;;",128,0,0,0
+	.stabs	"T16BNTC_REG:t(13,10)=(13,9)",128,0,0,0
+	.stabs	"T16BNCS_REG_BIT_TAG:T(13,11)=s2BSY:(0,9),0,1;UP_DOWN:(0,9),1,1;CAPI0:(0,9),2,1;CAPI1:(0,9),3,1;CAPI2:(0,9),4,1;CAPI3:(0,9),5,1;CAPI4:(0,9),6,1;CAPI5:(0,9),7,1;reserved_1:(0,9),8,8;;",128,0,0,0
+	.stabs	"T16BNCS_REG_TAG:T(13,12)=u2reg:(0,9),0,16;bit:(13,11),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"T16BNCS_REG:t(13,13)=(13,12)",128,0,0,0
+	.stabs	"T16BNINTF_REG_BIT_TAG:T(13,14)=s2CNTZEROIF:(0,9),0,1;CNTMAXIF:(0,9),1,1;CMPCAP0IF:(0,9),2,1;CAPOW0IF:(0,9),3,1;CMPCAP1IF:(0,9),4,1;CAPOW1IF:(0,9),5,1;CMPCAP2IF:(0,9),6,1;CAPOW2IF:(0,9),7,1;CMPCAP3IF:(0,9),8,1;CAPOW3IF:(0,9),9,1;CMPCAP4IF:(0,9),10,1;CAPOW4IF:(0,9),11,1;CMPCAP5IF:(0,9),12,1;CAPOW5IF:(0,9),13,1;reserved_1:(0,9),14,2;;",128,0,0,0
+	.stabs	"T16BNINTF_REG_TAG:T(13,15)=u2reg:(0,9),0,16;bit:(13,14),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"T16BNINTF_REG:t(13,16)=(13,15)",128,0,0,0
+	.stabs	"T16BNINTE_REG_BIT_TAG:T(13,17)=s2CNTZEROIE:(0,9),0,1;CNTMAXIE:(0,9),1,1;CMPCAP0IE:(0,9),2,1;CAPOW0IE:(0,9),3,1;CMPCAP1IE:(0,9),4,1;CAPOW1IE:(0,9),5,1;CMPCAP2IE:(0,9),6,1;CAPOW2IE:(0,9),7,1;CMPCAP3IE:(0,9),8,1;CAPOW3IE:(0,9),9,1;CMPCAP4IE:(0,9),10,1;CAPOW4IE:(0,9),11,1;CMPCAP5IE:(0,9),12,1;CAPOW5IE:(0,9),13,1;reserved_1:(0,9),14,2;;",128,0,0,0
+	.stabs	"T16BNINTE_REG_TAG:T(13,18)=u2reg:(0,9),0,16;bit:(13,17),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"T16BNINTE_REG:t(13,19)=(13,18)",128,0,0,0
+	.stabs	"T16BNCCCTLM_REG_BIT_TAG:T(13,20)=s2CCMD:(0,9),0,1;TOUTINV:(0,9),1,1;TOUTMD:(0,9),2,3;TOUTO:(0,9),5,1;TOUTMT:(0,9),6,1;reserved_1:(0,9),7,1;CAPTRG:(0,9),8,2;CAPIS:(0,9),10,2;CBUFMD:(0,9),12,3;SCS:(0,9),15,1;;",128,0,0,0
+	.stabs	"T16BNCCCTLM_REG_TAG:T(13,21)=u2reg:(0,9),0,16;bit:(13,20),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"T16BNCCCTLM_REG:t(13,22)=(13,21)",128,0,0,0
+	.stabs	"T16BNCCRM_REG_TAG:T(13,23)=u2reg:(0,9),0,16;;",128,0,0,0
+	.stabs	"T16BNCCRM_REG:t(13,24)=(13,23)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/flashc_reg.h",130,0,0,0
+	.stabs	"FLASHCWAIT_REG_BIT_TAG:T(14,1)=s2RDWAIT:(0,9),0,2;reserved_1:(0,9),2,5;XBUSY:(0,9),7,1;reserved_2:(0,9),8,8;;",128,0,0,0
+	.stabs	"FLASHCWAIT_REG_TAG:T(14,2)=u2reg:(0,9),0,16;bit:(14,1),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"FLASHCWAIT_REG:t(14,3)=(14,2)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/pport_w14_reg.h",130,0,0,0
+	.stabs	"PXDAT_REG_BIT_TAG:T(15,1)=s2Px0IN:(0,9),0,1;Px1IN:(0,9),1,1;Px2IN:(0,9),2,1;Px3IN:(0,9),3,1;Px4IN:(0,9),4,1;Px5IN:(0,9),5,1;Px6IN:(0,9),6,1;Px7IN:(0,9),7,1;Px0OUT:(0,9),8,1;Px1OUT:(0,9),9,1;Px2OUT:(0,9),10,1;Px3OUT:(0,9),11,1;Px4OUT:(0,9),12,1;Px5OUT:(0,9),13,1;Px6OUT:(0,9),14,1;Px7OUT:(0,9),15,1;;",128,0,0,0
+	.stabs	"PXDAT_REG_TAG:T(15,2)=u2reg:(0,9),0,16;bit:(15,1),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"PXDAT_REG:t(15,3)=(15,2)",128,0,0,0
+	.stabs	"PXIOEN_REG_BIT_TAG:T(15,4)=s2Px0OEN:(0,9),0,1;Px1OEN:(0,9),1,1;Px2OEN:(0,9),2,1;Px3OEN:(0,9),3,1;Px4OEN:(0,9),4,1;Px5OEN:(0,9),5,1;Px6OEN:(0,9),6,1;Px7OEN:(0,9),7,1;Px0IEN:(0,9),8,1;Px1IEN:(0,9),9,1;Px2IEN:(0,9),10,1;Px3IEN:(0,9),11,1;Px4IEN:(0,9),12,1;Px5IEN:(0,9),13,1;Px6IEN:(0,9),14,1;Px7IEN:(0,9),15,1;;",128,0,0,0
+	.stabs	"PXIOEN_REG_TAG:T(15,5)=u2reg:(0,9),0,16;bit:(15,4),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"PXIOEN_REG:t(15,6)=(15,5)",128,0,0,0
+	.stabs	"PXRCTL_REG_BIT_TAG:T(15,7)=s2Px0REN:(0,9),0,1;Px1REN:(0,9),1,1;Px2REN:(0,9),2,1;Px3REN:(0,9),3,1;Px4REN:(0,9),4,1;Px5REN:(0,9),5,1;Px6REN:(0,9),6,1;Px7REN:(0,9),7,1;Px0PDPU:(0,9),8,1;Px1PDPU:(0,9),9,1;Px2PDPU:(0,9),10,1;Px3PDPU:(0,9),11,1;Px4PDPU:(0,9),12,1;Px5PDPU:(0,9),13,1;Px6PDPU:(0,9),14,1;Px7PDPU:(0,9),15,1;;",128,0,0,0
+	.stabs	"PXRCTL_REG_TAG:T(15,8)=u2reg:(0,9),0,16;bit:(15,7),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"PXRCTL_REG:t(15,9)=(15,8)",128,0,0,0
+	.stabs	"PXINTF_REG_BIT_TAG:T(15,10)=s2Px0IF:(0,9),0,1;Px1IF:(0,9),1,1;Px2IF:(0,9),2,1;Px3IF:(0,9),3,1;Px4IF:(0,9),4,1;Px5IF:(0,9),5,1;Px6IF:(0,9),6,1;Px7IF:(0,9),7,1;reserved_1:(0,9),8,8;;",128,0,0,0
+	.stabs	"PXINTF_REG_TAG:T(15,11)=u2reg:(0,9),0,16;bit:(15,10),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"PXINTF_REG:t(15,12)=(15,11)",128,0,0,0
+	.stabs	"PXINTCTL_REG_BIT_TAG:T(15,13)=s2Px0IE:(0,9),0,1;Px1IE:(0,9),1,1;Px2IE:(0,9),2,1;Px3IE:(0,9),3,1;Px4IE:(0,9),4,1;Px5IE:(0,9),5,1;Px6IE:(0,9),6,1;Px7IE:(0,9),7,1;Px0EDGE:(0,9),8,1;Px1EDGE:(0,9),9,1;Px2EDGE:(0,9),10,1;Px3EDGE:(0,9),11,1;Px4EDGE:(0,9),12,1;Px5EDGE:(0,9),13,1;Px6EDGE:(0,9),14,1;Px7EDGE:(0,9),15,1;;",128,0,0,0
+	.stabs	"PXINTCTL_REG_TAG:T(15,14)=u2reg:(0,9),0,16;bit:(15,13),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"PXINTCTL_REG:t(15,15)=(15,14)",128,0,0,0
+	.stabs	"PXCHATEN_REG_BIT_TAG:T(15,16)=s2Px0CHATEN:(0,9),0,1;Px1CHATEN:(0,9),1,1;Px2CHATEN:(0,9),2,1;Px3CHATEN:(0,9),3,1;Px4CHATEN:(0,9),4,1;Px5CHATEN:(0,9),5,1;Px6CHATEN:(0,9),6,1;Px7CHATEN:(0,9),7,1;reserved_1:(0,9),8,8;;",128,0,0,0
+	.stabs	"PXCHATEN_REG_TAG:T(15,17)=u2reg:(0,9),0,16;bit:(15,16),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"PXCHATEN_REG:t(15,18)=(15,17)",128,0,0,0
+	.stabs	"PXMODSEL_REG_BIT_TAG:T(15,19)=s2Px0SEL:(0,9),0,1;Px1SEL:(0,9),1,1;Px2SEL:(0,9),2,1;Px3SEL:(0,9),3,1;Px4SEL:(0,9),4,1;Px5SEL:(0,9),5,1;Px6SEL:(0,9),6,1;Px7SEL:(0,9),7,1;reserved_1:(0,9),8,8;;",128,0,0,0
+	.stabs	"PXMODSEL_REG_TAG:T(15,20)=u2reg:(0,9),0,16;bit:(15,19),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"PXMODSEL_REG:t(15,21)=(15,20)",128,0,0,0
+	.stabs	"PXFNCSEL_REG_BIT_TAG:T(15,22)=s2Px0MUX:(0,9),0,2;Px1MUX:(0,9),2,2;Px2MUX:(0,9),4,2;Px3MUX:(0,9),6,2;Px4MUX:(0,9),8,2;Px5MUX:(0,9),10,2;Px6MUX:(0,9),12,2;Px7MUX:(0,9),14,2;;",128,0,0,0
+	.stabs	"PXFNCSEL_REG_TAG:T(15,23)=u2reg:(0,9),0,16;bit:(15,22),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"PXFNCSEL_REG:t(15,24)=(15,23)",128,0,0,0
+	.stabs	"PCLK_REG_BIT_TAG:T(15,25)=s2CLKSRC:(0,9),0,2;KRSTCFG:(0,9),2,2;CLKDIV:(0,9),4,4;DBRUN:(0,9),8,1;reserved_1:(0,9),9,7;;",128,0,0,0
+	.stabs	"PCLK_REG_TAG:T(15,26)=u2reg:(0,9),0,16;bit:(15,25),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"PCLK_REG:t(15,27)=(15,26)",128,0,0,0
+	.stabs	"PINTFGRP_REG_BIT_TAG:T(15,28)=s2P0INT:(0,9),0,1;P1INT:(0,9),1,1;P2INT:(0,9),2,1;P3INT:(0,9),3,1;P4INT:(0,9),4,1;P5INT:(0,9),5,1;P6INT:(0,9),6,1;P7INT:(0,9),7,1;P8INT:(0,9),8,1;P9INT:(0,9),9,1;PaINT:(0,9),10,1;PbINT:(0,9),11,1;PcINT:(0,9),12,1;reserved_1:(0,9),13,3;;",128,0,0,0
+	.stabs	"PINTFGRP_REG_TAG:T(15,29)=u2reg:(0,9),0,16;bit:(15,28),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"PINTFGRP_REG:t(15,30)=(15,29)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/upmux_reg.h",130,0,0,0
+	.stabs	"PXUPMUXN_REG_BIT_TAG:T(16,1)=s2PxyPERISEL:(0,9),0,3;PxyPERICH:(0,9),3,2;PxyPPFNC:(0,9),5,3;PxzPERISEL:(0,9),8,3;PxzPERICH:(0,9),11,2;PxzPPFNC:(0,9),13,3;;",128,0,0,0
+	.stabs	"PXUPMUXN_REG_TAG:T(16,2)=u2reg:(0,9),0,16;bit:(16,1),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"PXUPMUXN_REG:t(16,3)=(16,2)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/uart_reg.h",130,0,0,0
+	.stabs	"UANCLK_REG_BIT_TAG:T(17,1)=s2CLKSRC:(0,9),0,2;reserved_1:(0,9),2,2;CLKDIV:(0,9),4,2;reserved_2:(0,9),6,2;DBRUN:(0,9),8,1;reserved_3:(0,9),9,7;;",128,0,0,0
+	.stabs	"UANCLK_REG_TAG:T(17,2)=u2reg:(0,9),0,16;bit:(17,1),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"UANCLK_REG:t(17,3)=(17,2)",128,0,0,0
+	.stabs	"UANMOD_REG_BIT_TAG:T(17,4)=s2STPB:(0,9),0,1;PRMD:(0,9),1,1;PREN:(0,9),2,1;CHLN:(0,9),3,1;IRMD:(0,9),4,1;OUTMD:(0,9),5,1;PUEN:(0,9),6,1;reserved_1:(0,9),7,1;INVIRTX:(0,9),8,1;INVIRRX:(0,9),9,1;reserved_2:(0,9),10,6;;",128,0,0,0
+	.stabs	"UANMOD_REG_TAG:T(17,5)=u2reg:(0,9),0,16;bit:(17,4),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"UANMOD_REG:t(17,6)=(17,5)",128,0,0,0
+	.stabs	"UANBR_REG_BIT_TAG:T(17,7)=s2BRT:(0,9),0,8;FMD:(0,9),8,4;reserved_1:(0,9),12,4;;",128,0,0,0
+	.stabs	"UANBR_REG_TAG:T(17,8)=u2reg:(0,9),0,16;bit:(17,7),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"UANBR_REG:t(17,9)=(17,8)",128,0,0,0
+	.stabs	"UANCTL_REG_BIT_TAG:T(17,10)=s2MODEN:(0,9),0,1;SFTRST:(0,9),1,1;reserved_1:(0,9),2,14;;",128,0,0,0
+	.stabs	"UANCTL_REG_TAG:T(17,11)=u2reg:(0,9),0,16;bit:(17,10),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"UANCTL_REG:t(17,12)=(17,11)",128,0,0,0
+	.stabs	"UANTXD_REG_BIT_TAG:T(17,13)=s2TXD:(0,9),0,8;reserved_1:(0,9),8,8;;",128,0,0,0
+	.stabs	"UANTXD_REG_TAG:T(17,14)=u2reg:(0,9),0,16;bit:(17,13),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"UANTXD_REG:t(17,15)=(17,14)",128,0,0,0
+	.stabs	"UANRXD_REG_BIT_TAG:T(17,16)=s2RXD:(0,9),0,8;reserved_1:(0,9),8,8;;",128,0,0,0
+	.stabs	"UANRXD_REG_TAG:T(17,17)=u2reg:(0,9),0,16;bit:(17,16),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"UANRXD_REG:t(17,18)=(17,17)",128,0,0,0
+	.stabs	"UANINTF_REG_BIT_TAG:T(17,19)=s2TBEIF:(0,9),0,1;RB1FIF:(0,9),1,1;RB2FIF:(0,9),2,1;OEIF:(0,9),3,1;PEIF:(0,9),4,1;FEIF:(0,9),5,1;TENDIF:(0,9),6,1;reserved_1:(0,9),7,1;TBSY:(0,9),8,1;RBSY:(0,9),9,1;reserved_2:(0,9),10,6;;",128,0,0,0
+	.stabs	"UANINTF_REG_TAG:T(17,20)=u2reg:(0,9),0,16;bit:(17,19),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"UANINTF_REG:t(17,21)=(17,20)",128,0,0,0
+	.stabs	"UANINTE_REG_BIT_TAG:T(17,22)=s2TBEIE:(0,9),0,1;RB1FIE:(0,9),1,1;RB2FIE:(0,9),2,1;OEIE:(0,9),3,1;PEIE:(0,9),4,1;FEIE:(0,9),5,1;TENDIE:(0,9),6,1;reserved_1:(0,9),7,9;;",128,0,0,0
+	.stabs	"UANINTE_REG_TAG:T(17,23)=u2reg:(0,9),0,16;bit:(17,22),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"UANINTE_REG:t(17,24)=(17,23)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/spia_reg.h",130,0,0,0
+	.stabs	"SPINMOD_REG_BIT_TAG:T(18,1)=s2MST:(0,9),0,1;CPOL:(0,9),1,1;CPHA:(0,9),2,1;LSBFST:(0,9),3,1;NOCLKDIV:(0,9),4,1;PUEN:(0,9),5,1;reserved_1:(0,9),6,2;CHLN:(0,9),8,4;reserved_2:(0,9),12,4;;",128,0,0,0
+	.stabs	"SPINMOD_REG_TAG:T(18,2)=u2reg:(0,9),0,16;bit:(18,1),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"SPINMOD_REG:t(18,3)=(18,2)",128,0,0,0
+	.stabs	"SPINCTL_REG_BIT_TAG:T(18,4)=s2MODEN:(0,9),0,1;SFTRST:(0,9),1,1;reserved_1:(0,9),2,14;;",128,0,0,0
+	.stabs	"SPINCTL_REG_TAG:T(18,5)=u2reg:(0,9),0,16;bit:(18,4),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"SPINCTL_REG:t(18,6)=(18,5)",128,0,0,0
+	.stabs	"SPINTXD_REG_TAG:T(18,7)=u2reg:(0,9),0,16;;",128,0,0,0
+	.stabs	"SPINTXD_REG:t(18,8)=(18,7)",128,0,0,0
+	.stabs	"SPINRXD_REG_TAG:T(18,9)=u2reg:(0,9),0,16;;",128,0,0,0
+	.stabs	"SPINRXD_REG:t(18,10)=(18,9)",128,0,0,0
+	.stabs	"SPININTF_REG_BIT_TAG:T(18,11)=s2TBEIF:(0,9),0,1;RBFIF:(0,9),1,1;TENDIF:(0,9),2,1;OEIF:(0,9),3,1;reserved_1:(0,9),4,3;BSY:(0,9),7,1;reserved_2:(0,9),8,8;;",128,0,0,0
+	.stabs	"SPININTF_REG_TAG:T(18,12)=u2reg:(0,9),0,16;bit:(18,11),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"SPININTF_REG:t(18,13)=(18,12)",128,0,0,0
+	.stabs	"SPININTE_REG_BIT_TAG:T(18,14)=s2TBEIE:(0,9),0,1;RBFIE:(0,9),1,1;TENDIE:(0,9),2,1;OEIE:(0,9),3,1;reserved_1:(0,9),4,12;;",128,0,0,0
+	.stabs	"SPININTE_REG_TAG:T(18,15)=u2reg:(0,9),0,16;bit:(18,14),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"SPININTE_REG:t(18,16)=(18,15)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/i2c_reg.h",130,0,0,0
+	.stabs	"I2CNCLK_REG_BIT_TAG:T(19,1)=s2CLKSRC:(0,9),0,2;reserved_1:(0,9),2,2;CLKDIV:(0,9),4,2;reserved_2:(0,9),6,2;DBRUN:(0,9),8,1;reserved_3:(0,9),9,7;;",128,0,0,0
+	.stabs	"I2CNCLK_REG_TAG:T(19,2)=u2reg:(0,9),0,16;bit:(19,1),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"I2CNCLK_REG:t(19,3)=(19,2)",128,0,0,0
+	.stabs	"I2CNMOD_REG_BIT_TAG:T(19,4)=s2reserved_1:(0,9),0,1;GCEN:(0,9),1,1;OADR10:(0,9),2,1;reserved_2:(0,9),3,13;;",128,0,0,0
+	.stabs	"I2CNMOD_REG_TAG:T(19,5)=u2reg:(0,9),0,16;bit:(19,4),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"I2CNMOD_REG:t(19,6)=(19,5)",128,0,0,0
+	.stabs	"I2CNBR_REG_BIT_TAG:T(19,7)=s2BRT:(0,9),0,7;reserved_1:(0,9),7,9;;",128,0,0,0
+	.stabs	"I2CNBR_REG_TAG:T(19,8)=u2reg:(0,9),0,16;bit:(19,7),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"I2CNBR_REG:t(19,9)=(19,8)",128,0,0,0
+	.stabs	"I2CNOADR_REG_BIT_TAG:T(19,10)=s2OADR:(0,9),0,10;reserved_1:(0,9),10,6;;",128,0,0,0
+	.stabs	"I2CNOADR_REG_TAG:T(19,11)=u2reg:(0,9),0,16;bit:(19,10),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"I2CNOADR_REG:t(19,12)=(19,11)",128,0,0,0
+	.stabs	"I2CNCTL_REG_BIT_TAG:T(19,13)=s2MODEN:(0,9),0,1;SFTRST:(0,9),1,1;TXSTART:(0,9),2,1;TXSTOP:(0,9),3,1;TXNACK:(0,9),4,1;MST:(0,9),5,1;reserved_1:(0,9),6,10;;",128,0,0,0
+	.stabs	"I2CNCTL_REG_TAG:T(19,14)=u2reg:(0,9),0,16;bit:(19,13),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"I2CNCTL_REG:t(19,15)=(19,14)",128,0,0,0
+	.stabs	"I2CNTXD_REG_BIT_TAG:T(19,16)=s2TXD:(0,9),0,8;reserved_1:(0,9),8,8;;",128,0,0,0
+	.stabs	"I2CNTXD_REG_TAG:T(19,17)=u2reg:(0,9),0,16;bit:(19,16),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"I2CNTXD_REG:t(19,18)=(19,17)",128,0,0,0
+	.stabs	"I2CNRXD_REG_BIT_TAG:T(19,19)=s2RXD:(0,9),0,8;reserved_1:(0,9),8,8;;",128,0,0,0
+	.stabs	"I2CNRXD_REG_TAG:T(19,20)=u2reg:(0,9),0,16;bit:(19,19),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"I2CNRXD_REG:t(19,21)=(19,20)",128,0,0,0
+	.stabs	"I2CNINTF_REG_BIT_TAG:T(19,22)=s2TBEIF:(0,9),0,1;RBFIF:(0,9),1,1;ERRIF:(0,9),2,1;STARTIF:(0,9),3,1;STOPIF:(0,9),4,1;NACKIF:(0,9),5,1;GCIF:(0,9),6,1;BYTEENDIF:(0,9),7,1;reserved_1:(0,9),8,1;TR:(0,9),9,1;BSY:(0,9),10,1;SCLLOW:(0,9),11,1;SDALOW:(0,9),12,1;reserved_2:(0,9),13,3;;",128,0,0,0
+	.stabs	"I2CNINTF_REG_TAG:T(19,23)=u2reg:(0,9),0,16;bit:(19,22),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"I2CNINTF_REG:t(19,24)=(19,23)",128,0,0,0
+	.stabs	"I2CNINTE_REG_BIT_TAG:T(19,25)=s2TBEIE:(0,9),0,1;RBFIE:(0,9),1,1;ERRIE:(0,9),2,1;STARTIE:(0,9),3,1;STOPIE:(0,9),4,1;NACKIE:(0,9),5,1;GCIE:(0,9),6,1;BYTEENDIE:(0,9),7,1;reserved_1:(0,9),8,8;;",128,0,0,0
+	.stabs	"I2CNINTE_REG_TAG:T(19,26)=u2reg:(0,9),0,16;bit:(19,25),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"I2CNINTE_REG:t(19,27)=(19,26)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/snda_reg.h",130,0,0,0
+	.stabs	"SNDCLK_REG_BIT_TAG:T(20,1)=s2CLKSRC:(0,9),0,2;reserved_1:(0,9),2,2;CLKDIV:(0,9),4,3;reserved_2:(0,9),7,1;DBRUN:(0,9),8,1;reserved_3:(0,9),9,7;;",128,0,0,0
+	.stabs	"SNDCLK_REG_TAG:T(20,2)=u2reg:(0,9),0,16;bit:(20,1),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"SNDCLK_REG:t(20,3)=(20,2)",128,0,0,0
+	.stabs	"SNDSEL_REG_BIT_TAG:T(20,4)=s2MOSEL:(0,9),0,2;SINV:(0,9),2,1;reserved_1:(0,9),3,5;STIM:(0,9),8,4;reserved_2:(0,9),12,4;;",128,0,0,0
+	.stabs	"SNDSEL_REG_TAG:T(20,5)=u2reg:(0,9),0,16;bit:(20,4),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"SNDSEL_REG:t(20,6)=(20,5)",128,0,0,0
+	.stabs	"SNDCTL_REG_BIT_TAG:T(20,7)=s2MODEN:(0,9),0,1;reserved_1:(0,9),1,7;SSTP:(0,9),8,1;reserved_2:(0,9),9,7;;",128,0,0,0
+	.stabs	"SNDCTL_REG_TAG:T(20,8)=u2reg:(0,9),0,16;bit:(20,7),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"SNDCTL_REG:t(20,9)=(20,8)",128,0,0,0
+	.stabs	"SNDDAT_REG_BIT_TAG:T(20,10)=s2SFRQ:(0,9),0,8;SLEN:(0,9),8,6;MDRS:(0,9),14,1;MDTI:(0,9),15,1;;",128,0,0,0
+	.stabs	"SNDDAT_REG_TAG:T(20,11)=u2reg:(0,9),0,16;bit:(20,10),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"SNDDAT_REG:t(20,12)=(20,11)",128,0,0,0
+	.stabs	"SNDINTF_REG_BIT_TAG:T(20,13)=s2EDIF:(0,9),0,1;EMIF:(0,9),1,1;reserved_1:(0,9),2,6;SBSY:(0,9),8,1;reserved_2:(0,9),9,7;;",128,0,0,0
+	.stabs	"SNDINTF_REG_TAG:T(20,14)=u2reg:(0,9),0,16;bit:(20,13),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"SNDINTF_REG:t(20,15)=(20,14)",128,0,0,0
+	.stabs	"SNDINTE_REG_BIT_TAG:T(20,16)=s2EDIE:(0,9),0,1;EMIE:(0,9),1,1;reserved_1:(0,9),2,14;;",128,0,0,0
+	.stabs	"SNDINTE_REG_TAG:T(20,17)=u2reg:(0,9),0,16;bit:(20,16),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"SNDINTE_REG:t(20,18)=(20,17)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/lcd8b_reg.h",130,0,0,0
+	.stabs	"LCD8CLK_REG_BIT_TAG:T(21,1)=s2CLKSRC:(0,9),0,2;reserved_1:(0,9),2,2;CLKDIV:(0,9),4,3;reserved_2:(0,9),7,1;DBRUN:(0,9),8,1;reserved_3:(0,9),9,7;;",128,0,0,0
+	.stabs	"LCD8CLK_REG_TAG:T(21,2)=u2reg:(0,9),0,16;bit:(21,1),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"LCD8CLK_REG:t(21,3)=(21,2)",128,0,0,0
+	.stabs	"LCD8CTL_REG_BIT_TAG:T(21,4)=s2MODEN:(0,9),0,1;LCDDIS:(0,9),1,1;reserved_1:(0,9),2,14;;",128,0,0,0
+	.stabs	"LCD8CTL_REG_TAG:T(21,5)=u2reg:(0,9),0,16;bit:(21,4),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"LCD8CTL_REG:t(21,6)=(21,5)",128,0,0,0
+	.stabs	"LCD8TIM1_REG_BIT_TAG:T(21,7)=s2LDUTY:(0,9),0,3;reserved_1:(0,9),3,5;FRMCNT:(0,9),8,4;reserved_2:(0,9),12,4;;",128,0,0,0
+	.stabs	"LCD8TIM1_REG_TAG:T(21,8)=u2reg:(0,9),0,16;bit:(21,7),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"LCD8TIM1_REG:t(21,9)=(21,8)",128,0,0,0
+	.stabs	"LCD8TIM2_REG_BIT_TAG:T(21,10)=s2NLINE:(0,9),0,3;reserved_1:(0,9),3,5;BSTC:(0,9),8,2;reserved_2:(0,9),10,6;;",128,0,0,0
+	.stabs	"LCD8TIM2_REG_TAG:T(21,11)=u2reg:(0,9),0,16;bit:(21,10),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"LCD8TIM2_REG:t(21,12)=(21,11)",128,0,0,0
+	.stabs	"LCD8PWR_REG_BIT_TAG:T(21,13)=s2VCEN:(0,9),0,1;VCSEL:(0,9),1,1;HVLD:(0,9),2,1;BISEL:(0,9),3,1;BSTEN:(0,9),4,1;reserved_1:(0,9),5,3;LC:(0,9),8,5;reserved_2:(0,9),13,3;;",128,0,0,0
+	.stabs	"LCD8PWR_REG_TAG:T(21,14)=u2reg:(0,9),0,16;bit:(21,13),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"LCD8PWR_REG:t(21,15)=(21,14)",128,0,0,0
+	.stabs	"LCD8DSP_REG_BIT_TAG:T(21,16)=s2DSPC:(0,9),0,2;DSPAR:(0,9),2,1;reserved_1:(0,9),3,1;DSPREV:(0,9),4,1;COMREV:(0,9),5,1;SEGREV:(0,9),6,1;reserved_2:(0,9),7,9;;",128,0,0,0
+	.stabs	"LCD8DSP_REG_TAG:T(21,17)=u2reg:(0,9),0,16;bit:(21,16),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"LCD8DSP_REG:t(21,18)=(21,17)",128,0,0,0
+	.stabs	"LCD8COMCX_REG_BIT_TAG:T(21,19)=s2COM0DEN:(0,9),0,1;COM1DEN:(0,9),1,1;COM2DEN:(0,9),2,1;COM3DEN:(0,9),3,1;COM4DEN:(0,9),4,1;COM5DEN:(0,9),5,1;COM6DEN:(0,9),6,1;COM7DEN:(0,9),7,1;reserved_1:(0,9),8,8;;",128,0,0,0
+	.stabs	"LCD8COMCX_REG_TAG:T(21,20)=u2reg:(0,9),0,16;bit:(21,19),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"LCD8COMCX_REG:t(21,21)=(21,20)",128,0,0,0
+	.stabs	"LCD8INTF_REG_BIT_TAG:T(21,22)=s2FRMIF:(0,9),0,1;reserved_1:(0,9),1,15;;",128,0,0,0
+	.stabs	"LCD8INTF_REG_TAG:T(21,23)=u2reg:(0,9),0,16;bit:(21,22),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"LCD8INTF_REG:t(21,24)=(21,23)",128,0,0,0
+	.stabs	"LCD8INTE_REG_BIT_TAG:T(21,25)=s2FRMIE:(0,9),0,1;reserved_1:(0,9),1,15;;",128,0,0,0
+	.stabs	"LCD8INTE_REG_TAG:T(21,26)=u2reg:(0,9),0,16;bit:(21,25),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"LCD8INTE_REG:t(21,27)=(21,26)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/rfc_reg.h",130,0,0,0
+	.stabs	"RFCNCLK_REG_BIT_TAG:T(22,1)=s2CLKSRC:(0,9),0,2;reserved_1:(0,9),2,2;CLKDIV:(0,9),4,2;reserved_2:(0,9),6,2;DBRUN:(0,9),8,1;reserved_3:(0,9),9,7;;",128,0,0,0
+	.stabs	"RFCNCLK_REG_TAG:T(22,2)=u2reg:(0,9),0,16;bit:(22,1),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"RFCNCLK_REG:t(22,3)=(22,2)",128,0,0,0
+	.stabs	"RFCNCTL_REG_BIT_TAG:T(22,4)=s2MODEN:(0,9),0,1;reserved_1:(0,9),1,3;SMODE:(0,9),4,2;EVTEN:(0,9),6,1;CONEN:(0,9),7,1;RFCLKMD:(0,9),8,1;reserved_2:(0,9),9,7;;",128,0,0,0
+	.stabs	"RFCNCTL_REG_TAG:T(22,5)=u2reg:(0,9),0,16;bit:(22,4),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"RFCNCTL_REG:t(22,6)=(22,5)",128,0,0,0
+	.stabs	"RFCNTRG_REG_BIT_TAG:T(22,7)=s2SREF:(0,9),0,1;SSENA:(0,9),1,1;SSENB:(0,9),2,1;reserved_1:(0,9),3,13;;",128,0,0,0
+	.stabs	"RFCNTRG_REG_TAG:T(22,8)=u2reg:(0,9),0,16;bit:(22,7),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"RFCNTRG_REG:t(22,9)=(22,8)",128,0,0,0
+	.stabs	"RFCNMCL_REG_TAG:T(22,10)=u2reg:(0,9),0,16;;",128,0,0,0
+	.stabs	"RFCNMCL_REG:t(22,11)=(22,10)",128,0,0,0
+	.stabs	"RFCNMCH_REG_BIT_TAG:T(22,12)=s2MC:(0,9),0,8;reserved_1:(0,9),8,8;;",128,0,0,0
+	.stabs	"RFCNMCH_REG_TAG:T(22,13)=u2reg:(0,9),0,16;bit:(22,12),0,16;;",128,0,0,0
+	.stabs	"RFCNMCH_REG:t(22,14)=(22,13)",128,0,0,0
+	.stabs	"RFCNMC_REG_DWORD_BIT_TAG:T(22,15)=s4MC:(0,5),0,24;reserved_1:(0,5),24,8;;",128,0,0,0
+	.stabs	"RFCNMC_REG_DWORD_TAG:T(22,16)=u4reg:(0,5),0,32;bit:(22,15),0,32;;",128,0,0,0
+	.stabs	"RFCNMC_DWORD_REG:t(22,17)=(22,16)",128,0,0,0
+	.stabs	"RFCNTCL_REG_TAG:T(22,18)=u2reg:(0,9),0,16;;",128,0,0,0
+	.stabs	"RFCNTCL_REG:t(22,19)=(22,18)",128,0,0,0
+	.stabs	"RFCNTCH_REG_BIT_TAG:T(22,20)=s2TC:(0,9),0,8;reserved_1:(0,9),8,8;;",128,0,0,0
+	.stabs	"RFCNTCH_REG_TAG:T(22,21)=u2reg:(0,9),0,16;bit:(22,20),0,16;;",128,0,0,0
+	.stabs	"RFCNTCH_REG:t(22,22)=(22,21)",128,0,0,0
+	.stabs	"RFCNTC_REG_DWORD_BIT_TAG:T(22,23)=s4TC:(0,5),0,24;reserved_1:(0,5),24,8;;",128,0,0,0
+	.stabs	"RFCNTC_REG_DWORD_TAG:T(22,24)=u4reg:(0,5),0,32;bit:(22,23),0,32;;",128,0,0,0
+	.stabs	"RFCNTC_DWORD_REG:t(22,25)=(22,24)",128,0,0,0
+	.stabs	"RFCNINTF_REG_BIT_TAG:T(22,26)=s2EREFIF:(0,9),0,1;ESENAIF:(0,9),1,1;ESENBIF:(0,9),2,1;OVMCIF:(0,9),3,1;OVTCIF:(0,9),4,1;reserved_1:(0,9),5,11;;",128,0,0,0
+	.stabs	"RFCNINTF_REG_TAG:T(22,27)=u2reg:(0,9),0,16;bit:(22,26),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"RFCNINTF_REG:t(22,28)=(22,27)",128,0,0,0
+	.stabs	"RFCNINTE_REG_BIT_TAG:T(22,29)=s2EREFIE:(0,9),0,1;ESENAIE:(0,9),1,1;ESENBIE:(0,9),2,1;OVMCIE:(0,9),3,1;OVTCIE:(0,9),4,1;reserved_1:(0,9),5,11;;",128,0,0,0
+	.stabs	"RFCNINTE_REG_TAG:T(22,30)=u2reg:(0,9),0,16;bit:(22,29),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"RFCNINTE_REG:t(22,31)=(22,30)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/remc2_reg.h",130,0,0,0
+	.stabs	"REMCLK_REG_BIT_TAG:T(23,1)=s2CLKSRC:(0,9),0,2;reserved_1:(0,9),2,2;CLKDIV:(0,9),4,4;DBRUN:(0,9),8,1;reserved_2:(0,9),9,7;;",128,0,0,0
+	.stabs	"REMCLK_REG_TAG:T(23,2)=u2reg:(0,9),0,16;bit:(23,1),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"REMCLK_REG:t(23,3)=(23,2)",128,0,0,0
+	.stabs	"REMDBCTL_REG_BIT_TAG:T(23,4)=s2MODEN:(0,9),0,1;REMCRST:(0,9),1,1;TRMD:(0,9),2,1;BUFEN:(0,9),3,1;REMOINV:(0,9),4,1;reserved_1:(0,9),5,3;PRUN:(0,9),8,1;PRESET:(0,9),9,1;reserved_2:(0,9),10,6;;",128,0,0,0
+	.stabs	"REMDBCTL_REG_TAG:T(23,5)=u2reg:(0,9),0,16;bit:(23,4),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"REMDBCTL_REG:t(23,6)=(23,5)",128,0,0,0
+	.stabs	"REMDBCNT_REG_TAG:T(23,7)=u2reg:(0,9),0,16;;",128,0,0,0
+	.stabs	"REMDBCNT_REG:t(23,8)=(23,7)",128,0,0,0
+	.stabs	"REMAPLEN_REG_TAG:T(23,9)=u2reg:(0,9),0,16;;",128,0,0,0
+	.stabs	"REMAPLEN_REG:t(23,10)=(23,9)",128,0,0,0
+	.stabs	"REMDBLEN_REG_TAG:T(23,11)=u2reg:(0,9),0,16;;",128,0,0,0
+	.stabs	"REMDBLEN_REG:t(23,12)=(23,11)",128,0,0,0
+	.stabs	"REMINTF_REG_BIT_TAG:T(23,13)=s2APIF:(0,9),0,1;DBIF:(0,9),1,1;reserved_1:(0,9),2,6;APLENBSY:(0,9),8,1;DBLENBSY:(0,9),9,1;DBCNTRUN:(0,9),10,1;reserved_2:(0,9),11,5;;",128,0,0,0
+	.stabs	"REMINTF_REG_TAG:T(23,14)=u2reg:(0,9),0,16;bit:(23,13),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"REMINTF_REG:t(23,15)=(23,14)",128,0,0,0
+	.stabs	"REMINTE_REG_BIT_TAG:T(23,16)=s2APIE:(0,9),0,1;DBIE:(0,9),1,1;reserved_1:(0,9),2,14;;",128,0,0,0
+	.stabs	"REMINTE_REG_TAG:T(23,17)=u2reg:(0,9),0,16;bit:(23,16),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"REMINTE_REG:t(23,18)=(23,17)",128,0,0,0
+	.stabs	"REMCARR_REG_BIT_TAG:T(23,19)=s2CRPER:(0,9),0,8;CRDTY:(0,9),8,8;;",128,0,0,0
+	.stabs	"REMCARR_REG_TAG:T(23,20)=u2reg:(0,9),0,16;bit:(23,19),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"REMCARR_REG:t(23,21)=(23,20)",128,0,0,0
+	.stabs	"REMCCTL_REG_BIT_TAG:T(23,22)=s2CARREN:(0,9),0,1;reserved_1:(0,9),1,15;;",128,0,0,0
+	.stabs	"REMCCTL_REG_TAG:T(23,23)=u2reg:(0,9),0,16;bit:(23,22),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"REMCCTL_REG:t(23,24)=(23,23)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabn	162,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/main.h",130,0,0,0
+	.stabs	"uchar:t(24,1)=(0,11)",128,0,0,0
+	.stabs	"uint:t(24,2)=(0,4)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	" :T(2,1)=eLCD_SEG00:0,LCD_SEG01:1,LCD_SEG02:2,LCD_SEG03:3,LCD_SEG04:4,LCD_SEG05:5,LCD_SEG06:6,LCD_SEG07:7,LCD_SEG08:8,LCD_SEG09:9,LCD_SEG10:10,LCD_SEG11:11,LCD_SEG12:12,LCD_SEG13:13,LCD_SEG14:14,LCD_SEG15:15,LCD_SEG16:16,LCD_SEG17:17,LCD_SEG18:18,LCD_SEG19:19,LCD_SEG20:20,LCD_SEG21:21,LCD_SEG22:22,LCD_SEG23:23,LCD_SEG24:24,LCD_SEG25:25,LCD_SEG26:26,LCD_SEG27:27,LCD_SEG28:28,LCD_SEG29:29,LCD_SEG30:30,LCD_SEG31:31,LCD_SEG32:32,LCD_SEG33:33,LCD_SEG34:34,LCD_SEG35:35,LCD_SEG36:36,LCD_SEG37:37,LCD_SEG38:38,LCD_SEG39:39,LCD_SEG40:40,LCD_SEG41:41,LCD_SEG42:42,LCD_SEG43:43,LCD_SEG44:44,LCD_SEG45:45,LCD_SEG46:46,LCD_SEG47:47,LCD_SEG48:48,LCD_SEG49:49,LCD_SEG50:50,LCD_SEG51:51,LCD_SEG52:52,LCD_SEG53:53,LCD_SEG_MAX:54,;",128,0,0,0
+	.stabs	" :T(2,2)=eLCD_COM00:0,LCD_COM01:1,LCD_COM02:2,LCD_COM03:3,LCD_COM04:4,LCD_COM05:5,LCD_COM06:6,LCD_COM07:7,LCD_COM_MAX:8,;",128,0,0,0
+	.stabn	162,0,0,0
+	.section	.rodata
+	.align 1
+	.type	DOT_DATA, @object
+	.size	DOT_DATA, 8
+DOT_DATA:
+	.byte	1
+	.byte	2
+	.byte	4
+	.byte	8
+	.byte	16
+	.byte	32
+	.byte	64
+	.byte	-128
+	.section .text
+	.align 1
+	.stabs	"initLcd8b:F(0,20)",36,0,0,initLcd8b
+	.global initLcd8b
+	.type	initLcd8b, @function
+initLcd8b:
+	.stabn 68,0,42,.LM1-initLcd8b
+.LM1:
+;  Function'initLcd8b'; 0 bytes of locals, 0 regs to save(0 byte).
+	.stabn 68,0,43,.LM2-initLcd8b
+.LM2:
+	Xcall	initLcd8bSegRam
+	.stabn 68,0,44,.LM3-initLcd8b
+.LM3:
+	Xcall	initLcd8bMode
+	.stabn 68,0,46,.LM4-initLcd8b
+.LM4:
+	ret
+	.size	initLcd8b, .-initLcd8b
+	.align 1
+	.stabs	"onLcd8bDisplay:F(0,20)",36,0,0,onLcd8bDisplay
+	.global onLcd8bDisplay
+	.type	onLcd8bDisplay, @function
+onLcd8bDisplay:
+	.stabn 68,0,55,.LM5-onLcd8bDisplay
+.LM5:
+;  Function'onLcd8bDisplay'; 0 bytes of locals, 0 regs to save(0 byte).
+	ld.a	-[%sp], %r4
+	.stabn 68,0,56,.LM6-onLcd8bDisplay
+.LM6:
+	Sld.a %r3,0x005402
+	ld.b	%r2,[%r3]
+	or	%r2,1
+	ld.b	[%r3],%r2
+	.stabn 68,0,57,.LM7-onLcd8bDisplay
+.LM7:
+	Sld.a %r3,0x00540a
+	ld.b	%r2,[%r3]
+	and	%r2,-4
+	or	%r2,1
+	ld.b	[%r3],%r2
+	.stabn 68,0,58,.LM8-onLcd8bDisplay
+.LM8:
+	ld.a	%r4,[%sp]+
+	ret
+	.size	onLcd8bDisplay, .-onLcd8bDisplay
+	.align 1
+	.stabs	"offLcd8bDisplay:F(0,20)",36,0,0,offLcd8bDisplay
+	.global offLcd8bDisplay
+	.type	offLcd8bDisplay, @function
+offLcd8bDisplay:
+	.stabn 68,0,67,.LM9-offLcd8bDisplay
+.LM9:
+;  Function'offLcd8bDisplay'; 0 bytes of locals, 0 regs to save(0 byte).
+	ld.a	-[%sp], %r4
+	.stabn 68,0,68,.LM10-offLcd8bDisplay
+.LM10:
+	Sld.a %r3,0x00540a
+	ld.b	%r2,[%r3]
+	and	%r2,-4
+	ld.b	[%r3],%r2
+	.stabn 68,0,69,.LM11-offLcd8bDisplay
+.LM11:
+	Sld.a %r3,0x005402
+	ld.b	%r2,[%r3]
+	and	%r2,-2
+	ld.b	[%r3],%r2
+	.stabn 68,0,70,.LM12-offLcd8bDisplay
+.LM12:
+	ld.a	%r4,[%sp]+
+	ret
+	.size	offLcd8bDisplay, .-offLcd8bDisplay
+	.align 1
+	.stabs	"setLcd8bDisplayState:F(0,20)",36,0,0,setLcd8bDisplayState
+	.stabs	"state:P(0,11)",64,0,0,0
+	.global setLcd8bDisplayState
+	.type	setLcd8bDisplayState, @function
+setLcd8bDisplayState:
+	.stabn 68,0,85,.LM13-setLcd8bDisplayState
+.LM13:
+;  Function'setLcd8bDisplayState'; 0 bytes of locals, 0 regs to save(0 byte).
+	ld.a	-[%sp], %r4
+	.stabn 68,0,86,.LM14-setLcd8bDisplayState
+.LM14:
+	Sld.a %r3,0x00540a
+	and	%r0,3
+	ld.b	%r2,[%r3]
+	and	%r2,-4
+	or	%r2,%r0
+	ld.b	[%r3],%r2
+	.stabn 68,0,87,.LM15-setLcd8bDisplayState
+.LM15:
+	ld.a	%r4,[%sp]+
+	ret
+	.size	setLcd8bDisplayState, .-setLcd8bDisplayState
+	.align 1
+	.stabs	"getLcd8bDisplayState:F(0,11)",36,0,0,getLcd8bDisplayState
+	.global getLcd8bDisplayState
+	.type	getLcd8bDisplayState, @function
+getLcd8bDisplayState:
+	.stabn 68,0,101,.LM16-getLcd8bDisplayState
+.LM16:
+;  Function'getLcd8bDisplayState'; 0 bytes of locals, 0 regs to save(0 byte).
+	.stabn 68,0,102,.LM17-getLcd8bDisplayState
+.LM17:
+	Sld.b	%r0,[0x540a]
+	and	%r0,3
+	.stabn 68,0,103,.LM18-getLcd8bDisplayState
+.LM18:
+	ret
+	.size	getLcd8bDisplayState, .-getLcd8bDisplayState
+	.align 1
+	.stabs	"SetLcd8bDisplay1Seg:F(0,1)",36,0,0,SetLcd8bDisplay1Seg
+	.stabs	"seg:P(0,11)",64,0,0,0
+	.stabs	"com:P(0,11)",64,0,0,4
+	.stabs	"data:P(0,11)",64,0,0,3
+	.global SetLcd8bDisplay1Seg
+	.type	SetLcd8bDisplay1Seg, @function
+SetLcd8bDisplay1Seg:
+	.stabn 68,0,131,.LM19-SetLcd8bDisplay1Seg
+.LM19:
+;  Function'SetLcd8bDisplay1Seg'; 0 bytes of locals, 0 regs to save(0 byte).
+	ld.a	-[%sp], %r4
+	ld.ub	%r0,%r0
+	ld.ub	%r3,%r2
+	.stabn 68,0,135,.LM20-SetLcd8bDisplay1Seg
+.LM20:
+.LBB2:
+	cmp	%r3,1
+	jrule.d	.L7	;# <19>
+	ld.ub	%r4,%r1
+	.stabn 68,0,136,.LM21-SetLcd8bDisplay1Seg
+.LM21:
+	jpr.d	.L6	;# <0x000044>
+	ld %r0,0
+.L7:
+	.stabn 68,0,139,.LM22-SetLcd8bDisplay1Seg
+.LM22:
+	ld	%r2,%r0
+	Sadd	%r2,0x7000
+	.stabn 68,0,140,.LM23-SetLcd8bDisplay1Seg
+.LM23:
+	cmp	%r3,1
+	jrne.d	.L8	;# <32>
+	cv.as %r0,%r2
+	.stabn 68,0,146,.LM24-SetLcd8bDisplay1Seg
+.LM24:
+	ld.ub %r2,%r4
+	ld.b	%r4,[%r0]
+	Xext	DOT_DATA
+	ld.b	%r2,[%r2]
+	or	%r4,%r2
+	jpr.d	.L10	;# <25>
+	ld	%r2,%r4
+.L8:
+	.stabn 68,0,157,.LM25-SetLcd8bDisplay1Seg
+.LM25:
+	ld.ub %r2,%r4
+	Xext	DOT_DATA
+	ld.b	%r2,[%r2]
+	not	%r2,%r2
+	ld.b	%r3,[%r0]
+	and	%r2,%r3
+.L10:
+	ld.b	[%r0],%r2
+	.stabn 68,0,161,.LM26-SetLcd8bDisplay1Seg
+.LM26:
+	ld %r0,1
+	.stabn 68,0,162,.LM27-SetLcd8bDisplay1Seg
+.LM27:
+.L6:
+.LBE2:
+	ld.a	%r4,[%sp]+
+	ret
+	.size	SetLcd8bDisplay1Seg, .-SetLcd8bDisplay1Seg
+	.stabs	"lcdram:r(1,1)=*(0,11)",64,0,0,0
+	.stabn	192,0,0,.LBB2-SetLcd8bDisplay1Seg
+	.stabn	224,0,0,.LBE2-SetLcd8bDisplay1Seg
+	.align 1
+	.stabs	"LcdDisplayChar:F(0,20)",36,0,0,LcdDisplayChar
+	.stabs	"addDataPos:p(1,1)",160,0,0,0
+	.stabs	"addNum:p(0,11)",160,0,0,4
+	.stabs	"delDataPos:P(1,1)",64,0,0,5
+	.stabs	"delNum:P(0,11)",64,0,0,7
+	.global LcdDisplayChar
+	.type	LcdDisplayChar, @function
+LcdDisplayChar:
+	.stabn 68,0,168,.LM28-LcdDisplayChar
+.LM28:
+;  Function'LcdDisplayChar'; 8 bytes of locals, 0 regs to save(0 byte).
+	ld.a	-[%sp], %r4
+	ld.a	-[%sp], %r5
+	ld.a	-[%sp], %r6
+	ld.a	-[%sp], %r7
+	xsub.a	%sp, 0x8
+	ld.a	[%sp+0],%r0
+	ld.ub	%r1,%r1
+	ld	[%sp+0x4],%r1
+	ld.ub	%r7,%r3
+	.stabn 68,0,169,.LM29-LcdDisplayChar
+.LM29:
+.LBB3:
+	ld %r4,0
+	.stabn 68,0,170,.LM30-LcdDisplayChar
+.LM30:
+	cmp	%r4,%r7
+	Sjrge.d	.L132	;# <0x0001c5>
+	ld.a	%r5,%r2
+	.stabn 68,0,172,.LM31-LcdDisplayChar
+.LM31:
+	cv.as %r2,%r4
+.L130:
+	add.a	%r2,%r5
+	ld.ub	%r2,[%r2]
+	ld %r0,-26
+	add	%r2,%r0
+	Xcmp	%r2,0x0084
+	Sjrugt.d	.L14	;# <0x00019f>
+	ld	%r2,%r2
+	add.a %r2,%r2
+	add.a %r2,%r2
+	Xext	.L61
+	ld.a	%r2,[%r2]
+	jpa	%r2
+	.section	.rodata
+	.align 2
+	.align 2
+.L61:
+.long	.L17
+.long	.L18
+.long	.L19
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L20
+.long	.L21
+.long	.L22
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L23
+.long	.L24
+.long	.L25
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L26
+.long	.L27
+.long	.L28
+.long	.L29
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L36
+.long	.L33
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L32
+.long	.L37
+.long	.L35
+.long	.L34
+.long	.L30
+.long	.L31
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L41
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L39
+.long	.L42
+.long	.L45
+.long	.L44
+.long	.L40
+.long	.L38
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L50
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L48
+.long	.L51
+.long	.L53
+.long	.L52
+.long	.L49
+.long	.L47
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L43
+.long	.L46
+.long	.L54
+.long	.L55
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L14
+.long	.L59
+.long	.L57
+.long	.L56
+.long	.L60
+.long	.L58
+	.section .text
+.L17:
+	.stabn 68,0,175,.LM32-LcdDisplayChar
+.LM32:
+	jpr.d	.L121	;# <0x000165>
+	ld %r0,19
+.L18:
+	.stabn 68,0,178,.LM33-LcdDisplayChar
+.LM33:
+	jpr.d	.L124	;# <29>
+	ld %r0,19
+.L19:
+	.stabn 68,0,181,.LM34-LcdDisplayChar
+.LM34:
+	jpr.d	.L125	;# <0x000170>
+	ld %r0,19
+.L20:
+	.stabn 68,0,184,.LM35-LcdDisplayChar
+.LM35:
+	jpr.d	.L121	;# <0x00014b>
+	ld %r0,18
+.L21:
+	.stabn 68,0,187,.LM36-LcdDisplayChar
+.LM36:
+	ld %r0,18
+.L124:
+	jpr.d	.L120	;# <0x00015e>
+	ld %r1,1
+.L22:
+	.stabn 68,0,190,.LM37-LcdDisplayChar
+.LM37:
+	jpr.d	.L125	;# <0x000154>
+	ld %r0,18
+.L23:
+	.stabn 68,0,193,.LM38-LcdDisplayChar
+.LM38:
+	jpr.d	.L121	;# <0x00012f>
+	ld %r0,17
+.L24:
+	.stabn 68,0,196,.LM39-LcdDisplayChar
+.LM39:
+	jpr.d	.L124	;# <-23>
+	ld %r0,17
+.L25:
+	.stabn 68,0,199,.LM40-LcdDisplayChar
+.LM40:
+	jpr.d	.L125	;# <0x00013a>
+	ld %r0,17
+.L26:
+	.stabn 68,0,202,.LM41-LcdDisplayChar
+.LM41:
+	jpr.d	.L121	;# <0x000116>
+	ld %r0,16
+.L27:
+	.stabn 68,0,205,.LM42-LcdDisplayChar
+.LM42:
+	jpr.d	.L124	;# <-49>
+	ld %r0,16
+.L28:
+	.stabn 68,0,208,.LM43-LcdDisplayChar
+.LM43:
+	jpr.d	.L125	;# <0x000120>
+	ld %r0,16
+.L29:
+	.stabn 68,0,211,.LM44-LcdDisplayChar
+.LM44:
+	jpr.d	.L121	;# <0x0000fc>
+	ld %r0,15
+.L30:
+	.stabn 68,0,214,.LM45-LcdDisplayChar
+.LM45:
+	jpr.d	.L121	;# <0x0000f3>
+	ld %r0,14
+.L31:
+	.stabn 68,0,217,.LM46-LcdDisplayChar
+.LM46:
+	jpr.d	.L124	;# <0xffffad>
+	ld %r0,14
+.L32:
+	.stabn 68,0,220,.LM47-LcdDisplayChar
+.LM47:
+	jpr.d	.L125	;# <0x0000fe>
+	ld %r0,14
+.L33:
+	.stabn 68,0,223,.LM48-LcdDisplayChar
+.LM48:
+	jpr.d	.L121	;# <0x0000da>
+	ld %r0,13
+.L34:
+	.stabn 68,0,226,.LM49-LcdDisplayChar
+.LM49:
+	jpr.d	.L121	;# <0x0000d1>
+	ld %r0,12
+.L35:
+	.stabn 68,0,229,.LM50-LcdDisplayChar
+.LM50:
+	jpr.d	.L124	;# <0xffff8b>
+	ld %r0,12
+.L36:
+	.stabn 68,0,232,.LM51-LcdDisplayChar
+.LM51:
+	jpr.d	.L125	;# <0x0000dc>
+	ld %r0,12
+.L37:
+	.stabn 68,0,235,.LM52-LcdDisplayChar
+.LM52:
+	jpr.d	.L121	;# <0x0000b8>
+	ld %r0,11
+.L38:
+	.stabn 68,0,238,.LM53-LcdDisplayChar
+.LM53:
+	jpr.d	.L124	;# <0xffff71>
+	ld %r0,11
+.L39:
+	.stabn 68,0,241,.LM54-LcdDisplayChar
+.LM54:
+	jpr.d	.L125	;# <0x0000c2>
+	ld %r0,11
+.L40:
+	.stabn 68,0,244,.LM55-LcdDisplayChar
+.LM55:
+	jpr.d	.L121	;# <0x00009e>
+	ld %r0,10
+.L41:
+	.stabn 68,0,247,.LM56-LcdDisplayChar
+.LM56:
+	jpr.d	.L124	;# <0xffff57>
+	ld %r0,10
+.L42:
+	.stabn 68,0,250,.LM57-LcdDisplayChar
+.LM57:
+	jpr.d	.L125	;# <0x0000a9>
+	ld %r0,10
+.L43:
+	.stabn 68,0,253,.LM58-LcdDisplayChar
+.LM58:
+	jpr.d	.L121	;# <0x000084>
+	ld %r0,9
+.L44:
+	.stabn 68,0,256,.LM59-LcdDisplayChar
+.LM59:
+	jpr.d	.L124	;# <0xffff3e>
+	ld %r0,9
+.L45:
+	.stabn 68,0,259,.LM60-LcdDisplayChar
+.LM60:
+	jpr.d	.L125	;# <0x00008f>
+	ld %r0,9
+.L46:
+	.stabn 68,0,262,.LM61-LcdDisplayChar
+.LM61:
+	jpr.d	.L121	;# <0x00006b>
+	ld %r0,8
+.L47:
+	.stabn 68,0,265,.LM62-LcdDisplayChar
+.LM62:
+	jpr.d	.L124	;# <0xffff24>
+	ld %r0,8
+.L48:
+	.stabn 68,0,268,.LM63-LcdDisplayChar
+.LM63:
+	jpr.d	.L125	;# <0x000075>
+	ld %r0,8
+.L49:
+	.stabn 68,0,271,.LM64-LcdDisplayChar
+.LM64:
+	jpr.d	.L121	;# <0x000051>
+	ld %r0,7
+.L50:
+	.stabn 68,0,274,.LM65-LcdDisplayChar
+.LM65:
+	jpr.d	.L124	;# <0xffff0a>
+	ld %r0,7
+.L51:
+	.stabn 68,0,277,.LM66-LcdDisplayChar
+.LM66:
+	jpr.d	.L125	;# <0x00005c>
+	ld %r0,7
+.L52:
+	.stabn 68,0,280,.LM67-LcdDisplayChar
+.LM67:
+	jpr.d	.L121	;# <55>
+	ld %r0,6
+.L53:
+	.stabn 68,0,283,.LM68-LcdDisplayChar
+.LM68:
+	jpr.d	.L124	;# <0xfffef1>
+	ld %r0,6
+.L54:
+	.stabn 68,0,286,.LM69-LcdDisplayChar
+.LM69:
+	jpr.d	.L125	;# <0x000042>
+	ld %r0,6
+.L55:
+	.stabn 68,0,289,.LM70-LcdDisplayChar
+.LM70:
+	jpr.d	.L121	;# <29>
+	ld %r0,5
+.L56:
+	.stabn 68,0,292,.LM71-LcdDisplayChar
+.LM71:
+	jpr.d	.L124	;# <0xfffed7>
+	ld %r0,5
+.L57:
+	.stabn 68,0,295,.LM72-LcdDisplayChar
+.LM72:
+	jpr.d	.L125	;# <40>
+	ld %r0,5
+.L58:
+	.stabn 68,0,298,.LM73-LcdDisplayChar
+.LM73:
+	ld %r0,4
+.L121:
+	ld %r1,0
+	Xcall.d	SetLcd8bDisplay1Seg
+	ld	%r2,%r1
+	.stabn 68,0,299,.LM74-LcdDisplayChar
+.LM74:
+	jpr.d	.L128	;# <32>
+	add	%r4,0x0001
+.L59:
+	.stabn 68,0,301,.LM75-LcdDisplayChar
+.LM75:
+	jpr.d	.L124	;# <0xfffeb3>
+	ld %r0,4
+.L60:
+	.stabn 68,0,304,.LM76-LcdDisplayChar
+.LM76:
+	ld %r0,4
+.L125:
+	ld %r1,2
+.L120:
+	ld %r2,0
+	Xcall	SetLcd8bDisplay1Seg
+	.stabn 68,0,170,.LM77-LcdDisplayChar
+.LM77:
+.L14:
+	add	%r4,0x0001
+.L128:
+	cmp	%r4,%r7
+	Sjrlt.d	.L130	;# <0xfffe54>
+	cv.as %r2,%r4
+	.stabn 68,0,309,.LM78-LcdDisplayChar
+.LM78:
+	ld %r4,0
+.L132:
+	ld	%r1,[%sp+0x4]
+	cmp	%r4,%r1
+	Sjrge.d	.L119	;# <0x0001c9>
+	cv.as %r2,%r4
+	.stabn 68,0,311,.LM79-LcdDisplayChar
+.LM79:
+.L131:
+	ld.a	%r0,[%sp+0]
+	add.a	%r2,%r0
+	ld.ub	%r2,[%r2]
+	ld %r1,-26
+	add	%r2,%r1
+	Xcmp	%r2,0x0084
+	Sjrugt.d	.L66	;# <0x00019f>
+	ld	%r2,%r2
+	add.a %r2,%r2
+	add.a %r2,%r2
+	Xext	.L113
+	ld.a	%r2,[%r2]
+	jpa	%r2
+	.section	.rodata
+	.align 2
+	.align 2
+.L113:
+.long	.L69
+.long	.L70
+.long	.L71
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L72
+.long	.L73
+.long	.L74
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L75
+.long	.L76
+.long	.L77
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L78
+.long	.L79
+.long	.L80
+.long	.L81
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L88
+.long	.L85
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L84
+.long	.L89
+.long	.L87
+.long	.L86
+.long	.L82
+.long	.L83
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L93
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L91
+.long	.L94
+.long	.L97
+.long	.L96
+.long	.L92
+.long	.L90
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L102
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L100
+.long	.L103
+.long	.L105
+.long	.L104
+.long	.L101
+.long	.L99
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L95
+.long	.L98
+.long	.L106
+.long	.L107
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L66
+.long	.L111
+.long	.L109
+.long	.L108
+.long	.L112
+.long	.L110
+	.section .text
+.L69:
+	.stabn 68,0,314,.LM80-LcdDisplayChar
+.LM80:
+	jpr.d	.L123	;# <0x000165>
+	ld %r0,19
+.L70:
+	.stabn 68,0,317,.LM81-LcdDisplayChar
+.LM81:
+	jpr.d	.L126	;# <29>
+	ld %r0,19
+.L71:
+	.stabn 68,0,320,.LM82-LcdDisplayChar
+.LM82:
+	jpr.d	.L127	;# <0x000170>
+	ld %r0,19
+.L72:
+	.stabn 68,0,323,.LM83-LcdDisplayChar
+.LM83:
+	jpr.d	.L123	;# <0x00014b>
+	ld %r0,18
+.L73:
+	.stabn 68,0,326,.LM84-LcdDisplayChar
+.LM84:
+	ld %r0,18
+.L126:
+	jpr.d	.L122	;# <0x00015e>
+	ld %r1,1
+.L74:
+	.stabn 68,0,329,.LM85-LcdDisplayChar
+.LM85:
+	jpr.d	.L127	;# <0x000154>
+	ld %r0,18
+.L75:
+	.stabn 68,0,332,.LM86-LcdDisplayChar
+.LM86:
+	jpr.d	.L123	;# <0x00012f>
+	ld %r0,17
+.L76:
+	.stabn 68,0,335,.LM87-LcdDisplayChar
+.LM87:
+	jpr.d	.L126	;# <-23>
+	ld %r0,17
+.L77:
+	.stabn 68,0,338,.LM88-LcdDisplayChar
+.LM88:
+	jpr.d	.L127	;# <0x00013a>
+	ld %r0,17
+.L78:
+	.stabn 68,0,341,.LM89-LcdDisplayChar
+.LM89:
+	jpr.d	.L123	;# <0x000116>
+	ld %r0,16
+.L79:
+	.stabn 68,0,344,.LM90-LcdDisplayChar
+.LM90:
+	jpr.d	.L126	;# <-49>
+	ld %r0,16
+.L80:
+	.stabn 68,0,347,.LM91-LcdDisplayChar
+.LM91:
+	jpr.d	.L127	;# <0x000120>
+	ld %r0,16
+.L81:
+	.stabn 68,0,350,.LM92-LcdDisplayChar
+.LM92:
+	jpr.d	.L123	;# <0x0000fc>
+	ld %r0,15
+.L82:
+	.stabn 68,0,353,.LM93-LcdDisplayChar
+.LM93:
+	jpr.d	.L123	;# <0x0000f3>
+	ld %r0,14
+.L83:
+	.stabn 68,0,356,.LM94-LcdDisplayChar
+.LM94:
+	jpr.d	.L126	;# <0xffffad>
+	ld %r0,14
+.L84:
+	.stabn 68,0,359,.LM95-LcdDisplayChar
+.LM95:
+	jpr.d	.L127	;# <0x0000fe>
+	ld %r0,14
+.L85:
+	.stabn 68,0,362,.LM96-LcdDisplayChar
+.LM96:
+	jpr.d	.L123	;# <0x0000da>
+	ld %r0,13
+.L86:
+	.stabn 68,0,365,.LM97-LcdDisplayChar
+.LM97:
+	jpr.d	.L123	;# <0x0000d1>
+	ld %r0,12
+.L87:
+	.stabn 68,0,368,.LM98-LcdDisplayChar
+.LM98:
+	jpr.d	.L126	;# <0xffff8b>
+	ld %r0,12
+.L88:
+	.stabn 68,0,371,.LM99-LcdDisplayChar
+.LM99:
+	jpr.d	.L127	;# <0x0000dc>
+	ld %r0,12
+.L89:
+	.stabn 68,0,374,.LM100-LcdDisplayChar
+.LM100:
+	jpr.d	.L123	;# <0x0000b8>
+	ld %r0,11
+.L90:
+	.stabn 68,0,377,.LM101-LcdDisplayChar
+.LM101:
+	jpr.d	.L126	;# <0xffff71>
+	ld %r0,11
+.L91:
+	.stabn 68,0,380,.LM102-LcdDisplayChar
+.LM102:
+	jpr.d	.L127	;# <0x0000c2>
+	ld %r0,11
+.L92:
+	.stabn 68,0,383,.LM103-LcdDisplayChar
+.LM103:
+	jpr.d	.L123	;# <0x00009e>
+	ld %r0,10
+.L93:
+	.stabn 68,0,386,.LM104-LcdDisplayChar
+.LM104:
+	jpr.d	.L126	;# <0xffff57>
+	ld %r0,10
+.L94:
+	.stabn 68,0,389,.LM105-LcdDisplayChar
+.LM105:
+	jpr.d	.L127	;# <0x0000a9>
+	ld %r0,10
+.L95:
+	.stabn 68,0,392,.LM106-LcdDisplayChar
+.LM106:
+	jpr.d	.L123	;# <0x000084>
+	ld %r0,9
+.L96:
+	.stabn 68,0,395,.LM107-LcdDisplayChar
+.LM107:
+	jpr.d	.L126	;# <0xffff3e>
+	ld %r0,9
+.L97:
+	.stabn 68,0,398,.LM108-LcdDisplayChar
+.LM108:
+	jpr.d	.L127	;# <0x00008f>
+	ld %r0,9
+.L98:
+	.stabn 68,0,401,.LM109-LcdDisplayChar
+.LM109:
+	jpr.d	.L123	;# <0x00006b>
+	ld %r0,8
+.L99:
+	.stabn 68,0,404,.LM110-LcdDisplayChar
+.LM110:
+	jpr.d	.L126	;# <0xffff24>
+	ld %r0,8
+.L100:
+	.stabn 68,0,407,.LM111-LcdDisplayChar
+.LM111:
+	jpr.d	.L127	;# <0x000075>
+	ld %r0,8
+.L101:
+	.stabn 68,0,410,.LM112-LcdDisplayChar
+.LM112:
+	jpr.d	.L123	;# <0x000051>
+	ld %r0,7
+.L102:
+	.stabn 68,0,413,.LM113-LcdDisplayChar
+.LM113:
+	jpr.d	.L126	;# <0xffff0a>
+	ld %r0,7
+.L103:
+	.stabn 68,0,416,.LM114-LcdDisplayChar
+.LM114:
+	jpr.d	.L127	;# <0x00005c>
+	ld %r0,7
+.L104:
+	.stabn 68,0,419,.LM115-LcdDisplayChar
+.LM115:
+	jpr.d	.L123	;# <55>
+	ld %r0,6
+.L105:
+	.stabn 68,0,422,.LM116-LcdDisplayChar
+.LM116:
+	jpr.d	.L126	;# <0xfffef1>
+	ld %r0,6
+.L106:
+	.stabn 68,0,425,.LM117-LcdDisplayChar
+.LM117:
+	jpr.d	.L127	;# <0x000042>
+	ld %r0,6
+.L107:
+	.stabn 68,0,428,.LM118-LcdDisplayChar
+.LM118:
+	jpr.d	.L123	;# <29>
+	ld %r0,5
+.L108:
+	.stabn 68,0,431,.LM119-LcdDisplayChar
+.LM119:
+	jpr.d	.L126	;# <0xfffed7>
+	ld %r0,5
+.L109:
+	.stabn 68,0,434,.LM120-LcdDisplayChar
+.LM120:
+	jpr.d	.L127	;# <40>
+	ld %r0,5
+.L110:
+	.stabn 68,0,437,.LM121-LcdDisplayChar
+.LM121:
+	ld %r0,4
+.L123:
+	ld %r1,0
+	Xcall.d	SetLcd8bDisplay1Seg
+	ld %r2,1
+	.stabn 68,0,438,.LM122-LcdDisplayChar
+.LM122:
+	jpr.d	.L129	;# <32>
+	add	%r4,0x0001
+.L111:
+	.stabn 68,0,440,.LM123-LcdDisplayChar
+.LM123:
+	jpr.d	.L126	;# <0xfffeb3>
+	ld %r0,4
+.L112:
+	.stabn 68,0,443,.LM124-LcdDisplayChar
+.LM124:
+	ld %r0,4
+.L127:
+	ld %r1,2
+.L122:
+	Xcall.d	SetLcd8bDisplay1Seg
+	ld %r2,1
+	.stabn 68,0,309,.LM125-LcdDisplayChar
+.LM125:
+.L66:
+	add	%r4,0x0001
+.L129:
+	ld	%r2,[%sp+0x4]
+	cmp	%r4,%r2
+	Sjrlt.d	.L131	;# <0xfffe4c>
+	cv.as %r2,%r4
+.L119:
+	.stabn 68,0,448,.LM126-LcdDisplayChar
+.LM126:
+.LBE3:
+	add.a	%sp, 0x8
+	ld.a	%r7,[%sp]+
+	ld.a	%r6,[%sp]+
+	ld.a	%r5,[%sp]+
+	ld.a	%r4,[%sp]+
+	ret
+	.size	LcdDisplayChar, .-LcdDisplayChar
+	.stabs	"i:r(0,1)",64,0,0,4
+	.stabn	192,0,0,.LBB3-LcdDisplayChar
+	.stabn	224,0,0,.LBE3-LcdDisplayChar
+	.align 1
+	.stabs	"OnOffSingleDisp:F(0,20)",36,0,0,OnOffSingleDisp
+	.stabs	"type:P(24,1)",64,0,0,7
+	.stabs	"comm:P(24,1)",64,0,0,6
+	.global OnOffSingleDisp
+	.type	OnOffSingleDisp, @function
+OnOffSingleDisp:
+	.stabn 68,0,454,.LM127-OnOffSingleDisp
+.LM127:
+;  Function'OnOffSingleDisp'; 0 bytes of locals, 0 regs to save(0 byte).
+	ld.a	-[%sp], %r4
+	ld.a	-[%sp], %r5
+	ld.a	-[%sp], %r6
+	ld.a	-[%sp], %r7
+	ld.ub	%r6,%r1
+	.stabn 68,0,455,.LM128-OnOffSingleDisp
+.LM128:
+	cmp	%r6,1
+	jrne.d	.L134	;# <40>
+	ld.ub	%r7,%r0
+	.stabn 68,0,457,.LM129-OnOffSingleDisp
+.LM129:
+	Xld.a	%r4,dispAddData
+	ld.b	[%r4],%r7
+	.stabn 68,0,458,.LM130-OnOffSingleDisp
+.LM130:
+	ld.a	%r0,%r4
+	ld	%r1,%r6
+	ld.a %r2,0
+	Xcall.d	LcdDisplayChar
+	ld %r3,0
+	.stabn 68,0,459,.LM131-OnOffSingleDisp
+.LM131:
+	ld.a	%r0,%r4
+	Xcall.d	cleanDateBuf
+	ld	%r1,%r6
+.L134:
+	.stabn 68,0,461,.LM132-OnOffSingleDisp
+.LM132:
+	cmp	%r6,0
+	jrne.d	.L133	;# <38>
+	ld.a %r0,0
+	.stabn 68,0,463,.LM133-OnOffSingleDisp
+.LM133:
+	Xld.a	%r4,dispDelData
+	ld.b	[%r4],%r7
+	.stabn 68,0,464,.LM134-OnOffSingleDisp
+.LM134:
+	ld	%r1,%r6
+	ld.a	%r2,%r4
+	Xcall.d	LcdDisplayChar
+	ld %r3,1
+	.stabn 68,0,465,.LM135-OnOffSingleDisp
+.LM135:
+	ld.a	%r0,%r4
+	Xcall.d	cleanDateBuf
+	ld %r1,1
+	.stabn 68,0,467,.LM136-OnOffSingleDisp
+.LM136:
+.L133:
+	ld.a	%r7,[%sp]+
+	ld.a	%r6,[%sp]+
+	ld.a	%r5,[%sp]+
+	ld.a	%r4,[%sp]+
+	ret
+	.size	OnOffSingleDisp, .-OnOffSingleDisp
+	.align 1
+	.stabs	"FlashScreen:F(0,20)",36,0,0,FlashScreen
+	.stabs	"gapTime:P(0,1)",64,0,0,0
+	.global FlashScreen
+	.type	FlashScreen, @function
+FlashScreen:
+	.stabn 68,0,469,.LM137-FlashScreen
+.LM137:
+;  Function'FlashScreen'; 0 bytes of locals, 0 regs to save(0 byte).
+	.stabn 68,0,469,.LM138-FlashScreen
+.LM138:
+	ret
+	.size	FlashScreen, .-FlashScreen
+	.global __fixsfsi
+	.global __negsf2
+	.global __floatsisf
+	.global __subsf3
+	.global __mulsf3
+	.global __fixunssfsi
+	.global __modhi3
+	.global __divhi3
+	.align 1
+	.stabs	"dispDigital:F(0,20)",36,0,0,dispDigital
+	.stabs	"val:p(0,12)",160,0,0,0
+	.stabs	"dispType:P(24,1)",64,0,0,5
+	.global dispDigital
+	.type	dispDigital, @function
+dispDigital:
+	.stabn 68,0,478,.LM139-dispDigital
+.LM139:
+;  Function'dispDigital'; 12 bytes of locals, 0 regs to save(0 byte).
+	ld.a	-[%sp], %r4
+	ld.a	-[%sp], %r5
+	ld.a	-[%sp], %r6
+	ld.a	-[%sp], %r7
+	xsub.a	%sp, 0xc
+	ld	[%sp+0],%r0
+	ld	[%sp+0x2],%r1
+	.stabn 68,0,481,.LM140-dispDigital
+.LM140:
+.LBB4:
+	Xcall.d	__fixsfsi
+	ld.ub	%r5,%r2
+	ld	[%sp+0x4],%r0
+	.stabn 68,0,483,.LM141-dispDigital
+.LM141:
+	Xld.a	%r0,dispAddData
+	Xcall.d	cleanDateBuf
+	ld %r1,20
+	.stabn 68,0,484,.LM142-dispDigital
+.LM142:
+	Xld.a	%r0,dispDelData
+	Xcall.d	cleanDateBuf
+	ld %r1,20
+	.stabn 68,0,485,.LM143-dispDigital
+.LM143:
+	Xld.a	%r6,dispDelData
+	Sld	%r2,0x004c
+	ld.a	%r3,%r6
+	ld.b	[%r3]+,%r2
+	ld.a	[%sp+0x8],%r3
+	Sld	%r2,0x004b
+	ld.b	[%r3],%r2
+	Sld	%r2,0x005a
+	Xld.b	[dispDelData+2],%r2
+	Sld	%r2,0x005f
+	Xld.b	[dispDelData+3],%r2
+	Sld	%r2,0x005b
+	Xld.b	[dispDelData+4],%r2
+	.stabn 68,0,486,.LM144-dispDigital
+.LM144:
+	Sld	%r2,0x0053
+	Xld.b	[dispDelData+5],%r2
+	Sld	%r2,0x005e
+	Xld.b	[dispDelData+6],%r2
+	Sld	%r2,0x005d
+	Xext	0x7
+	ld.b	[%r6],%r2
+	Sld	%r2,0x005c
+	Xext	0x8
+	ld.b	[%r6],%r2
+	Sld	%r2,0x006a
+	Xext	0x9
+	ld.b	[%r6],%r2
+	.stabn 68,0,487,.LM145-dispDigital
+.LM145:
+	Sld	%r2,0x006f
+	Xext	0xa
+	ld.b	[%r6],%r2
+	Sld	%r2,0x0063
+	Xext	0xb
+	ld.b	[%r6],%r2
+	Sld	%r2,0x006b
+	Xext	0xc
+	ld.b	[%r6],%r2
+	Sld	%r2,0x006e
+	Xext	0xd
+	ld.b	[%r6],%r2
+	Sld	%r2,0x006d
+	Xext	0xe
+	ld.b	[%r6],%r2
+	.stabn 68,0,488,.LM146-dispDigital
+.LM146:
+	Sld	%r2,0x006c
+	Xext	0xf
+	ld.b	[%r6],%r2
+	Xld	%r2,0xff8b
+	Xext	0x10
+	ld.b	[%r6],%r2
+	.stabn 68,0,489,.LM147-dispDigital
+.LM147:
+	ld.a %r0,0
+	ld %r1,0
+	ld.a	%r2,%r6
+	Xcall.d	LcdDisplayChar
+	ld %r3,17
+	.stabn 68,0,490,.LM148-dispDigital
+.LM148:
+	ld.a	%r0,%r6
+	Xcall.d	cleanDateBuf
+	ld %r1,17
+	.stabn 68,0,491,.LM149-dispDigital
+.LM149:
+	Sld	%r2,0x007a
+	ld.b	[%r6],%r2
+	Sld	%r2,0x007f
+	ld.a	%r3,[%sp+0x8]
+	ld.b	[%r3],%r2
+	Sld	%r2,0x007b
+	Xld.b	[dispDelData+2],%r2
+	Sld	%r2,0x0073
+	Xld.b	[dispDelData+3],%r2
+	Sld	%r2,0x007e
+	Xld.b	[dispDelData+4],%r2
+	.stabn 68,0,492,.LM150-dispDigital
+.LM150:
+	Sld	%r2,0x007c
+	Xld.b	[dispDelData+5],%r2
+	Sld	%r2,0x007d
+	Xld.b	[dispDelData+6],%r2
+	.stabn 68,0,493,.LM151-dispDigital
+.LM151:
+	ld.a %r0,0
+	ld %r1,0
+	ld.a	%r2,%r6
+	Xcall.d	LcdDisplayChar
+	ld %r3,7
+	.stabn 68,0,494,.LM152-dispDigital
+.LM152:
+	ld.a	%r0,%r6
+	Xcall.d	cleanDateBuf
+	ld %r1,7
+	.stabn 68,0,495,.LM153-dispDigital
+.LM153:
+	cmp	%r5,1
+	Sjrne.d	.L138	;# <0x000064>
+	ld	%r2,28
+	.stabn 68,0,497,.LM154-dispDigital
+.LM154:
+	Xld.b	[dispAddData],%r2
+	.stabn 68,0,498,.LM155-dispDigital
+.LM155:
+	Xld	%r2,0xff8c
+	ld.b	[%r6],%r2
+	Xld	%r2,0xff9a
+	ld.a	%r3,[%sp+0x8]
+	ld.b	[%r3],%r2
+	Xld	%r2,0xff9b
+	Xld.b	[dispDelData+2],%r2
+	Xld	%r2,0xff9c
+	Xld.b	[dispDelData+3],%r2
+	.stabn 68,0,499,.LM156-dispDigital
+.LM156:
+	Xld.a	%r0,dispAddData
+	ld	%r1,%r5
+	ld.a	%r2,%r6
+	Xcall.d	LcdDisplayChar
+	ld %r3,4
+	.stabn 68,0,500,.LM157-dispDigital
+.LM157:
+	Xld.a	%r0,dispAddData
+	Xcall.d	cleanDateBuf
+	ld	%r1,%r5
+	.stabn 68,0,501,.LM158-dispDigital
+.LM158:
+	ld.a	%r0,%r6
+	Xcall.d	cleanDateBuf
+	ld %r1,4
+.L138:
+	.stabn 68,0,503,.LM159-dispDigital
+.LM159:
+	cmp	%r5,2
+	Sjrne	.L139	;# <0x000071>
+	.stabn 68,0,505,.LM160-dispDigital
+.LM160:
+	Xld.a	%r2,dispAddData
+	Xld	%r0,0xff8c
+	ld.b	[%r2]+,%r0
+	Xld	%r0,0xff9a
+	ld.b	[%r2],%r0
+	Xld	%r2,0xff9c
+	Xld.b	[dispAddData+2],%r2
+	.stabn 68,0,506,.LM161-dispDigital
+.LM161:
+	Xld.a	%r6,dispDelData
+	ld.a	%r2,%r6
+	Xld	%r0,0xff9b
+	ld.b	[%r2]+,%r0
+	ld	%r0,28
+	ld.b	[%r2],%r0
+	.stabn 68,0,507,.LM162-dispDigital
+.LM162:
+	Xld.a	%r0,dispAddData
+	ld %r1,3
+	ld.a	%r2,%r6
+	Xcall.d	LcdDisplayChar
+	ld	%r3,%r5
+	.stabn 68,0,508,.LM163-dispDigital
+.LM163:
+	Xld.a	%r0,dispAddData
+	Xcall.d	cleanDateBuf
+	ld %r1,3
+	.stabn 68,0,509,.LM164-dispDigital
+.LM164:
+	ld.a	%r0,%r6
+	Xcall.d	cleanDateBuf
+	ld	%r1,%r5
+.L139:
+	.stabn 68,0,511,.LM165-dispDigital
+.LM165:
+	cmp	%r5,3
+	Sjrne	.L140	;# <0x000071>
+	.stabn 68,0,513,.LM166-dispDigital
+.LM166:
+	Xld.a	%r2,dispAddData
+	Xld	%r0,0xff8c
+	ld.b	[%r2]+,%r0
+	Xld	%r0,0xff9a
+	ld.b	[%r2],%r0
+	Xld	%r2,0xff9b
+	Xld.b	[dispAddData+2],%r2
+	.stabn 68,0,514,.LM167-dispDigital
+.LM167:
+	Xld.a	%r6,dispDelData
+	ld.a	%r2,%r6
+	Xld	%r0,0xff9c
+	ld.b	[%r2]+,%r0
+	ld	%r0,28
+	ld.b	[%r2],%r0
+	.stabn 68,0,515,.LM168-dispDigital
+.LM168:
+	Xld.a	%r0,dispAddData
+	ld	%r1,%r5
+	ld.a	%r2,%r6
+	Xcall.d	LcdDisplayChar
+	ld %r3,2
+	.stabn 68,0,516,.LM169-dispDigital
+.LM169:
+	Xld.a	%r0,dispAddData
+	Xcall.d	cleanDateBuf
+	ld	%r1,%r5
+	.stabn 68,0,517,.LM170-dispDigital
+.LM170:
+	ld.a	%r0,%r6
+	Xcall.d	cleanDateBuf
+	ld %r1,2
+.L140:
+	.stabn 68,0,519,.LM171-dispDigital
+.LM171:
+	ld	%r4,[%sp+0x4]
+	cmp	%r4,0
+	Sjrge.d	.L141	;# <0x000040>
+	ld	%r2,60
+	.stabn 68,0,521,.LM172-dispDigital
+.LM172:
+	Xld.a	%r0,dispAddData
+	ld.b	[%r0],%r2
+	.stabn 68,0,522,.LM173-dispDigital
+.LM173:
+	ld %r1,1
+	ld.a %r2,0
+	Xcall.d	LcdDisplayChar
+	ld %r3,0
+	.stabn 68,0,524,.LM174-dispDigital
+.LM174:
+	ld	%r0,[%sp+0]
+	ld	%r1,[%sp+0x2]
+	Xcall	__negsf2
+	ld	%r7,%r1
+	ld	%r6,%r0
+	.stabn 68,0,525,.LM175-dispDigital
+.LM175:
+	Xcall	__fixsfsi
+	ld	[%sp+0x4],%r0
+	.stabn 68,0,527,.LM176-dispDigital
+.LM176:
+	jpr	.L142	;# <53>
+.L141:
+	.stabn 68,0,531,.LM177-dispDigital
+.LM177:
+	ld	%r6,[%sp+0]
+	ld	%r7,[%sp+0x2]
+	.stabn 68,0,532,.LM178-dispDigital
+.LM178:
+	ld	%r0,%r6
+	ld	%r1,%r7
+	Xcall	__fixsfsi
+	ld	[%sp+0x4],%r0
+	.stabn 68,0,533,.LM179-dispDigital
+.LM179:
+	Xld.a	%r2,dispAddData
+	ld	%r0,60
+	ld.b	[%r2],%r0
+	.stabn 68,0,534,.LM180-dispDigital
+.LM180:
+	ld.a %r0,0
+	ld %r1,0
+	Xcall.d	LcdDisplayChar
+	ld %r3,1
+.L142:
+	.stabn 68,0,538,.LM181-dispDigital
+.LM181:
+	Xld	%r2,0xff8b
+	Xld.b	[dispAddData],%r2
+	.stabn 68,0,539,.LM182-dispDigital
+.LM182:
+	Xld.a	%r0,dispAddData
+	ld %r1,1
+	ld.a %r2,0
+	Xcall.d	LcdDisplayChar
+	ld %r3,0
+	.stabn 68,0,540,.LM183-dispDigital
+.LM183:
+	Xld.a	%r0,dispAddData
+	Xcall.d	cleanDateBuf
+	ld %r1,1
+	.stabn 68,0,541,.LM184-dispDigital
+.LM184:
+	ld	%r2,[%sp+0x4]
+	ld %r0,%r2
+	cv.ls %r1,%r0
+	Xcall	__floatsisf
+	ld	%r3,%r1
+	ld	%r2,%r0
+	ld	%r0,%r6
+	ld	%r1,%r7
+	Xcall	__subsf3
+	.stabn 68,0,542,.LM185-dispDigital
+.LM185:
+	Xld	%r2,0
+	Xld	%r3,16672
+	Xcall	__mulsf3
+	Xcall	__fixunssfsi
+	ld.ub	%r0,%r0
+	.stabn 68,0,543,.LM186-dispDigital
+.LM186:
+	cmp	%r0,9
+	Sjrugt.d	.L144	;# <0x00041c>
+	ld	%r2,%r0
+	add.a %r2,%r2
+	add.a %r2,%r2
+	Xext	.L155
+	ld.a	%r2,[%r2]
+	jpa	%r2
+	.section	.rodata
+	.align 2
+	.align 2
+.L155:
+.long	.L145
+.long	.L146
+.long	.L147
+.long	.L148
+.long	.L149
+.long	.L150
+.long	.L151
+.long	.L152
+.long	.L153
+.long	.L154
+	.section .text
+.L145:
+	.stabn 68,0,546,.LM187-dispDigital
+.LM187:
+	Xld.a	%r6,dispAddData
+	ld.a	%r2,%r6
+	Sld	%r0,0x007a
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x007f
+	ld.b	[%r2],%r0
+	Sld	%r2,0x007e
+	Xext	0x2
+	ld.b	[%r6],%r2
+	Sld	%r2,0x007d
+	Xext	0x3
+	ld.b	[%r6],%r2
+	Sld	%r2,0x007c
+	Xext	0x4
+	ld.b	[%r6],%r2
+	Sld	%r2,0x007b
+	Xext	0x5
+	ld.b	[%r6],%r2
+	.stabn 68,0,547,.LM188-dispDigital
+.LM188:
+	Sld	%r2,0x0073
+	Sjpr	.L189	;# <0x000391>
+.L146:
+	.stabn 68,0,553,.LM189-dispDigital
+.LM189:
+	Xld.a	%r2,dispAddData
+	Sld	%r0,0x007b
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x007c
+	ld.b	[%r2],%r0
+	.stabn 68,0,554,.LM190-dispDigital
+.LM190:
+	Xld.a	%r6,dispDelData
+	ld.a	%r2,%r6
+	Sld	%r0,0x0073
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x007a
+	ld.b	[%r2],%r0
+	Sld	%r2,0x007f
+	Xext	0x2
+	ld.b	[%r6],%r2
+	Sld	%r2,0x007e
+	Xext	0x3
+	ld.b	[%r6],%r2
+	Sld	%r2,0x007d
+	Xext	0x4
+	ld.b	[%r6],%r2
+	.stabn 68,0,555,.LM191-dispDigital
+.LM191:
+	Xld.a	%r0,dispAddData
+	ld %r1,2
+	ld.a	%r2,%r6
+	Xcall.d	LcdDisplayChar
+	ld %r3,5
+	.stabn 68,0,557,.LM192-dispDigital
+.LM192:
+	Xld.a	%r0,dispAddData
+	Xcall.d	cleanDateBuf
+	ld %r1,2
+	.stabn 68,0,558,.LM193-dispDigital
+.LM193:
+	ld.a	%r0,%r6
+	Sjpr.d	.L186	;# <0x000342>
+	ld %r1,5
+.L147:
+	.stabn 68,0,561,.LM194-dispDigital
+.LM194:
+	Xld.a	%r6,dispAddData
+	ld.a	%r2,%r6
+	Sld	%r0,0x007a
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x007b
+	ld.b	[%r2],%r0
+	Sld	%r2,0x0073
+	Xext	0x2
+	ld.b	[%r6],%r2
+	Sld	%r2,0x007e
+	Xext	0x3
+	ld.b	[%r6],%r2
+	Sld	%r2,0x007d
+	Xext	0x4
+	ld.b	[%r6],%r2
+	.stabn 68,0,562,.LM195-dispDigital
+.LM195:
+	Xld.a	%r2,dispDelData
+	Sld	%r0,0x007f
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x007c
+	jpr.d	.L198	;# <0x00005c>
+	ld.b	[%r2],%r0
+.L148:
+	.stabn 68,0,568,.LM196-dispDigital
+.LM196:
+	Xld.a	%r6,dispAddData
+	ld.a	%r2,%r6
+	Sld	%r0,0x007a
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x007b
+	ld.b	[%r2],%r0
+	Sld	%r2,0x0073
+	Xext	0x2
+	ld.b	[%r6],%r2
+	Sld	%r2,0x007c
+	Xext	0x3
+	ld.b	[%r6],%r2
+	Sld	%r2,0x007d
+	Xext	0x4
+	ld.b	[%r6],%r2
+	.stabn 68,0,569,.LM197-dispDigital
+.LM197:
+	Xld.a	%r2,dispDelData
+	Sld	%r0,0x007f
+.L195:
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x007e
+	ld.b	[%r2],%r0
+	.stabn 68,0,570,.LM198-dispDigital
+.LM198:
+.L198:
+	ld.a	%r0,%r6
+	ld %r1,5
+	Xld.a	%r2,dispDelData
+	Xcall.d	LcdDisplayChar
+	ld %r3,2
+	.stabn 68,0,571,.LM199-dispDigital
+.LM199:
+	ld.a	%r0,%r6
+	Xcall.d	cleanDateBuf
+	ld %r1,5
+	.stabn 68,0,572,.LM200-dispDigital
+.LM200:
+	Xld.a	%r0,dispDelData
+	Sjpr.d	.L186	;# <0x000270>
+	ld %r1,2
+.L149:
+	.stabn 68,0,575,.LM201-dispDigital
+.LM201:
+	Xld.a	%r2,dispAddData
+	Sld	%r0,0x007f
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x0073
+	ld.b	[%r2],%r0
+	Sld	%r2,0x007b
+	Xld.b	[dispAddData+2],%r2
+	Sld	%r2,0x007c
+	Xld.b	[dispAddData+3],%r2
+	.stabn 68,0,576,.LM202-dispDigital
+.LM202:
+	Xld.a	%r6,dispDelData
+	ld.a	%r2,%r6
+	Sld	%r0,0x007a
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x007e
+	ld.b	[%r2],%r0
+	Sld	%r2,0x007d
+	Xext	0x2
+	ld.b	[%r6],%r2
+	.stabn 68,0,577,.LM203-dispDigital
+.LM203:
+	Xld.a	%r0,dispAddData
+	ld %r1,4
+	ld.a	%r2,%r6
+	Xcall.d	LcdDisplayChar
+	ld %r3,3
+	.stabn 68,0,578,.LM204-dispDigital
+.LM204:
+	Xld.a	%r0,dispAddData
+	Xcall.d	cleanDateBuf
+	ld %r1,4
+	.stabn 68,0,579,.LM205-dispDigital
+.LM205:
+	ld.a	%r0,%r6
+	jpr.d	.L186	;# <0x0001f6>
+	ld %r1,3
+.L150:
+	.stabn 68,0,582,.LM206-dispDigital
+.LM206:
+	Xld.a	%r6,dispAddData
+	ld.a	%r2,%r6
+	Sld	%r0,0x007a
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x007f
+	ld.b	[%r2],%r0
+	Sld	%r2,0x0073
+	Xext	0x2
+	ld.b	[%r6],%r2
+	Sld	%r2,0x007d
+	Xext	0x3
+	ld.b	[%r6],%r2
+	Sld	%r2,0x007c
+	Xext	0x4
+	ld.b	[%r6],%r2
+	.stabn 68,0,583,.LM207-dispDigital
+.LM207:
+	Xld.a	%r2,dispDelData
+	Sld	%r0,0x007b
+	jpr	.L195	;# <0xffff0f>
+.L151:
+	.stabn 68,0,589,.LM208-dispDigital
+.LM208:
+	Xld.a	%r6,dispAddData
+	ld.a	%r2,%r6
+	Sld	%r0,0x007a
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x007f
+	ld.b	[%r2],%r0
+	Sld	%r2,0x0073
+	Xext	0x2
+	ld.b	[%r6],%r2
+	Sld	%r2,0x007d
+	Xext	0x3
+	ld.b	[%r6],%r2
+	Sld	%r2,0x007e
+	Xext	0x4
+	ld.b	[%r6],%r2
+	Sld	%r2,0x007c
+	Xext	0x5
+	ld.b	[%r6],%r2
+	.stabn 68,0,590,.LM209-dispDigital
+.LM209:
+	Sld	%r2,0x007b
+	jpr	.L189	;# <0x000132>
+.L152:
+	.stabn 68,0,596,.LM210-dispDigital
+.LM210:
+	Xld.a	%r2,dispAddData
+	Sld	%r0,0x007a
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x007b
+	ld.b	[%r2],%r0
+	Sld	%r2,0x007c
+	Xld.b	[dispAddData+2],%r2
+	.stabn 68,0,597,.LM211-dispDigital
+.LM211:
+	Xld.a	%r6,dispDelData
+	ld.a	%r2,%r6
+	Sld	%r0,0x0073
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x007f
+	ld.b	[%r2],%r0
+	Sld	%r2,0x007e
+	Xext	0x2
+	ld.b	[%r6],%r2
+	Sld	%r2,0x007d
+	Xext	0x3
+	ld.b	[%r6],%r2
+	.stabn 68,0,598,.LM212-dispDigital
+.LM212:
+	Xld.a	%r0,dispAddData
+	ld %r1,3
+	ld.a	%r2,%r6
+	Xcall.d	LcdDisplayChar
+	ld %r3,4
+	.stabn 68,0,599,.LM213-dispDigital
+.LM213:
+	Xld.a	%r0,dispAddData
+	Xcall.d	cleanDateBuf
+	ld %r1,3
+	.stabn 68,0,600,.LM214-dispDigital
+.LM214:
+	ld.a	%r0,%r6
+	jpr.d	.L186	;# <0x0000e2>
+	ld %r1,4
+.L153:
+	.stabn 68,0,603,.LM215-dispDigital
+.LM215:
+	Xld.a	%r6,dispAddData
+	ld.a	%r2,%r6
+	Sld	%r0,0x007a
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x007f
+	ld.b	[%r2],%r0
+	Sld	%r2,0x007e
+	Xext	0x2
+	ld.b	[%r6],%r2
+	Sld	%r2,0x007d
+	Xext	0x3
+	ld.b	[%r6],%r2
+	Sld	%r2,0x007c
+	Xext	0x4
+	ld.b	[%r6],%r2
+	Sld	%r2,0x007b
+	Xext	0x5
+	ld.b	[%r6],%r2
+	Sld	%r2,0x0073
+	Xext	0x6
+	ld.b	[%r6],%r2
+	.stabn 68,0,605,.LM216-dispDigital
+.LM216:
+	ld.a	%r0,%r6
+	ld %r1,7
+	ld.a %r2,0
+	Xcall.d	LcdDisplayChar
+	ld %r3,0
+	.stabn 68,0,606,.LM217-dispDigital
+.LM217:
+	ld.a	%r0,%r6
+	jpr.d	.L186	;# <0x00007c>
+	ld %r1,7
+.L154:
+	.stabn 68,0,610,.LM218-dispDigital
+.LM218:
+	Xld.a	%r6,dispAddData
+	ld.a	%r2,%r6
+	Sld	%r0,0x007a
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x007f
+	ld.b	[%r2],%r0
+	Sld	%r2,0x0073
+	Xext	0x2
+	ld.b	[%r6],%r2
+	Sld	%r2,0x007d
+	Xext	0x3
+	ld.b	[%r6],%r2
+	Sld	%r2,0x007c
+	Xext	0x4
+	ld.b	[%r6],%r2
+	Sld	%r2,0x007b
+	Xext	0x5
+	ld.b	[%r6],%r2
+	.stabn 68,0,611,.LM219-dispDigital
+.LM219:
+	Sld	%r2,0x007e
+.L189:
+	Xld.b	[dispDelData],%r2
+	.stabn 68,0,612,.LM220-dispDigital
+.LM220:
+	ld.a	%r0,%r6
+	ld %r1,6
+	Xld.a	%r2,dispDelData
+	Xcall.d	LcdDisplayChar
+	ld %r3,1
+	.stabn 68,0,613,.LM221-dispDigital
+.LM221:
+	ld.a	%r0,%r6
+	Xcall.d	cleanDateBuf
+	ld %r1,6
+	.stabn 68,0,614,.LM222-dispDigital
+.LM222:
+	Xld.a	%r0,dispDelData
+	ld %r1,1
+.L186:
+	Xcall	cleanDateBuf
+.L144:
+	.stabn 68,0,619,.LM223-dispDigital
+.LM223:
+	ld	%r0,[%sp+0x4]
+	Xcall.d	__modhi3
+	ld %r1,10
+	ld.ub	%r0,%r0
+	.stabn 68,0,620,.LM224-dispDigital
+.LM224:
+	cmp	%r0,9
+	Sjrugt.d	.L157	;# <0x00041c>
+	ld	%r2,%r0
+	add.a %r2,%r2
+	add.a %r2,%r2
+	Xext	.L168
+	ld.a	%r2,[%r2]
+	jpa	%r2
+	.section	.rodata
+	.align 2
+	.align 2
+.L168:
+.long	.L158
+.long	.L159
+.long	.L160
+.long	.L161
+.long	.L162
+.long	.L163
+.long	.L164
+.long	.L165
+.long	.L166
+.long	.L167
+	.section .text
+.L158:
+	.stabn 68,0,623,.LM225-dispDigital
+.LM225:
+	Xld.a	%r6,dispAddData
+	ld.a	%r2,%r6
+	Sld	%r0,0x006a
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x006f
+	ld.b	[%r2],%r0
+	Sld	%r2,0x006e
+	Xext	0x2
+	ld.b	[%r6],%r2
+	Sld	%r2,0x006d
+	Xext	0x3
+	ld.b	[%r6],%r2
+	Sld	%r2,0x006c
+	Xext	0x4
+	ld.b	[%r6],%r2
+	Sld	%r2,0x006b
+	Xext	0x5
+	ld.b	[%r6],%r2
+	.stabn 68,0,624,.LM226-dispDigital
+.LM226:
+	Sld	%r2,0x0063
+	Sjpr	.L191	;# <0x000391>
+.L159:
+	.stabn 68,0,630,.LM227-dispDigital
+.LM227:
+	Xld.a	%r2,dispAddData
+	Sld	%r0,0x006b
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x006c
+	ld.b	[%r2],%r0
+	.stabn 68,0,631,.LM228-dispDigital
+.LM228:
+	Xld.a	%r6,dispDelData
+	ld.a	%r2,%r6
+	Sld	%r0,0x0063
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x006a
+	ld.b	[%r2],%r0
+	Sld	%r2,0x006f
+	Xext	0x2
+	ld.b	[%r6],%r2
+	Sld	%r2,0x006e
+	Xext	0x3
+	ld.b	[%r6],%r2
+	Sld	%r2,0x006d
+	Xext	0x4
+	ld.b	[%r6],%r2
+	.stabn 68,0,632,.LM229-dispDigital
+.LM229:
+	Xld.a	%r0,dispAddData
+	ld %r1,2
+	ld.a	%r2,%r6
+	Xcall.d	LcdDisplayChar
+	ld %r3,5
+	.stabn 68,0,633,.LM230-dispDigital
+.LM230:
+	Xld.a	%r0,dispAddData
+	Xcall.d	cleanDateBuf
+	ld %r1,2
+	.stabn 68,0,634,.LM231-dispDigital
+.LM231:
+	ld.a	%r0,%r6
+	Sjpr.d	.L187	;# <0x000342>
+	ld %r1,5
+.L160:
+	.stabn 68,0,637,.LM232-dispDigital
+.LM232:
+	Xld.a	%r6,dispAddData
+	ld.a	%r2,%r6
+	Sld	%r0,0x006a
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x006b
+	ld.b	[%r2],%r0
+	Sld	%r2,0x0063
+	Xext	0x2
+	ld.b	[%r6],%r2
+	Sld	%r2,0x006e
+	Xext	0x3
+	ld.b	[%r6],%r2
+	Sld	%r2,0x006d
+	Xext	0x4
+	ld.b	[%r6],%r2
+	.stabn 68,0,638,.LM233-dispDigital
+.LM233:
+	Xld.a	%r2,dispDelData
+	Sld	%r0,0x006f
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x006c
+	jpr.d	.L199	;# <0x00005c>
+	ld.b	[%r2],%r0
+.L161:
+	.stabn 68,0,644,.LM234-dispDigital
+.LM234:
+	Xld.a	%r6,dispAddData
+	ld.a	%r2,%r6
+	Sld	%r0,0x006a
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x006b
+	ld.b	[%r2],%r0
+	Sld	%r2,0x0063
+	Xext	0x2
+	ld.b	[%r6],%r2
+	Sld	%r2,0x006c
+	Xext	0x3
+	ld.b	[%r6],%r2
+	Sld	%r2,0x006d
+	Xext	0x4
+	ld.b	[%r6],%r2
+	.stabn 68,0,645,.LM235-dispDigital
+.LM235:
+	Xld.a	%r2,dispDelData
+	Sld	%r0,0x006f
+.L196:
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x006e
+	ld.b	[%r2],%r0
+	.stabn 68,0,646,.LM236-dispDigital
+.LM236:
+.L199:
+	ld.a	%r0,%r6
+	ld %r1,5
+	Xld.a	%r2,dispDelData
+	Xcall.d	LcdDisplayChar
+	ld %r3,2
+	.stabn 68,0,647,.LM237-dispDigital
+.LM237:
+	ld.a	%r0,%r6
+	Xcall.d	cleanDateBuf
+	ld %r1,5
+	.stabn 68,0,648,.LM238-dispDigital
+.LM238:
+	Xld.a	%r0,dispDelData
+	Sjpr.d	.L187	;# <0x000270>
+	ld %r1,2
+.L162:
+	.stabn 68,0,651,.LM239-dispDigital
+.LM239:
+	Xld.a	%r2,dispAddData
+	Sld	%r0,0x006f
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x0063
+	ld.b	[%r2],%r0
+	Sld	%r2,0x006b
+	Xld.b	[dispAddData+2],%r2
+	Sld	%r2,0x006c
+	Xld.b	[dispAddData+3],%r2
+	.stabn 68,0,652,.LM240-dispDigital
+.LM240:
+	Xld.a	%r6,dispDelData
+	ld.a	%r2,%r6
+	Sld	%r0,0x006a
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x006e
+	ld.b	[%r2],%r0
+	Sld	%r2,0x006d
+	Xext	0x2
+	ld.b	[%r6],%r2
+	.stabn 68,0,653,.LM241-dispDigital
+.LM241:
+	Xld.a	%r0,dispAddData
+	ld %r1,4
+	ld.a	%r2,%r6
+	Xcall.d	LcdDisplayChar
+	ld %r3,3
+	.stabn 68,0,654,.LM242-dispDigital
+.LM242:
+	Xld.a	%r0,dispAddData
+	Xcall.d	cleanDateBuf
+	ld %r1,4
+	.stabn 68,0,655,.LM243-dispDigital
+.LM243:
+	ld.a	%r0,%r6
+	jpr.d	.L187	;# <0x0001f6>
+	ld %r1,3
+.L163:
+	.stabn 68,0,658,.LM244-dispDigital
+.LM244:
+	Xld.a	%r6,dispAddData
+	ld.a	%r2,%r6
+	Sld	%r0,0x006a
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x006f
+	ld.b	[%r2],%r0
+	Sld	%r2,0x0063
+	Xext	0x2
+	ld.b	[%r6],%r2
+	Sld	%r2,0x006d
+	Xext	0x3
+	ld.b	[%r6],%r2
+	Sld	%r2,0x006c
+	Xext	0x4
+	ld.b	[%r6],%r2
+	.stabn 68,0,659,.LM245-dispDigital
+.LM245:
+	Xld.a	%r2,dispDelData
+	Sld	%r0,0x006b
+	jpr	.L196	;# <0xffff0f>
+.L164:
+	.stabn 68,0,665,.LM246-dispDigital
+.LM246:
+	Xld.a	%r6,dispAddData
+	ld.a	%r2,%r6
+	Sld	%r0,0x006a
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x006f
+	ld.b	[%r2],%r0
+	Sld	%r2,0x0063
+	Xext	0x2
+	ld.b	[%r6],%r2
+	Sld	%r2,0x006d
+	Xext	0x3
+	ld.b	[%r6],%r2
+	Sld	%r2,0x006e
+	Xext	0x4
+	ld.b	[%r6],%r2
+	Sld	%r2,0x006c
+	Xext	0x5
+	ld.b	[%r6],%r2
+	.stabn 68,0,666,.LM247-dispDigital
+.LM247:
+	Sld	%r2,0x006b
+	jpr	.L191	;# <0x000132>
+.L165:
+	.stabn 68,0,672,.LM248-dispDigital
+.LM248:
+	Xld.a	%r2,dispAddData
+	Sld	%r0,0x006a
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x006b
+	ld.b	[%r2],%r0
+	Sld	%r2,0x006c
+	Xld.b	[dispAddData+2],%r2
+	.stabn 68,0,673,.LM249-dispDigital
+.LM249:
+	Xld.a	%r6,dispDelData
+	ld.a	%r2,%r6
+	Sld	%r0,0x0063
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x006f
+	ld.b	[%r2],%r0
+	Sld	%r2,0x006e
+	Xext	0x2
+	ld.b	[%r6],%r2
+	Sld	%r2,0x006d
+	Xext	0x3
+	ld.b	[%r6],%r2
+	.stabn 68,0,674,.LM250-dispDigital
+.LM250:
+	Xld.a	%r0,dispAddData
+	ld %r1,3
+	ld.a	%r2,%r6
+	Xcall.d	LcdDisplayChar
+	ld %r3,4
+	.stabn 68,0,675,.LM251-dispDigital
+.LM251:
+	Xld.a	%r0,dispAddData
+	Xcall.d	cleanDateBuf
+	ld %r1,3
+	.stabn 68,0,676,.LM252-dispDigital
+.LM252:
+	ld.a	%r0,%r6
+	jpr.d	.L187	;# <0x0000e2>
+	ld %r1,4
+.L166:
+	.stabn 68,0,679,.LM253-dispDigital
+.LM253:
+	Xld.a	%r6,dispAddData
+	ld.a	%r2,%r6
+	Sld	%r0,0x006a
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x006f
+	ld.b	[%r2],%r0
+	Sld	%r2,0x006e
+	Xext	0x2
+	ld.b	[%r6],%r2
+	Sld	%r2,0x006d
+	Xext	0x3
+	ld.b	[%r6],%r2
+	Sld	%r2,0x006c
+	Xext	0x4
+	ld.b	[%r6],%r2
+	Sld	%r2,0x006b
+	Xext	0x5
+	ld.b	[%r6],%r2
+	Sld	%r2,0x0063
+	Xext	0x6
+	ld.b	[%r6],%r2
+	.stabn 68,0,681,.LM254-dispDigital
+.LM254:
+	ld.a	%r0,%r6
+	ld %r1,7
+	ld.a %r2,0
+	Xcall.d	LcdDisplayChar
+	ld %r3,0
+	.stabn 68,0,682,.LM255-dispDigital
+.LM255:
+	ld.a	%r0,%r6
+	jpr.d	.L187	;# <0x00007c>
+	ld %r1,7
+.L167:
+	.stabn 68,0,686,.LM256-dispDigital
+.LM256:
+	Xld.a	%r6,dispAddData
+	ld.a	%r2,%r6
+	Sld	%r0,0x006a
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x006f
+	ld.b	[%r2],%r0
+	Sld	%r2,0x0063
+	Xext	0x2
+	ld.b	[%r6],%r2
+	Sld	%r2,0x006d
+	Xext	0x3
+	ld.b	[%r6],%r2
+	Sld	%r2,0x006c
+	Xext	0x4
+	ld.b	[%r6],%r2
+	Sld	%r2,0x006b
+	Xext	0x5
+	ld.b	[%r6],%r2
+	.stabn 68,0,687,.LM257-dispDigital
+.LM257:
+	Sld	%r2,0x006e
+.L191:
+	Xld.b	[dispDelData],%r2
+	.stabn 68,0,688,.LM258-dispDigital
+.LM258:
+	ld.a	%r0,%r6
+	ld %r1,6
+	Xld.a	%r2,dispDelData
+	Xcall.d	LcdDisplayChar
+	ld %r3,1
+	.stabn 68,0,689,.LM259-dispDigital
+.LM259:
+	ld.a	%r0,%r6
+	Xcall.d	cleanDateBuf
+	ld %r1,6
+	.stabn 68,0,690,.LM260-dispDigital
+.LM260:
+	Xld.a	%r0,dispDelData
+	ld %r1,1
+.L187:
+	Xcall	cleanDateBuf
+.L157:
+	.stabn 68,0,694,.LM261-dispDigital
+.LM261:
+	ld	%r0,[%sp+0x4]
+	Xcall.d	__divhi3
+	ld %r1,10
+	ld	[%sp+0x4],%r0
+	.stabn 68,0,695,.LM262-dispDigital
+.LM262:
+	cmp	%r0,0
+	Sjreq	.L137	;# <0x000485>
+	.stabn 68,0,696,.LM263-dispDigital
+.LM263:
+	Xcall.d	__modhi3
+	ld %r1,10
+	ld.ub	%r0,%r0
+	.stabn 68,0,697,.LM264-dispDigital
+.LM264:
+	cmp	%r0,9
+	Sjrugt.d	.L171	;# <0x00041c>
+	ld	%r2,%r0
+	add.a %r2,%r2
+	add.a %r2,%r2
+	Xext	.L182
+	ld.a	%r2,[%r2]
+	jpa	%r2
+	.section	.rodata
+	.align 2
+	.align 2
+.L182:
+.long	.L172
+.long	.L173
+.long	.L174
+.long	.L175
+.long	.L176
+.long	.L177
+.long	.L178
+.long	.L179
+.long	.L180
+.long	.L181
+	.section .text
+.L172:
+	.stabn 68,0,700,.LM265-dispDigital
+.LM265:
+	Xld.a	%r6,dispAddData
+	ld.a	%r2,%r6
+	Sld	%r0,0x005a
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x005f
+	ld.b	[%r2],%r0
+	Sld	%r2,0x005e
+	Xext	0x2
+	ld.b	[%r6],%r2
+	Sld	%r2,0x005d
+	Xext	0x3
+	ld.b	[%r6],%r2
+	Sld	%r2,0x005c
+	Xext	0x4
+	ld.b	[%r6],%r2
+	Sld	%r2,0x005b
+	Xext	0x5
+	ld.b	[%r6],%r2
+	.stabn 68,0,701,.LM266-dispDigital
+.LM266:
+	Sld	%r2,0x0053
+	Sjpr	.L193	;# <0x000391>
+.L173:
+	.stabn 68,0,707,.LM267-dispDigital
+.LM267:
+	Xld.a	%r2,dispAddData
+	Sld	%r0,0x005b
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x005c
+	ld.b	[%r2],%r0
+	.stabn 68,0,708,.LM268-dispDigital
+.LM268:
+	Xld.a	%r6,dispDelData
+	ld.a	%r2,%r6
+	Sld	%r0,0x0053
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x005a
+	ld.b	[%r2],%r0
+	Sld	%r2,0x005f
+	Xext	0x2
+	ld.b	[%r6],%r2
+	Sld	%r2,0x005e
+	Xext	0x3
+	ld.b	[%r6],%r2
+	Sld	%r2,0x005d
+	Xext	0x4
+	ld.b	[%r6],%r2
+	.stabn 68,0,709,.LM269-dispDigital
+.LM269:
+	Xld.a	%r0,dispAddData
+	ld %r1,2
+	ld.a	%r2,%r6
+	Xcall.d	LcdDisplayChar
+	ld %r3,5
+	.stabn 68,0,710,.LM270-dispDigital
+.LM270:
+	Xld.a	%r0,dispAddData
+	Xcall.d	cleanDateBuf
+	ld %r1,2
+	.stabn 68,0,711,.LM271-dispDigital
+.LM271:
+	ld.a	%r0,%r6
+	Sjpr.d	.L188	;# <0x000342>
+	ld %r1,5
+.L174:
+	.stabn 68,0,714,.LM272-dispDigital
+.LM272:
+	Xld.a	%r6,dispAddData
+	ld.a	%r2,%r6
+	Sld	%r0,0x005a
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x005b
+	ld.b	[%r2],%r0
+	Sld	%r2,0x0053
+	Xext	0x2
+	ld.b	[%r6],%r2
+	Sld	%r2,0x005e
+	Xext	0x3
+	ld.b	[%r6],%r2
+	Sld	%r2,0x005d
+	Xext	0x4
+	ld.b	[%r6],%r2
+	.stabn 68,0,715,.LM273-dispDigital
+.LM273:
+	Xld.a	%r2,dispDelData
+	Sld	%r0,0x005f
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x005c
+	jpr.d	.L200	;# <0x00005c>
+	ld.b	[%r2],%r0
+.L175:
+	.stabn 68,0,721,.LM274-dispDigital
+.LM274:
+	Xld.a	%r6,dispAddData
+	ld.a	%r2,%r6
+	Sld	%r0,0x005a
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x005b
+	ld.b	[%r2],%r0
+	Sld	%r2,0x0053
+	Xext	0x2
+	ld.b	[%r6],%r2
+	Sld	%r2,0x005c
+	Xext	0x3
+	ld.b	[%r6],%r2
+	Sld	%r2,0x005d
+	Xext	0x4
+	ld.b	[%r6],%r2
+	.stabn 68,0,722,.LM275-dispDigital
+.LM275:
+	Xld.a	%r2,dispDelData
+	Sld	%r0,0x005f
+.L197:
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x005e
+	ld.b	[%r2],%r0
+	.stabn 68,0,723,.LM276-dispDigital
+.LM276:
+.L200:
+	ld.a	%r0,%r6
+	ld %r1,5
+	Xld.a	%r2,dispDelData
+	Xcall.d	LcdDisplayChar
+	ld %r3,2
+	.stabn 68,0,724,.LM277-dispDigital
+.LM277:
+	ld.a	%r0,%r6
+	Xcall.d	cleanDateBuf
+	ld %r1,5
+	.stabn 68,0,725,.LM278-dispDigital
+.LM278:
+	Xld.a	%r0,dispDelData
+	Sjpr.d	.L188	;# <0x000270>
+	ld %r1,2
+.L176:
+	.stabn 68,0,728,.LM279-dispDigital
+.LM279:
+	Xld.a	%r2,dispAddData
+	Sld	%r0,0x005f
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x0053
+	ld.b	[%r2],%r0
+	Sld	%r2,0x005b
+	Xld.b	[dispAddData+2],%r2
+	Sld	%r2,0x005c
+	Xld.b	[dispAddData+3],%r2
+	.stabn 68,0,729,.LM280-dispDigital
+.LM280:
+	Xld.a	%r6,dispDelData
+	ld.a	%r2,%r6
+	Sld	%r0,0x005a
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x005e
+	ld.b	[%r2],%r0
+	Sld	%r2,0x005d
+	Xext	0x2
+	ld.b	[%r6],%r2
+	.stabn 68,0,730,.LM281-dispDigital
+.LM281:
+	Xld.a	%r0,dispAddData
+	ld %r1,4
+	ld.a	%r2,%r6
+	Xcall.d	LcdDisplayChar
+	ld %r3,3
+	.stabn 68,0,731,.LM282-dispDigital
+.LM282:
+	Xld.a	%r0,dispAddData
+	Xcall.d	cleanDateBuf
+	ld %r1,4
+	.stabn 68,0,732,.LM283-dispDigital
+.LM283:
+	ld.a	%r0,%r6
+	jpr.d	.L188	;# <0x0001f6>
+	ld %r1,3
+.L177:
+	.stabn 68,0,735,.LM284-dispDigital
+.LM284:
+	Xld.a	%r6,dispAddData
+	ld.a	%r2,%r6
+	Sld	%r0,0x005a
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x005f
+	ld.b	[%r2],%r0
+	Sld	%r2,0x0053
+	Xext	0x2
+	ld.b	[%r6],%r2
+	Sld	%r2,0x005d
+	Xext	0x3
+	ld.b	[%r6],%r2
+	Sld	%r2,0x005c
+	Xext	0x4
+	ld.b	[%r6],%r2
+	.stabn 68,0,736,.LM285-dispDigital
+.LM285:
+	Xld.a	%r2,dispDelData
+	Sld	%r0,0x005b
+	jpr	.L197	;# <0xffff0f>
+.L178:
+	.stabn 68,0,743,.LM286-dispDigital
+.LM286:
+	Xld.a	%r6,dispAddData
+	ld.a	%r2,%r6
+	Sld	%r0,0x005a
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x005f
+	ld.b	[%r2],%r0
+	Sld	%r2,0x0053
+	Xext	0x2
+	ld.b	[%r6],%r2
+	Sld	%r2,0x005d
+	Xext	0x3
+	ld.b	[%r6],%r2
+	Sld	%r2,0x005e
+	Xext	0x4
+	ld.b	[%r6],%r2
+	Sld	%r2,0x005c
+	Xext	0x5
+	ld.b	[%r6],%r2
+	.stabn 68,0,744,.LM287-dispDigital
+.LM287:
+	Sld	%r2,0x005b
+	jpr	.L193	;# <0x000132>
+.L179:
+	.stabn 68,0,750,.LM288-dispDigital
+.LM288:
+	Xld.a	%r2,dispAddData
+	Sld	%r0,0x005a
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x005b
+	ld.b	[%r2],%r0
+	Sld	%r2,0x005c
+	Xld.b	[dispAddData+2],%r2
+	.stabn 68,0,751,.LM289-dispDigital
+.LM289:
+	Xld.a	%r6,dispDelData
+	ld.a	%r2,%r6
+	Sld	%r0,0x0053
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x005f
+	ld.b	[%r2],%r0
+	Sld	%r2,0x005e
+	Xext	0x2
+	ld.b	[%r6],%r2
+	Sld	%r2,0x005d
+	Xext	0x3
+	ld.b	[%r6],%r2
+	.stabn 68,0,752,.LM290-dispDigital
+.LM290:
+	Xld.a	%r0,dispAddData
+	ld %r1,3
+	ld.a	%r2,%r6
+	Xcall.d	LcdDisplayChar
+	ld %r3,4
+	.stabn 68,0,753,.LM291-dispDigital
+.LM291:
+	Xld.a	%r0,dispAddData
+	Xcall.d	cleanDateBuf
+	ld %r1,3
+	.stabn 68,0,754,.LM292-dispDigital
+.LM292:
+	ld.a	%r0,%r6
+	jpr.d	.L188	;# <0x0000e2>
+	ld %r1,4
+.L180:
+	.stabn 68,0,757,.LM293-dispDigital
+.LM293:
+	Xld.a	%r6,dispAddData
+	ld.a	%r2,%r6
+	Sld	%r0,0x005a
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x005f
+	ld.b	[%r2],%r0
+	Sld	%r2,0x005e
+	Xext	0x2
+	ld.b	[%r6],%r2
+	Sld	%r2,0x005d
+	Xext	0x3
+	ld.b	[%r6],%r2
+	Sld	%r2,0x005c
+	Xext	0x4
+	ld.b	[%r6],%r2
+	Sld	%r2,0x005b
+	Xext	0x5
+	ld.b	[%r6],%r2
+	Sld	%r2,0x0053
+	Xext	0x6
+	ld.b	[%r6],%r2
+	.stabn 68,0,759,.LM294-dispDigital
+.LM294:
+	ld.a	%r0,%r6
+	ld %r1,7
+	ld.a %r2,0
+	Xcall.d	LcdDisplayChar
+	ld %r3,0
+	.stabn 68,0,760,.LM295-dispDigital
+.LM295:
+	ld.a	%r0,%r6
+	jpr.d	.L188	;# <0x00007c>
+	ld %r1,7
+.L181:
+	.stabn 68,0,764,.LM296-dispDigital
+.LM296:
+	Xld.a	%r6,dispAddData
+	ld.a	%r2,%r6
+	Sld	%r0,0x005a
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x005f
+	ld.b	[%r2],%r0
+	Sld	%r2,0x0053
+	Xext	0x2
+	ld.b	[%r6],%r2
+	Sld	%r2,0x005d
+	Xext	0x3
+	ld.b	[%r6],%r2
+	Sld	%r2,0x005c
+	Xext	0x4
+	ld.b	[%r6],%r2
+	Sld	%r2,0x005b
+	Xext	0x5
+	ld.b	[%r6],%r2
+	.stabn 68,0,765,.LM297-dispDigital
+.LM297:
+	Sld	%r2,0x005e
+.L193:
+	Xld.b	[dispDelData],%r2
+	.stabn 68,0,766,.LM298-dispDigital
+.LM298:
+	ld.a	%r0,%r6
+	ld %r1,6
+	Xld.a	%r2,dispDelData
+	Xcall.d	LcdDisplayChar
+	ld %r3,1
+	.stabn 68,0,767,.LM299-dispDigital
+.LM299:
+	ld.a	%r0,%r6
+	Xcall.d	cleanDateBuf
+	ld %r1,6
+	.stabn 68,0,768,.LM300-dispDigital
+.LM300:
+	Xld.a	%r0,dispDelData
+	ld %r1,1
+.L188:
+	Xcall	cleanDateBuf
+.L171:
+	.stabn 68,0,772,.LM301-dispDigital
+.LM301:
+	ld	%r0,[%sp+0x4]
+	Xcall.d	__divhi3
+	ld %r1,10
+	ld	[%sp+0x4],%r0
+	.stabn 68,0,773,.LM302-dispDigital
+.LM302:
+	cmp	%r0,0
+	Sjreq	.L137	;# <0x000048>
+	.stabn 68,0,774,.LM303-dispDigital
+.LM303:
+	Xcall.d	__modhi3
+	ld %r1,10
+	ld.ub	%r0,%r0
+	.stabn 68,0,775,.LM304-dispDigital
+.LM304:
+	cmp	%r0,0
+	jreq	.L137	;# <55>
+	.stabn 68,0,777,.LM305-dispDigital
+.LM305:
+	Xld.a	%r6,dispAddData
+	ld.a	%r2,%r6
+	Sld	%r0,0x004c
+	ld.b	[%r2]+,%r0
+	Sld	%r0,0x004b
+	ld.b	[%r2],%r0
+	.stabn 68,0,778,.LM306-dispDigital
+.LM306:
+	ld.a	%r0,%r6
+	ld %r1,2
+	ld.a %r2,0
+	Xcall.d	LcdDisplayChar
+	ld %r3,0
+	.stabn 68,0,779,.LM307-dispDigital
+.LM307:
+	ld.a	%r0,%r6
+	Xcall.d	cleanDateBuf
+	ld %r1,2
+	.stabn 68,0,782,.LM308-dispDigital
+.LM308:
+.L137:
+.LBE4:
+	add.a	%sp, 0xc
+	ld.a	%r7,[%sp]+
+	ld.a	%r6,[%sp]+
+	ld.a	%r5,[%sp]+
+	ld.a	%r4,[%sp]+
+	ret
+	.size	dispDigital, .-dispDigital
+	.stabs	"i:r(24,1)",64,0,0,0
+	.stabs	"f:r(0,12)",64,0,0,6
+	.stabs	"tem:(0,1)",128,0,0,4
+	.stabn	192,0,0,.LBB4-dispDigital
+	.stabn	224,0,0,.LBE4-dispDigital
+	.align 1
+	.stabs	"StartLcd8bClock:F(0,20)",36,0,0,StartLcd8bClock
+	.global StartLcd8bClock
+	.type	StartLcd8bClock, @function
+StartLcd8bClock:
+	.stabn 68,0,789,.LM309-StartLcd8bClock
+.LM309:
+;  Function'StartLcd8bClock'; 0 bytes of locals, 0 regs to save(0 byte).
+	ld.a	-[%sp], %r4
+	.stabn 68,0,791,.LM310-StartLcd8bClock
+.LM310:
+	Sld.a %r3,0x005402
+	ld	%r2,[%r3]
+	or	%r2,1
+	ld	[%r3],%r2
+	.stabn 68,0,792,.LM311-StartLcd8bClock
+.LM311:
+	ld.a	%r4,[%sp]+
+	ret
+	.size	StartLcd8bClock, .-StartLcd8bClock
+	.align 1
+	.stabs	"StopLcd8bClock:F(0,20)",36,0,0,StopLcd8bClock
+	.global StopLcd8bClock
+	.type	StopLcd8bClock, @function
+StopLcd8bClock:
+	.stabn 68,0,800,.LM312-StopLcd8bClock
+.LM312:
+;  Function'StopLcd8bClock'; 0 bytes of locals, 0 regs to save(0 byte).
+	ld.a	-[%sp], %r4
+	.stabn 68,0,802,.LM313-StopLcd8bClock
+.LM313:
+	Sld.a %r3,0x005402
+	ld	%r2,[%r3]
+	Xand	%r2,0x00fe
+	ld	[%r3],%r2
+	.stabn 68,0,803,.LM314-StopLcd8bClock
+.LM314:
+	ld.a	%r4,[%sp]+
+	ret
+	.size	StopLcd8bClock, .-StopLcd8bClock
+	.align 1
+	.stabs	"InitLcd8bInt:F(0,8)",36,0,0,InitLcd8bInt
+	.stabs	"intLevel:P(0,11)",64,0,0,0
+	.global InitLcd8bInt
+	.type	InitLcd8bInt, @function
+InitLcd8bInt:
+	.stabn 68,0,824,.LM315-InitLcd8bInt
+.LM315:
+;  Function'InitLcd8bInt'; 0 bytes of locals, 0 regs to save(0 byte).
+	ld.ub	%r0,%r0
+	.stabn 68,0,826,.LM316-InitLcd8bInt
+.LM316:
+	cmp	%r0,7
+	jrule	.L204	;# <17>
+	.stabn 68,0,827,.LM317-InitLcd8bInt
+.LM317:
+	jpr.d	.L203	;# <19>
+	ld %r0,0
+.L204:
+	.stabn 68,0,831,.LM318-InitLcd8bInt
+.LM318:
+	Sld.b	[0x408f],%r0
+	.stabn 68,0,833,.LM319-InitLcd8bInt
+.LM319:
+	ld %r0,1
+	.stabn 68,0,834,.LM320-InitLcd8bInt
+.LM320:
+.L203:
+	ret
+	.size	InitLcd8bInt, .-InitLcd8bInt
+	.align 1
+	.stabs	"EnableLcd8bInt:F(0,20)",36,0,0,EnableLcd8bInt
+	.global EnableLcd8bInt
+	.type	EnableLcd8bInt, @function
+EnableLcd8bInt:
+	.stabn 68,0,842,.LM321-EnableLcd8bInt
+.LM321:
+;  Function'EnableLcd8bInt'; 0 bytes of locals, 0 regs to save(0 byte).
+	ld.a	-[%sp], %r4
+	.stabn 68,0,844,.LM322-EnableLcd8bInt
+.LM322:
+	Xcall	ClrLcd8bIntFlg
+	.stabn 68,0,847,.LM323-EnableLcd8bInt
+.LM323:
+	Sld.a %r3,0x005412
+	ld	%r2,[%r3]
+	or	%r2,1
+	ld	[%r3],%r2
+	.stabn 68,0,848,.LM324-EnableLcd8bInt
+.LM324:
+	ld.a	%r4,[%sp]+
+	ret
+	.size	EnableLcd8bInt, .-EnableLcd8bInt
+	.align 1
+	.stabs	"DisableLcd8bInt:F(0,20)",36,0,0,DisableLcd8bInt
+	.global DisableLcd8bInt
+	.type	DisableLcd8bInt, @function
+DisableLcd8bInt:
+	.stabn 68,0,856,.LM325-DisableLcd8bInt
+.LM325:
+;  Function'DisableLcd8bInt'; 0 bytes of locals, 0 regs to save(0 byte).
+	ld.a	-[%sp], %r4
+	.stabn 68,0,858,.LM326-DisableLcd8bInt
+.LM326:
+	Sld.a %r3,0x005412
+	ld	%r2,[%r3]
+	Xand	%r2,0x00fe
+	ld	[%r3],%r2
+	.stabn 68,0,861,.LM327-DisableLcd8bInt
+.LM327:
+	Xcall	ClrLcd8bIntFlg
+	.stabn 68,0,862,.LM328-DisableLcd8bInt
+.LM328:
+	ld.a	%r4,[%sp]+
+	ret
+	.size	DisableLcd8bInt, .-DisableLcd8bInt
+	.align 1
+	.stabs	"isLcd8bInt:F(0,1)",36,0,0,isLcd8bInt
+	.global isLcd8bInt
+	.type	isLcd8bInt, @function
+isLcd8bInt:
+	.stabn 68,0,873,.LM329-isLcd8bInt
+.LM329:
+;  Function'isLcd8bInt'; 0 bytes of locals, 0 regs to save(0 byte).
+	.stabn 68,0,875,.LM330-isLcd8bInt
+.LM330:
+	Sld	%r2,[0x5410]
+	cmp	%r2,1
+	jrne.d	.L207	;# <19>
+	ld %r0,0
+	.stabn 68,0,880,.LM331-isLcd8bInt
+.LM331:
+	ld %r2,1
+	Sld	[0x5410],%r2
+	.stabn 68,0,882,.LM332-isLcd8bInt
+.LM332:
+	ld	%r0,%r2
+	.stabn 68,0,883,.LM333-isLcd8bInt
+.LM333:
+.L207:
+	ret
+	.size	isLcd8bInt, .-isLcd8bInt
+	.align 1
+	.stabs	"ClrLcd8bIntFlg:F(0,20)",36,0,0,ClrLcd8bIntFlg
+	.global ClrLcd8bIntFlg
+	.type	ClrLcd8bIntFlg, @function
+ClrLcd8bIntFlg:
+	.stabn 68,0,891,.LM334-ClrLcd8bIntFlg
+.LM334:
+;  Function'ClrLcd8bIntFlg'; 0 bytes of locals, 0 regs to save(0 byte).
+	.stabn 68,0,893,.LM335-ClrLcd8bIntFlg
+.LM335:
+	ld %r2,1
+	Sld	[0x5410],%r2
+	.stabn 68,0,894,.LM336-ClrLcd8bIntFlg
+.LM336:
+	ret
+	.size	ClrLcd8bIntFlg, .-ClrLcd8bIntFlg
+	.align 1
+	.stabs	"onLcd8bReg:F(0,20)",36,0,0,onLcd8bReg
+	.global onLcd8bReg
+	.type	onLcd8bReg, @function
+onLcd8bReg:
+	.stabn 68,0,902,.LM337-onLcd8bReg
+.LM337:
+;  Function'onLcd8bReg'; 0 bytes of locals, 0 regs to save(0 byte).
+	.stabn 68,0,904,.LM338-onLcd8bReg
+.LM338:
+	Sld.a %r2,0x005408
+	ld.b	%r0,[%r2]
+	or	%r0,1
+	ld.b	[%r2],%r0
+	.stabn 68,0,906,.LM339-onLcd8bReg
+.LM339:
+	ld.b	%r0,[%r2]
+	and	%r0,-5
+	ld.b	[%r2],%r0
+	.stabn 68,0,907,.LM340-onLcd8bReg
+.LM340:
+	ret
+	.size	onLcd8bReg, .-onLcd8bReg
+	.align 1
+	.stabs	"offLcd8bReg:F(0,20)",36,0,0,offLcd8bReg
+	.global offLcd8bReg
+	.type	offLcd8bReg, @function
+offLcd8bReg:
+	.stabn 68,0,915,.LM341-offLcd8bReg
+.LM341:
+;  Function'offLcd8bReg'; 0 bytes of locals, 0 regs to save(0 byte).
+	.stabn 68,0,917,.LM342-offLcd8bReg
+.LM342:
+	Sld.a %r2,0x005408
+	ld.b	%r0,[%r2]
+	and	%r0,-2
+	ld.b	[%r2],%r0
+	.stabn 68,0,919,.LM343-offLcd8bReg
+.LM343:
+	ld.b	%r0,[%r2]
+	or	%r0,4
+	ld.b	[%r2],%r0
+	.stabn 68,0,920,.LM344-offLcd8bReg
+.LM344:
+	ret
+	.size	offLcd8bReg, .-offLcd8bReg
+	.align 1
+	.stabs	"initLcd8bSegRam:f(0,20)",36,0,0,initLcd8bSegRam
+	.type	initLcd8bSegRam, @function
+initLcd8bSegRam:
+	.stabn 68,0,932,.LM345-initLcd8bSegRam
+.LM345:
+;  Function'initLcd8bSegRam'; 0 bytes of locals, 0 regs to save(0 byte).
+	ld.a	-[%sp], %r4
+	.stabn 68,0,933,.LM346-initLcd8bSegRam
+.LM346:
+.LBB5:
+	Sld.a %r0,0x007000
+	.stabn 68,0,937,.LM347-initLcd8bSegRam
+.LM347:
+	Sld %r4,0x0075
+	.stabn 68,0,939,.LM348-initLcd8bSegRam
+.LM348:
+	ld %r3,0
+	.stabn 68,0,940,.LM349-initLcd8bSegRam
+.LM349:
+	ld	%r2,0
+.L220:
+	ld.b	[%r0]+,%r2
+	.stabn 68,0,939,.LM350-initLcd8bSegRam
+.LM350:
+	add	%r3,0x0001
+	cmp	%r3,%r4
+	jrult	.L220	;# <-8>
+	.stabn 68,0,942,.LM351-initLcd8bSegRam
+.LM351:
+.LBE5:
+	ld.a	%r4,[%sp]+
+	ret
+	.size	initLcd8bSegRam, .-initLcd8bSegRam
+	.stabs	"segram:r(1,1)",64,0,0,0
+	.stabs	"i:r(0,9)",64,0,0,3
+	.stabs	"size:r(0,11)",64,0,0,4
+	.stabn	192,0,0,.LBB5-initLcd8bSegRam
+	.stabn	224,0,0,.LBE5-initLcd8bSegRam
+	.align 1
+	.stabs	"initLcd8bMode:f(0,20)",36,0,0,initLcd8bMode
+	.type	initLcd8bMode, @function
+initLcd8bMode:
+	.stabn 68,0,952,.LM352-initLcd8bMode
+.LM352:
+;  Function'initLcd8bMode'; 0 bytes of locals, 0 regs to save(0 byte).
+	ld.a	-[%sp], %r4
+	.stabn 68,0,953,.LM353-initLcd8bMode
+.LM353:
+	ld %r0,1
+	Sld	[0x5410],%r0
+	.stabn 68,0,954,.LM354-initLcd8bMode
+.LM354:
+	ld %r1,0
+	Sld	[0x5412],%r1
+	.stabn 68,0,956,.LM355-initLcd8bMode
+.LM355:
+	Sld.a %r3,0x005400
+	ld.b	%r2,[%r3]
+	and	%r2,-4
+	or	%r2,%r0
+	ld.b	[%r3],%r2
+	.stabn 68,0,957,.LM356-initLcd8bMode
+.LM356:
+	ld.b	%r2,[%r3]
+	Xand	%r2,0xff8f
+	Xoor	%r2,0x0050
+	ld.b	[%r3],%r2
+	.stabn 68,0,958,.LM357-initLcd8bMode
+.LM357:
+	Sld.b	[0x5401],%r0
+	.stabn 68,0,960,.LM358-initLcd8bMode
+.LM358:
+	Sld.a %r3,0x005402
+	ld.b	%r2,[%r3]
+	or	%r2,%r0
+	ld.b	[%r3],%r2
+	.stabn 68,0,961,.LM359-initLcd8bMode
+.LM359:
+	ld.b	%r2,[%r3]
+	or	%r2,2
+	ld.b	[%r3],%r2
+	.stabn 68,0,963,.LM360-initLcd8bMode
+.LM360:
+	ld	%r2,2
+	Sld.b	[0x5404],%r2
+	.stabn 68,0,964,.LM361-initLcd8bMode
+.LM361:
+	ld	%r2,9
+	Sld.b	[0x5405],%r2
+	.stabn 68,0,965,.LM362-initLcd8bMode
+.LM362:
+	Sld.b	[0x5406],%r1
+	.stabn 68,0,966,.LM363-initLcd8bMode
+.LM363:
+	Sld.b	[0x5407],%r0
+	.stabn 68,0,968,.LM364-initLcd8bMode
+.LM364:
+	Sld.a %r2,0x005408
+	ld.b	%r0,[%r2]
+	or	%r0,1
+	ld.b	[%r2],%r0
+	.stabn 68,0,969,.LM365-initLcd8bMode
+.LM365:
+	ld.b	%r0,[%r2]
+	or	%r0,2
+	ld.b	[%r2],%r0
+	.stabn 68,0,970,.LM366-initLcd8bMode
+.LM366:
+	ld.b	%r0,[%r2]
+	and	%r0,-5
+	ld.b	[%r2],%r0
+	.stabn 68,0,971,.LM367-initLcd8bMode
+.LM367:
+	ld.b	%r0,[%r2]
+	or	%r0,16
+	ld.b	[%r2],%r0
+	.stabn 68,0,972,.LM368-initLcd8bMode
+.LM368:
+	Sld.b	[0x5409],%r1
+	.stabn 68,0,974,.LM369-initLcd8bMode
+.LM369:
+	Sld.a %r2,0x00540a
+	ld.b	%r0,[%r2]
+	and	%r0,-4
+	ld.b	[%r2],%r0
+	.stabn 68,0,975,.LM370-initLcd8bMode
+.LM370:
+	ld.b	%r0,[%r2]
+	and	%r0,-5
+	ld.b	[%r2],%r0
+	.stabn 68,0,976,.LM371-initLcd8bMode
+.LM371:
+	ld.b	%r0,[%r2]
+	or	%r0,16
+	ld.b	[%r2],%r0
+	.stabn 68,0,977,.LM372-initLcd8bMode
+.LM372:
+	ld.b	%r0,[%r2]
+	or	%r0,32
+	ld.b	[%r2],%r0
+	.stabn 68,0,978,.LM373-initLcd8bMode
+.LM373:
+	ld.b	%r0,[%r2]
+	Xoor	%r0,0x0040
+	ld.b	[%r2],%r0
+	.stabn 68,0,979,.LM374-initLcd8bMode
+.LM374:
+	Sld.a %r2,0x00540c
+	ld.b	%r0,[%r2]
+	or	%r0,1
+	ld.b	[%r2],%r0
+	.stabn 68,0,980,.LM375-initLcd8bMode
+.LM375:
+	ld.b	%r0,[%r2]
+	or	%r0,2
+	ld.b	[%r2],%r0
+	.stabn 68,0,981,.LM376-initLcd8bMode
+.LM376:
+	ld.b	%r0,[%r2]
+	or	%r0,4
+	ld.b	[%r2],%r0
+	.stabn 68,0,982,.LM377-initLcd8bMode
+.LM377:
+	ld.b	%r0,[%r2]
+	or	%r0,8
+	ld.b	[%r2],%r0
+	.stabn 68,0,983,.LM378-initLcd8bMode
+.LM378:
+	ld.b	%r0,[%r2]
+	or	%r0,16
+	ld.b	[%r2],%r0
+	.stabn 68,0,984,.LM379-initLcd8bMode
+.LM379:
+	ld.b	%r0,[%r2]
+	or	%r0,32
+	ld.b	[%r2],%r0
+	.stabn 68,0,985,.LM380-initLcd8bMode
+.LM380:
+	ld.b	%r0,[%r2]
+	Xoor	%r0,0x0040
+	ld.b	[%r2],%r0
+	.stabn 68,0,986,.LM381-initLcd8bMode
+.LM381:
+	ld.b	%r0,[%r2]
+	Xoor	%r0,0xff80
+	ld.b	[%r2],%r0
+	.stabn 68,0,988,.LM382-initLcd8bMode
+.LM382:
+	ld.a	%r4,[%sp]+
+	ret
+	.size	initLcd8bMode, .-initLcd8bMode
+	.align 1
+	.stabs	"initLcd8bPort:f(0,20)",36,0,0,initLcd8bPort
+	.type	initLcd8bPort, @function
+initLcd8bPort:
+	.stabn 68,0,997,.LM383-initLcd8bPort
+.LM383:
+;  Function'initLcd8bPort'; 0 bytes of locals, 0 regs to save(0 byte).
+	ld.a	-[%sp], %r4
+	.stabn 68,0,999,.LM384-initLcd8bPort
+.LM384:
+	Sld.a %r2,0x00423e
+	ld	%r0,[%r2]
+	ld %r0,-1
+	ld	[%r2],%r0
+	.stabn 68,0,1002,.LM385-initLcd8bPort
+.LM385:
+	Sld.a %r3,0x00423c
+	ld	%r2,[%r3]
+	Xoor	%r2,0x00ff
+	ld	[%r3],%r2
+	.stabn 68,0,1004,.LM386-initLcd8bPort
+.LM386:
+	Sld.a %r2,0x00424e
+	ld	%r1,[%r2]
+	ld	[%r2],%r0
+	.stabn 68,0,1007,.LM387-initLcd8bPort
+.LM387:
+	Sld.a %r3,0x00424c
+	ld	%r2,[%r3]
+	Xoor	%r2,0x00ff
+	ld	[%r3],%r2
+	.stabn 68,0,1010,.LM388-initLcd8bPort
+.LM388:
+	ld.a	%r4,[%sp]+
+	ret
+	.size	initLcd8bPort, .-initLcd8bPort
+	.stabs	"DOT_DATA:S(1,2)=ar(5,6);0;7;(0,11)",38,0,0,DOT_DATA
+	.text
+	.stabs "",100,0,0,Letext
+Letext:
+	.end
+	.ident	"GCC: (GNU) 3.3.2  2009/1/19(GCC17 Ver 1.3)"

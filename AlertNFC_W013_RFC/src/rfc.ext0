@@ -1,0 +1,2041 @@
+
+;  GNU C 3.3.2  2009/1/19(GCC17 Ver 1.3) compiled by GNU C
+
+;  Cc1 defaults:
+;  -mpointer24 -mlong-offset -mint16 -mquickcall
+
+;  Cc1 arguments (-cpu = C17):
+;  -quiet -IC:/EPSON/GNU17/include -Iinc -Iinc/reg -iprefix -isystem
+;  -D__GNUC__=3 -D__GNUC_MINOR__=3 -D__GNUC_PATCHLEVEL__=2 -D__c17 -D__c17
+;  -DMCUSEL_C17W13 -quiet -dumpbase -mshort-offset -auxbase-strip -gstabs -O1
+;  -Wall -Werror-implicit-function-declaration -fno-builtin -o
+
+	.file	"rfc.c"
+	.stabs	"src/rfc.c",100,0,0,.Ltext0
+	.section .text
+.Ltext0:
+	.stabs	"gcc2_compiled.",60,0,0,0
+	.stabs	"int:t(0,1)=r(0,1);-32768;32767;",128,0,0,0
+	.stabs	"char:t(0,2)=r(0,2);0;127;",128,0,0,0
+	.stabs	"long int:t(0,3)=r(0,3);-2147483648;2147483647;",128,0,0,0
+	.stabs	"unsigned int:t(0,4)=r(0,4);0;65535;",128,0,0,0
+	.stabs	"long unsigned int:t(0,5)=r(0,5);0;-1;",128,0,0,0
+	.stabs	"long long int:t(0,6)=r(0,6);0;-1;",128,0,0,0
+	.stabs	"long long unsigned int:t(0,7)=r(0,7);0;-1;",128,0,0,0
+	.stabs	"short int:t(0,8)=r(0,8);-32768;32767;",128,0,0,0
+	.stabs	"short unsigned int:t(0,9)=r(0,9);0;65535;",128,0,0,0
+	.stabs	"signed char:t(0,10)=r(0,10);-128;127;",128,0,0,0
+	.stabs	"unsigned char:t(0,11)=r(0,11);0;255;",128,0,0,0
+	.stabs	"float:t(0,12)=r(0,1);4;0;",128,0,0,0
+	.stabs	"double:t(0,13)=r(0,1);8;0;",128,0,0,0
+	.stabs	"long double:t(0,14)=r(0,1);8;0;",128,0,0,0
+	.stabs	"complex int:t(0,15)=s4real:(0,1),0,16;imag:(0,1),16,16;;",128,0,0,0
+	.stabs	"complex float:t(0,16)=R3;8;0;",128,0,0,0
+	.stabs	"complex double:t(0,17)=R4;16;0;",128,0,0,0
+	.stabs	"complex long double:t(0,18)=R4;16;0;",128,0,0,0
+	.stabs	"__builtin_va_list:t(0,19)=*(0,20)=(0,20)",128,0,0,0
+	.stabs	"_Bool:t(0,21)=eFalse:0,True:1,;",128,0,0,0
+	.stabs	"src/rfc.c",130,0,0,0
+	.stabs	"inc/rfc.h",130,0,0,0
+	.stabs	"inc/init.h",130,0,0,0
+	.stabs	"inc/c17w13_reg.h",130,0,0,0
+	.stabs	"inc/reg/misc_reg.h",130,0,0,0
+	.stabs	"MSCPROT_REG_TAG:T(5,1)=u2reg:(0,9),0,16;;",128,0,0,0
+	.stabs	"MSCPROT_REG:t(5,2)=(5,1)",128,0,0,0
+	.stabs	"MSCIRAMSZ_REG_BIT_TAG:T(5,3)=s2IRAMSZ:(0,9),0,3;reserved_1:(0,9),3,13;;",128,0,0,0
+	.stabs	"MSCIRAMSZ_REG_TAG:T(5,4)=u2reg:(0,9),0,16;bit:(5,3),0,16;byte_reg:(5,5)=ar(5,6)=r(5,6);0;-1;;0;1;(0,11),0,16;;",128,0,0,0
+	.stabs	"MSCIRAMSZ_REG:t(5,7)=(5,4)",128,0,0,0
+	.stabs	"MSCTTBRL_REG_TAG:T(5,8)=u2reg:(0,9),0,16;;",128,0,0,0
+	.stabs	"MSCTTBRL_REG:t(5,9)=(5,8)",128,0,0,0
+	.stabs	"MSCTTBRH_REG_BIT_TAG:T(5,10)=s2TTBR:(0,9),0,8;reserved_1:(0,9),8,8;;",128,0,0,0
+	.stabs	"MSCTTBRH_REG_TAG:T(5,11)=u2reg:(0,9),0,16;bit:(5,10),0,16;;",128,0,0,0
+	.stabs	"MSCTTBRH_REG:t(5,12)=(5,11)",128,0,0,0
+	.stabs	"MSCTTBR_REG_DWORD_BIT_TAG:T(5,13)=s4TTBR:(0,5),0,24;reserved_1:(0,5),24,8;;",128,0,0,0
+	.stabs	"MSCTTBR_REG_DWORD_TAG:T(5,14)=u4reg:(0,5),0,32;bit:(5,13),0,32;;",128,0,0,0
+	.stabs	"MSCTTBR_DWORD_REG:t(5,15)=(5,14)",128,0,0,0
+	.stabs	"MSCPSR_REG_BIT_TAG:T(5,16)=s2PSRN:(0,9),0,1;PSRZ:(0,9),1,1;PSRV:(0,9),2,1;PSRC:(0,9),3,1;PSRIE:(0,9),4,1;PSRIL:(0,9),5,3;reserved_1:(0,9),8,8;;",128,0,0,0
+	.stabs	"MSCPSR_REG_TAG:T(5,17)=u2reg:(0,9),0,16;bit:(5,16),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"MSCPSR_REG:t(5,18)=(5,17)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/pwg2_reg.h",130,0,0,0
+	.stabs	"PWGCTL_REG_BIT_TAG:T(6,1)=s2PWGMOD:(0,9),0,3;reserved_1:(0,9),3,13;;",128,0,0,0
+	.stabs	"PWGCTL_REG_TAG:T(6,2)=u2reg:(0,9),0,16;bit:(6,1),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"PWGCTL_REG:t(6,3)=(6,2)",128,0,0,0
+	.stabs	"PWGTIM_REG_BIT_TAG:T(6,4)=s2DCCCLK:(0,9),0,2;reserved_1:(0,9),2,14;;",128,0,0,0
+	.stabs	"PWGTIM_REG_TAG:T(6,5)=u2reg:(0,9),0,16;bit:(6,4),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"PWGTIM_REG:t(6,6)=(6,5)",128,0,0,0
+	.stabs	"PWGINTF_REG_BIT_TAG:T(6,7)=s2MODCMPIF:(0,9),0,1;reserved_1:(0,9),1,15;;",128,0,0,0
+	.stabs	"PWGINTF_REG_TAG:T(6,8)=u2reg:(0,9),0,16;bit:(6,7),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"PWGINTF_REG:t(6,9)=(6,8)",128,0,0,0
+	.stabs	"PWGINTE_REG_BIT_TAG:T(6,10)=s2MODCMPIE:(0,9),0,1;reserved_1:(0,9),1,15;;",128,0,0,0
+	.stabs	"PWGINTE_REG_TAG:T(6,11)=u2reg:(0,9),0,16;bit:(6,10),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"PWGINTE_REG:t(6,12)=(6,11)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/clg_w13_reg.h",130,0,0,0
+	.stabs	"CLGSCLK_REG_BIT_TAG:T(7,1)=s2CLKSRC:(0,9),0,2;reserved_1:(0,9),2,2;CLKDIV:(0,9),4,2;reserved_2:(0,9),6,2;WUPSRC:(0,9),8,2;reserved_3:(0,9),10,2;WUPDIV:(0,9),12,2;reserved_4:(0,9),14,1;WUPMD:(0,9),15,1;;",128,0,0,0
+	.stabs	"CLGSCLK_REG_TAG:T(7,2)=u2reg:(0,9),0,16;bit:(7,1),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"CLGSCLK_REG:t(7,3)=(7,2)",128,0,0,0
+	.stabs	"CLGOSC_REG_BIT_TAG:T(7,4)=s2IOSCEN:(0,9),0,1;OSC1EN:(0,9),1,1;OSC3EN:(0,9),2,1;EXOSCEN:(0,9),3,1;reserved_1:(0,9),4,4;IOSCSLPC:(0,9),8,1;OSC1SLPC:(0,9),9,1;OSC3SLPC:(0,9),10,1;EXOSCSLPC:(0,9),11,1;reserved_2:(0,9),12,4;;",128,0,0,0
+	.stabs	"CLGOSC_REG_TAG:T(7,5)=u2reg:(0,9),0,16;bit:(7,4),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"CLGOSC_REG:t(7,6)=(7,5)",128,0,0,0
+	.stabs	"CLGIOSC_REG_BIT_TAG:T(7,7)=s2reserved_1:(0,9),0,4;IOSCSTM:(0,9),4,1;reserved_2:(0,9),5,11;;",128,0,0,0
+	.stabs	"CLGIOSC_REG_TAG:T(7,8)=u2reg:(0,9),0,16;bit:(7,7),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"CLGIOSC_REG:t(7,9)=(7,8)",128,0,0,0
+	.stabs	"CLGOSC1_REG_BIT_TAG:T(7,10)=s2OSC1WT:(0,9),0,2;reserved_1:(0,9),2,2;INV1N:(0,9),4,2;INV1B:(0,9),6,2;CGI1:(0,9),8,3;OSC1SELCR:(0,9),11,1;OSC1BUP:(0,9),12,1;OSDEN:(0,9),13,1;OSDRB:(0,9),14,1;reserved_3:(0,9),15,1;;",128,0,0,0
+	.stabs	"CLGOSC1_REG_TAG:T(7,11)=u2reg:(0,9),0,16;bit:(7,10),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"CLGOSC1_REG:t(7,12)=(7,11)",128,0,0,0
+	.stabs	"CLGOSC3_REG_BIT_TAG:T(7,13)=s2OSC3WT:(0,9),0,3;reserved_1:(0,9),3,1;OSC3INV:(0,9),4,2;reserved_2:(0,9),6,2;OSC3MD:(0,9),8,2;OSC3FQ:(0,9),10,3;reserved_3:(0,9),13,3;;",128,0,0,0
+	.stabs	"CLGOSC3_REG_TAG:T(7,14)=u2reg:(0,9),0,16;bit:(7,13),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"CLGOSC3_REG:t(7,15)=(7,14)",128,0,0,0
+	.stabs	"CLGINTF_REG_BIT_TAG:T(7,16)=s2IOSCSTAIF:(0,9),0,1;OSC1STAIF:(0,9),1,1;OSC3STAIF:(0,9),2,1;reserved_1:(0,9),3,1;IOSCTEDIF:(0,9),4,1;OSC1STPIF:(0,9),5,1;reserved_2:(0,9),6,10;;",128,0,0,0
+	.stabs	"CLGINTF_REG_TAG:T(7,17)=u2reg:(0,9),0,16;bit:(7,16),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"CLGINTF_REG:t(7,18)=(7,17)",128,0,0,0
+	.stabs	"CLGINTE_REG_BIT_TAG:T(7,19)=s2IOSCSTAIE:(0,9),0,1;OSC1STAIE:(0,9),1,1;OSC3STAIE:(0,9),2,1;reserved_1:(0,9),3,1;IOSCTEDIE:(0,9),4,1;OSC1STPIE:(0,9),5,1;reserved_2:(0,9),6,10;;",128,0,0,0
+	.stabs	"CLGINTE_REG_TAG:T(7,20)=u2reg:(0,9),0,16;bit:(7,19),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"CLGINTE_REG:t(7,21)=(7,20)",128,0,0,0
+	.stabs	"CLGFOUT_REG_BIT_TAG:T(7,22)=s2FOUTEN:(0,9),0,1;reserved_1:(0,9),1,1;FOUTSRC:(0,9),2,2;FOUTDIV:(0,9),4,3;reserved_2:(0,9),7,9;;",128,0,0,0
+	.stabs	"CLGFOUT_REG_TAG:T(7,23)=u2reg:(0,9),0,16;bit:(7,22),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"CLGFOUT_REG:t(7,24)=(7,23)",128,0,0,0
+	.stabs	"CLGTRIM_REG_BIT_TAG:T(7,25)=s2IOSCAJ:(0,9),0,6;reserved_1:(0,9),6,2;OSC3AJ:(0,9),8,5;reserved_2:(0,9),13,3;;",128,0,0,0
+	.stabs	"CLGTRIM_REG_TAG:T(7,26)=u2reg:(0,9),0,16;bit:(7,25),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"CLGTRIM_REG:t(7,27)=(7,26)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/itc_reg.h",130,0,0,0
+	.stabs	"ITCLVX_REG_BIT_TAG:T(8,1)=s2ILV_L:(0,9),0,3;reserved_1:(0,9),3,5;ILV_H:(0,9),8,3;reserved_2:(0,9),11,5;;",128,0,0,0
+	.stabs	"ITCLVX_REG_TAG:T(8,2)=u2reg:(0,9),0,16;bit:(8,1),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"ITCLVX_REG:t(8,3)=(8,2)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/wdt2_reg.h",130,0,0,0
+	.stabs	"WDTCLK_REG_BIT_TAG:T(9,1)=s2CLKSRC:(0,9),0,2;reserved_1:(0,9),2,2;CLKDIV:(0,9),4,2;reserved_2:(0,9),6,2;DBRUN:(0,9),8,1;reserved_3:(0,9),9,7;;",128,0,0,0
+	.stabs	"WDTCLK_REG_TAG:T(9,2)=u2reg:(0,9),0,16;bit:(9,1),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"WDTCLK_REG:t(9,3)=(9,2)",128,0,0,0
+	.stabs	"WDTCTL_REG_BIT_TAG:T(9,4)=s2WDTRUN:(0,9),0,4;WDTCNTRST:(0,9),4,1;reserved_1:(0,9),5,3;STATNMI:(0,9),8,1;MOD:(0,9),9,2;reserved_2:(0,9),11,5;;",128,0,0,0
+	.stabs	"WDTCTL_REG_TAG:T(9,5)=u2reg:(0,9),0,16;bit:(9,4),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"WDTCTL_REG:t(9,6)=(9,5)",128,0,0,0
+	.stabs	"WDTCMP_REG_BIT_TAG:T(9,7)=s2CMP:(0,9),0,10;reserved_1:(0,9),10,6;;",128,0,0,0
+	.stabs	"WDTCMP_REG_TAG:T(9,8)=u2reg:(0,9),0,16;bit:(9,7),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"WDTCMP_REG:t(9,9)=(9,8)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/rtca_reg.h",130,0,0,0
+	.stabs	"RTCCTL_REG_BIT_TAG:T(10,1)=s2RTCRUN:(0,9),0,1;RTCRST:(0,9),1,1;RTCADJ:(0,9),2,1;reserved_1:(0,9),3,1;RTC24H:(0,9),4,1;RTCHLD:(0,9),5,1;RTCBSY:(0,9),6,1;reserved_2:(0,9),7,1;RTCTRM:(0,9),8,7;RTCTRMBSY:(0,9),15,1;;",128,0,0,0
+	.stabs	"RTCCTL_REG_TAG:T(10,2)=u2reg:(0,9),0,16;bit:(10,1),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"RTCCTL_REG:t(10,3)=(10,2)",128,0,0,0
+	.stabs	"RTCALM1_REG_BIT_TAG:T(10,4)=s2reserved_1:(0,9),0,8;RTCSLA:(0,9),8,4;RTCSHA:(0,9),12,3;reserved_2:(0,9),15,1;;",128,0,0,0
+	.stabs	"RTCALM1_REG_TAG:T(10,5)=u2reg:(0,9),0,16;bit:(10,4),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"RTCALM1_REG:t(10,6)=(10,5)",128,0,0,0
+	.stabs	"RTCALM2_REG_BIT_TAG:T(10,7)=s2RTCMILA:(0,9),0,4;RTCMIHA:(0,9),4,3;reserved_1:(0,9),7,1;RTCHLA:(0,9),8,4;RTCHHA:(0,9),12,2;RTCAPA:(0,9),14,1;reserved_2:(0,9),15,1;;",128,0,0,0
+	.stabs	"RTCALM2_REG_TAG:T(10,8)=u2reg:(0,9),0,16;bit:(10,7),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"RTCALM2_REG:t(10,9)=(10,8)",128,0,0,0
+	.stabs	"RTCSWCTL_REG_BIT_TAG:T(10,10)=s2SWRUN:(0,9),0,1;reserved_1:(0,9),1,3;SWRST:(0,9),4,1;reserved_2:(0,9),5,3;BCD100:(0,9),8,4;BCD10:(0,9),12,4;;",128,0,0,0
+	.stabs	"RTCSWCTL_REG_TAG:T(10,11)=u2reg:(0,9),0,16;bit:(10,10),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"RTCSWCTL_REG:t(10,12)=(10,11)",128,0,0,0
+	.stabs	"RTCSEC_REG_BIT_TAG:T(10,13)=s2RTC128HZ:(0,9),0,1;RTC64HZ:(0,9),1,1;RTC32HZ:(0,9),2,1;RTC16HZ:(0,9),3,1;RTC8HZ:(0,9),4,1;RTC4HZ:(0,9),5,1;RTC2HZ:(0,9),6,1;RTC1HZ:(0,9),7,1;RTCSL:(0,9),8,4;RTCSH:(0,9),12,3;reserved_1:(0,9),15,1;;",128,0,0,0
+	.stabs	"RTCSEC_REG_TAG:T(10,14)=u2reg:(0,9),0,16;bit:(10,13),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"RTCSEC_REG:t(10,15)=(10,14)",128,0,0,0
+	.stabs	"RTCHUR_REG_BIT_TAG:T(10,16)=s2RTCMIL:(0,9),0,4;RTCMIH:(0,9),4,3;reserved_1:(0,9),7,1;RTCHL:(0,9),8,4;RTCHH:(0,9),12,2;RTCAP:(0,9),14,1;reserved_2:(0,9),15,1;;",128,0,0,0
+	.stabs	"RTCHUR_REG_TAG:T(10,17)=u2reg:(0,9),0,16;bit:(10,16),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"RTCHUR_REG:t(10,18)=(10,17)",128,0,0,0
+	.stabs	"RTCMON_REG_BIT_TAG:T(10,19)=s2RTCDL:(0,9),0,4;RTCDH:(0,9),4,2;reserved_1:(0,9),6,2;RTCMOL:(0,9),8,4;RTCMOH:(0,9),12,1;reserved_2:(0,9),13,3;;",128,0,0,0
+	.stabs	"RTCMON_REG_TAG:T(10,20)=u2reg:(0,9),0,16;bit:(10,19),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"RTCMON_REG:t(10,21)=(10,20)",128,0,0,0
+	.stabs	"RTCYAR_REG_BIT_TAG:T(10,22)=s2RTCYL:(0,9),0,4;RTCYH:(0,9),4,4;RTCWK:(0,9),8,3;reserved_1:(0,9),11,5;;",128,0,0,0
+	.stabs	"RTCYAR_REG_TAG:T(10,23)=u2reg:(0,9),0,16;bit:(10,22),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"RTCYAR_REG:t(10,24)=(10,23)",128,0,0,0
+	.stabs	"RTCINTF_REG_BIT_TAG:T(10,25)=s2_1_32SECIF:(0,9),0,1;_1_8SECIF:(0,9),1,1;_1_4SECIF:(0,9),2,1;_1_2SECIF:(0,9),3,1;_1SECIF:(0,9),4,1;_1MINIF:(0,9),5,1;_1HURIF:(0,9),6,1;_1DAYIF:(0,9),7,1;ALARMIF:(0,9),8,1;reserved_1:(0,9),9,3;SW100IF:(0,9),12,1;SW10IF:(0,9),13,1;SW1IF:(0,9),14,1;RTCTRMIF:(0,9),15,1;;",128,0,0,0
+	.stabs	"RTCINTF_REG_TAG:T(10,26)=u2reg:(0,9),0,16;bit:(10,25),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"RTCINTF_REG:t(10,27)=(10,26)",128,0,0,0
+	.stabs	"RTCINTE_REG_BIT_TAG:T(10,28)=s2_1_32SECIE:(0,9),0,1;_1_8SECIE:(0,9),1,1;_1_4SECIE:(0,9),2,1;_1_2SECIE:(0,9),3,1;_1SECIE:(0,9),4,1;_1MINIE:(0,9),5,1;_1HURIE:(0,9),6,1;_1DAYIE:(0,9),7,1;ALARMIE:(0,9),8,1;reserved_1:(0,9),9,3;SW100IE:(0,9),12,1;SW10IE:(0,9),13,1;SW1IE:(0,9),14,1;RTCTRMIE:(0,9),15,1;;",128,0,0,0
+	.stabs	"RTCINTE_REG_TAG:T(10,29)=u2reg:(0,9),0,16;bit:(10,28),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"RTCINTE_REG:t(10,30)=(10,29)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/svd_reg.h",130,0,0,0
+	.stabs	"SVDCLK_REG_BIT_TAG:T(11,1)=s2CLKSRC:(0,9),0,2;reserved_1:(0,9),2,2;CLKDIV:(0,9),4,3;reserved_2:(0,9),7,1;DBRUN:(0,9),8,1;reserved_3:(0,9),9,7;;",128,0,0,0
+	.stabs	"SVDCLK_REG_TAG:T(11,2)=u2reg:(0,9),0,16;bit:(11,1),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"SVDCLK_REG:t(11,3)=(11,2)",128,0,0,0
+	.stabs	"SVDCTL_REG_BIT_TAG:T(11,4)=s2MODEN:(0,9),0,1;SVDMD:(0,9),1,2;reserved_1:(0,9),3,1;SVDRE:(0,9),4,4;SVDC:(0,9),8,5;SVDSC:(0,9),13,2;VDSEL:(0,9),15,1;;",128,0,0,0
+	.stabs	"SVDCTL_REG_TAG:T(11,5)=u2reg:(0,9),0,16;bit:(11,4),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"SVDCTL_REG:t(11,6)=(11,5)",128,0,0,0
+	.stabs	"SVDINTF_REG_BIT_TAG:T(11,7)=s2SVDIF:(0,9),0,1;reserved_1:(0,9),1,7;SVDDT:(0,9),8,1;reserved_2:(0,9),9,7;;",128,0,0,0
+	.stabs	"SVDINTF_REG_TAG:T(11,8)=u2reg:(0,9),0,16;bit:(11,7),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"SVDINTF_REG:t(11,9)=(11,8)",128,0,0,0
+	.stabs	"SVDINTE_REG_BIT_TAG:T(11,10)=s2SVDIE:(0,9),0,1;reserved_1:(0,9),1,15;;",128,0,0,0
+	.stabs	"SVDINTE_REG_TAG:T(11,11)=u2reg:(0,9),0,16;bit:(11,10),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"SVDINTE_REG:t(11,12)=(11,11)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/t16_reg.h",130,0,0,0
+	.stabs	"T16_NCLK_REG_BIT_TAG:T(12,1)=s2CLKSRC:(0,9),0,2;reserved_1:(0,9),2,2;CLKDIV:(0,9),4,4;DBRUN:(0,9),8,1;reserved_2:(0,9),9,7;;",128,0,0,0
+	.stabs	"T16_NCLK_REG_TAG:T(12,2)=u2reg:(0,9),0,16;bit:(12,1),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"T16_NCLK_REG:t(12,3)=(12,2)",128,0,0,0
+	.stabs	"T16_NMOD_REG_BIT_TAG:T(12,4)=s2TRMD:(0,9),0,1;reserved_1:(0,9),1,15;;",128,0,0,0
+	.stabs	"T16_NMOD_REG_TAG:T(12,5)=u2reg:(0,9),0,16;bit:(12,4),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"T16_NMOD_REG:t(12,6)=(12,5)",128,0,0,0
+	.stabs	"T16_NCTL_REG_BIT_TAG:T(12,7)=s2MODEN:(0,9),0,1;PRESET:(0,9),1,1;reserved_1:(0,9),2,6;PRUN:(0,9),8,1;reserved_2:(0,9),9,7;;",128,0,0,0
+	.stabs	"T16_NCTL_REG_TAG:T(12,8)=u2reg:(0,9),0,16;bit:(12,7),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"T16_NCTL_REG:t(12,9)=(12,8)",128,0,0,0
+	.stabs	"T16_NTR_REG_TAG:T(12,10)=u2reg:(0,9),0,16;;",128,0,0,0
+	.stabs	"T16_NTR_REG:t(12,11)=(12,10)",128,0,0,0
+	.stabs	"T16_NTC_REG_TAG:T(12,12)=u2reg:(0,9),0,16;;",128,0,0,0
+	.stabs	"T16_NTC_REG:t(12,13)=(12,12)",128,0,0,0
+	.stabs	"T16_NINTF_REG_BIT_TAG:T(12,14)=s2UFIF:(0,9),0,1;reserved_1:(0,9),1,15;;",128,0,0,0
+	.stabs	"T16_NINTF_REG_TAG:T(12,15)=u2reg:(0,9),0,16;bit:(12,14),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"T16_NINTF_REG:t(12,16)=(12,15)",128,0,0,0
+	.stabs	"T16_NINTE_REG_BIT_TAG:T(12,17)=s2UFIE:(0,9),0,1;reserved_1:(0,9),1,15;;",128,0,0,0
+	.stabs	"T16_NINTE_REG_TAG:T(12,18)=u2reg:(0,9),0,16;bit:(12,17),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"T16_NINTE_REG:t(12,19)=(12,18)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/t16b_reg.h",130,0,0,0
+	.stabs	"T16BNCLK_REG_BIT_TAG:T(13,1)=s2CLKSRC:(0,9),0,3;reserved_1:(0,9),3,1;CLKDIV:(0,9),4,4;DBRUN:(0,9),8,1;reserved_2:(0,9),9,7;;",128,0,0,0
+	.stabs	"T16BNCLK_REG_TAG:T(13,2)=u2reg:(0,9),0,16;bit:(13,1),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"T16BNCLK_REG:t(13,3)=(13,2)",128,0,0,0
+	.stabs	"T16BNCTL_REG_BIT_TAG:T(13,4)=s2MODEN:(0,9),0,1;PRESET:(0,9),1,1;RUN:(0,9),2,1;ONEST:(0,9),3,1;CNTMD:(0,9),4,2;reserved_1:(0,9),6,2;MAXBSY:(0,9),8,1;reserved_2:(0,9),9,7;;",128,0,0,0
+	.stabs	"T16BNCTL_REG_TAG:T(13,5)=u2reg:(0,9),0,16;bit:(13,4),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"T16BNCTL_REG:t(13,6)=(13,5)",128,0,0,0
+	.stabs	"T16BNMC_REG_TAG:T(13,7)=u2reg:(0,9),0,16;;",128,0,0,0
+	.stabs	"T16BNMC_REG:t(13,8)=(13,7)",128,0,0,0
+	.stabs	"T16BNTC_REG_TAG:T(13,9)=u2reg:(0,9),0,16;;",128,0,0,0
+	.stabs	"T16BNTC_REG:t(13,10)=(13,9)",128,0,0,0
+	.stabs	"T16BNCS_REG_BIT_TAG:T(13,11)=s2BSY:(0,9),0,1;UP_DOWN:(0,9),1,1;CAPI0:(0,9),2,1;CAPI1:(0,9),3,1;CAPI2:(0,9),4,1;CAPI3:(0,9),5,1;CAPI4:(0,9),6,1;CAPI5:(0,9),7,1;reserved_1:(0,9),8,8;;",128,0,0,0
+	.stabs	"T16BNCS_REG_TAG:T(13,12)=u2reg:(0,9),0,16;bit:(13,11),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"T16BNCS_REG:t(13,13)=(13,12)",128,0,0,0
+	.stabs	"T16BNINTF_REG_BIT_TAG:T(13,14)=s2CNTZEROIF:(0,9),0,1;CNTMAXIF:(0,9),1,1;CMPCAP0IF:(0,9),2,1;CAPOW0IF:(0,9),3,1;CMPCAP1IF:(0,9),4,1;CAPOW1IF:(0,9),5,1;CMPCAP2IF:(0,9),6,1;CAPOW2IF:(0,9),7,1;CMPCAP3IF:(0,9),8,1;CAPOW3IF:(0,9),9,1;CMPCAP4IF:(0,9),10,1;CAPOW4IF:(0,9),11,1;CMPCAP5IF:(0,9),12,1;CAPOW5IF:(0,9),13,1;reserved_1:(0,9),14,2;;",128,0,0,0
+	.stabs	"T16BNINTF_REG_TAG:T(13,15)=u2reg:(0,9),0,16;bit:(13,14),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"T16BNINTF_REG:t(13,16)=(13,15)",128,0,0,0
+	.stabs	"T16BNINTE_REG_BIT_TAG:T(13,17)=s2CNTZEROIE:(0,9),0,1;CNTMAXIE:(0,9),1,1;CMPCAP0IE:(0,9),2,1;CAPOW0IE:(0,9),3,1;CMPCAP1IE:(0,9),4,1;CAPOW1IE:(0,9),5,1;CMPCAP2IE:(0,9),6,1;CAPOW2IE:(0,9),7,1;CMPCAP3IE:(0,9),8,1;CAPOW3IE:(0,9),9,1;CMPCAP4IE:(0,9),10,1;CAPOW4IE:(0,9),11,1;CMPCAP5IE:(0,9),12,1;CAPOW5IE:(0,9),13,1;reserved_1:(0,9),14,2;;",128,0,0,0
+	.stabs	"T16BNINTE_REG_TAG:T(13,18)=u2reg:(0,9),0,16;bit:(13,17),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"T16BNINTE_REG:t(13,19)=(13,18)",128,0,0,0
+	.stabs	"T16BNCCCTLM_REG_BIT_TAG:T(13,20)=s2CCMD:(0,9),0,1;TOUTINV:(0,9),1,1;TOUTMD:(0,9),2,3;TOUTO:(0,9),5,1;TOUTMT:(0,9),6,1;reserved_1:(0,9),7,1;CAPTRG:(0,9),8,2;CAPIS:(0,9),10,2;CBUFMD:(0,9),12,3;SCS:(0,9),15,1;;",128,0,0,0
+	.stabs	"T16BNCCCTLM_REG_TAG:T(13,21)=u2reg:(0,9),0,16;bit:(13,20),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"T16BNCCCTLM_REG:t(13,22)=(13,21)",128,0,0,0
+	.stabs	"T16BNCCRM_REG_TAG:T(13,23)=u2reg:(0,9),0,16;;",128,0,0,0
+	.stabs	"T16BNCCRM_REG:t(13,24)=(13,23)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/flashc_reg.h",130,0,0,0
+	.stabs	"FLASHCWAIT_REG_BIT_TAG:T(14,1)=s2RDWAIT:(0,9),0,2;reserved_1:(0,9),2,5;XBUSY:(0,9),7,1;reserved_2:(0,9),8,8;;",128,0,0,0
+	.stabs	"FLASHCWAIT_REG_TAG:T(14,2)=u2reg:(0,9),0,16;bit:(14,1),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"FLASHCWAIT_REG:t(14,3)=(14,2)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/pport_w13_reg.h",130,0,0,0
+	.stabs	"PXDAT_REG_BIT_TAG:T(15,1)=s2Px0IN:(0,9),0,1;Px1IN:(0,9),1,1;Px2IN:(0,9),2,1;Px3IN:(0,9),3,1;Px4IN:(0,9),4,1;Px5IN:(0,9),5,1;Px6IN:(0,9),6,1;Px7IN:(0,9),7,1;Px0OUT:(0,9),8,1;Px1OUT:(0,9),9,1;Px2OUT:(0,9),10,1;Px3OUT:(0,9),11,1;Px4OUT:(0,9),12,1;Px5OUT:(0,9),13,1;Px6OUT:(0,9),14,1;Px7OUT:(0,9),15,1;;",128,0,0,0
+	.stabs	"PXDAT_REG_TAG:T(15,2)=u2reg:(0,9),0,16;bit:(15,1),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"PXDAT_REG:t(15,3)=(15,2)",128,0,0,0
+	.stabs	"PXIOEN_REG_BIT_TAG:T(15,4)=s2Px0OEN:(0,9),0,1;Px1OEN:(0,9),1,1;Px2OEN:(0,9),2,1;Px3OEN:(0,9),3,1;Px4OEN:(0,9),4,1;Px5OEN:(0,9),5,1;Px6OEN:(0,9),6,1;Px7OEN:(0,9),7,1;Px0IEN:(0,9),8,1;Px1IEN:(0,9),9,1;Px2IEN:(0,9),10,1;Px3IEN:(0,9),11,1;Px4IEN:(0,9),12,1;Px5IEN:(0,9),13,1;Px6IEN:(0,9),14,1;Px7IEN:(0,9),15,1;;",128,0,0,0
+	.stabs	"PXIOEN_REG_TAG:T(15,5)=u2reg:(0,9),0,16;bit:(15,4),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"PXIOEN_REG:t(15,6)=(15,5)",128,0,0,0
+	.stabs	"PXRCTL_REG_BIT_TAG:T(15,7)=s2Px0REN:(0,9),0,1;Px1REN:(0,9),1,1;Px2REN:(0,9),2,1;Px3REN:(0,9),3,1;Px4REN:(0,9),4,1;Px5REN:(0,9),5,1;Px6REN:(0,9),6,1;Px7REN:(0,9),7,1;Px0PDPU:(0,9),8,1;Px1PDPU:(0,9),9,1;Px2PDPU:(0,9),10,1;Px3PDPU:(0,9),11,1;Px4PDPU:(0,9),12,1;Px5PDPU:(0,9),13,1;Px6PDPU:(0,9),14,1;Px7PDPU:(0,9),15,1;;",128,0,0,0
+	.stabs	"PXRCTL_REG_TAG:T(15,8)=u2reg:(0,9),0,16;bit:(15,7),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"PXRCTL_REG:t(15,9)=(15,8)",128,0,0,0
+	.stabs	"PXINTF_REG_BIT_TAG:T(15,10)=s2Px0IF:(0,9),0,1;Px1IF:(0,9),1,1;Px2IF:(0,9),2,1;Px3IF:(0,9),3,1;Px4IF:(0,9),4,1;Px5IF:(0,9),5,1;Px6IF:(0,9),6,1;Px7IF:(0,9),7,1;reserved_1:(0,9),8,8;;",128,0,0,0
+	.stabs	"PXINTF_REG_TAG:T(15,11)=u2reg:(0,9),0,16;bit:(15,10),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"PXINTF_REG:t(15,12)=(15,11)",128,0,0,0
+	.stabs	"PXINTCTL_REG_BIT_TAG:T(15,13)=s2Px0IE:(0,9),0,1;Px1IE:(0,9),1,1;Px2IE:(0,9),2,1;Px3IE:(0,9),3,1;Px4IE:(0,9),4,1;Px5IE:(0,9),5,1;Px6IE:(0,9),6,1;Px7IE:(0,9),7,1;Px0EDGE:(0,9),8,1;Px1EDGE:(0,9),9,1;Px2EDGE:(0,9),10,1;Px3EDGE:(0,9),11,1;Px4EDGE:(0,9),12,1;Px5EDGE:(0,9),13,1;Px6EDGE:(0,9),14,1;Px7EDGE:(0,9),15,1;;",128,0,0,0
+	.stabs	"PXINTCTL_REG_TAG:T(15,14)=u2reg:(0,9),0,16;bit:(15,13),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"PXINTCTL_REG:t(15,15)=(15,14)",128,0,0,0
+	.stabs	"PXCHATEN_REG_BIT_TAG:T(15,16)=s2Px0CHATEN:(0,9),0,1;Px1CHATEN:(0,9),1,1;Px2CHATEN:(0,9),2,1;Px3CHATEN:(0,9),3,1;Px4CHATEN:(0,9),4,1;Px5CHATEN:(0,9),5,1;Px6CHATEN:(0,9),6,1;Px7CHATEN:(0,9),7,1;reserved_1:(0,9),8,8;;",128,0,0,0
+	.stabs	"PXCHATEN_REG_TAG:T(15,17)=u2reg:(0,9),0,16;bit:(15,16),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"PXCHATEN_REG:t(15,18)=(15,17)",128,0,0,0
+	.stabs	"PXMODSEL_REG_BIT_TAG:T(15,19)=s2Px0SEL:(0,9),0,1;Px1SEL:(0,9),1,1;Px2SEL:(0,9),2,1;Px3SEL:(0,9),3,1;Px4SEL:(0,9),4,1;Px5SEL:(0,9),5,1;Px6SEL:(0,9),6,1;Px7SEL:(0,9),7,1;reserved_1:(0,9),8,8;;",128,0,0,0
+	.stabs	"PXMODSEL_REG_TAG:T(15,20)=u2reg:(0,9),0,16;bit:(15,19),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"PXMODSEL_REG:t(15,21)=(15,20)",128,0,0,0
+	.stabs	"PXFNCSEL_REG_BIT_TAG:T(15,22)=s2Px0MUX:(0,9),0,2;Px1MUX:(0,9),2,2;Px2MUX:(0,9),4,2;Px3MUX:(0,9),6,2;Px4MUX:(0,9),8,2;Px5MUX:(0,9),10,2;Px6MUX:(0,9),12,2;Px7MUX:(0,9),14,2;;",128,0,0,0
+	.stabs	"PXFNCSEL_REG_TAG:T(15,23)=u2reg:(0,9),0,16;bit:(15,22),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"PXFNCSEL_REG:t(15,24)=(15,23)",128,0,0,0
+	.stabs	"PCLK_REG_BIT_TAG:T(15,25)=s2CLKSRC:(0,9),0,2;KRSTCFG:(0,9),2,2;CLKDIV:(0,9),4,4;DBRUN:(0,9),8,1;reserved_1:(0,9),9,7;;",128,0,0,0
+	.stabs	"PCLK_REG_TAG:T(15,26)=u2reg:(0,9),0,16;bit:(15,25),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"PCLK_REG:t(15,27)=(15,26)",128,0,0,0
+	.stabs	"PINTFGRP_REG_BIT_TAG:T(15,28)=s2P0INT:(0,9),0,1;P1INT:(0,9),1,1;P2INT:(0,9),2,1;P3INT:(0,9),3,1;P4INT:(0,9),4,1;P5INT:(0,9),5,1;P6INT:(0,9),6,1;P7INT:(0,9),7,1;P8INT:(0,9),8,1;P9INT:(0,9),9,1;PaINT:(0,9),10,1;PbINT:(0,9),11,1;PcINT:(0,9),12,1;reserved_1:(0,9),13,3;;",128,0,0,0
+	.stabs	"PINTFGRP_REG_TAG:T(15,29)=u2reg:(0,9),0,16;bit:(15,28),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"PINTFGRP_REG:t(15,30)=(15,29)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/upmux_reg.h",130,0,0,0
+	.stabs	"PXUPMUXN_REG_BIT_TAG:T(16,1)=s2PxyPERISEL:(0,9),0,3;PxyPERICH:(0,9),3,2;PxyPPFNC:(0,9),5,3;PxzPERISEL:(0,9),8,3;PxzPERICH:(0,9),11,2;PxzPPFNC:(0,9),13,3;;",128,0,0,0
+	.stabs	"PXUPMUXN_REG_TAG:T(16,2)=u2reg:(0,9),0,16;bit:(16,1),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"PXUPMUXN_REG:t(16,3)=(16,2)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/uart2_reg.h",130,0,0,0
+	.stabs	"UANCLK_REG_BIT_TAG:T(17,1)=s2CLKSRC:(0,9),0,2;reserved_1:(0,9),2,2;CLKDIV:(0,9),4,2;reserved_2:(0,9),6,2;DBRUN:(0,9),8,1;reserved_3:(0,9),9,7;;",128,0,0,0
+	.stabs	"UANCLK_REG_TAG:T(17,2)=u2reg:(0,9),0,16;bit:(17,1),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"UANCLK_REG:t(17,3)=(17,2)",128,0,0,0
+	.stabs	"UANMOD_REG_BIT_TAG:T(17,4)=s2STPB:(0,9),0,1;PRMD:(0,9),1,1;PREN:(0,9),2,1;CHLN:(0,9),3,1;IRMD:(0,9),4,1;OUTMD:(0,9),5,1;PUEN:(0,9),6,1;reserved_1:(0,9),7,1;INVTX:(0,9),8,1;INVRX:(0,9),9,1;BRDIV:(0,9),10,1;reserved_2:(0,9),11,5;;",128,0,0,0
+	.stabs	"UANMOD_REG_TAG:T(17,5)=u2reg:(0,9),0,16;bit:(17,4),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"UANMOD_REG:t(17,6)=(17,5)",128,0,0,0
+	.stabs	"UANBR_REG_BIT_TAG:T(17,7)=s2BRT:(0,9),0,8;FMD:(0,9),8,4;reserved_1:(0,9),12,4;;",128,0,0,0
+	.stabs	"UANBR_REG_TAG:T(17,8)=u2reg:(0,9),0,16;bit:(17,7),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"UANBR_REG:t(17,9)=(17,8)",128,0,0,0
+	.stabs	"UANCTL_REG_BIT_TAG:T(17,10)=s2MODEN:(0,9),0,1;SFTRST:(0,9),1,1;reserved_1:(0,9),2,14;;",128,0,0,0
+	.stabs	"UANCTL_REG_TAG:T(17,11)=u2reg:(0,9),0,16;bit:(17,10),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"UANCTL_REG:t(17,12)=(17,11)",128,0,0,0
+	.stabs	"UANTXD_REG_BIT_TAG:T(17,13)=s2TXD:(0,9),0,8;reserved_1:(0,9),8,8;;",128,0,0,0
+	.stabs	"UANTXD_REG_TAG:T(17,14)=u2reg:(0,9),0,16;bit:(17,13),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"UANTXD_REG:t(17,15)=(17,14)",128,0,0,0
+	.stabs	"UANRXD_REG_BIT_TAG:T(17,16)=s2RXD:(0,9),0,8;reserved_1:(0,9),8,8;;",128,0,0,0
+	.stabs	"UANRXD_REG_TAG:T(17,17)=u2reg:(0,9),0,16;bit:(17,16),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"UANRXD_REG:t(17,18)=(17,17)",128,0,0,0
+	.stabs	"UANINTF_REG_BIT_TAG:T(17,19)=s2TBEIF:(0,9),0,1;RB1FIF:(0,9),1,1;RB2FIF:(0,9),2,1;OEIF:(0,9),3,1;PEIF:(0,9),4,1;FEIF:(0,9),5,1;TENDIF:(0,9),6,1;reserved_1:(0,9),7,1;TBSY:(0,9),8,1;RBSY:(0,9),9,1;reserved_2:(0,9),10,6;;",128,0,0,0
+	.stabs	"UANINTF_REG_TAG:T(17,20)=u2reg:(0,9),0,16;bit:(17,19),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"UANINTF_REG:t(17,21)=(17,20)",128,0,0,0
+	.stabs	"UANINTE_REG_BIT_TAG:T(17,22)=s2TBEIE:(0,9),0,1;RB1FIE:(0,9),1,1;RB2FIE:(0,9),2,1;OEIE:(0,9),3,1;PEIE:(0,9),4,1;FEIE:(0,9),5,1;TENDIE:(0,9),6,1;reserved_1:(0,9),7,9;;",128,0,0,0
+	.stabs	"UANINTE_REG_TAG:T(17,23)=u2reg:(0,9),0,16;bit:(17,22),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"UANINTE_REG:t(17,24)=(17,23)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/spia_reg.h",130,0,0,0
+	.stabs	"SPINMOD_REG_BIT_TAG:T(18,1)=s2MST:(0,9),0,1;CPOL:(0,9),1,1;CPHA:(0,9),2,1;LSBFST:(0,9),3,1;NOCLKDIV:(0,9),4,1;PUEN:(0,9),5,1;reserved_1:(0,9),6,2;CHLN:(0,9),8,4;reserved_2:(0,9),12,4;;",128,0,0,0
+	.stabs	"SPINMOD_REG_TAG:T(18,2)=u2reg:(0,9),0,16;bit:(18,1),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"SPINMOD_REG:t(18,3)=(18,2)",128,0,0,0
+	.stabs	"SPINCTL_REG_BIT_TAG:T(18,4)=s2MODEN:(0,9),0,1;SFTRST:(0,9),1,1;reserved_1:(0,9),2,14;;",128,0,0,0
+	.stabs	"SPINCTL_REG_TAG:T(18,5)=u2reg:(0,9),0,16;bit:(18,4),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"SPINCTL_REG:t(18,6)=(18,5)",128,0,0,0
+	.stabs	"SPINTXD_REG_TAG:T(18,7)=u2reg:(0,9),0,16;;",128,0,0,0
+	.stabs	"SPINTXD_REG:t(18,8)=(18,7)",128,0,0,0
+	.stabs	"SPINRXD_REG_TAG:T(18,9)=u2reg:(0,9),0,16;;",128,0,0,0
+	.stabs	"SPINRXD_REG:t(18,10)=(18,9)",128,0,0,0
+	.stabs	"SPININTF_REG_BIT_TAG:T(18,11)=s2TBEIF:(0,9),0,1;RBFIF:(0,9),1,1;TENDIF:(0,9),2,1;OEIF:(0,9),3,1;reserved_1:(0,9),4,3;BSY:(0,9),7,1;reserved_2:(0,9),8,8;;",128,0,0,0
+	.stabs	"SPININTF_REG_TAG:T(18,12)=u2reg:(0,9),0,16;bit:(18,11),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"SPININTF_REG:t(18,13)=(18,12)",128,0,0,0
+	.stabs	"SPININTE_REG_BIT_TAG:T(18,14)=s2TBEIE:(0,9),0,1;RBFIE:(0,9),1,1;TENDIE:(0,9),2,1;OEIE:(0,9),3,1;reserved_1:(0,9),4,12;;",128,0,0,0
+	.stabs	"SPININTE_REG_TAG:T(18,15)=u2reg:(0,9),0,16;bit:(18,14),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"SPININTE_REG:t(18,16)=(18,15)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/i2c_reg.h",130,0,0,0
+	.stabs	"I2CNCLK_REG_BIT_TAG:T(19,1)=s2CLKSRC:(0,9),0,2;reserved_1:(0,9),2,2;CLKDIV:(0,9),4,2;reserved_2:(0,9),6,2;DBRUN:(0,9),8,1;reserved_3:(0,9),9,7;;",128,0,0,0
+	.stabs	"I2CNCLK_REG_TAG:T(19,2)=u2reg:(0,9),0,16;bit:(19,1),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"I2CNCLK_REG:t(19,3)=(19,2)",128,0,0,0
+	.stabs	"I2CNMOD_REG_BIT_TAG:T(19,4)=s2reserved_1:(0,9),0,1;GCEN:(0,9),1,1;OADR10:(0,9),2,1;reserved_2:(0,9),3,13;;",128,0,0,0
+	.stabs	"I2CNMOD_REG_TAG:T(19,5)=u2reg:(0,9),0,16;bit:(19,4),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"I2CNMOD_REG:t(19,6)=(19,5)",128,0,0,0
+	.stabs	"I2CNBR_REG_BIT_TAG:T(19,7)=s2BRT:(0,9),0,7;reserved_1:(0,9),7,9;;",128,0,0,0
+	.stabs	"I2CNBR_REG_TAG:T(19,8)=u2reg:(0,9),0,16;bit:(19,7),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"I2CNBR_REG:t(19,9)=(19,8)",128,0,0,0
+	.stabs	"I2CNOADR_REG_BIT_TAG:T(19,10)=s2OADR:(0,9),0,10;reserved_1:(0,9),10,6;;",128,0,0,0
+	.stabs	"I2CNOADR_REG_TAG:T(19,11)=u2reg:(0,9),0,16;bit:(19,10),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"I2CNOADR_REG:t(19,12)=(19,11)",128,0,0,0
+	.stabs	"I2CNCTL_REG_BIT_TAG:T(19,13)=s2MODEN:(0,9),0,1;SFTRST:(0,9),1,1;TXSTART:(0,9),2,1;TXSTOP:(0,9),3,1;TXNACK:(0,9),4,1;MST:(0,9),5,1;reserved_1:(0,9),6,10;;",128,0,0,0
+	.stabs	"I2CNCTL_REG_TAG:T(19,14)=u2reg:(0,9),0,16;bit:(19,13),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"I2CNCTL_REG:t(19,15)=(19,14)",128,0,0,0
+	.stabs	"I2CNTXD_REG_BIT_TAG:T(19,16)=s2TXD:(0,9),0,8;reserved_1:(0,9),8,8;;",128,0,0,0
+	.stabs	"I2CNTXD_REG_TAG:T(19,17)=u2reg:(0,9),0,16;bit:(19,16),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"I2CNTXD_REG:t(19,18)=(19,17)",128,0,0,0
+	.stabs	"I2CNRXD_REG_BIT_TAG:T(19,19)=s2RXD:(0,9),0,8;reserved_1:(0,9),8,8;;",128,0,0,0
+	.stabs	"I2CNRXD_REG_TAG:T(19,20)=u2reg:(0,9),0,16;bit:(19,19),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"I2CNRXD_REG:t(19,21)=(19,20)",128,0,0,0
+	.stabs	"I2CNINTF_REG_BIT_TAG:T(19,22)=s2TBEIF:(0,9),0,1;RBFIF:(0,9),1,1;ERRIF:(0,9),2,1;STARTIF:(0,9),3,1;STOPIF:(0,9),4,1;NACKIF:(0,9),5,1;GCIF:(0,9),6,1;BYTEENDIF:(0,9),7,1;reserved_1:(0,9),8,1;TR:(0,9),9,1;BSY:(0,9),10,1;SCLLOW:(0,9),11,1;SDALOW:(0,9),12,1;reserved_2:(0,9),13,3;;",128,0,0,0
+	.stabs	"I2CNINTF_REG_TAG:T(19,23)=u2reg:(0,9),0,16;bit:(19,22),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"I2CNINTF_REG:t(19,24)=(19,23)",128,0,0,0
+	.stabs	"I2CNINTE_REG_BIT_TAG:T(19,25)=s2TBEIE:(0,9),0,1;RBFIE:(0,9),1,1;ERRIE:(0,9),2,1;STARTIE:(0,9),3,1;STOPIE:(0,9),4,1;NACKIE:(0,9),5,1;GCIE:(0,9),6,1;BYTEENDIE:(0,9),7,1;reserved_1:(0,9),8,8;;",128,0,0,0
+	.stabs	"I2CNINTE_REG_TAG:T(19,26)=u2reg:(0,9),0,16;bit:(19,25),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"I2CNINTE_REG:t(19,27)=(19,26)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/snda_reg.h",130,0,0,0
+	.stabs	"SNDCLK_REG_BIT_TAG:T(20,1)=s2CLKSRC:(0,9),0,2;reserved_1:(0,9),2,2;CLKDIV:(0,9),4,3;reserved_2:(0,9),7,1;DBRUN:(0,9),8,1;reserved_3:(0,9),9,7;;",128,0,0,0
+	.stabs	"SNDCLK_REG_TAG:T(20,2)=u2reg:(0,9),0,16;bit:(20,1),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"SNDCLK_REG:t(20,3)=(20,2)",128,0,0,0
+	.stabs	"SNDSEL_REG_BIT_TAG:T(20,4)=s2MOSEL:(0,9),0,2;SINV:(0,9),2,1;reserved_1:(0,9),3,5;STIM:(0,9),8,4;reserved_2:(0,9),12,4;;",128,0,0,0
+	.stabs	"SNDSEL_REG_TAG:T(20,5)=u2reg:(0,9),0,16;bit:(20,4),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"SNDSEL_REG:t(20,6)=(20,5)",128,0,0,0
+	.stabs	"SNDCTL_REG_BIT_TAG:T(20,7)=s2MODEN:(0,9),0,1;reserved_1:(0,9),1,7;SSTP:(0,9),8,1;reserved_2:(0,9),9,7;;",128,0,0,0
+	.stabs	"SNDCTL_REG_TAG:T(20,8)=u2reg:(0,9),0,16;bit:(20,7),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"SNDCTL_REG:t(20,9)=(20,8)",128,0,0,0
+	.stabs	"SNDDAT_REG_BIT_TAG:T(20,10)=s2SFRQ:(0,9),0,8;SLEN:(0,9),8,6;MDRS:(0,9),14,1;MDTI:(0,9),15,1;;",128,0,0,0
+	.stabs	"SNDDAT_REG_TAG:T(20,11)=u2reg:(0,9),0,16;bit:(20,10),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"SNDDAT_REG:t(20,12)=(20,11)",128,0,0,0
+	.stabs	"SNDINTF_REG_BIT_TAG:T(20,13)=s2EDIF:(0,9),0,1;EMIF:(0,9),1,1;reserved_1:(0,9),2,6;SBSY:(0,9),8,1;reserved_2:(0,9),9,7;;",128,0,0,0
+	.stabs	"SNDINTF_REG_TAG:T(20,14)=u2reg:(0,9),0,16;bit:(20,13),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"SNDINTF_REG:t(20,15)=(20,14)",128,0,0,0
+	.stabs	"SNDINTE_REG_BIT_TAG:T(20,16)=s2EDIE:(0,9),0,1;EMIE:(0,9),1,1;reserved_1:(0,9),2,14;;",128,0,0,0
+	.stabs	"SNDINTE_REG_TAG:T(20,17)=u2reg:(0,9),0,16;bit:(20,16),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"SNDINTE_REG:t(20,18)=(20,17)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/lcd4a_reg.h",130,0,0,0
+	.stabs	"LCD4CLK_REG_BIT_TAG:T(21,1)=s2CLKSRC:(0,9),0,2;reserved_1:(0,9),2,2;CLKDIV:(0,9),4,3;reserved_2:(0,9),7,1;DBRUN:(0,9),8,1;reserved_3:(0,9),9,7;;",128,0,0,0
+	.stabs	"LCD4CLK_REG_TAG:T(21,2)=u2reg:(0,9),0,16;bit:(21,1),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"LCD4CLK_REG:t(21,3)=(21,2)",128,0,0,0
+	.stabs	"LCD4CTL_REG_BIT_TAG:T(21,4)=s2MODEN:(0,9),0,1;LCDDIS:(0,9),1,1;reserved_1:(0,9),2,14;;",128,0,0,0
+	.stabs	"LCD4CTL_REG_TAG:T(21,5)=u2reg:(0,9),0,16;bit:(21,4),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"LCD4CTL_REG:t(21,6)=(21,5)",128,0,0,0
+	.stabs	"LCD4TIM1_REG_BIT_TAG:T(21,7)=s2LDUTY:(0,9),0,2;reserved_1:(0,9),2,6;FRMCNT:(0,9),8,4;reserved_2:(0,9),12,4;;",128,0,0,0
+	.stabs	"LCD4TIM1_REG_TAG:T(21,8)=u2reg:(0,9),0,16;bit:(21,7),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"LCD4TIM1_REG:t(21,9)=(21,8)",128,0,0,0
+	.stabs	"LCD4TIM2_REG_BIT_TAG:T(21,10)=s2NLINE:(0,9),0,2;reserved_1:(0,9),2,6;BSTC:(0,9),8,2;reserved_2:(0,9),10,6;;",128,0,0,0
+	.stabs	"LCD4TIM2_REG_TAG:T(21,11)=u2reg:(0,9),0,16;bit:(21,10),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"LCD4TIM2_REG:t(21,12)=(21,11)",128,0,0,0
+	.stabs	"LCD4PWR_REG_BIT_TAG:T(21,13)=s2VCEN:(0,9),0,1;VCSEL:(0,9),1,1;HVLD:(0,9),2,1;reserved_1:(0,9),3,1;BSTEN:(0,9),4,1;reserved_2:(0,9),5,3;LC:(0,9),8,4;reserved_3:(0,9),12,3;EXVCSEL:(0,9),15,1;;",128,0,0,0
+	.stabs	"LCD4PWR_REG_TAG:T(21,14)=u2reg:(0,9),0,16;bit:(21,13),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"LCD4PWR_REG:t(21,15)=(21,14)",128,0,0,0
+	.stabs	"LCD4DSP_REG_BIT_TAG:T(21,16)=s2DSPC:(0,9),0,2;DSPAR:(0,9),2,1;reserved_1:(0,9),3,1;DSPREV:(0,9),4,1;COMREV:(0,9),5,1;SEGREV:(0,9),6,1;reserved_2:(0,9),7,9;;",128,0,0,0
+	.stabs	"LCD4DSP_REG_TAG:T(21,17)=u2reg:(0,9),0,16;bit:(21,16),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"LCD4DSP_REG:t(21,18)=(21,17)",128,0,0,0
+	.stabs	"LCD4COMCX_REG_BIT_TAG:T(21,19)=s2COM0DEN:(0,9),0,1;COM1DEN:(0,9),1,1;COM2DEN:(0,9),2,1;COM3DEN:(0,9),3,1;reserved_1:(0,9),4,12;;",128,0,0,0
+	.stabs	"LCD4COMCX_REG_TAG:T(21,20)=u2reg:(0,9),0,16;bit:(21,19),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"LCD4COMCX_REG:t(21,21)=(21,20)",128,0,0,0
+	.stabs	"LCD4INTF_REG_BIT_TAG:T(21,22)=s2FRMIF:(0,9),0,1;reserved_1:(0,9),1,15;;",128,0,0,0
+	.stabs	"LCD4INTF_REG_TAG:T(21,23)=u2reg:(0,9),0,16;bit:(21,22),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"LCD4INTF_REG:t(21,24)=(21,23)",128,0,0,0
+	.stabs	"LCD4INTE_REG_BIT_TAG:T(21,25)=s2FRMIE:(0,9),0,1;reserved_1:(0,9),1,15;;",128,0,0,0
+	.stabs	"LCD4INTE_REG_TAG:T(21,26)=u2reg:(0,9),0,16;bit:(21,25),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"LCD4INTE_REG:t(21,27)=(21,26)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/rfc_reg.h",130,0,0,0
+	.stabs	"RFCNCLK_REG_BIT_TAG:T(22,1)=s2CLKSRC:(0,9),0,2;reserved_1:(0,9),2,2;CLKDIV:(0,9),4,2;reserved_2:(0,9),6,2;DBRUN:(0,9),8,1;reserved_3:(0,9),9,7;;",128,0,0,0
+	.stabs	"RFCNCLK_REG_TAG:T(22,2)=u2reg:(0,9),0,16;bit:(22,1),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"RFCNCLK_REG:t(22,3)=(22,2)",128,0,0,0
+	.stabs	"RFCNCTL_REG_BIT_TAG:T(22,4)=s2MODEN:(0,9),0,1;reserved_1:(0,9),1,3;SMODE:(0,9),4,2;EVTEN:(0,9),6,1;CONEN:(0,9),7,1;RFCLKMD:(0,9),8,1;reserved_2:(0,9),9,7;;",128,0,0,0
+	.stabs	"RFCNCTL_REG_TAG:T(22,5)=u2reg:(0,9),0,16;bit:(22,4),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"RFCNCTL_REG:t(22,6)=(22,5)",128,0,0,0
+	.stabs	"RFCNTRG_REG_BIT_TAG:T(22,7)=s2SREF:(0,9),0,1;SSENA:(0,9),1,1;SSENB:(0,9),2,1;reserved_1:(0,9),3,13;;",128,0,0,0
+	.stabs	"RFCNTRG_REG_TAG:T(22,8)=u2reg:(0,9),0,16;bit:(22,7),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"RFCNTRG_REG:t(22,9)=(22,8)",128,0,0,0
+	.stabs	"RFCNMCL_REG_TAG:T(22,10)=u2reg:(0,9),0,16;;",128,0,0,0
+	.stabs	"RFCNMCL_REG:t(22,11)=(22,10)",128,0,0,0
+	.stabs	"RFCNMCH_REG_BIT_TAG:T(22,12)=s2MC:(0,9),0,8;reserved_1:(0,9),8,8;;",128,0,0,0
+	.stabs	"RFCNMCH_REG_TAG:T(22,13)=u2reg:(0,9),0,16;bit:(22,12),0,16;;",128,0,0,0
+	.stabs	"RFCNMCH_REG:t(22,14)=(22,13)",128,0,0,0
+	.stabs	"RFCNMC_REG_DWORD_BIT_TAG:T(22,15)=s4MC:(0,5),0,24;reserved_1:(0,5),24,8;;",128,0,0,0
+	.stabs	"RFCNMC_REG_DWORD_TAG:T(22,16)=u4reg:(0,5),0,32;bit:(22,15),0,32;;",128,0,0,0
+	.stabs	"RFCNMC_DWORD_REG:t(22,17)=(22,16)",128,0,0,0
+	.stabs	"RFCNTCL_REG_TAG:T(22,18)=u2reg:(0,9),0,16;;",128,0,0,0
+	.stabs	"RFCNTCL_REG:t(22,19)=(22,18)",128,0,0,0
+	.stabs	"RFCNTCH_REG_BIT_TAG:T(22,20)=s2TC:(0,9),0,8;reserved_1:(0,9),8,8;;",128,0,0,0
+	.stabs	"RFCNTCH_REG_TAG:T(22,21)=u2reg:(0,9),0,16;bit:(22,20),0,16;;",128,0,0,0
+	.stabs	"RFCNTCH_REG:t(22,22)=(22,21)",128,0,0,0
+	.stabs	"RFCNTC_REG_DWORD_BIT_TAG:T(22,23)=s4TC:(0,5),0,24;reserved_1:(0,5),24,8;;",128,0,0,0
+	.stabs	"RFCNTC_REG_DWORD_TAG:T(22,24)=u4reg:(0,5),0,32;bit:(22,23),0,32;;",128,0,0,0
+	.stabs	"RFCNTC_DWORD_REG:t(22,25)=(22,24)",128,0,0,0
+	.stabs	"RFCNINTF_REG_BIT_TAG:T(22,26)=s2EREFIF:(0,9),0,1;ESENAIF:(0,9),1,1;ESENBIF:(0,9),2,1;OVMCIF:(0,9),3,1;OVTCIF:(0,9),4,1;reserved_1:(0,9),5,11;;",128,0,0,0
+	.stabs	"RFCNINTF_REG_TAG:T(22,27)=u2reg:(0,9),0,16;bit:(22,26),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"RFCNINTF_REG:t(22,28)=(22,27)",128,0,0,0
+	.stabs	"RFCNINTE_REG_BIT_TAG:T(22,29)=s2EREFIE:(0,9),0,1;ESENAIE:(0,9),1,1;ESENBIE:(0,9),2,1;OVMCIE:(0,9),3,1;OVTCIE:(0,9),4,1;reserved_1:(0,9),5,11;;",128,0,0,0
+	.stabs	"RFCNINTE_REG_TAG:T(22,30)=u2reg:(0,9),0,16;bit:(22,29),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"RFCNINTE_REG:t(22,31)=(22,30)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabs	"inc/reg/remc2_reg.h",130,0,0,0
+	.stabs	"REMCLK_REG_BIT_TAG:T(23,1)=s2CLKSRC:(0,9),0,2;reserved_1:(0,9),2,2;CLKDIV:(0,9),4,4;DBRUN:(0,9),8,1;reserved_2:(0,9),9,7;;",128,0,0,0
+	.stabs	"REMCLK_REG_TAG:T(23,2)=u2reg:(0,9),0,16;bit:(23,1),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"REMCLK_REG:t(23,3)=(23,2)",128,0,0,0
+	.stabs	"REMDBCTL_REG_BIT_TAG:T(23,4)=s2MODEN:(0,9),0,1;REMCRST:(0,9),1,1;TRMD:(0,9),2,1;BUFEN:(0,9),3,1;REMOINV:(0,9),4,1;reserved_1:(0,9),5,3;PRUN:(0,9),8,1;PRESET:(0,9),9,1;reserved_2:(0,9),10,6;;",128,0,0,0
+	.stabs	"REMDBCTL_REG_TAG:T(23,5)=u2reg:(0,9),0,16;bit:(23,4),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"REMDBCTL_REG:t(23,6)=(23,5)",128,0,0,0
+	.stabs	"REMDBCNT_REG_TAG:T(23,7)=u2reg:(0,9),0,16;;",128,0,0,0
+	.stabs	"REMDBCNT_REG:t(23,8)=(23,7)",128,0,0,0
+	.stabs	"REMAPLEN_REG_TAG:T(23,9)=u2reg:(0,9),0,16;;",128,0,0,0
+	.stabs	"REMAPLEN_REG:t(23,10)=(23,9)",128,0,0,0
+	.stabs	"REMDBLEN_REG_TAG:T(23,11)=u2reg:(0,9),0,16;;",128,0,0,0
+	.stabs	"REMDBLEN_REG:t(23,12)=(23,11)",128,0,0,0
+	.stabs	"REMINTF_REG_BIT_TAG:T(23,13)=s2APIF:(0,9),0,1;DBIF:(0,9),1,1;reserved_1:(0,9),2,6;APLENBSY:(0,9),8,1;DBLENBSY:(0,9),9,1;DBCNTRUN:(0,9),10,1;reserved_2:(0,9),11,5;;",128,0,0,0
+	.stabs	"REMINTF_REG_TAG:T(23,14)=u2reg:(0,9),0,16;bit:(23,13),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"REMINTF_REG:t(23,15)=(23,14)",128,0,0,0
+	.stabs	"REMINTE_REG_BIT_TAG:T(23,16)=s2APIE:(0,9),0,1;DBIE:(0,9),1,1;reserved_1:(0,9),2,14;;",128,0,0,0
+	.stabs	"REMINTE_REG_TAG:T(23,17)=u2reg:(0,9),0,16;bit:(23,16),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"REMINTE_REG:t(23,18)=(23,17)",128,0,0,0
+	.stabs	"REMCARR_REG_BIT_TAG:T(23,19)=s2CRPER:(0,9),0,8;CRDTY:(0,9),8,8;;",128,0,0,0
+	.stabs	"REMCARR_REG_TAG:T(23,20)=u2reg:(0,9),0,16;bit:(23,19),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"REMCARR_REG:t(23,21)=(23,20)",128,0,0,0
+	.stabs	"REMCCTL_REG_BIT_TAG:T(23,22)=s2CARREN:(0,9),0,1;reserved_1:(0,9),1,15;;",128,0,0,0
+	.stabs	"REMCCTL_REG_TAG:T(23,23)=u2reg:(0,9),0,16;bit:(23,22),0,16;byte_reg:(5,5),0,16;;",128,0,0,0
+	.stabs	"REMCCTL_REG:t(23,24)=(23,23)",128,0,0,0
+	.stabn	162,0,0,0
+	.stabn	162,0,0,0
+	.stabn	162,0,0,0
+	.stabn	162,0,0,0
+	.global NTCTempTable
+	.section	.rodata
+	.align 2
+	.type	NTCTempTable, @object
+	.size	NTCTempTable, 4004
+NTCTempTable:
+	.long	1427
+	.long	1434
+	.long	1441
+	.long	1448
+	.long	1456
+	.long	1463
+	.long	1470
+	.long	1477
+	.long	1485
+	.long	1492
+	.long	1500
+	.long	1507
+	.long	1515
+	.long	1522
+	.long	1529
+	.long	1537
+	.long	1545
+	.long	1553
+	.long	1560
+	.long	1568
+	.long	1576
+	.long	1583
+	.long	1591
+	.long	1599
+	.long	1607
+	.long	1615
+	.long	1623
+	.long	1631
+	.long	1639
+	.long	1647
+	.long	1655
+	.long	1663
+	.long	1671
+	.long	1679
+	.long	1688
+	.long	1696
+	.long	1704
+	.long	1712
+	.long	1721
+	.long	1729
+	.long	1737
+	.long	1746
+	.long	1755
+	.long	1763
+	.long	1772
+	.long	1780
+	.long	1789
+	.long	1797
+	.long	1806
+	.long	1815
+	.long	1824
+	.long	1833
+	.long	1841
+	.long	1850
+	.long	1859
+	.long	1868
+	.long	1877
+	.long	1886
+	.long	1895
+	.long	1905
+	.long	1914
+	.long	1923
+	.long	1932
+	.long	1941
+	.long	1951
+	.long	1960
+	.long	1969
+	.long	1979
+	.long	1988
+	.long	1998
+	.long	2007
+	.long	2017
+	.long	2027
+	.long	2036
+	.long	2046
+	.long	2056
+	.long	2065
+	.long	2075
+	.long	2085
+	.long	2095
+	.long	2105
+	.long	2115
+	.long	2125
+	.long	2135
+	.long	2145
+	.long	2155
+	.long	2165
+	.long	2176
+	.long	2186
+	.long	2196
+	.long	2207
+	.long	2217
+	.long	2227
+	.long	2238
+	.long	2248
+	.long	2259
+	.long	2270
+	.long	2280
+	.long	2291
+	.long	2302
+	.long	2312
+	.long	2323
+	.long	2334
+	.long	2345
+	.long	2356
+	.long	2367
+	.long	2378
+	.long	2389
+	.long	2400
+	.long	2411
+	.long	2423
+	.long	2434
+	.long	2445
+	.long	2457
+	.long	2468
+	.long	2479
+	.long	2491
+	.long	2502
+	.long	2514
+	.long	2526
+	.long	2537
+	.long	2549
+	.long	2561
+	.long	2573
+	.long	2584
+	.long	2596
+	.long	2608
+	.long	2620
+	.long	2632
+	.long	2644
+	.long	2657
+	.long	2669
+	.long	2681
+	.long	2693
+	.long	2706
+	.long	2718
+	.long	2730
+	.long	2743
+	.long	2755
+	.long	2768
+	.long	2781
+	.long	2793
+	.long	2806
+	.long	2819
+	.long	2832
+	.long	2844
+	.long	2857
+	.long	2870
+	.long	2883
+	.long	2896
+	.long	2910
+	.long	2923
+	.long	2936
+	.long	2949
+	.long	2963
+	.long	2976
+	.long	2989
+	.long	3003
+	.long	3016
+	.long	3030
+	.long	3044
+	.long	3057
+	.long	3071
+	.long	3085
+	.long	3099
+	.long	3113
+	.long	3127
+	.long	3141
+	.long	3155
+	.long	3169
+	.long	3183
+	.long	3197
+	.long	3211
+	.long	3226
+	.long	3240
+	.long	3255
+	.long	3269
+	.long	3284
+	.long	3298
+	.long	3313
+	.long	3328
+	.long	3343
+	.long	3357
+	.long	3372
+	.long	3387
+	.long	3402
+	.long	3417
+	.long	3432
+	.long	3448
+	.long	3463
+	.long	3478
+	.long	3493
+	.long	3509
+	.long	3524
+	.long	3540
+	.long	3555
+	.long	3571
+	.long	3587
+	.long	3602
+	.long	3618
+	.long	3634
+	.long	3650
+	.long	3666
+	.long	3682
+	.long	3698
+	.long	3714
+	.long	3730
+	.long	3747
+	.long	3763
+	.long	3779
+	.long	3796
+	.long	3812
+	.long	3829
+	.long	3846
+	.long	3862
+	.long	3879
+	.long	3896
+	.long	3913
+	.long	3930
+	.long	3947
+	.long	3964
+	.long	3981
+	.long	3998
+	.long	4015
+	.long	4033
+	.long	4050
+	.long	4067
+	.long	4085
+	.long	4102
+	.long	4120
+	.long	4138
+	.long	4156
+	.long	4173
+	.long	4191
+	.long	4209
+	.long	4227
+	.long	4245
+	.long	4264
+	.long	4282
+	.long	4300
+	.long	4318
+	.long	4337
+	.long	4355
+	.long	4374
+	.long	4393
+	.long	4411
+	.long	4430
+	.long	4449
+	.long	4468
+	.long	4487
+	.long	4506
+	.long	4525
+	.long	4544
+	.long	4563
+	.long	4583
+	.long	4602
+	.long	4621
+	.long	4641
+	.long	4661
+	.long	4680
+	.long	4700
+	.long	4720
+	.long	4740
+	.long	4760
+	.long	4780
+	.long	4800
+	.long	4820
+	.long	4840
+	.long	4860
+	.long	4881
+	.long	4901
+	.long	4922
+	.long	4942
+	.long	4963
+	.long	4984
+	.long	5005
+	.long	5025
+	.long	5046
+	.long	5067
+	.long	5089
+	.long	5110
+	.long	5131
+	.long	5152
+	.long	5174
+	.long	5195
+	.long	5217
+	.long	5239
+	.long	5260
+	.long	5282
+	.long	5304
+	.long	5326
+	.long	5348
+	.long	5370
+	.long	5392
+	.long	5415
+	.long	5437
+	.long	5459
+	.long	5482
+	.long	5504
+	.long	5527
+	.long	5550
+	.long	5573
+	.long	5596
+	.long	5619
+	.long	5642
+	.long	5665
+	.long	5688
+	.long	5711
+	.long	5735
+	.long	5758
+	.long	5782
+	.long	5805
+	.long	5829
+	.long	5853
+	.long	5877
+	.long	5901
+	.long	5925
+	.long	5949
+	.long	5973
+	.long	5997
+	.long	6022
+	.long	6046
+	.long	6071
+	.long	6095
+	.long	6120
+	.long	6145
+	.long	6170
+	.long	6195
+	.long	6220
+	.long	6245
+	.long	6270
+	.long	6295
+	.long	6321
+	.long	6346
+	.long	6372
+	.long	6398
+	.long	6423
+	.long	6449
+	.long	6475
+	.long	6501
+	.long	6527
+	.long	6553
+	.long	6580
+	.long	6606
+	.long	6633
+	.long	6659
+	.long	6686
+	.long	6712
+	.long	6739
+	.long	6766
+	.long	6793
+	.long	6820
+	.long	6848
+	.long	6875
+	.long	6902
+	.long	6930
+	.long	6957
+	.long	6985
+	.long	7013
+	.long	7040
+	.long	7068
+	.long	7096
+	.long	7124
+	.long	7153
+	.long	7181
+	.long	7209
+	.long	7238
+	.long	7267
+	.long	7295
+	.long	7324
+	.long	7353
+	.long	7382
+	.long	7411
+	.long	7440
+	.long	7469
+	.long	7499
+	.long	7528
+	.long	7558
+	.long	7587
+	.long	7617
+	.long	7647
+	.long	7677
+	.long	7707
+	.long	7737
+	.long	7768
+	.long	7798
+	.long	7828
+	.long	7859
+	.long	7890
+	.long	7920
+	.long	7951
+	.long	7982
+	.long	8013
+	.long	8044
+	.long	8076
+	.long	8107
+	.long	8139
+	.long	8170
+	.long	8202
+	.long	8234
+	.long	8266
+	.long	8297
+	.long	8330
+	.long	8362
+	.long	8394
+	.long	8427
+	.long	8459
+	.long	8492
+	.long	8525
+	.long	8557
+	.long	8590
+	.long	8623
+	.long	8657
+	.long	8690
+	.long	8723
+	.long	8757
+	.long	8790
+	.long	8824
+	.long	8858
+	.long	8892
+	.long	8926
+	.long	8960
+	.long	8994
+	.long	9029
+	.long	9063
+	.long	9098
+	.long	9132
+	.long	9167
+	.long	9202
+	.long	9237
+	.long	9272
+	.long	9308
+	.long	9343
+	.long	9378
+	.long	9414
+	.long	9450
+	.long	9486
+	.long	9522
+	.long	9558
+	.long	9594
+	.long	9630
+	.long	9666
+	.long	9703
+	.long	9740
+	.long	9776
+	.long	9813
+	.long	9850
+	.long	9887
+	.long	9925
+	.long	9962
+	.long	10000
+	.long	10037
+	.long	10075
+	.long	10113
+	.long	10151
+	.long	10189
+	.long	10227
+	.long	10266
+	.long	10304
+	.long	10343
+	.long	10381
+	.long	10420
+	.long	10459
+	.long	10499
+	.long	10538
+	.long	10577
+	.long	10617
+	.long	10656
+	.long	10696
+	.long	10736
+	.long	10776
+	.long	10816
+	.long	10856
+	.long	10897
+	.long	10937
+	.long	10978
+	.long	11018
+	.long	11059
+	.long	11100
+	.long	11141
+	.long	11183
+	.long	11224
+	.long	11266
+	.long	11307
+	.long	11349
+	.long	11391
+	.long	11433
+	.long	11475
+	.long	11517
+	.long	11560
+	.long	11602
+	.long	11645
+	.long	11688
+	.long	11731
+	.long	11774
+	.long	11817
+	.long	11861
+	.long	11904
+	.long	11948
+	.long	11992
+	.long	12036
+	.long	12080
+	.long	12124
+	.long	12168
+	.long	12213
+	.long	12257
+	.long	12302
+	.long	12347
+	.long	12392
+	.long	12437
+	.long	12482
+	.long	12528
+	.long	12573
+	.long	12619
+	.long	12665
+	.long	12711
+	.long	12757
+	.long	12803
+	.long	12850
+	.long	12896
+	.long	12943
+	.long	12990
+	.long	13037
+	.long	13084
+	.long	13131
+	.long	13178
+	.long	13226
+	.long	13274
+	.long	13321
+	.long	13370
+	.long	13418
+	.long	13466
+	.long	13514
+	.long	13563
+	.long	13612
+	.long	13661
+	.long	13710
+	.long	13759
+	.long	13808
+	.long	13858
+	.long	13907
+	.long	13957
+	.long	14007
+	.long	14057
+	.long	14107
+	.long	14158
+	.long	14208
+	.long	14259
+	.long	14310
+	.long	14361
+	.long	14412
+	.long	14463
+	.long	14514
+	.long	14566
+	.long	14618
+	.long	14670
+	.long	14722
+	.long	14774
+	.long	14826
+	.long	14879
+	.long	14931
+	.long	14984
+	.long	15037
+	.long	15090
+	.long	15144
+	.long	15197
+	.long	15251
+	.long	15305
+	.long	15359
+	.long	15413
+	.long	15467
+	.long	15521
+	.long	15576
+	.long	15631
+	.long	15686
+	.long	15741
+	.long	15796
+	.long	15851
+	.long	15907
+	.long	15963
+	.long	16018
+	.long	16075
+	.long	16131
+	.long	16187
+	.long	16244
+	.long	16300
+	.long	16357
+	.long	16414
+	.long	16472
+	.long	16529
+	.long	16587
+	.long	16644
+	.long	16702
+	.long	16760
+	.long	16819
+	.long	16877
+	.long	16935
+	.long	16994
+	.long	17053
+	.long	17112
+	.long	17172
+	.long	17231
+	.long	17291
+	.long	17350
+	.long	17410
+	.long	17470
+	.long	17531
+	.long	17591
+	.long	17652
+	.long	17713
+	.long	17774
+	.long	17835
+	.long	17896
+	.long	17958
+	.long	18019
+	.long	18081
+	.long	18143
+	.long	18206
+	.long	18268
+	.long	18331
+	.long	18393
+	.long	18456
+	.long	18520
+	.long	18583
+	.long	18646
+	.long	18710
+	.long	18774
+	.long	18838
+	.long	18902
+	.long	18967
+	.long	19031
+	.long	19096
+	.long	19161
+	.long	19226
+	.long	19291
+	.long	19357
+	.long	19423
+	.long	19489
+	.long	19555
+	.long	19621
+	.long	19688
+	.long	19754
+	.long	19821
+	.long	19888
+	.long	19956
+	.long	20023
+	.long	20090
+	.long	20158
+	.long	20226
+	.long	20295
+	.long	20363
+	.long	20431
+	.long	20500
+	.long	20569
+	.long	20638
+	.long	20708
+	.long	20777
+	.long	20847
+	.long	20917
+	.long	20987
+	.long	21057
+	.long	21128
+	.long	21199
+	.long	21269
+	.long	21341
+	.long	21412
+	.long	21484
+	.long	21555
+	.long	21627
+	.long	21699
+	.long	21772
+	.long	21844
+	.long	21917
+	.long	21990
+	.long	22063
+	.long	22136
+	.long	22210
+	.long	22284
+	.long	22357
+	.long	22432
+	.long	22506
+	.long	22581
+	.long	22655
+	.long	22730
+	.long	22806
+	.long	22881
+	.long	22956
+	.long	23032
+	.long	23109
+	.long	23185
+	.long	23261
+	.long	23338
+	.long	23414
+	.long	23492
+	.long	23569
+	.long	23646
+	.long	23724
+	.long	23802
+	.long	23880
+	.long	23958
+	.long	24037
+	.long	24115
+	.long	24194
+	.long	24273
+	.long	24351
+	.long	24430
+	.long	24509
+	.long	24589
+	.long	24668
+	.long	24748
+	.long	24829
+	.long	24909
+	.long	24990
+	.long	25070
+	.long	25151
+	.long	25232
+	.long	25314
+	.long	25396
+	.long	25478
+	.long	25560
+	.long	25642
+	.long	25725
+	.long	25807
+	.long	25891
+	.long	25974
+	.long	26057
+	.long	26141
+	.long	26225
+	.long	26309
+	.long	26394
+	.long	26478
+	.long	26563
+	.long	26648
+	.long	26734
+	.long	26819
+	.long	26905
+	.long	26991
+	.long	27077
+	.long	27164
+	.long	27250
+	.long	27338
+	.long	27425
+	.long	27512
+	.long	27600
+	.long	27688
+	.long	27776
+	.long	27864
+	.long	27953
+	.long	28042
+	.long	28131
+	.long	28220
+	.long	28310
+	.long	28400
+	.long	28490
+	.long	28580
+	.long	28671
+	.long	28762
+	.long	28853
+	.long	28944
+	.long	29036
+	.long	29128
+	.long	29220
+	.long	29311
+	.long	29404
+	.long	29497
+	.long	29590
+	.long	29684
+	.long	29776
+	.long	29871
+	.long	29965
+	.long	30059
+	.long	30154
+	.long	30248
+	.long	30343
+	.long	30439
+	.long	30534
+	.long	30630
+	.long	30726
+	.long	30823
+	.long	30919
+	.long	31016
+	.long	31113
+	.long	31210
+	.long	31308
+	.long	31406
+	.long	31504
+	.long	31602
+	.long	31701
+	.long	31800
+	.long	31899
+	.long	31998
+	.long	32098
+	.long	32198
+	.long	32298
+	.long	32399
+	.long	32500
+	.long	32600
+	.long	32702
+	.long	32804
+	.long	32905
+	.long	33007
+	.long	33110
+	.long	33212
+	.long	33315
+	.long	33419
+	.long	33522
+	.long	33625
+	.long	33730
+	.long	33834
+	.long	33938
+	.long	34043
+	.long	34148
+	.long	34253
+	.long	34359
+	.long	34466
+	.long	34572
+	.long	34677
+	.long	34785
+	.long	34891
+	.long	34999
+	.long	35107
+	.long	35214
+	.long	35323
+	.long	35430
+	.long	35540
+	.long	35649
+	.long	35757
+	.long	35868
+	.long	35977
+	.long	36088
+	.long	36197
+	.long	36308
+	.long	36419
+	.long	36531
+	.long	36642
+	.long	36753
+	.long	36866
+	.long	36979
+	.long	37091
+	.long	37205
+	.long	37317
+	.long	37432
+	.long	37545
+	.long	37659
+	.long	37774
+	.long	37888
+	.long	38004
+	.long	38118
+	.long	38235
+	.long	38350
+	.long	38467
+	.long	38583
+	.long	38699
+	.long	38816
+	.long	38934
+	.long	39053
+	.long	39171
+	.long	39289
+	.long	39407
+	.long	39527
+	.long	39646
+	.long	39764
+	.long	39885
+	.long	40004
+	.long	40125
+	.long	40246
+	.long	40368
+	.long	40489
+	.long	40610
+	.long	40733
+	.long	40854
+	.long	40976
+	.long	41099
+	.long	41223
+	.long	41347
+	.long	41471
+	.long	41595
+	.long	41720
+	.long	41844
+	.long	41969
+	.long	42094
+	.long	42220
+	.long	42347
+	.long	42473
+	.long	42600
+	.long	42727
+	.long	42854
+	.long	42983
+	.long	43110
+	.long	43239
+	.long	43367
+	.long	43497
+	.long	43626
+	.long	43756
+	.long	43884
+	.long	44016
+	.long	44146
+	.long	44277
+	.long	44408
+	.long	44539
+	.long	44670
+	.long	44804
+	.long	44935
+	.long	45069
+	.long	45201
+	.long	45337
+	.long	45469
+	.long	45603
+	.long	45739
+	.long	45873
+	.long	46008
+	.long	46144
+	.long	46281
+	.long	46416
+	.long	46552
+	.long	46689
+	.long	46827
+	.long	46965
+	.long	47103
+	.long	47241
+	.long	47379
+	.long	47519
+	.long	47657
+	.long	47796
+	.long	47938
+	.long	48076
+	.long	48218
+	.long	48360
+	.long	48501
+	.long	48642
+	.long	48785
+	.long	48928
+	.long	49070
+	.long	49212
+	.long	49355
+	.long	49500
+	.long	49645
+	.long	49788
+	.long	49935
+	.long	50080
+	.long	50226
+	.long	50370
+	.long	50517
+	.long	50663
+	.long	50810
+	.long	50958
+	.long	51106
+	.long	51253
+	.long	51403
+	.long	51551
+	.long	51700
+	.long	51851
+	.long	51999
+	.long	52151
+	.long	52301
+	.long	52452
+	.long	52603
+	.long	52756
+	.long	52907
+	.long	53058
+	.long	53214
+	.long	53367
+	.long	53518
+	.long	53673
+	.long	53827
+	.long	53984
+	.long	54138
+	.long	54294
+	.long	54448
+	.long	54606
+	.long	54761
+	.long	54917
+	.long	55075
+	.long	55233
+	.long	55392
+	.long	55549
+	.long	55710
+	.long	55869
+	.long	56028
+	.long	56189
+	.long	56347
+	.long	56509
+	.long	56670
+	.long	56831
+	.long	56993
+	.long	57155
+	.long	57319
+	.long	57481
+	.long	57646
+	.long	57810
+	.long	57974
+	.long	58139
+	.long	58305
+	.long	58469
+	.long	58633
+	.long	58802
+	.long	58969
+	.long	59136
+	.long	59301
+	.long	59470
+	.long	59637
+	.global __floatsisf
+	.global __addsf3
+	.global __divsf3
+	.section .text
+	.align 1
+	.stabs	"getTemp:F(0,12)",36,0,0,getTemp
+	.stabs	"data:P(0,5)",64,0,0,0
+	.global getTemp
+	.type	getTemp, @function
+getTemp:
+	.stabn 68,0,241,.LM1-getTemp
+.LM1:
+;  Function'getTemp'; 4 bytes of locals, 0 regs to save(0 byte).
+	ld.a	-[%sp], %r4
+	ld.a	-[%sp], %r5
+	ld.a	-[%sp], %r6
+	xsub.a	%sp, 0x4
+	.stabn 68,0,243,.LM2-getTemp
+.LM2:
+.LBB2:
+	Sld	%r2,0
+	Sld	%r3,49568
+	ld	[%sp+0],%r2
+	ld	[%sp+0x2],%r3
+	.stabn 68,0,245,.LM3-getTemp
+.LM3:
+	cmp	%r1,0
+	Sjrugt.d	.L2	;# <0x000102>
+	cmp	%r1,0
+	jrne	.L3	;# <19>
+	Xcmp	%r0,0x2ed8
+	Sjrugt	.L2	;# <0x0000ef>
+.L3:
+	.stabn 68,0,247,.LM4-getTemp
+.LM4:
+	Sld %r6,0x01f4
+.L14:
+	.stabn 68,0,250,.LM5-getTemp
+.LM5:
+	Xcmp	%r0,0x2ed8
+	jrne.d	.L8	;# <17>
+	cmp	%r1,0
+	Sjreq	.L32	;# <0x0000c0>
+.L8:
+	.stabn 68,0,251,.LM6-getTemp
+.LM6:
+	cmp	%r1,0
+	jrne.d	.L37	;# <21>
+	ld %r2,-1
+	Xcmp	%r0,0x0593
+	Sjrult	.L33	;# <0x0000a2>
+	.stabn 68,0,252,.LM7-getTemp
+.LM7:
+.L37:
+	add	%r2,%r6
+	ld %r2,%r2
+	add.a %r2,%r2
+	add.a %r2,%r2
+	Xadd.a	%r2,NTCTempTable
+	Xext	0x2
+	ld	%r4,[%r2]
+	cmp	%r4,%r1
+	Sjrugt.d	.L38	;# <0x00005e>
+	ld %r5,-1
+	jrne.d	.L39	;# <25>
+	ld	%r4,%r6
+	ld	%r3,[%r2]
+	cmp	%r3,%r0
+	Sjrugt	.L38	;# <0x000042>
+.L39:
+	ld %r4,%r4
+	add.a %r4,%r4
+	add.a %r4,%r4
+	ld.a	%r3,%r4
+	Xadd.a	%r3,NTCTempTable
+	Xext	0x2
+	ld	%r2,[%r3]
+	cmp	%r2,%r1
+	jrugt.d	.L5	;# <47>
+	cmp	%r2,%r1
+	jrne.d	.L38	;# <27>
+	ld %r5,-1
+	ld	%r3,[%r3]
+	cmp	%r3,%r0
+	jrugt.d	.L36	;# <23>
+	ld %r4,-1
+	.stabn 68,0,247,.LM8-getTemp
+.LM8:
+.L38:
+	add	%r6,%r5	; peephole
+	Sjrne	.L14	;# <0xffff62>
+.L5:
+	.stabn 68,0,258,.LM9-getTemp
+.LM9:
+	ld %r4,-1
+.L36:
+	add	%r4,%r6
+	ld %r0,%r4
+	cv.ls %r1,%r0
+	Scall	__floatsisf
+	cmp	%r4,0
+	Sjrge	.L29	;# <0x000105>
+	jpr	.L35	;# <0x0000ed>
+.L33:
+	jpr.d	.L5	;# <-25>
+	ld %r6,1
+.L32:
+	Sld %r6,0x01f4
+	jpr.d	.L36	;# <-36>
+	ld %r4,-1
+.L34:
+	Sld %r6,0x01f3
+	jpr	.L18	;# <0x0000bc>
+.L2:
+	.stabn 68,0,262,.LM10-getTemp
+.LM10:
+	Sld %r6,0x01f4
+.L28:
+	.stabn 68,0,265,.LM11-getTemp
+.LM11:
+	cmp	%r1,0
+	jrne	.L21	;# <19>
+	Xcmp	%r0,0x2f04
+	jrult	.L34	;# <-25>
+.L21:
+	.stabn 68,0,266,.LM12-getTemp
+.LM12:
+	cmp	%r1,0
+	jrne	.L24	;# <21>
+	Xcmp	%r0,0xe8f5
+	jrult.d	.L23	;# <21>
+	ld	%r4,%r6
+.L24:
+	Sld %r6,0x03e8
+	jpr	.L18	;# <0x000084>
+.L23:
+	.stabn 68,0,267,.LM13-getTemp
+.LM13:
+	ld %r4,%r4
+	add.a %r4,%r4
+	add.a %r4,%r4
+	ld.a	%r3,%r4
+	Xadd.a	%r3,NTCTempTable
+	Xext	0x2
+	ld	%r5,[%r3]
+	cmp	%r5,%r1
+	Sjrugt.d	.L19	;# <0x000059>
+	cmp	%r5,%r1
+	jrne.d	.L40	;# <25>
+	ld	%r2,%r6
+	ld	%r3,[%r3]
+	cmp	%r3,%r0
+	Sjrugt	.L19	;# <0x000040>
+.L40:
+	add	%r2,0x0001
+	ld %r2,%r2
+	add.a %r2,%r2
+	add.a %r2,%r2
+	ld.a	%r3,%r2
+	Xadd.a	%r3,NTCTempTable
+	Xext	0x2
+	ld	%r2,[%r3]
+	cmp	%r2,%r1
+	jrugt.d	.L18	;# <44>
+	cmp	%r2,%r1
+	jrne	.L19	;# <23>
+	ld	%r3,[%r3]
+	cmp	%r3,%r0
+	jrugt	.L18	;# <21>
+	.stabn 68,0,262,.LM14-getTemp
+.LM14:
+.L19:
+	add	%r6,0x0001
+	Xcmp	%r6,0x03e8
+	Sjrule	.L28	;# <0xffff5a>
+.L18:
+	.stabn 68,0,273,.LM15-getTemp
+.LM15:
+	ld %r0,%r6
+	cv.ls %r1,%r0
+	Scall	__floatsisf
+	cmp	%r6,0
+	jrge	.L29	;# <25>
+.L35:
+	Sld	%r2,0
+	Sld	%r3,18304
+	Scall	__addsf3
+.L29:
+	Sld	%r2,0
+	Sld	%r3,16672
+	Scall	__divsf3
+	ld	%r3,%r1
+	ld	%r2,%r0
+	ld	%r0,[%sp+0]
+	ld	%r1,[%sp+0x2]
+	Scall	__addsf3
+	ld	[%sp+0],%r0
+	ld	[%sp+0x2],%r1
+	.stabn 68,0,287,.LM16-getTemp
+.LM16:
+.LBE2:
+	ld	%r0,[%sp+0]
+	ld	%r1,[%sp+0x2]
+	add.a	%sp, 0x4
+	ld.a	%r6,[%sp]+
+	ld.a	%r5,[%sp]+
+	ld.a	%r4,[%sp]+
+	ret
+	.size	getTemp, .-getTemp
+	.stabs	"i:r(0,4)",64,0,0,6
+	.stabs	"temp:(0,12)",128,0,0,0
+	.stabn	192,0,0,.LBB2-getTemp
+	.stabn	224,0,0,.LBE2-getTemp
+	.align 1
+	.stabs	"initRfc:F(0,1)",36,0,0,initRfc
+	.global initRfc
+	.type	initRfc, @function
+initRfc:
+	.stabn 68,0,298,.LM17-initRfc
+.LM17:
+;  Function'initRfc'; 0 bytes of locals, 0 regs to save(0 byte).
+	ld.a	-[%sp], %r4
+	.stabn 68,0,300,.LM18-initRfc
+.LM18:
+	Sld.b	%r2,[0x4042]
+	sr	%r2,1
+	ld	%r0,%r2
+	and	%r0,1	; peephole
+	Sjreq	.L41	;# <0x000093>
+	.stabn 68,0,305,.LM19-initRfc
+.LM19:
+	Scall	stopRfc
+	.stabn 68,0,308,.LM20-initRfc
+.LM20:
+	Sld.a %r3,0x005440
+	ld.b	%r2,[%r3]
+	and	%r2,-4
+	or	%r2,1
+	ld.b	[%r3],%r2
+	.stabn 68,0,309,.LM21-initRfc
+.LM21:
+	ld.b	%r2,[%r3]
+	and	%r2,-49
+	ld.b	[%r3],%r2
+	.stabn 68,0,310,.LM22-initRfc
+.LM22:
+	ld	%r2,1
+	Sld.b	[0x5441],%r2
+	.stabn 68,0,314,.LM23-initRfc
+.LM23:
+	Sld.b	%r2,[0x420f]
+	and	%r2,-13
+	Sld.b	[0x420f],%r2
+	.stabn 68,0,315,.LM24-initRfc
+.LM24:
+	Sld.b	%r2,[0x420f]
+	and	%r2,-49
+	Sld.b	[0x420f],%r2
+	.stabn 68,0,316,.LM25-initRfc
+.LM25:
+	Sld.b	%r2,[0x420f]
+	and	%r2,63
+	Sld.b	[0x420f],%r2
+	.stabn 68,0,317,.LM26-initRfc
+.LM26:
+	Sld.a %r3,0x00420c
+	ld.b	%r2,[%r3]
+	or	%r2,32
+	ld.b	[%r3],%r2
+	.stabn 68,0,318,.LM27-initRfc
+.LM27:
+	ld.b	%r2,[%r3]
+	Xoor	%r2,0x0040
+	ld.b	[%r3],%r2
+	.stabn 68,0,319,.LM28-initRfc
+.LM28:
+	ld.b	%r2,[%r3]
+	Xoor	%r2,0xff80
+	ld.b	[%r3],%r2
+	.stabn 68,0,323,.LM29-initRfc
+.LM29:
+	Sld.a %r3,0x005442
+	ld.b	%r2,[%r3]
+	Xand	%r2,0x007f
+	ld.b	[%r3],%r2
+	.stabn 68,0,326,.LM30-initRfc
+.LM30:
+	ld.b	%r2,[%r3]
+	Xand	%r2,0xffbf
+	ld.b	[%r3],%r2
+	.stabn 68,0,329,.LM31-initRfc
+.LM31:
+	ld.b	%r2,[%r3]
+	and	%r2,-49
+	ld.b	[%r3],%r2
+	.stabn 68,0,331,.LM32-initRfc
+.LM32:
+	ld %r0,1
+	.stabn 68,0,332,.LM33-initRfc
+.LM33:
+.L41:
+	ld.a	%r4,[%sp]+
+	ret
+	.size	initRfc, .-initRfc
+	.align 1
+	.stabs	"startRfc:F(0,20)",36,0,0,startRfc
+	.global startRfc
+	.type	startRfc, @function
+startRfc:
+	.stabn 68,0,341,.LM34-startRfc
+.LM34:
+;  Function'startRfc'; 0 bytes of locals, 0 regs to save(0 byte).
+	ld.a	-[%sp], %r4
+	.stabn 68,0,347,.LM35-startRfc
+.LM35:
+	ld %r2,27
+	Sld	[0x544e],%r2
+	.stabn 68,0,354,.LM36-startRfc
+.LM36:
+	ld %r2,0
+	Sld	[0x5450],%r2
+	.stabn 68,0,357,.LM37-startRfc
+.LM37:
+	Sld.a %r3,0x005442
+	ld.b	%r2,[%r3]
+	or	%r2,1
+	ld.b	[%r3],%r2
+	.stabn 68,0,358,.LM38-startRfc
+.LM38:
+	ld.a	%r4,[%sp]+
+	ret
+	.size	startRfc, .-startRfc
+	.align 1
+	.stabs	"stopRfc:F(0,20)",36,0,0,stopRfc
+	.global stopRfc
+	.type	stopRfc, @function
+stopRfc:
+	.stabn 68,0,367,.LM39-stopRfc
+.LM39:
+;  Function'stopRfc'; 0 bytes of locals, 0 regs to save(0 byte).
+	ld.a	-[%sp], %r4
+	.stabn 68,0,369,.LM40-stopRfc
+.LM40:
+	Sld.a %r3,0x005442
+	ld.b	%r2,[%r3]
+	and	%r2,-2
+	ld.b	[%r3],%r2
+	.stabn 68,0,376,.LM41-stopRfc
+.LM41:
+	ld %r2,27
+	Sld	[0x544e],%r2
+	.stabn 68,0,383,.LM42-stopRfc
+.LM42:
+	ld %r2,0
+	Sld	[0x5450],%r2
+	.stabn 68,0,384,.LM43-stopRfc
+.LM43:
+	ld.a	%r4,[%sp]+
+	ret
+	.size	stopRfc, .-stopRfc
+	.align 1
+	.stabs	"setRfcMeasurementCounter:F(0,20)",36,0,0,setRfcMeasurementCounter
+	.stabs	"count:P(0,5)",64,0,0,0
+	.global setRfcMeasurementCounter
+	.type	setRfcMeasurementCounter, @function
+setRfcMeasurementCounter:
+	.stabn 68,0,395,.LM44-setRfcMeasurementCounter
+.LM44:
+;  Function'setRfcMeasurementCounter'; 0 bytes of locals, 0 regs to save(0 byte).
+	.stabn 68,0,397,.LM45-setRfcMeasurementCounter
+.LM45:
+	Sld	[0x5446],%r0
+	.stabn 68,0,398,.LM46-setRfcMeasurementCounter
+.LM46:
+	ld	%r2,%r1
+	Xand	%r2,0x00ff
+	Sld	[0x5448],%r2
+	.stabn 68,0,399,.LM47-setRfcMeasurementCounter
+.LM47:
+	ret
+	.size	setRfcMeasurementCounter, .-setRfcMeasurementCounter
+	.align 1
+	.stabs	"getRfcMeasurementCounter:F(0,5)",36,0,0,getRfcMeasurementCounter
+	.global getRfcMeasurementCounter
+	.type	getRfcMeasurementCounter, @function
+getRfcMeasurementCounter:
+	.stabn 68,0,410,.LM48-getRfcMeasurementCounter
+.LM48:
+;  Function'getRfcMeasurementCounter'; 0 bytes of locals, 0 regs to save(0 byte).
+	.stabn 68,0,428,.LM49-getRfcMeasurementCounter
+.LM49:
+.LBB3:
+	Sld	%r2,[0x5448]
+	ld.ub	%r0,%r2
+	sub	%r1,%r1
+	ld	%r3,%r0
+	ld %r2,0
+	.stabn 68,0,429,.LM50-getRfcMeasurementCounter
+.LM50:
+	Sld	%r0,[0x5446]
+	ld	%r0,%r0
+	sub	%r1,%r1
+	or	%r0,%r2
+	or	%r1,%r3
+	.stabn 68,0,431,.LM51-getRfcMeasurementCounter
+.LM51:
+.LBE3:
+	ret
+	.size	getRfcMeasurementCounter, .-getRfcMeasurementCounter
+	.stabs	"result:r(0,5)",64,0,0,0
+	.stabn	192,0,0,.LBB3-getRfcMeasurementCounter
+	.stabn	224,0,0,.LBE3-getRfcMeasurementCounter
+	.align 1
+	.stabs	"setRfcTimeBaseCounter:F(0,20)",36,0,0,setRfcTimeBaseCounter
+	.stabs	"count:P(0,5)",64,0,0,0
+	.global setRfcTimeBaseCounter
+	.type	setRfcTimeBaseCounter, @function
+setRfcTimeBaseCounter:
+	.stabn 68,0,442,.LM52-setRfcTimeBaseCounter
+.LM52:
+;  Function'setRfcTimeBaseCounter'; 0 bytes of locals, 0 regs to save(0 byte).
+	.stabn 68,0,444,.LM53-setRfcTimeBaseCounter
+.LM53:
+	Sld	[0x544a],%r0
+	.stabn 68,0,445,.LM54-setRfcTimeBaseCounter
+.LM54:
+	ld	%r2,%r1
+	Xand	%r2,0x00ff
+	Sld	[0x544c],%r2
+	.stabn 68,0,446,.LM55-setRfcTimeBaseCounter
+.LM55:
+	ret
+	.size	setRfcTimeBaseCounter, .-setRfcTimeBaseCounter
+	.align 1
+	.stabs	"getRfcTimeBaseCounter:F(0,5)",36,0,0,getRfcTimeBaseCounter
+	.global getRfcTimeBaseCounter
+	.type	getRfcTimeBaseCounter, @function
+getRfcTimeBaseCounter:
+	.stabn 68,0,457,.LM56-getRfcTimeBaseCounter
+.LM56:
+;  Function'getRfcTimeBaseCounter'; 0 bytes of locals, 0 regs to save(0 byte).
+	.stabn 68,0,461,.LM57-getRfcTimeBaseCounter
+.LM57:
+.LBB4:
+	Sld	%r2,[0x544c]
+	ld.ub	%r0,%r2
+	sub	%r1,%r1
+	ld	%r3,%r0
+	ld %r2,0
+	.stabn 68,0,462,.LM58-getRfcTimeBaseCounter
+.LM58:
+	Sld	%r0,[0x544a]
+	ld	%r0,%r0
+	sub	%r1,%r1
+	or	%r0,%r2
+	or	%r1,%r3
+	.stabn 68,0,465,.LM59-getRfcTimeBaseCounter
+.LM59:
+.LBE4:
+	ret
+	.size	getRfcTimeBaseCounter, .-getRfcTimeBaseCounter
+	.stabs	"result:r(0,5)",64,0,0,0
+	.stabn	192,0,0,.LBB4-getRfcTimeBaseCounter
+	.stabn	224,0,0,.LBE4-getRfcTimeBaseCounter
+	.align 1
+	.stabs	"runRfcConvertingOperation:F(0,1)",36,0,0,runRfcConvertingOperation
+	.stabs	"startCount:P(0,5)",64,0,0,0
+	.stabs	"sensorCount:p(1,1)=*(0,5)",160,0,0,0
+	.global runRfcConvertingOperation
+	.type	runRfcConvertingOperation, @function
+runRfcConvertingOperation:
+	.stabn 68,0,481,.LM60-runRfcConvertingOperation
+.LM60:
+;  Function'runRfcConvertingOperation'; 4 bytes of locals, 0 regs to save(0 byte).
+	ld.a	-[%sp], %r4
+	ld.a	-[%sp], %r5
+	ld.a	-[%sp], %r6
+	xsub.a	%sp, 0x4
+	ld.a	[%sp+0],%r2
+	.stabn 68,0,484,.LM61-runRfcConvertingOperation
+.LM61:
+.LBB5:
+	Scall	setRfcMeasurementCounter
+	.stabn 68,0,486,.LM62-runRfcConvertingOperation
+.LM62:
+	sub	%r0,%r0
+	sub	%r1,%r1
+	Scall	setRfcTimeBaseCounter
+	.stabn 68,0,491,.LM63-runRfcConvertingOperation
+.LM63:
+	Sld.a %r3,0x00544e
+	ld.a	%r5,%r3
+	ld %r2,17
+	ld	[%r3],%r2
+	.stabn 68,0,495,.LM64-runRfcConvertingOperation
+.LM64:
+	Sld.a %r0,0x005444
+	ld	%r2,[%r0]
+	or	%r2,1
+	ld	[%r0],%r2
+	.stabn 68,0,496,.LM65-runRfcConvertingOperation
+.LM65:
+	ld.b	%r2,[%r3]
+	and	%r2,1	; peephole
+	jrne.d	.L63	;# <59>
+	ld %r2,10
+.L54:
+	.stabn 68,0,498,.LM66-runRfcConvertingOperation
+.LM66:
+	ld.b	%r2,[%r5]
+	sr	%r2,4
+	and	%r2,1
+	cmp	%r2,1
+	jrne.d	.L50	;# <23>
+	ld %r2,16
+	.stabn 68,0,500,.LM67-runRfcConvertingOperation
+.LM67:
+	ld	[%r5],%r2
+	.stabn 68,0,501,.LM68-runRfcConvertingOperation
+.LM68:
+	Xld	%r0,0x8001
+	jpr	.L49	;# <0x00007c>
+.L50:
+	Sld.a %r5,0x00544e
+	ld.b	%r2,[%r5]
+	and	%r2,1	; peephole
+	jreq.d	.L54	;# <-38>
+	ld %r2,10
+	.stabn 68,0,508,.LM69-runRfcConvertingOperation
+.LM69:
+.L63:
+	Sld	[0x544e],%r2
+	.stabn 68,0,512,.LM70-runRfcConvertingOperation
+.LM70:
+	Sld.a %r3,0x005444
+	ld	%r2,[%r3]
+	or	%r2,2
+	ld	[%r3],%r2
+.L60:
+	.stabn 68,0,518,.LM71-runRfcConvertingOperation
+.LM71:
+	Sld.a %r0,0x00544e
+	ld.b	%r2,[%r0]
+	sr	%r2,1
+	ld	%r5,%r2
+	and	%r5,1
+	cmp	%r5,1
+	jrne.d	.L58	;# <40>
+	ld %r2,2
+	.stabn 68,0,520,.LM72-runRfcConvertingOperation
+.LM72:
+	ld	[%r0],%r2
+	.stabn 68,0,521,.LM73-runRfcConvertingOperation
+.LM73:
+	Scall	getRfcMeasurementCounter
+	ld.a	%r2,[%sp+0]
+	ld	[%r2],%r0
+	Xext	0x2
+	ld	[%r2],%r1
+	.stabn 68,0,523,.LM74-runRfcConvertingOperation
+.LM74:
+	jpr.d	.L49	;# <34>
+	ld	%r0,%r5
+.L58:
+	.stabn 68,0,526,.LM75-runRfcConvertingOperation
+.LM75:
+	ld.b	%r2,[%r0]
+	sr	%r2,3
+	and	%r2,1
+	cmp	%r2,1
+	jrne.d	.L60	;# <-59>
+	ld %r2,8
+	.stabn 68,0,528,.LM76-runRfcConvertingOperation
+.LM76:
+	ld	[%r0],%r2
+	.stabn 68,0,529,.LM77-runRfcConvertingOperation
+.LM77:
+	Xld	%r0,0x8002
+	.stabn 68,0,535,.LM78-runRfcConvertingOperation
+.LM78:
+.L49:
+.LBE5:
+	add.a	%sp, 0x4
+	ld.a	%r6,[%sp]+
+	ld.a	%r5,[%sp]+
+	ld.a	%r4,[%sp]+
+	ret
+	.size	runRfcConvertingOperation, .-runRfcConvertingOperation
+	.stabs	"result:r(0,1)",64,0,0,0
+	.stabn	192,0,0,.LBB5-runRfcConvertingOperation
+	.stabn	224,0,0,.LBE5-runRfcConvertingOperation
+	.stabs	"NTCTempTable:G(1,2)=ar(5,6);0;1000;(0,5)",32,0,0,0
+	.text
+	.stabs "",100,0,0,Letext
+Letext:
+	.end
+	.ident	"GCC: (GNU) 3.3.2  2009/1/19(GCC17 Ver 1.3)"

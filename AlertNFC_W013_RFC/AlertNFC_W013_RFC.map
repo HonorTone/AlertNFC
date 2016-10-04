@@ -1,0 +1,539 @@
+Archive member included       because of file (symbol)
+
+C:/EPSON/GNU17/lib/24bit/libstdio.a(lib.o)
+                              src/boot.o (_init_lib)
+C:/EPSON/GNU17/lib/24bit/libstdio.a(sys.o)
+                              src/boot.o (_init_sys)
+C:/EPSON/GNU17/lib/24bit/libc.a(memcpy.o)
+                              src/main.o (memcpy)
+C:/EPSON/GNU17/lib/24bit/libc.a(memset.o)
+                              src/main.o (memset)
+C:/EPSON/GNU17/lib/24bit/libgccMD2.a(_ashlhi3.o)
+                              src/port.o (__ashlhi3)
+C:/EPSON/GNU17/lib/24bit/libgccMD2.a(_divhi3.o)
+                              src/lcd.o (__divhi3)
+C:/EPSON/GNU17/lib/24bit/libgccMD2.a(_modhi3.o)
+                              src/lcd.o (__modhi3)
+C:/EPSON/GNU17/lib/24bit/libgccMD2.a(_udivhi3.o)
+                              src/lcd.o (__udivhi3)
+C:/EPSON/GNU17/lib/24bit/libgccMD2.a(_umodhi3.o)
+                              src/lcd.o (__umodhi3)
+C:/EPSON/GNU17/lib/24bit/libgccMD2.a(_lshrsi3.o)
+                              src/main.o (__lshrsi3)
+C:/EPSON/GNU17/lib/24bit/libgccMD2.a(_mulsi3.o)
+                              src/rtca.o (__mulsi3)
+C:/EPSON/GNU17/lib/24bit/libgccMD2.a(_negsf2.o)
+                              src/lcd.o (__negsf2)
+C:/EPSON/GNU17/lib/24bit/libgccMD2.a(_addsf3.o)
+                              src/lcd.o (__subsf3)
+C:/EPSON/GNU17/lib/24bit/libgccMD2.a(_mulsf3.o)
+                              src/lcd.o (__mulsf3)
+C:/EPSON/GNU17/lib/24bit/libgccMD2.a(_divsf3.o)
+                              src/rfc.o (__divsf3)
+C:/EPSON/GNU17/lib/24bit/libgccMD2.a(_floatsisf.o)
+                              src/lcd.o (__floatsisf)
+C:/EPSON/GNU17/lib/24bit/libgccMD2.a(_fixsfsi.o)
+                              src/lcd.o (__fixsfsi)
+C:/EPSON/GNU17/lib/24bit/libgccMD2.a(_gtsf2.o)
+                              src/main.o (__gtsf2)
+C:/EPSON/GNU17/lib/24bit/libgccMD2.a(_ltsf2.o)
+                              src/main.o (__ltsf2)
+C:/EPSON/GNU17/lib/24bit/libgccMD2.a(_fcmps.o)
+                              C:/EPSON/GNU17/lib/24bit/libgccMD2.a(_gtsf2.o) (__fcmps)
+C:/EPSON/GNU17/lib/24bit/libgccMD2.a(emu_copro_process.o)
+                              src/boot.o (emu_copro_process)
+C:/EPSON/GNU17/lib/24bit/libgccMD2.a(_c17_emulib_private_func_scan16.o)
+                              C:/EPSON/GNU17/lib/24bit/libgccMD2.a(_addsf3.o) (_c17_emulib_private_func_scan32)
+C:/EPSON/GNU17/lib/24bit/libgccMD2.a(_ashlsi3.o)
+                              C:/EPSON/GNU17/lib/24bit/libgccMD2.a(_addsf3.o) (__ashlsi3)
+C:/EPSON/GNU17/lib/24bit/libgccMD2.a(_mulhi3.o)
+                              C:/EPSON/GNU17/lib/24bit/libgccMD2.a(_mulsi3.o) (__mulhi3)
+C:/EPSON/GNU17/lib/24bit/libgccMD2.a(_lshrdi3.o)
+                              C:/EPSON/GNU17/lib/24bit/libgccMD2.a(_addsf3.o) (__lshrdi3)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+                0x000007c0                __START_stack=0x7c0
+                0x00000000                .=0x0
+
+.bss            0x00000000       0xbe
+                0x00000000                __START_bss=.
+ src/boot.o(.bss)
+ src/clg.o(.bss)
+ src/eeprom.o(.bss)
+ src/I2C.o(.bss)
+ src/i2c_mst.o(.bss)
+ src/init.o(.bss)
+ src/key.o(.bss)
+ src/lcd.o(.bss)
+ src/lcd4a.o(.bss)
+ src/main.o(.bss)
+ .bss           0x00000000        0x2 src/main.o
+                0x00000000                Seconds
+ src/port.o(.bss)
+ src/pwg2.o(.bss)
+ src/rfc.o(.bss)
+ src/rtca.o(.bss)
+ .bss           0x00000002        0x4 src/rtca.o
+                0x00000002                swCount
+ src/svd.o(.bss)
+ src/t16_ch0.o(.bss)
+ C:/EPSON/GNU17/lib/24bit/libstdio.a(.bss)
+ *fill*         0x00000006        0x2
+ .bss           0x00000008       0x30 C:/EPSON/GNU17/lib/24bit/libstdio.a(lib.o)
+                0x00000008                _iob
+                0x00000020                stdin
+                0x00000024                stdout
+                0x00000028                stderr
+                0x0000002c                seed
+                0x00000030                errno
+                0x00000034                gm_sec
+ .bss           0x00000038       0x86 C:/EPSON/GNU17/lib/24bit/libstdio.a(sys.o)
+                0x0000003a                READ_BUF
+                0x0000007b                READ_EOF
+                0x0000007c                WRITE_BUF
+ C:/EPSON/GNU17/lib/24bit/libc.a(.bss)
+ C:/EPSON/GNU17/lib/24bit/libgccMD2.a(.bss)
+ C:/EPSON/GNU17/lib/24bit/libc.a(.bss)
+                0x000000be                __END_bss=.
+
+.data           0x000000be       0x72 load address 0x0000e020
+                0x000000be                __START_data=.
+ src/boot.o(.data)
+ src/clg.o(.data)
+ src/eeprom.o(.data)
+ src/I2C.o(.data)
+ src/i2c_mst.o(.data)
+ src/init.o(.data)
+ src/key.o(.data)
+ src/lcd.o(.data)
+ src/lcd4a.o(.data)
+ src/main.o(.data)
+ *fill*         0x000000be        0x2
+ .data          0x000000c0       0x4c src/main.o
+                0x000000c0                RfcCount
+                0x000000c4                dispAddData
+                0x000000d8                dispDelData
+                0x000000ec                runEn
+                0x000000ed                TempRhDispEn
+                0x000000ee                timeDispEn
+                0x000000ef                dispEn
+                0x000000f0                startKeyRressState
+                0x000000f1                commByte
+                0x000000f2                intervTime
+                0x000000f4                fechDataFlag
+                0x000000f6                dispIntervTime
+                0x000000f8                hiTBinTrpot
+                0x000000fa                hiFuncCount
+                0x000000fc                hiFuncLimit
+                0x000000fe                lowTBinTrpot
+                0x00000100                lowFuncCount
+                0x00000102                lowFuncLimit
+                0x00000104                scanKeyEn
+                0x00000105                hiTempTrigl
+                0x00000106                lowTempTrigl
+                0x00000107                stopStatus
+                0x00000108                dispSw
+                0x00000109                statusByte
+ src/port.o(.data)
+ .data          0x0000010c        0xc src/port.o
+                0x0000010c                key_start
+                0x0000010d                key_stop
+                0x0000010e                nfc_operate
+                0x00000110                portP0xIntInputFlag
+                0x00000112                portP1xIntInputFlag
+                0x00000114                portP3xIntInputFlag
+                0x00000116                portChatteringFlag
+ src/pwg2.o(.data)
+ src/rfc.o(.data)
+ src/rtca.o(.data)
+ .data          0x00000118       0x14 src/rtca.o
+                0x00000118                rtcaIntCount1Sec
+                0x0000011c                rtcaTrTime
+                0x00000120                rtcaTrCount
+                0x00000124                rtcaTrBits
+                0x00000126                timeCount
+                0x00000128                dispTimeCnt
+ src/svd.o(.data)
+ .data          0x0000012c        0x2 src/svd.o
+                0x0000012c                svdIntLowVoltage
+ src/t16_ch0.o(.data)
+ .data          0x0000012e        0x2 src/t16_ch0.o
+                0x0000012e                t16Ch0IntCount
+ C:/EPSON/GNU17/lib/24bit/libstdio.a(.data)
+ C:/EPSON/GNU17/lib/24bit/libc.a(.data)
+ C:/EPSON/GNU17/lib/24bit/libgccMD2.a(.data)
+ C:/EPSON/GNU17/lib/24bit/libc.a(.data)
+                0x00000130                __END_data=.
+
+.vector         0x00008000       0x80
+                0x00008000                __START_vector=.
+ src/boot.o(.rodata)
+ .rodata        0x00008000       0x80 src/boot.o
+                0x00008000                vector
+                0x00008080                __END_vector=.
+
+.text           0x00008080     0x4972
+                0x00008080                __START_text=.
+ src/boot.o(.text)
+ .text          0x00008080      0x14c src/boot.o
+                0x00008080                boot
+                0x000081c4                intAddrErr
+                0x000081c8                intReserved
+ src/clg.o(.text)
+ .text          0x000081cc      0x34a src/clg.o
+                0x000081cc                startClgOSC1
+                0x0000822e                stopClgOSC1
+                0x00008240                enableClgStopDetectionOSC1
+                0x00008262                disableClgStopDetectionOSC1
+                0x00008284                isClgStopDetectionOSC1
+                0x00008298                startClgOSC3f
+                0x000082fe                startClgOSC3
+                0x0000837e                stopClgOSC3
+                0x00008390                startClgIOSC
+                0x000083ec                stopClgIOSC
+                0x000083fe                runClgAutoTrimmingIOSC
+                0x0000845c                switchClgSystemClockOSC1
+                0x0000848a                switchClgSystemClockIOSC
+                0x000084b4                switchClgSystemClockOSC3
+                0x000084e2                setOsc1OperInSlp
+                0x000084f4                setIoscOperInSlp
+                0x00008504                setOsc3OperInSlp
+ src/eeprom.o(.text)
+ .text          0x00008516      0x19a src/eeprom.o
+                0x00008516                eepromWriteDefaut
+                0x00008606                eepromWriteInit
+                0x00008640                eepromWriteOneByOne
+                0x00008646                eepromWriteBytes
+                0x000086aa                eepromReadBytes
+ src/I2C.o(.text)
+ .text          0x000086b0      0x462 src/I2C.o
+                0x000086b0                EE_WriteOneByte
+                0x00008720                EE_ReadOneByte
+                0x0000877a                EE_ReadOneByte1
+                0x000087d2                IIC_Init
+                0x00008810                IIC_Start
+                0x00008858                IIC_Stop
+                0x00008894                IIC_Wait_Ack
+                0x000088f0                IIC_Ack
+                0x00008934                IIC_NAck
+                0x00008978                IIC_Send_Byte
+                0x000089f2                IIC_Read_Byte
+                0x00008a6c                IIC_Read_Bytes
+ src/i2c_mst.o(.text)
+ .text          0x00008b12      0x362 src/i2c_mst.o
+                0x00008b12                initI2cMst
+                0x00008c2a                SHTW2ReadData
+                0x00008c32                startI2cMst
+                0x00008c58                stopI2cMst
+                0x00008c76                sendI2cMstData
+                0x00008cd2                receiveI2cMstData
+ src/init.o(.text)
+ .text          0x00008e74       0x5e src/init.o
+                0x00008e74                protectMisc
+                0x00008e7c                setFlashcAccessCycle
+                0x00008e92                setMiscIRAMSize
+                0x00008eb2                setMiscVectorAddress
+ src/key.o(.text)
+ src/lcd.o(.text)
+ .text          0x00008ed2      0xdae src/lcd.o
+                0x00008ed2                lcdInit
+                0x00008edc                setLcdDispMode
+                0x00008f2c                dispRunTime
+                0x00009048                disp_H_L_Char
+                0x00009110                LcdDisplayChar
+                0x00009492                OnOffSingleDisp
+                0x000094e4                FlashScreen
+                0x000094e6                dispSegNum
+                0x000098ce                dispDigital
+                0x00009a4a                clearDigitArea
+ src/lcd4a.o(.text)
+ .text          0x00009c80      0x232 src/lcd4a.o
+                0x00009c80                initLcd4a
+                0x00009c88                onLcd4aDisplay
+                0x00009ca4                offLcd4aDisplay
+                0x00009cbe                setLcd4aDisplayState
+                0x00009cd2                getLcd4aDisplayState
+                0x00009cda                SetLcd4aDisplay1Seg
+                0x00009d18                StartLcd4aClock
+                0x00009d28                StopLcd4aClock
+                0x00009d3a                InitLcd4aInt
+                0x00009d4c                EnableLcd4aInt
+                0x00009d5e                DisableLcd4aInt
+                0x00009d72                isLcd4aInt
+                0x00009d86                ClrLcd4aIntFlg
+ src/main.o(.text)
+ .text          0x00009eb2      0x692 src/main.o
+                0x00009eb2                main
+                0x0000a4ec                delay_ms
+                0x0000a504                delay_us
+                0x0000a51e                cleanDateBuf
+ src/port.o(.text)
+ .text          0x0000a544      0x63e src/port.o
+                0x0000a544                initPort
+                0x0000a5f6                initPortInputP0x
+                0x0000a686                initPortInputP1x
+                0x0000a716                initPortOutputP0x
+                0x0000a75a                initPortOutputP1x
+                0x0000a79e                initPortOutputP4x
+                0x0000a7e2                enablePortIntP0x
+                0x0000a85a                enablePortIntP1x
+                0x0000a8d2                disablePortIntP0x
+                0x0000a8f4                disablePortIntP1x
+                0x0000a916                disablePortIntP4x
+                0x0000a938                intPortInput
+                0x0000a998                isPortIntP0x
+                0x0000a9c4                isPortIntP1x
+                0x0000a9f0                clearPortIntP0x
+                0x0000aa10                clearPortIntP1x
+                0x0000aa30                getPortOutputP0x
+                0x0000aa62                setPortOutputP0x
+                0x0000aaa2                setPortOutputP1x
+                0x0000aae2                setPortOutputP4x
+                0x0000ab22                getPortInputP0x
+                0x0000ab52                getPortInputP1x
+ src/pwg2.o(.text)
+ .text          0x0000ab82      0x17c src/pwg2.o
+                0x0000ab82                setPwg2ModeNormal
+                0x0000abb2                setPwg2ModeEconomy
+                0x0000ac0c                setPwg2ModeSuperEconomy
+                0x0000ac74                setPwg2ModeAuto
+                0x0000acce                getPwg2Mode
+ src/rfc.o(.text)
+ .text          0x0000acfe      0x2f6 src/rfc.o
+                0x0000acfe                getTemp
+                0x0000ae4e                initRfc
+                0x0000aece                startRfc
+                0x0000aeea                stopRfc
+                0x0000af06                setRfcMeasurementCounter
+                0x0000af16                getRfcMeasurementCounter
+                0x0000af30                setRfcTimeBaseCounter
+                0x0000af40                getRfcTimeBaseCounter
+                0x0000af5a                runRfcConvertingOperation
+ src/rtca.o(.text)
+ .text          0x0000aff4      0x93a src/rtca.o
+                0x0000aff4                rtc_getSeconds
+                0x0000b0ca                Is_Leap_Year
+                0x0000b0dc                rtc_initSet
+                0x0000b0ea                initRtca
+                0x0000b1aa                startRtca
+                0x0000b1ba                stopRtca
+                0x0000b1ca                intRtca
+                0x0000b1f4                enableRtca1SecTimer
+                0x0000b210                disableRtca1SecTimer
+                0x0000b222                setRtca1SecTimerCount
+                0x0000b228                getRtca1SecTimerCount
+                0x0000b22e                enableRtcaTheoreticalRegulation
+                0x0000b266                disableRtcaTheoreticalRegulation
+                0x0000b278                setRtca24hMode
+                0x0000b344                getRtca24hMode
+                0x0000b370                setRtcaYear
+                0x0000b3de                getRtcaYear
+                0x0000b424                setRtcaMonth
+                0x0000b496                getRtcaMonth
+                0x0000b4d2                setRtcaDay
+                0x0000b544                getRtcaDay
+                0x0000b588                setRtcaWeek
+                0x0000b5b6                getRtcaWeek
+                0x0000b5e0                setRtcaHour
+                0x0000b666                getRtcaHour
+                0x0000b6a2                setRtcaMinute
+                0x0000b710                getRtcaMinute
+                0x0000b754                setRtcaSecond
+                0x0000b7c2                getRtcaSecond
+                0x0000b7fe                setRtcaIndicator
+                0x0000b83c                getRtcaIndicator
+                0x0000b86c                initSw
+                0x0000b8a2                startSw
+                0x0000b8b2                stopSw
+                0x0000b8c2                enableSw
+                0x0000b8ea                disableSw
+                0x0000b900                readSwCount
+                0x0000b92a                getSw1HzCount
+ src/svd.o(.text)
+ .text          0x0000b92e      0x14e src/svd.o
+                0x0000b92e                initSvd
+                0x0000b9a6                startSvd
+                0x0000b9d2                stopSvd
+                0x0000b9fa                setSvdComparisonVoltage
+                0x0000ba30                intSvd
+                0x0000ba50                isSvdIntLowVoltage
+                0x0000ba5e                clearSvdIntLowVoltage
+                0x0000ba6c                getSvdVoltageDetection
+ src/t16_ch0.o(.text)
+ .text          0x0000ba7c       0xdc src/t16_ch0.o
+                0x0000ba7c                initT16Ch0
+                0x0000bae0                startT16Ch0
+                0x0000baf0                stopT16Ch0
+                0x0000bb04                presetT16Ch0Count
+                0x0000bb22                getT16Ch0Count
+                0x0000bb28                intT16Ch0
+                0x0000bb4c                setT16Ch0IntCount
+                0x0000bb52                getT16Ch0IntCount
+ C:/EPSON/GNU17/lib/24bit/libstdio.a(.text)
+ .text          0x0000bb58       0x8c C:/EPSON/GNU17/lib/24bit/libstdio.a(lib.o)
+                0x0000bb58                _init_lib
+ .text          0x0000bbe4      0x1e8 C:/EPSON/GNU17/lib/24bit/libstdio.a(sys.o)
+                0x0000bbe4                _init_sys
+                0x0000bbf4                read
+                0x0000bc5a                READ_FLASH
+                0x0000bc88                write
+                0x0000bdb0                WRITE_FLASH
+ C:/EPSON/GNU17/lib/24bit/libc.a(.text)
+ .text          0x0000bdcc       0x10 C:/EPSON/GNU17/lib/24bit/libc.a(memcpy.o)
+                0x0000bdcc                memcpy
+ .text          0x0000bddc        0xe C:/EPSON/GNU17/lib/24bit/libc.a(memset.o)
+                0x0000bddc                memset
+ C:/EPSON/GNU17/lib/24bit/libgccMD2.a(.text)
+ .text          0x0000bdea       0x12 C:/EPSON/GNU17/lib/24bit/libgccMD2.a(_ashlhi3.o)
+                0x0000bdea                __ashlhi3
+ .text          0x0000bdfc       0x54 C:/EPSON/GNU17/lib/24bit/libgccMD2.a(_ashlsi3.o)
+                0x0000bdfc                __ashlsi3
+ .text          0x0000be50        0xc C:/EPSON/GNU17/lib/24bit/libgccMD2.a(_divhi3.o)
+                0x0000be50                __divhi3
+ .text          0x0000be5c        0xc C:/EPSON/GNU17/lib/24bit/libgccMD2.a(_modhi3.o)
+                0x0000be5c                __modhi3
+ .text          0x0000be68        0x6 C:/EPSON/GNU17/lib/24bit/libgccMD2.a(_udivhi3.o)
+                0x0000be68                __udivhi3
+ .text          0x0000be6e        0x6 C:/EPSON/GNU17/lib/24bit/libgccMD2.a(_umodhi3.o)
+                0x0000be6e                __umodhi3
+ .text          0x0000be74       0x50 C:/EPSON/GNU17/lib/24bit/libgccMD2.a(_lshrsi3.o)
+                0x0000be74                __lshrsi3
+ .text          0x0000bec4        0x6 C:/EPSON/GNU17/lib/24bit/libgccMD2.a(_mulhi3.o)
+                0x0000bec4                __mulhi3
+ .text          0x0000beca       0x30 C:/EPSON/GNU17/lib/24bit/libgccMD2.a(_mulsi3.o)
+                0x0000beca                __mulsi3
+ .text          0x0000befa        0x6 C:/EPSON/GNU17/lib/24bit/libgccMD2.a(_negsf2.o)
+                0x0000befa                __negsf2
+ .text          0x0000bf00       0x76 C:/EPSON/GNU17/lib/24bit/libgccMD2.a(_lshrdi3.o)
+                0x0000bf00                __lshrdi3
+ .text          0x0000bf76      0x310 C:/EPSON/GNU17/lib/24bit/libgccMD2.a(_addsf3.o)
+                0x0000bf76                __subsf3
+                0x0000bf84                __addsf3
+ .text          0x0000c286      0x254 C:/EPSON/GNU17/lib/24bit/libgccMD2.a(_mulsf3.o)
+                0x0000c286                __mulsf3
+ .text          0x0000c4da      0x226 C:/EPSON/GNU17/lib/24bit/libgccMD2.a(_divsf3.o)
+                0x0000c4da                __divsf3
+ .text          0x0000c700       0x74 C:/EPSON/GNU17/lib/24bit/libgccMD2.a(_floatsisf.o)
+                0x0000c700                __floatsisf
+ .text          0x0000c774       0x9c C:/EPSON/GNU17/lib/24bit/libgccMD2.a(_fixsfsi.o)
+                0x0000c774                __fixsfsi
+                0x0000c778                __fixunssfsi
+ .text          0x0000c810        0xc C:/EPSON/GNU17/lib/24bit/libgccMD2.a(_gtsf2.o)
+                0x0000c810                __gtsf2
+ .text          0x0000c81c        0xc C:/EPSON/GNU17/lib/24bit/libgccMD2.a(_ltsf2.o)
+                0x0000c81c                __ltsf2
+ .text          0x0000c828       0xa2 C:/EPSON/GNU17/lib/24bit/libgccMD2.a(_fcmps.o)
+                0x0000c828                __fcmps
+ .text          0x0000c8ca       0xae C:/EPSON/GNU17/lib/24bit/libgccMD2.a(emu_copro_process.o)
+                0x0000c8ca                emu_copro_process
+ .text          0x0000c978       0x7a C:/EPSON/GNU17/lib/24bit/libgccMD2.a(_c17_emulib_private_func_scan16.o)
+                0x0000c978                _c17_emulib_private_func_scan16
+                0x0000c9a2                _c17_emulib_private_func_scan32
+                0x0000c9c0                _c17_emulib_private_func_scan64
+ C:/EPSON/GNU17/lib/24bit/libc.a(.text)
+                0x0000c9f2                __END_text=.
+
+.rodata         0x0000c9f2     0x162e
+                0x0000c9f2                __START_rodata=.
+ src/clg.o(.rodata)
+ src/eeprom.o(.rodata)
+ src/I2C.o(.rodata)
+ src/i2c_mst.o(.rodata)
+ src/init.o(.rodata)
+ src/key.o(.rodata)
+ src/lcd.o(.rodata)
+ *fill*         0x0000c9f2        0x2
+ .rodata        0x0000c9f4      0x674 src/lcd.o
+ src/lcd4a.o(.rodata)
+ .rodata        0x0000d068        0x4 src/lcd4a.o
+ src/main.o(.rodata)
+ .rodata        0x0000d06c        0x4 src/main.o
+ src/port.o(.rodata)
+ src/pwg2.o(.rodata)
+ src/rfc.o(.rodata)
+ .rodata        0x0000d070      0xfa4 src/rfc.o
+                0x0000d070                NTCTempTable
+ src/rtca.o(.rodata)
+ .rodata        0x0000e014        0xc src/rtca.o
+                0x0000e014                mon_table
+ src/svd.o(.rodata)
+ src/t16_ch0.o(.rodata)
+ C:/EPSON/GNU17/lib/24bit/libstdio.a(.rodata)
+ C:/EPSON/GNU17/lib/24bit/libc.a(.rodata)
+ C:/EPSON/GNU17/lib/24bit/libgccMD2.a(.rodata)
+ C:/EPSON/GNU17/lib/24bit/libc.a(.rodata)
+                0x0000e020                __END_rodata=.
+                0x0000e020                __START_data_lma=__END_rodata
+                0x0000e092                __END_data_lma=(__END_rodata+(__END_data-__START_data))
+LOAD src/I2C.o
+LOAD src/boot.o
+LOAD src/clg.o
+LOAD src/eeprom.o
+LOAD src/i2c_mst.o
+LOAD src/init.o
+LOAD src/key.o
+LOAD src/lcd.o
+LOAD src/lcd4a.o
+LOAD src/main.o
+LOAD src/port.o
+LOAD src/pwg2.o
+LOAD src/rfc.o
+LOAD src/rtca.o
+LOAD src/svd.o
+LOAD src/t16_ch0.o
+LOAD C:/EPSON/GNU17/lib/24bit/libstdio.a
+LOAD C:/EPSON/GNU17/lib/24bit/libc.a
+LOAD C:/EPSON/GNU17/lib/24bit/libgccMD2.a
+LOAD C:/EPSON/GNU17/lib/24bit/libc.a
+OUTPUT(AlertNFC_W013_RFC.elf elf32-c17)
+
+*** Section .stab will not be loaded to the target ***
+
+.stab           0x0000e020     0xb694
+ .stab          0x0000e020     0x18cc src/boot.o
+ .stab          0x0000f8ec      0x9cc src/clg.o
+                               0x1b78 (size before relaxing)
+ .stab          0x000102b8      0x738 src/eeprom.o
+                               0x18f0 (size before relaxing)
+ .stab          0x000109f0      0xd50 src/I2C.o
+                               0x1f5c (size before relaxing)
+ .stab          0x00011740      0xa2c src/i2c_mst.o
+                               0x1c38 (size before relaxing)
+ .stab          0x0001216c      0x354 src/init.o
+                               0x1500 (size before relaxing)
+ .stab          0x000124c0      0x120 src/key.o
+                                0x12c (size before relaxing)
+ .stab          0x000125e0     0x1680 src/lcd.o
+                               0x2868 (size before relaxing)
+ .stab          0x00013c60      0x834 src/lcd4a.o
+                               0x1a04 (size before relaxing)
+ .stab          0x00014494     0x1014 src/main.o
+                               0x22d4 (size before relaxing)
+ .stab          0x000154a8      0xdc8 src/port.o
+                               0x1f80 (size before relaxing)
+ .stab          0x00016270      0x558 src/pwg2.o
+                               0x1710 (size before relaxing)
+ .stab          0x000167c8      0x720 src/rfc.o
+                               0x18d8 (size before relaxing)
+ .stab          0x00016ee8     0x14ac src/rtca.o
+                               0x2670 (size before relaxing)
+ .stab          0x00018394      0x5a0 src/svd.o
+                               0x174c (size before relaxing)
+ .stab          0x00018934      0x4bc src/t16_ch0.o
+                               0x1674 (size before relaxing)
+ .stab          0x00018df0      0x360 C:/EPSON/GNU17/lib/24bit/libstdio.a(lib.o)
+                                0x36c (size before relaxing)
+ .stab          0x00019150      0x564 C:/EPSON/GNU17/lib/24bit/libstdio.a(sys.o)
+                                0x570 (size before relaxing)
+
+*** Section .stabstr will not be loaded to the target ***
+
+.stabstr        0x000196b4     0x980e
+ .stabstr       0x000196b4     0x980e src/boot.o
+                                  0x0 (size before relaxing)
